@@ -1,0 +1,23 @@
+# back up user settings to external drive twice daily
+#* 8,20 * * * /home/brett/.bin-personal/arcolinux-configuration-backup.sh >/dev/null 2>&1
+#
+# back up .config and .bin-personal to Google daily
+#* 8 * * * /home/brett/.bin-personal/config-cloud-backup.sh >/dev/null 2>&1
+
+# back up of the same files that I'm saving to /personal.
+# This folder has been set up with an alias 'personal'
+# to work like skel to copy my config settings to my home
+# directory
+#* 8,20 * * * /home/brett/.bin-personal/config-backup-external-drive.sh >/dev/null 2>&1
+#* 8,20 * * * /home/brett/.bin-personal/my-config-github.sh >/dev/null 2>&1
+
+
+# sync .bashrc-personal with insync/Google to keep file the same on both computers
+# sync is set for 10s
+#* * * * * ( /home/brett/.bin-personal/sync-.bashrc-personal.sh >/dev/null 2>&1 )
+#* * * * * ( sleep 10 ; /home/brett/.bin-personal/sync-.bashrc-personal.sh >/dev/null 2>&1 )
+#* * * * * ( sleep 20 ; /home/brett/.bin-personal/sync-.bashrc-personal.sh >/dev/null 2>&1 )
+#* * * * * ( sleep 30 ; /home/brett/.bin-personal/sync-.bashrc-personal.sh >/dev/null 2>&1 )
+#* * * * * ( sleep 40 ; /home/brett/.bin-personal/sync-.bashrc-personal.sh >/dev/null 2>&1 )
+#* * * * * ( sleep 50 ; /home/brett/.bin-personal/sync-.bashrc-personal.sh >/dev/null 2>&1 )
+

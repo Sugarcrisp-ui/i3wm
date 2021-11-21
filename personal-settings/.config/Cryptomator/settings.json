@@ -1,0 +1,51 @@
+{
+  "directories": [
+    {
+      "id": "hDzmsOqqhSfa",
+      "path": "/home/brett/Documents/cryptomator/docs",
+      "displayName": "Vault",
+      "unlockAfterStartup": true,
+      "revealAfterMount": true,
+      "useCustomMountPath": false,
+      "usesReadOnlyMode": false,
+      "mountFlags": "",
+      "maxCleartextFilenameLength": 2147483647,
+      "actionAfterUnlock": "IGNORE",
+      "autoLockWhenIdle": false,
+      "autoLockIdleSeconds": 1800
+    },
+    {
+      "id": "54qdTy18t6WF",
+      "path": "/run/media/brett/Backup/Arcolinux",
+      "displayName": "Arcolinux",
+      "unlockAfterStartup": true,
+      "revealAfterMount": true,
+      "useCustomMountPath": false,
+      "usesReadOnlyMode": false,
+      "mountFlags": "",
+      "maxCleartextFilenameLength": 2147483647,
+      "actionAfterUnlock": "IGNORE",
+      "autoLockWhenIdle": false,
+      "autoLockIdleSeconds": 1800
+    }
+  ],
+  "askedForUpdateCheck": false,
+  "checkForUpdatesEnabled": true,
+  "startHidden": true,
+  "port": 42427,
+  "numTrayNotifications": 3,
+  "preferredGvfsScheme": "DAV",
+  "debugMode": false,
+  "preferredVolumeImpl": "FUSE",
+  "theme": "LIGHT",
+  "uiOrientation": "LEFT_TO_RIGHT",
+  "keychainProvider": "org.cryptomator.linux.keychain.SecretServiceKeychainAccess",
+  "licenseKey": "",
+  "showMinimizeButton": true,
+  "showTrayIcon": true,
+  "windowXPosition": 0,
+  "windowYPosition": 0,
+  "windowWidth": 0,
+  "windowHeight": 0,
+  "displayConfiguration": "displayId: 0, 1920.0x1080.0;"
+}

@@ -1,0 +1,8 @@
+sudo pacman -S arcolinux-bin-git
+skel
+cd ~/.bin/main
+install
+	- 140-install-samba.sh
+	- 150-install-network-discovery.sh
+	- install-samba-user-shares-for-every-desktop.sh
+reboot

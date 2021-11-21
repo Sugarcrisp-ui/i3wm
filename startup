@@ -1,0 +1,69 @@
+#!/bin/bash
+# The set command is used to determine action if error
+# is encountered.  (-e) will stop and exit (+e) will
+# continue with the script.
+set -e
+
+##################################################################################################################
+# Written to be used on 64 bits computers
+# Author 	: 	Brett Crisp
+##################################################################################################################
+
+#sudo pacman -Syyu --noconfirm
+
+find Personal/ -name "*.sh" -execdir chmod +x {} +
+
+cd Personal
+
+sh 100-display-manager*
+sh 110-install-core-software*
+sh 200-software-AUR-repo*
+
+tput setaf 11;
+echo "################################################################"
+echo "Updating Personal Settings"
+echo ""
+echo "################################################################"
+tput sgr0
+
+sh 666-uninstall-applications*
+#sh 667-uninstall-arcolinux-meta-steam*
+sh 700-installing-fonts*
+sh 900-install-personal-settings-folders*
+#sh 905-install-personal-settings-bookmarks* # currently using 900 to copy bookmarks
+#sh 915-install-personal-settings-screenshot-to-jpg* # not sure why I was using this
+#sh 930-autostart-applications* # currently using 900 to copy autostart apps
+sh 940-btrfs-setup*
+sh 950-install-all-fonts-needed-for-conkys-of-arcolinux*
+sh 955-install-settings-autoconnect-to-bluetooth-headset*
+sh 997-makepkg-name-email*
+sh fix-pamac-aur*
+
+tput setaf 11;
+echo "################################################################"
+echo "Installing my AUR Programs"
+echo "Running AUR scripts"
+echo "################################################################"
+tput sgr0
+
+cd ..
+
+cd AUR
+
+sh authy*
+#sh color-picker*
+sh cryptomator*
+#sh github-desktop*
+#sh gnome-gtkhash*
+sh ice-dev*
+sh insync-thunar*
+sh ttf-vista-fonts*
+sh realvnc-vnc-server*
+sh realvnc-vnc-viewer*
+
+tput setaf 1;
+echo "################################################################"
+echo "INSTALLATION IS COMPLETE"
+echo "ENJOY"
+echo "################################################################"
+tput sgr0

@@ -1,0 +1,57 @@
+# This is where I put my personal settings that will be added to the
+# .bashrc file when it is updated.  This prevents my settings from being
+# lost or overwriten
+
+# Make micro the default editor
+export EDITOR='micro'
+export VISUAL='micro'
+
+# using the PATH to all the bin locations means I don't need to include the
+# path in each line
+PATH=/opt/someApp/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:~/.bin-personal
+
+# bashup reloads the .bashrc to update any changes without having to reboot.
+alias bashup='source ~/.bashrc'
+
+# update pacman and paru
+#alias update='sudo pacman -Syu && paru -Syu --noconfirm && flatpak update'
+alias update='paru -Syu && flatpak update'
+
+# copy the .local file to .local-backup
+alias buplocal='cp -Rf ~/.local ~/.local-backup-$(date +%Y.%m.%d-%H.%M.%S)'
+
+# copy config files to /personal
+alias topersonal='sudo config-backup-to-personal.sh'
+
+# copy files to kims computer
+alias tokim='sync-files-to-kims-computer.sh'
+
+# copy config files to github
+alias togithub='config-backup-github.sh'
+
+# copy config files to external drive
+alias toexternal='config-backup-to-external.sh'
+
+# micro for important configuration files
+# know what you do in these files
+alias mmirrorlist="sudo micro /etc/pacman.d/mirrorlist"
+alias mbp="micro /home/brett/.bashrc-personal"
+alias mi3c="micro /home/brett/.config/i3/config"
+alias mpbc="micro /home/brett/.config/polybar/config"
+alias mpbl="micro /home/brett/.config/polybar/startup.sh"
+
+# my xfce config restore
+alias myconf='my-config-restore.sh'
+
+# Change Betterlockscreen background
+alias mybls='betterlockscreen -u ~/Pictures/background-images/blue-fabric-background.png'
+
+# provide system information
+alias sysinfo='inxi -Fxxxrz'
+
+# ssh agent
+alias ssha='eval &(ssh-agent) && ssh-add'
+
+# Reinstall usb wifi driver
+alias wifi='cd /home/brett/src/8821au/ && sudo ./remove-driver.sh && sudo ./install-driver.sh && bashup && sr'
+
