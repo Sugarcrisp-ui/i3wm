@@ -9,7 +9,7 @@
   <property name="last-window-height" type="int" value="510"/>
   <property name="last-window-maximized" type="bool" value="true"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_50_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,142,50,50,414,50,50,72,63,146"/>
+  <property name="last-details-view-column-widths" type="string" value="50,142,50,50,1328,50,50,72,63,185"/>
   <property name="misc-date-style" type="string" value="THUNAR_DATE_STYLE_ISO"/>
   <property name="misc-single-click" type="bool" value="true"/>
   <property name="misc-show-delete-action" type="bool" value="true"/>

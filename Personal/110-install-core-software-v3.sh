@@ -45,6 +45,7 @@ func_category() {
 func_category Core Software
 
 list=(
+aic94xx-firmware
 atom
 bitwarden
 blueman
@@ -87,7 +88,9 @@ timeshift
 timeshift-autosnap
 #tlp
 ttf-font-awesome
+upd72020x-fw
 virtualbox
+wd719x-firmware
 xfce4-appfinder
 #xfce4-terminal
 xournalpp
