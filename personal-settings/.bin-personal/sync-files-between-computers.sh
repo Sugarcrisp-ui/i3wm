@@ -8,9 +8,9 @@
 # requires 'bashup' or reboot to update the bash before changes take place
 
 	# laptop brett
-	rsync -r -t -p -o -g -v --progress -s $HOME/.bashrc-personal brett@192.168.3.12:/home/brett/.bashrc-personal
+	rsync -r -t -p -o -g -v --progress -s --delete $HOME/.bashrc-personal brett@192.168.1.12:/home/brett/.bashrc-personal
 	
 	# laptop kim
-	rsync -r -t -p -o -g -v --progress -s $HOME/.bashrc-personal kim@192.168.3.13:/home/kim/.bashrc-personal
+	rsync -r -t -p -o -g -v --progress -s --delete $HOME/.bashrc-personal kim@192.168.1.13:/home/kim/.bashrc-personal
 
 
