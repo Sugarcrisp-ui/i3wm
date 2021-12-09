@@ -64,6 +64,7 @@ font-manager-git
 geany
 gedit
 gnome-calculator
+google-chrome
 gpick
 grsync
 grub-btrfs
