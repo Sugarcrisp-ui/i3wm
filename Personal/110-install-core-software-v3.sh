@@ -52,7 +52,6 @@ blueman
 calibre
 catfish
 caprine
-cawbird
 celluloid
 chromium
 clipgrab
