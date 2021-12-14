@@ -80,6 +80,7 @@ pamac
 paprefs
 powerline
 qbittorrent
+qtwebflix-git
 ranger
 seahorse
 simplescreenrecorder
