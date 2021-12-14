@@ -94,6 +94,7 @@ ttf-font-awesome
 upd72020x-fw
 virtualbox
 wd719x-firmware
+whatsapp-nativefier
 xfce4-appfinder
 #xfce4-terminal
 xournalpp
