@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# The set command is used to determine action if error 
-# is encountered.  (-e) will stop and exit (+e) will 
+# The set command is used to determine action if error
+# is encountered.  (-e) will stop and exit (+e) will
 # continue with the script.
 set +e
 ##################################################################################################################
@@ -12,7 +12,7 @@ function_remove() {
 		echo "################################################################"
 		echo "######    "$1" is installed and will be removed now."
 		echo "################################################################"
-		echo 
+		echo
 		tput sgr0
 		sudo pacman -Rs $1 --noconfirm
 	else
@@ -20,7 +20,7 @@ function_remove() {
 		echo "################################################################"
 		echo "######    "$1" was not present or already removed."
 		echo "################################################################"
-		echo 
+		echo
 		tput sgr0
 	fi
 }
@@ -54,6 +54,12 @@ function_remove vim
 #function_remove brave
 #function_remove xfce4-evince
 #function_remove nemo
+function_remove xf86-video-amdgpu
+function_remove xf86-video-ati
+function_remove xf86-video-fbdev
+function_remove xf86-video-nouveau
+function_remove xf86-video-openchrome
+function_remove xf86-video-vesa
 
 echo "################################################################"
 echo "######                    packages uninstalled            ######"
