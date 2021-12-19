@@ -52,7 +52,6 @@ blueman
 calibre
 catfish
 caprine
-cawbird
 celluloid
 chromium
 clipgrab
@@ -71,13 +70,14 @@ gpick
 grsync
 grub-btrfs
 insync
-#libreoffice-fresh
 libreoffice-still
 meld
 micro
 openshot
 pamac
 paprefs
+paru
+polybar
 powerline
 qbittorrent
 qtwebflix-git

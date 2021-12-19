@@ -36,7 +36,6 @@ echo "Installation of the core software"
 
 list=(
 sddm
-polybar
 )
 
 count=0
