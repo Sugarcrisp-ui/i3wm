@@ -46,8 +46,7 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-# this is already backed up to Google Drive
-#cp -Rf ~/i3wm/personal-settings/.bin-personal ~
+cp -Rf ~/i3wm/personal-settings/.bin-personal ~
 
 tput setaf 11;
 echo "################################################################"

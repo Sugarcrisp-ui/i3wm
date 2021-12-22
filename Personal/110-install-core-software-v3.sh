@@ -100,6 +100,7 @@ xfce4-appfinder
 #xfce4-terminal
 xournalpp
 xreader
+zip
 )
 
 count=0
