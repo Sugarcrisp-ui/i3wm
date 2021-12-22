@@ -92,6 +92,7 @@ timeshift
 timeshift-autosnap
 #tlp
 ttf-font-awesome
+unzip
 upd72020x-fw
 virtualbox
 wd719x-firmware
