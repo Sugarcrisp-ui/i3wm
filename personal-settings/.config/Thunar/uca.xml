@@ -67,6 +67,14 @@
 	<other-files/>
 </action>
 <action>
+	<icon>/home/brett/Pictures/zip-icon.jpg</icon>
+	<name>Unzip Here</name>
+	<unique-id>1640153256278312-1</unique-id>
+	<command>/usr/bin/unzip %f</command>
+	<description></description>
+	<patterns>*</patterns>
+</action>
+<action>
 	<icon>meld</icon>
 	<name>Compare</name>
 	<unique-id>1492232362549799-1</unique-id>
