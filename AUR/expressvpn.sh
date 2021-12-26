@@ -1,6 +1,6 @@
 #!/bin/bash
-# The set command is used to determine action if error 
-# is encountered.  (-e) will stop and exit (+e) will 
+# The set command is used to determine action if error
+# is encountered.  (-e) will stop and exit (+e) will
 # continue with the script.
 set +e
 
@@ -9,7 +9,7 @@ set +e
 #tput setaf 3 = yellow #tput setaf 4 = dark blue #tput setaf 5 = purple
 #tput setaf 6 = cyan #tput setaf 7 = gray #tput setaf 8 = light blue
 
-package="color-picker"
+package="expressvpn"
 
 #----------------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ else
 		echo "################################################################"
 		tput sgr0
 
-		paru -S --noconfirm $package
+				paru -S --noconfirm $package
 
 	elif pacman -Qi trizen &> /dev/null; then
 
@@ -67,5 +67,8 @@ else
 	tput sgr0
 
 fi
+
+# Enable expressvpn.service
+sudo systemctl enable expressvpn.service
 
 #----------------------------------------------------------------------------------

@@ -53,6 +53,7 @@ cd AUR
 sh authy*
 #sh color-picker*
 sh cryptomator*
+sh expressvpn*
 #sh github-desktop*
 #sh gnome-gtkhash*
 sh ice-dev*
