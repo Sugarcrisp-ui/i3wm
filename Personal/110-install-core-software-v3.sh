@@ -118,3 +118,10 @@ echo "################################################################"
 echo "Software has been installed"
 echo "################################################################"
 echo;tput sgr0
+
+###############################################################################
+
+# Start needed services
+sudo systemctl enable cronie.service
+sudo systemctl enable syncthing@brett.service
+sudo systemctl enable teamviewerd.service
