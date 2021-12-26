@@ -55,7 +55,8 @@ caprine
 celluloid
 chromium
 clipgrab
-clipman
+#clipman
+copyq
 cronie
 discord
 etcher-bin
