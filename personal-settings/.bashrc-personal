@@ -23,22 +23,18 @@ alias buplocal='cp -Rf ~/.local ~/.local-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 # copy config files to /personal
 alias topersonal='sudo config-backup-to-personal.sh'
 
-# copy files to kims computer
-alias tokim='sync-files-to-kims-computer.sh'
-
 # copy config files to github
 alias togithub='config-backup-github.sh'
 
 # copy config files to external drive
 alias toexternal='config-backup-to-external.sh'
 
-# micro for important configuration files
-# know what you do in these files
+# open files directly in micro
 alias mmirrorlist="sudo micro /etc/pacman.d/mirrorlist"
 alias mbp="micro /home/brett/.bashrc-personal"
 alias mi3c="micro /home/brett/.config/i3/config"
 alias mpbc="micro /home/brett/.config/polybar/config"
-alias mpbl="micro /home/brett/.config/polybar/startup.sh"
+alias mpbl="micro /home/brett/.config/polybar/launch.sh"
 
 # my xfce config restore
 alias myconf='my-config-restore.sh'
