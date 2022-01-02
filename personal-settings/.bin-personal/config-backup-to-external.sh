@@ -2,35 +2,35 @@
 
 # Directories
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.bin-personal/ /run/media/brett/Backup1/.bin-personal
+rsync -av --progress --delete /home/brett/.bin-personal/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/.bin-personal
 
-rsync -r -t -p -o -g -v --progress -s --delete --exclude-from={'Insync/', 'chromium/'} /home/brett/.config/ /run/media/brett/Backup1/.config
+rsync -av --progress --delete --exclude=Insync/ --exclude=chromium/ /home/brett/.config/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/.config
 
-rsync -r -t -p -o -g -v --progress -s --delete --exclude-from='Trash/' /home/brett/.local/ /run/media/brett/Backup1/.local
+rsync -av --progress --delete --exclude=Trash/ /home/brett/.local/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/.local
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.ssh/ /run/media/brett/Backup1/.ssh
+rsync -av --progress --delete /home/brett/.ssh/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/.ssh
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.var/ /run/media/brett/Backup1/.var
+rsync -av --progress --delete /home/brett/.var/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/.var
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.vnc/ /run/media/brett/Backup1/.vnc
+rsync -av --progress --delete /home/brett/.vnc/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/.vnc
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/Appimages/ /run/media/brett/Backup1/Appimages
+rsync -av --progress --delete /home/brett/Appimages/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/Appimages
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/Documents/ /run/media/brett/Backup1/Documents
+rsync -av --progress --delete /home/brett/Documents/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/Documents
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/Downloads/ /run/media/brett/Backup1/Downloads
+rsync -av --progress --delete /home/brett/Downloads/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/Downloads
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/Pictures/ /run/media/brett/Backup1/Pictures
+rsync -av --progress --delete /home/brett/Pictures/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/Pictures
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/"VirtualBox VMs"/ /run/media/brett/Backup1/"VirtualBox VMs"
+rsync -av --progress --delete /home/brett/Videos/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/Videos
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/Webapps/ /run/media/brett/Backup1/Webapps
+rsync -av --progress --delete /home/brett/"VirtualBox VMs"/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/"VirtualBox VMs"
+
+rsync -av --progress --delete /home/brett/Webapps/ /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/Webapps
 
 
 
 # files
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.bashrc-personal /run/media/brett/Backup1/.bashrc-personal
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/variety/variety.conf /run/media/brett/Backup1/.config/variety/variety.conf
+rsync -av --progress --delete /home/brett/.bashrc-personal /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/.bashrc-personal
 

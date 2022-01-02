@@ -72,6 +72,7 @@ grsync
 grub-btrfs
 insync
 libreoffice-still
+losslesscut-bin
 meld
 micro
 openshot

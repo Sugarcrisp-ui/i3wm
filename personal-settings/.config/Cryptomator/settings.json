@@ -13,6 +13,20 @@
       "actionAfterUnlock": "IGNORE",
       "autoLockWhenIdle": false,
       "autoLockIdleSeconds": 1800
+    },
+    {
+      "id": "54qdTy18t6WF",
+      "path": "/mnt/0bc3fd76-2984-40aa-9c95-f229dbb68ee8/Local-Backup/Arcolinux",
+      "displayName": "Arcolinux",
+      "unlockAfterStartup": true,
+      "revealAfterMount": true,
+      "useCustomMountPath": false,
+      "usesReadOnlyMode": false,
+      "mountFlags": "",
+      "maxCleartextFilenameLength": -1,
+      "actionAfterUnlock": "IGNORE",
+      "autoLockWhenIdle": false,
+      "autoLockIdleSeconds": 1800
     }
   ],
   "askedForUpdateCheck": false,
@@ -33,5 +47,5 @@
   "windowYPosition": 0,
   "windowWidth": 0,
   "windowHeight": 0,
-  "displayConfiguration": "displayId: 0, 1920.0x1080.0;"
+  "displayConfiguration": ""
 }
