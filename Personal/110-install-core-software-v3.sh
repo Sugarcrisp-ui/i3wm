@@ -60,7 +60,6 @@ copyq
 cronie
 discord
 etcher-bin
-test
 firefox
 flatpak
 font-manager-git
