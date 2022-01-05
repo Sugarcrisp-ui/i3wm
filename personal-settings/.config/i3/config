@@ -369,7 +369,7 @@ font pango:Noto Mono Regular 13
 # USER APPLICATIONS TO START AT BOOT
 
 # Expressvpn
-#exec --no-startup-id expressvpn connect
+exec --no-startup-id expressvpn connect
 
 #Conky
 #exec --no-startup-id conky -c /home/brett/.config/i3/system-overview
@@ -382,7 +382,7 @@ exec --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Ma
 
 #text-editor
 #exec --no-startup-id i3-msg 'workspace 4; exec geany'
-#exec --no-startup-id i3-msg 'workspace 4; exec subl'
+exec --no-startup-id i3-msg 'workspace 4; exec subl'
 
 #file manager
 exec --no-startup-id i3-msg 'workspace 2; exec xfce4-terminal -e ranger'
@@ -412,7 +412,7 @@ exec --no-startup-id sleep 2 && $(nm-applet)
 exec --no-startup-id sleep 3 && $(copyq)
 
 # crytomator
-#exec --no-startup-id sleep 4 && $(/home/brett/Appimages/cryptomator.appimage)
+#exec_always --no-startup-id sleep 10 && $(/home/brett/Appimages/cryptomator.Appimage)
 
 # Updater
 exec --no-startup-id sleep 5 && $(pamac-tray)
@@ -421,7 +421,7 @@ exec --no-startup-id sleep 5 && $(pamac-tray)
 exec_always --no-startup-id sleep 6 && $(blueman-applet)
 
 # insync
-#exec --no-startup-id sleep 7 && $(insync start)
+#exec_always --no-startup-id sleep 7 && $(insync start)
 
 # num lock activated
 exec_always --no-startup-id numlockx on
