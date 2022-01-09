@@ -5,7 +5,7 @@
   <property name="show-sidebar" type="bool" value="false"/>
   <property name="close-after-select" type="bool" value="false"/>
   <property name="window-width" type="int" value="943"/>
-  <property name="window-height" type="int" value="982"/>
+  <property name="window-height" type="int" value="464"/>
   <property name="window-x" type="int" value="963"/>
   <property name="window-y" type="int" value="40"/>
   <property name="exclude-paths" type="string" value="/dev;~/.cache;~/.gvfs;"/>
