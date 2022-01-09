@@ -17,6 +17,9 @@ cd Personal
 
 sh 100-display-manager*
 sh 110-install-core-software*
+sh 120-sound*
+sh 130-bluetooth*
+sh 160-laptop*
 sh 200-software-AUR-repo*
 
 tput setaf 11;

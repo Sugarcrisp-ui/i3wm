@@ -48,7 +48,6 @@ list=(
 aic94xx-firmware
 atom
 bitwarden
-blueman
 calibre
 catfish
 caprine
@@ -90,9 +89,9 @@ speedtest-cli-git
 spotify
 sublime-text-4
 syncthing
+syncthing-gtk
 timeshift
 timeshift-autosnap
-#tlp
 ttf-font-awesome
 unzip
 upd72020x-fw
@@ -100,6 +99,13 @@ virtualbox
 wd719x-firmware
 whatsapp-nativefier
 xfce4-appfinder
+xfce4-notifyd
+xfce4-power-manager
+xfce4-screenshooter
+xfce4-settings
+xfce4-screenshooter
+xfce4-taskmanager
+xfce4-terminal
 #xfce4-terminal
 xournalpp
 xreader

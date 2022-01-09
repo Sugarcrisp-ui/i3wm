@@ -1,12 +1,5 @@
 #!/bin/bash
-# The set command is used to determine action if error 
-# is encountered.  (-e) will stop and exit (+e) will 
-# continue with the script.
-set +e
-###############################################################################
-# Author	:	Brett Crisp
-###############################################################################
-
+#set -e
 ###############################################################################
 #
 #   DECLARATION OF FUNCTIONS
@@ -29,41 +22,33 @@ func_install() {
     	echo "###############################################################################"
     	echo
     	tput sgr0
-    	sudo pacman -S --noconfirm --needed $1
+    	sudo pacman -S --noconfirm --needed $1 
     fi
 }
 
-func_category() {
-	tput setaf 5;
-	echo "################################################################"
-	echo "Installing software for category " $1
-	echo "################################################################"
-	echo;tput sgr0
-}
-
+###############################################################################
+echo "Installation of sound software"
 ###############################################################################
 
-func_category Fonts
-
 list=(
-arcolinux-fonts-git
-awesome-terminal-fonts
-adobe-source-sans-pro-fonts
-ttf-bitstream-vera
-ttf-droid
-ttf-inconsolata
-ttf-ubuntu-font-family
-tamsyn-font
-cantarell-fonts
-noto-fonts
-ttf-dejavu
-ttf-droid
-ttf-hack
-ttf-liberation
-ttf-roboto
+pulseaudio
+pulseaudio-alsa
+pavucontrol
+#alsa-firmware
+alsa-lib
+alsa-plugins
+alsa-utils
+gstreamer
+gst-plugins-good
+gst-plugins-bad
+gst-plugins-base
+#gst-plugins-ugly
+#playerctl
+volumeicon
 )
 
 count=0
+
 for name in "${list[@]}" ; do
 	count=$[count+1]
 	tput setaf 3;echo "Installing package nr.  "$count " " $name;tput sgr0;
