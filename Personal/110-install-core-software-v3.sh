@@ -77,7 +77,7 @@ micro
 openshot
 pamac
 paprefs
-paru
+paru-bin
 polybar
 powerline
 qbittorrent
