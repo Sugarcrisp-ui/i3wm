@@ -423,6 +423,9 @@ exec_always --no-startup-id sleep 6 && $(blueman-applet)
 # insync
 #exec_always --no-startup-id sleep 7 && $(insync start)
 
+# start syncthing minimized
+exec --no-startup-id sleep 8 && $(syncthing-gtk -m) &
+
 # num lock activated
 exec_always --no-startup-id numlockx on
 
