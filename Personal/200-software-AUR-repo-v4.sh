@@ -57,7 +57,7 @@ losslesscut-bin
 mcmojave-circle-icon-theme-git
 realvnc-vnc-server
 realvnc-vnc-viewer
-syncthing-gtk
+syncthing-gtk-python3
 ttf-vista-fonts
 xournal
 )
