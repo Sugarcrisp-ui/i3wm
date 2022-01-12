@@ -88,8 +88,7 @@ simplescreenrecorder
 speedtest-cli-git
 spotify
 sublime-text-4
-syncthing
-syncthing-gtk
+#syncthing
 timeshift
 timeshift-autosnap
 ttf-font-awesome

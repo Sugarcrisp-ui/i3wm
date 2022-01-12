@@ -60,9 +60,10 @@ sh expressvpn*
 #sh gnome-gtkhash*
 sh ice-dev*
 sh insync-thunar*
-sh ttf-vista-fonts*
 sh realvnc-vnc-server*
 sh realvnc-vnc-viewer*
+sh syncthing-gtk*
+sh ttf-vista-fonts*
 
 tput setaf 1;
 echo "################################################################"
