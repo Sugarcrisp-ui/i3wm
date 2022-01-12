@@ -58,7 +58,6 @@ realvnc-vnc-server
 realvnc-vnc-viewer
 syncthing-gtk-python3
 ttf-vista-fonts
-xournal
 )
 
 count=0
