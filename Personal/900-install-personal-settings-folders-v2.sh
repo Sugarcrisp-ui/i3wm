@@ -33,9 +33,9 @@ tput sgr0
 [ -d $HOME"/Insync" ] || mkdir -p $HOME"/Insync"
 [ -d $ROOT"/personal" ]  || sudo mkdir -p $ROOT"/personal"
 [ -d $ROOT"/personal/.config" ]  || sudo mkdir -p $ROOT"/personal/.config"
-[ -d $ROOT"/personal/.local" ]  || sudo mkdir -p $ROOT"/personal/.local"
-[ -d $ROOT"/personal/.config/variety" ]  || sudo mkdir -p $ROOT"/personal/.config/variety"
-[ -d $ROOT"/personal/.local/share/ice" ]  || sudo mkdir -p $ROOT"/personal/.local/share/ice"
+#[ -d $ROOT"/personal/.local" ]  || sudo mkdir -p $ROOT"/personal/.local"
+#[ -d $ROOT"/personal/.config/variety" ]  || sudo mkdir -p $ROOT"/personal/.config/variety"
+#[ -d $ROOT"/personal/.local/share/ice" ]  || sudo mkdir -p $ROOT"/personal/.local/share/ice"
 [ -d $ROOT"/var/spool/cron" ]  || sudo mkdir -p $ROOT"/var/spool/cron"
 
 
@@ -59,21 +59,21 @@ cp -Rf ~/i3wm/personal-settings/.config ~
 
 tput setaf 11;
 echo "################################################################"
-echo "Copying .local"
-echo ""
-echo "################################################################"
-tput sgr0
-
-cp -Rf ~/i3wm/personal-settings/.local ~
-
-tput setaf 11;
-echo "################################################################"
 echo "Copying .bashrc-personal"
 echo ""
 echo "################################################################"
 tput sgr0
 
 cp ~/i3wm/personal-settings/.bashrc-personal ~
+
+tput setaf 11;
+echo "################################################################"
+echo "Copying arcolinux-welcome-app"
+echo ""
+echo "################################################################"
+tput sgr0
+
+cp ~/i3wm/personal-settings/arcolinux-welcome-app ~
 
 tput setaf 11;
 echo "################################################################"

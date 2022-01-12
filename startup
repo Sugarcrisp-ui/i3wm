@@ -42,29 +42,6 @@ sh 955-install-settings-autoconnect-to-bluetooth-headset*
 sh 997-makepkg-name-email*
 sh fix-pamac-aur*
 
-tput setaf 11;
-echo "################################################################"
-echo "Installing my AUR Programs"
-echo "Running AUR scripts"
-echo "################################################################"
-tput sgr0
-
-cd ..
-
-cd AUR
-
-sh authy*
-sh cryptomator*
-sh expressvpn*
-#sh github-desktop*
-#sh gnome-gtkhash*
-sh ice-dev*
-sh insync-thunar*
-sh realvnc-vnc-server*
-sh realvnc-vnc-viewer*
-sh syncthing-gtk*
-sh ttf-vista-fonts*
-
 tput setaf 1;
 echo "################################################################"
 echo "INSTALLATION IS COMPLETE"
