@@ -46,7 +46,7 @@ func_category Core Software
 
 list=(
 authy
-cryptomator-bin
+#cryptomator-bin
 expressvpn
 #github-desktop-bin
 gnome-disk-utility
@@ -54,7 +54,6 @@ gnome-disk-utility
 ice-dev
 insync-thunar
 losslesscut-bin
-mcmojave-circle-icon-theme-git
 realvnc-vnc-server
 realvnc-vnc-viewer
 syncthing-gtk-python3
