@@ -369,7 +369,7 @@ font pango:Noto Mono Regular 13
 # USER APPLICATIONS TO START AT BOOT
 
 # Expressvpn
-#exec --no-startup-id expressvpn connect
+exec --no-startup-id expressvpn connect
 
 #Conky
 #exec --no-startup-id conky -c /home/brett/.config/i3/system-overview
@@ -392,6 +392,7 @@ exec --no-startup-id i3-msg 'workspace 3; exec xfce4-terminal'
 
 #browser
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
+#exec --no-startup-id i3-msg 'workspace 1; exec /home/brett/Appimages/./Brave.Appimage'
 #exec --no-startup-id i3-msg 'workspace 1; exec chromium'
 #exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
 
