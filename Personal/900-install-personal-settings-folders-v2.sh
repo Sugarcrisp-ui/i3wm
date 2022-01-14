@@ -46,7 +46,7 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-cp -Rf ~/i3wm/personal-settings/.bin-personal ~
+rsync -a ~/i3wm/personal-settings/.bin-personal/ ~/.bin-personal
 
 tput setaf 11;
 echo "################################################################"
@@ -55,7 +55,7 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-cp -Rf ~/i3wm/personal-settings/.config ~
+rsync -a ~/i3wm/personal-settings/.config ~/.config
 
 tput setaf 11;
 echo "################################################################"
@@ -64,7 +64,7 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-cp ~/i3wm/personal-settings/.bashrc-personal ~
+rsync  ~/i3wm/personal-settings/.bashrc-personal ~
 
 tput setaf 11;
 echo "################################################################"
@@ -73,7 +73,7 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-cp ~/i3wm/personal-settings/arcolinux-welcome-app ~
+rsync -a ~/i3wm/personal-settings/arcolinux-welcome-app/ ~/arcolinux-welcome-app
 
 tput setaf 11;
 echo "################################################################"
@@ -82,20 +82,11 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-sudo cp ~/i3wm/arcolinux-sugar-candy/theme.conf /usr/share/sddm/themes/arcolinux-sugar-candy/
+sudo rsync ~/i3wm/arcolinux-sugar-candy/theme.conf /usr/share/sddm/themes/arcolinux-sugar-candy/
 
-sudo cp ~/i3wm/arcolinux-sugar-candy/Backgrounds/arco-login-plasma.jpg /usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/
+sudo rsync ~/i3wm/arcolinux-sugar-candy/Backgrounds/arco-login-plasma.jpg /usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/
 
-sudo cp ~/i3wm/arcolinux-sugar-candy/Backgrounds/bluez-7650x5120.jpg /usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/
-
-tput setaf 11;
-echo "################################################################"
-echo "Copying personal config settings to .bin-personal"
-echo ""
-echo "################################################################"
-tput sgr0
-
-sh ~/i3wm/personal-settings/.bin-personal/ ~
+sudo rsync ~/i3wm/arcolinux-sugar-candy/Backgrounds/bluez-7650x5120.jpg /usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/
 
 tput setaf 11;
 echo "################################################################"
@@ -109,7 +100,7 @@ cd ~/i3wm/cron
 # Change the root cron onwership to root:root
 sudo chown root:root root
 
-sudo cp -Rf ~/i3wm/cron/* /var/spool/cron/
+sudo rsync -a ~/i3wm/cron/* /var/spool/cron/
 
 echo "################################################################"
 echo "#########            folders created            ################"
