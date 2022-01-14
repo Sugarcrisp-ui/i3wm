@@ -46,6 +46,7 @@ func_category Core Software
 
 list=(
 authy
+brave
 #cryptomator-bin
 expressvpn
 #github-desktop-bin
