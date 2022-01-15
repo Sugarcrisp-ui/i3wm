@@ -9,8 +9,7 @@ set +e
 
 echo "Copy fonts to .fonts"
 
-installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
-cp $installed_dir/settings/fonts/* ~/.fonts/
+cp -Rf ~/i3wm/personal-settings/.fonts/* ~/.fonts/
 
 echo "Building new fonts into the cache files";
 echo "Depending on the number of fonts, this may take a while..."
