@@ -36,7 +36,6 @@ function_remove() {
 #function_remove vlc
 function_remove termite
 #function_remove synapse
-#function_remove gpick
 #function_remove plank
 #function_remove nomacs
 #function_remove screenkey
