@@ -56,6 +56,7 @@ echo "################################################################"
 tput sgr0
 
 cp -Rf ~/i3wm/personal-settings/.config ~/.config
+#cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/.config ~/.config
 
 tput setaf 11;
 echo "################################################################"
@@ -65,6 +66,7 @@ echo "################################################################"
 tput sgr0
 
 cp  ~/i3wm/personal-settings/.bashrc-personal ~
+#cp /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/.bashrc-personal ~
 
 tput setaf 11;
 echo "################################################################"
@@ -74,6 +76,7 @@ echo "################################################################"
 tput sgr0
 
 cp -Rf ~/i3wm/personal-settings/arcolinux-welcome-app/ ~/arcolinux-welcome-app
+#cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/
 
 tput setaf 11;
 echo "################################################################"
