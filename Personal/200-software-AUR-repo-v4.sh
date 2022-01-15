@@ -54,7 +54,6 @@ gnome-disk-utility
 #gtkhash
 ice-dev
 insync-thunar
-losslesscut-bin
 realvnc-vnc-server
 realvnc-vnc-viewer
 teamviewer
