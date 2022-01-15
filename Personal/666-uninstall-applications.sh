@@ -25,34 +25,8 @@ function_remove() {
 	fi
 }
 
-
-#function_remove evolution
-#function_remove orage
-#function_remove malcontent
-#function_remove guvcview
-#function_remove inkscape
-#function_remove pragha
-#function_remove midori
-#function_remove vlc
 function_remove termite
-#function_remove synapse
-#function_remove plank
-#function_remove nomacs
-#function_remove screenkey
-#function_remove temps
-#function_remove wttr
-#function_remove caja
-#function_remove pulseaudio-equalizer-ladspa
-function_remove vim
-#function_remove totem
-#function_remove udisks2
-#function_remove arcolinux-meta-fun
-#function_remove vivaldi-ffmpeg-codecs
-#function_remove vivaldi-widevine
-#function_remove vivaldi
-#function_remove brave
-#function_remove xfce4-evince
-#function_remove nemo
+#function_remove vim
 function_remove xf86-video-amdgpu
 function_remove xf86-video-ati
 function_remove xf86-video-fbdev
