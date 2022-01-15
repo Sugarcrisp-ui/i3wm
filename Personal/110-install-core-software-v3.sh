@@ -69,6 +69,7 @@ google-chrome
 gpick
 grsync
 grub-btrfs
+grub-customizer
 insync
 libreoffice-still
 losslesscut-bin
