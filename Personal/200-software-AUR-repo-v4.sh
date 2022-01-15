@@ -57,8 +57,9 @@ insync-thunar
 losslesscut-bin
 realvnc-vnc-server
 realvnc-vnc-viewer
+teamviewer
 syncthing-gtk-python3
-ttf-vista-fonts
+#ttf-vista-fonts
 )
 
 count=0

@@ -42,6 +42,11 @@ sh 955-install-settings-autoconnect-to-bluetooth-headset*
 sh 997-makepkg-name-email*
 sh fix-pamac-aur*
 
+# Start needed services
+sudo systemctl enable cronie.service
+sudo systemctl enable syncthing@brett.service
+sudo systemctl enable teamviewerd.service
+
 tput setaf 1;
 echo "################################################################"
 echo "INSTALLATION IS COMPLETE"
