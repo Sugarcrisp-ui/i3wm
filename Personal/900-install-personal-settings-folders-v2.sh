@@ -56,6 +56,7 @@ echo "################################################################"
 tput sgr0
 
 cp -Rf ~/i3wm/personal-settings/.config ~/.config
+#cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/desktop/.config ~/.config
 #cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/.config ~/.config
 
 tput setaf 11;
@@ -66,6 +67,7 @@ echo "################################################################"
 tput sgr0
 
 cp  ~/i3wm/personal-settings/.bashrc-personal ~
+#cp /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/desktop/.bashrc-personal ~
 #cp /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/.bashrc-personal ~
 
 tput setaf 11;
@@ -76,7 +78,8 @@ echo "################################################################"
 tput sgr0
 
 cp -Rf ~/i3wm/personal-settings/arcolinux-welcome-app/ ~/arcolinux-welcome-app
-#cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/
+#cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/desktop/ ~/arcolinux-welcome-app
+#cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/ ~/arcolinux-welcome-app
 
 tput setaf 11;
 echo "################################################################"
@@ -86,10 +89,16 @@ echo "################################################################"
 tput sgr0
 
 sudo cp ~/i3wm/arcolinux-sugar-candy/theme.conf /usr/share/sddm/themes/arcolinux-sugar-candy/
+#sudo cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/desktop/themes/theme.conf /usr/share/sddm/themes/arcolinux-sugar-candy/
+#sudo cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/themes/theme.conf /usr/share/sddm/themes/arcolinux-sugar-candy/
 
 sudo cp ~/i3wm/arcolinux-sugar-candy/Backgrounds/arco-login-plasma.jpg /usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/
+#sudo cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/desktop/themes/arco-login-plasma.jpg /usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/
+#sudo cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/themes/arco-login-plasma.jpg /usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/
 
 sudo cp ~/i3wm/arcolinux-sugar-candy/Backgrounds/bluez-7650x5120.jpg /usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/
+#sudo cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/desktop/themes/bluez-7650x5120.jpg /usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/
+#sudo cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/themes/bluez-7650x5120.jpg /usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/
 
 tput setaf 11;
 echo "################################################################"
