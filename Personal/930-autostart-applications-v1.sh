@@ -8,10 +8,7 @@ set +e
 
 sleep 1
 
-installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
-
-
-cp -f $installed_dir/settings/autostart/* $HOME"/.config/autostart"
+cp -Rf ~/i3wm/personal-settings/autostart/* ~/.config/autostart
 
 echo "################################################################"
 echo "####                      autostart added                 ######"
