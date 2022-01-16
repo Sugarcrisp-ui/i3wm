@@ -57,6 +57,7 @@ insync-thunar
 realvnc-vnc-server
 realvnc-vnc-viewer
 teamviewer
+rtl8821au-dkms-git
 syncthing-gtk-python3
 #ttf-vista-fonts
 )
