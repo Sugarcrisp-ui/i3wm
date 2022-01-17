@@ -27,7 +27,8 @@ alias topersonal='sudo config-backup-to-personal.sh'
 alias togithub='config-backup-github.sh'
 
 # copy config files to external drive
-alias toexternal='config-backup-to-external.sh'
+alias toexternald='config-backup-to-external-d.sh'
+alias toexternall='config-backup-to-external-l.sh'
 
 # open files directly in micro
 alias mmirrorlist="sudo micro /etc/pacman.d/mirrorlist"
