@@ -49,6 +49,7 @@ authy
 brave
 #cryptomator-bin
 expressvpn
+gitahead
 #github-desktop-bin
 gnome-disk-utility
 #gtkhash
