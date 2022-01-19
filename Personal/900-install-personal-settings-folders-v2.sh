@@ -74,17 +74,6 @@ cp ~/i3wm/personal-settings/.bashrc-personal ~
 
 tput setaf 11;
 echo "################################################################"
-echo "Copying arcolinux-welcome-app"
-echo ""
-echo "################################################################"
-tput sgr0
-
-cp ~/i3wm/personal-settings/arcolinux-welcome-app/ ~/arcolinux-welcome-app
-#cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/desktop/arcolinux-welcome-app/ ~
-#cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/arcolinux-welcome-app/ ~
-
-tput setaf 11;
-echo "################################################################"
 echo "Copying sddm themes to /usr/share/themes"
 echo ""
 echo "################################################################"
