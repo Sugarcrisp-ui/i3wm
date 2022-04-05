@@ -47,10 +47,10 @@ func_category Core Software
 list=(
 authy
 brave
-#cryptomator-bin
+cryptomator-bin
 expressvpn
 gitahead
-#github-desktop-bin
+github-desktop-bin
 gnome-disk-utility
 #gtkhash
 ice-dev
