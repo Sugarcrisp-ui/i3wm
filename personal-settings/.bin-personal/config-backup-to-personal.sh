@@ -2,6 +2,8 @@
 
 # Directories
 
+rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.bin-personal/ /personal/.bin-personal
+
 rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/arcolinux-welcome-app/ /personal/.config/arcolinux-welcome-app
 
 rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/autostart/ /personal/.config/autostart
@@ -25,7 +27,3 @@ rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/xfce4/ /perso
 
 rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/variety/variety.conf /personal/.config/variety/variety.conf
 
-
-# switch to home directory
-cd ~
-exec bash

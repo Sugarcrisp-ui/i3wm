@@ -361,7 +361,6 @@ font pango:Noto Mono Regular 13
 
 
 
-
 #####################################################################################################################
 #################           autostart   -    execute applications at boot time                      #################
 #####################################################################################################################
@@ -369,7 +368,7 @@ font pango:Noto Mono Regular 13
 # USER APPLICATIONS TO START AT BOOT
 
 # Expressvpn
-exec --no-startup-id expressvpn connect
+#exec --no-startup-id expressvpn connect
 
 #Conky
 #exec --no-startup-id conky -c /home/brett/.config/i3/system-overview

@@ -6,6 +6,7 @@
       <value type="string" value="blueman"/>
       <value type="string" value="brave-browser"/>
       <value type="string" value="ca.desrt.dconf-editor"/>
+      <value type="string" value="caprine"/>
       <value type="string" value="chromium"/>
       <value type="string" value="com.uploadedlobster.peek"/>
       <value type="string" value="CopyQ"/>
@@ -23,11 +24,13 @@
       <value type="string" value="Insync"/>
       <value type="string" value="notify-send"/>
       <value type="string" value="org.gnome.Software"/>
+      <value type="string" value="org.manjaro.pamac.tray"/>
       <value type="string" value="org.qbittorrent.qBittorrent"/>
       <value type="string" value="Package Manager"/>
       <value type="string" value="pasystray"/>
       <value type="string" value="pragha"/>
       <value type="string" value="signal"/>
+      <value type="string" value="solaar"/>
       <value type="string" value="Spotify"/>
       <value type="string" value="Syncthing GTK"/>
       <value type="string" value="System Config Printer Notification"/>

@@ -19,7 +19,7 @@ count=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
 
 # these ExecStart lines (insync, cryptomator) where added by me
 ExecStart=--no-startup-id sleep 1 && $(insync start) &
-ExecStart=--no-startup-id sleep 5 && $(/home/brett/Appimages/cryptomator.AppImage) &
+ExecStart=--no-startup-id sleep 2 && $(/home/brett/Appimages/cryptomator.AppImage) &
 
 case $desktop in
 
