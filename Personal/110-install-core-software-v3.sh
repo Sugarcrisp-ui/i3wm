@@ -50,12 +50,13 @@ chromium
 firefox
 google-chrome
 qbittorrent
-speedtest-cli-git
 qtwebflix-git
+speedtest-cli-git
+teamviewer
 
 # Multimedia
-ffmpeg
 celluloid
+ffmpeg
 losslesscut-bin
 openshot
 qbittorrent
