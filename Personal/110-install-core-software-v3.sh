@@ -52,7 +52,6 @@ google-chrome
 qbittorrent
 qtwebflix-git
 speedtest-cli-git
-teamviewer
 
 # Multimedia
 celluloid
@@ -107,6 +106,7 @@ xournalpp
 xreader
 
 # Communication
+arcolinux-teamviewer
 caprine
 discord
 signal-desktop
