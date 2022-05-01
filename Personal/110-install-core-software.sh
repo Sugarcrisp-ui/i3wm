@@ -46,6 +46,7 @@ func_category Core Software
 
 list=(
 # Internet
+#brave-bin
 chromium
 firefox
 google-chrome
@@ -97,7 +98,7 @@ zip
 # Documents and Text
 atom
 calibre
-geany
+#geany
 gedit
 libreoffice-still
 micro

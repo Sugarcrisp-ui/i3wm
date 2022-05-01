@@ -46,14 +46,13 @@ func_category Core Software
 
 list=(
 authy
-brave
 cryptomator-bin
 expressvpn
 gitahead
 github-desktop-bin
 gnome-disk-utility
 #gtkhash
-ice-dev
+#ice-dev
 insync-thunar
 realvnc-vnc-server
 realvnc-vnc-viewer
