@@ -15,7 +15,9 @@ find Personal/ -name "*.sh" -execdir chmod +x {} +
 
 cd Personal
 
+sh 666-uninstall-applications*
 sh 100-display-manager*
+sh 105-install-arcolinux-software*
 sh 110-install-core-software*
 sh 120-sound*
 sh 130-bluetooth*
@@ -29,7 +31,6 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-sh 666-uninstall-applications*
 #sh 667-uninstall-arcolinux-meta-steam*
 sh 700-installing-fonts*
 sh 900-install-personal-settings-folders*
