@@ -26,7 +26,7 @@ function_remove() {
 }
 
 function_remove termite
-#function_remove vim
+function_remove vim
 function_remove xf86-video-amdgpu
 function_remove xf86-video-ati
 function_remove xf86-video-fbdev
