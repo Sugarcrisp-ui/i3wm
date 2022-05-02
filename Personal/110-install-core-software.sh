@@ -50,7 +50,6 @@ list=(
 chromium
 firefox
 google-chrome
-qbittorrent
 qtwebflix-git
 speedtest-cli-git
 
