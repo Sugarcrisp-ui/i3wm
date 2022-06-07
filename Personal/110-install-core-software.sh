@@ -98,7 +98,7 @@ zip
 #atom
 calibre
 #geany
-gedit
+#gedit
 libreoffice-still
 micro
 sublime-text-4
