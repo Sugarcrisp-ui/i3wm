@@ -95,7 +95,7 @@ xfce4-terminal
 zip
 
 # Documents and Text
-atom
+#atom
 calibre
 #geany
 gedit
