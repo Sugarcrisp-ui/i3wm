@@ -179,7 +179,7 @@ mode "$mode_system" {
 }
 
 # ArcoLinux Logout
-bindsym $mod+X exec --no-startup-id arcolinux-logout
+bindsym $mod+X exec --no-startup-id archlinux-logout
 
 
 #####################################################################################################################
@@ -463,10 +463,10 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 bindsym Ctrl+mod1+l exec --no-startup-id betterlockscreen -s
 
 # Arcolinux-logout
-#bindsym control+mod1+k exec --no-startup-id arcolinux-logout
+#bindsym control+mod1+k exec --no-startup-id archlinux-logout
 
 # Arcolinux-tweak-tool
-bindsym Ctrl+Mod1+e exec --no-startup-id arcolinux-tweak-tool
+bindsym Ctrl+Mod1+e exec --no-startup-id archlinux-tweak-tool
 
 # Catfish
 bindsym control+space exec --no-startup-id catfish;focus

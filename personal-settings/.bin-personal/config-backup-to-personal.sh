@@ -6,7 +6,7 @@ rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.bin-personal/ /perso
 
 rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/arcolinux-welcome-app/ /personal/.config/arcolinux-welcome-app
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/autostart/ /personal/.config/autostart
+#rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/autostart/ /personal/.config/autostart
 
 rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/arcolinux-betterlockscreen/ /personal/.config/arcolinux-betterlockscreen
 
