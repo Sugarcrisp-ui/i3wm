@@ -46,6 +46,8 @@ func_category Core Software
 
 list=(
 authy
+bluetooth-autoconnect
+color-picker
 cryptomator-bin
 expressvpn
 gitahead
