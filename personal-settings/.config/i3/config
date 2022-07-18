@@ -52,34 +52,10 @@ set $right semicolon
 #####################################################################################################################
 
 
-# setting variables for later use
-# use xrandr and/or arandr to know the names of your monitors
-# use this line to tell which monitor is on the right
-# xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
-#exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
-#exec --no-startup-id xrandr --output DVI-I-0 --right-of HDMI-0 --auto
-#exec --no-startup-id xrandr --output DVI-1 --right-of DVI-0 --auto
-#exec --no-startup-id xrandr --output DVI-D-1 --right-of DVI-I-1 --auto
-#exec --no-startup-id xrandr --output HDMI-2 --right-of HDMI-1 --auto
 exec --no-startup-id xrandr --output HDMI2 --right-of HDMI1 --auto
 
 
 # my current setup
-
-#set $firstMonitor DP3
-#set $secondMonitor LVDS1
-
-#set $firstMonitor DVI-I-0
-#set $secondMonitor HDMI-0
-
-#set $firstMonitor DVI-0
-#set $secondMonitor DVI-1
-
-#set $firstMonitor DVI-I-1
-#set $secondMonitor DVI-D-1
-
-#set $firstMonitor HDMI-1
-#set $secondMonitor HDMI-2
 
 set $firstMonitor HDMI1
 set $secondMonitor HDMI2
@@ -107,18 +83,6 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-# move focused container to workspace
-#bindsym $mod+Shift+1 move container to workspace 1; workspace 1
-#bindsym $mod+Shift+2 move container to workspace 2; workspace 2
-#bindsym $mod+Shift+3 move container to workspace 3; workspace 3
-#bindsym $mod+Shift+4 move container to workspace 4; workspace 4
-#bindsym $mod+Shift+5 move container to workspace 5; workspace 5
-#bindsym $mod+Shift+6 move container to workspace 6; workspace 6
-#bindsym $mod+Shift+7 move container to workspace 7; workspace 7
-#bindsym $mod+Shift+8 move container to workspace 8; workspace 8
-#bindsym $mod+Shift+9 move container to workspace 9; workspace 9
-#bindsym $mod+Shift+0 move container to workspace 10; workspace 10
-
 # move focused container to workspace but remain on current workspace
 bindsym $mod+Shift+1 move container to workspace 1;
 bindsym $mod+Shift+2 move container to workspace 2;
@@ -137,18 +101,10 @@ bindsym $mod+Shift+0 move container to workspace 10;
 #####################################################################################################################
 
 
-# start dmenu
-#bindsym $mod+m exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
-
-# start xfce4-appfinder in collapsed mode
-#bindsym mod1+F2 exec --no-startup-id xfce4-appfinder --collapsed
-
 # start xfce-appfinder
-#bindsym $mod+d exec --no-startup-id xfce4-appfinder
 bindsym mod1+d exec --no-startup-id xfce4-appfinder
 
 # start rofi full
-#bindsym $mod+F11 exec --no-startup-id rofi -show drun -fullscreen -font "Noto Sans 13"
 bindsym $mod+d exec --no-startup-id rofi -show drun -fullscreen -font "Noto Sans 13"
 
 # start rofi small
@@ -159,24 +115,6 @@ bindsym $mod+F12 exec --no-startup-id rofi -show drun -font "Noto Sans 13"
 #################                          how to exit, logoff, suspend, ...                        #################
 #####################################################################################################################
 
-
-#Backup exit
-#Press ctrl+alt+x - check toolbar for next choices
-bindsym control+mod1+X mode "$mode_system"
-
-set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
-mode "$mode_system" {
-    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
-    bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
-    bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
-    bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
-    bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
-    bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
 
 # ArcoLinux Logout
 bindsym $mod+X exec --no-startup-id archlinux-logout
@@ -276,20 +214,11 @@ bindsym $mod+v split v
 # Super + F in arcolinux is execute thunar
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+z layout tabbed
-#bindsym $mod+e layout toggle split
-
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 
 #####################################################################################################################
@@ -315,72 +244,17 @@ font pango:Noto Mono Regular 13
 
 
 #####################################################################################################################
-#################                          assign applications to workspaces                        #################
-#####################################################################################################################
-
-# Assign application to start on a specific workspace you can find the class with the program xprop open a terminal
-# and the application on the same workspace in the terminal run xprop | grep WM_CLASS it will create an 'X', use it
-# to click on the window to identify
-
-# Workspace 1 browser related
-#assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"]                      → 1
-#assign [class="Chromium|Google-chrome"]                                             → 1
-
-# Workspace 2 file managers
-#assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 2
-#assign [class="ranger"]                                                             → 2
-
-# Workspace 3 Terminal
-#assign [class="urxvt"]                                                           → 3
-
-# Workspace 4 text editor related
-#assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3"]       → 4
-#assign [class="Xed|xed|Brackets|Atom|Code|Geany"]                                   → 4
-
-# Workspace 5 Images and meld
-#assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 5
-#assign [class="feh|gthumb|Gthumb|eog|Eog|Pinta|pixeluvo|Pixeluvo"]                  → 5
-#assign [class="Meld"]                                                               → 5
-
-# Workspace 6 all video related software
-#assign [class="Vlc|vlc"]                                                            → 6
-
-# Workspace 7 virtual machines and settings
-#assign [class="Vmplayer|VirtualBox"]						    → 7
-
-# Workspace 8 text editor related
-#assign [class="Gimp"]                                                               → 4
-
-# Workspace 9 email clients
-#assign [class="Geary|Evolution"]                                                    → 9
-
-# Workspace 10 music related
-#assign [class="Spotify|spotify"]                                                    → 10
-#fix for spotify not moving to workspace 10
-#for_window [class="Spotify"] move to workspace 10
-
-
-
-#####################################################################################################################
 #################           autostart   -    execute applications at boot time                      #################
 #####################################################################################################################
 
 # USER APPLICATIONS TO START AT BOOT
 
-# Expressvpn
-#exec --no-startup-id expressvpn connect
-
-#Conky
-#exec --no-startup-id conky -c /home/brett/.config/i3/system-overview
-
 #feh sets wallpaper
-#exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
 exec --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Man-Wallpaper.jpg &
 
 # TO A SPECIFIC WORKSPACE
 
 #text-editor
-#exec --no-startup-id i3-msg 'workspace 4; exec geany'
 exec --no-startup-id i3-msg 'workspace 4; exec subl'
 
 #file manager
@@ -391,10 +265,6 @@ exec --no-startup-id i3-msg 'workspace 3; exec xfce4-terminal'
 
 #browser
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
-#exec --no-startup-id i3-msg 'workspace 1; exec /home/brett/Appimages/./Brave.Appimage'
-#exec --no-startup-id i3-msg 'workspace 1; exec chromium'
-#exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
-
 
 # TRAY APPLICATIONS
 
@@ -408,11 +278,7 @@ exec --no-startup-id sleep 1 && $(volumeicon)
 exec --no-startup-id sleep 2 && $(nm-applet)
 
 # clipboard manager
-#exec --no-startup-id sleep 3 && $(xfce4-clipman)
 exec --no-startup-id sleep 3 && $(copyq)
-
-# crytomator
-#exec_always --no-startup-id sleep 10 && $(/home/brett/Appimages/cryptomator.AppImage) &
 
 # Updater
 exec --no-startup-id sleep 5 && $(pamac-tray)
@@ -449,9 +315,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 # Notification Service
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
-# ommitted next line to get super key to bring up the menu in xfce and avoid error then in i3
-# IF xfsettingsd is activated you can not change themes
-#exec --no-startup-id xfsettingsd &
 
 #####################################################################################################################
 #################                          applications keyboard shortcuts                          #################
@@ -517,36 +380,6 @@ bindsym Ctrl+mod1+g exec --no-startup-id google-chrome-stable
 
 # xkill
 bindsym --release $mod+Escape exec xkill
-
-
-# KEYBOARD SHORTCUTS RELATED TO WORKSPACE
-
-#workspace 1
-#bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;workspace 1
-
-#workspace 2
-#bindsym control+$mod+r exec --no-startup-id xfce4-terminal -e ranger;workspace 2
-
-#workspace 3
-
-#workspace 4
-
-#workspace 5
-#bindsym $mod+Shift+Return exec --no-startup-id thunar;workspace 8
-
-#workspace 6
-#bindsym $mod+F7 exec --no-startup-id virtualbox;workspace 6
-
-#workspace 7
-#bindsym $mod+F5 exec --no-startup-id meld;workspace 5
-
-#workspace 8
-
-
-#workspace 9
-
-#workspace 10
-
 
 
 #####################################################################################################################
@@ -650,15 +483,10 @@ bindsym mod1+Down exec --no-startup-id variety --resume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
 bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
-#https://github.com/acrisci/playerctl/
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioStop exec --no-startup-id playerctl stop
-#bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-#bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-#bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-#bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 
 
 #####################################################################################################################
