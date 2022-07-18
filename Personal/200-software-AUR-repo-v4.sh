@@ -61,6 +61,7 @@ realvnc-vnc-viewer
 rtl8821au-dkms-git
 syncthing-gtk-python3
 #ttf-vista-fonts
+twitter-nativefier
 )
 
 count=0
