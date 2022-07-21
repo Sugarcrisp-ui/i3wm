@@ -69,6 +69,7 @@ catfish
 clipgrab
 copyq
 cronie
+downgrade
 etcher-bin
 font-manager-git
 gnome-calculator
@@ -76,6 +77,7 @@ gpick
 grsync
 grub-customizer
 gthumb
+gvfs
 insync
 meld
 ranger
