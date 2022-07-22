@@ -46,7 +46,7 @@ func_category Core Software
 
 list=(
 # Internet
-brave-bin
+#brave-bin
 chromium
 firefox
 google-chrome
