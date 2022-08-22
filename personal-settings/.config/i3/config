@@ -265,6 +265,8 @@ exec --no-startup-id i3-msg 'workspace 3; exec xfce4-terminal'
 
 #browser
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
+#exec --no-startup-id i3-msg 'workspace 1; exec brave'
+
 
 # TRAY APPLICATIONS
 
