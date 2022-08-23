@@ -50,7 +50,6 @@ bluetooth-autoconnect
 color-picker
 cryptomator-bin
 expressvpn
-gitahead
 github-desktop-bin
 gnome-disk-utility
 #gtkhash
