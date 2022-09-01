@@ -79,6 +79,7 @@ grub-customizer
 gthumb
 gvfs
 insync
+inxi
 meld
 ranger
 seahorse
