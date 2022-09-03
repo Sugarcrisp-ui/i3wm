@@ -52,6 +52,7 @@ firefox
 google-chrome
 qtwebflix-git
 speedtest-cli-git
+rate-mirrors
 
 # Multimedia
 celluloid
@@ -76,6 +77,7 @@ gnome-calculator
 gpick
 grsync
 grub-customizer
+grub-hook
 gthumb
 gvfs
 insync
