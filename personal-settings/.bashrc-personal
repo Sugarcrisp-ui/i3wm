@@ -49,6 +49,3 @@ alias sysinfo='inxi -Fxxxrz'
 # ssh agent
 alias ssha='eval &(ssh-agent) && ssh-add'
 
-# Reinstall usb wifi driver
-alias wifi='cd /home/brett/src/8821au/ && sudo ./remove-driver.sh && sudo ./install-driver.sh && bashup && sr'
-

@@ -255,7 +255,7 @@ exec --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Ma
 # TO A SPECIFIC WORKSPACE
 
 #text-editor
-exec --no-startup-id i3-msg 'workspace 4; exec subl'
+#exec --no-startup-id i3-msg 'workspace 4; exec subl'
 
 #file manager
 exec --no-startup-id i3-msg 'workspace 2; exec xfce4-terminal -e ranger'
