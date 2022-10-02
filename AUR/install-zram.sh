@@ -11,12 +11,12 @@ set +e
 
 #https://github.com/systemd/zram-generator
 
-sudo pacman -S zram-generator --noconfrim --needed
+sudo pacman -S zram-generator --noconfirm --needed
 
 #----------------------------------------------------------------------------------
 
 echo '[zram0]
-zram-size = ram / 2' | tee /etc/systemd/zram-generator.conf
+zram-size = ram / 2' | sudo tee /etc/systemd/zram-generator.conf
 
 #create new devices
 sudo systemctl daemon-reload
