@@ -54,6 +54,7 @@ github-desktop-bin
 gnome-disk-utility
 #gtkhash
 #ice-dev
+install-zram
 insync-thunar
 realvnc-vnc-server
 realvnc-vnc-viewer
