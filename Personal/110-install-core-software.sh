@@ -134,6 +134,7 @@ wd719x-firmware
 
 # Developer
 virtualbox
+virtualbox-guest-utils
 
 )
 
