@@ -27,3 +27,5 @@ rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/xfce4/ /perso
 
 rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/variety/variety.conf /personal/.config/variety/variety.conf
 
+rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/mimeapps.list /personal/.config/mimeapps.list
+

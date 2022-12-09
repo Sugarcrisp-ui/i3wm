@@ -26,6 +26,7 @@
       <value type="string" value="Insync"/>
       <value type="string" value="me.kozec.syncthingtk"/>
       <value type="string" value="notify-send"/>
+      <value type="string" value="org.freedesktop.network-manager-applet"/>
       <value type="string" value="org.gnome.Software"/>
       <value type="string" value="org.manjaro.pamac.tray"/>
       <value type="string" value="org.qbittorrent.qBittorrent"/>

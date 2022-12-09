@@ -10,5 +10,6 @@ last_extension=png
 screenshot_dir=file:/home/brett/Downloads
 enable_imgur_upload=true
 show_border=1
-show_in_folder=false
+show_in_folder=true
+custom_action_command=none
 
