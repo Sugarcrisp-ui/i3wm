@@ -62,7 +62,7 @@ rtl8821au-dkms-git
 syncthing-gtk-python3
 #ttf-vista-fonts
 twitter-nativefier
-whatsdesk
+whatsapp-nativefier
 )
 
 count=0
