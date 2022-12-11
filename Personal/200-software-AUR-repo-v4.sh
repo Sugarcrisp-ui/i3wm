@@ -56,6 +56,7 @@ gnome-disk-utility
 #ice-dev
 install-zram
 insync-thunar
+messenger-nativefier
 realvnc-vnc-server
 realvnc-vnc-viewer
 rtl8821au-dkms-git

@@ -113,7 +113,7 @@ xreader
 
 # Communication
 arcolinux-teamviewer
-caprine
+#caprine
 discord
 signal-desktop
 whatsapp-nativefier
