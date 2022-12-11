@@ -80,6 +80,7 @@ grub-customizer
 grub-hook
 gthumb
 gvfs
+htop
 insync
 inxi
 meld
