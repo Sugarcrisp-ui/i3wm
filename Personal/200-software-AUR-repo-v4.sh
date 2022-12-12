@@ -53,7 +53,7 @@ expressvpn
 github-desktop-bin
 gnome-disk-utility
 #gtkhash
-#ice-dev
+ice
 install-zram
 insync-thunar
 realvnc-vnc-server
