@@ -85,6 +85,7 @@ insync
 inxi
 meld
 ranger
+rofi
 seahorse
 sshfs
 timeshift
