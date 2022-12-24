@@ -15,7 +15,7 @@ find Personal/ -name "*.sh" -execdir chmod +x {} +
 
 cd Personal
 
-sh 666-uninstall-applications*
+sh 666-remove-software*
 sh 100-display-manager*
 sh 105-install-arcolinux-software*
 sh 110-install-core-software*
