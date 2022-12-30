@@ -20,6 +20,9 @@ alias update='paru -Syu && flatpak update'
 # copy the .local file to .local-backup
 alias buplocal='cp -Rf ~/.local ~/.local-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 
+# restart expressvpn service
+alias expresss='systemctl restart expressvpn.service'
+
 # copy config files to /personal
 alias topersonal='sudo config-backup-to-personal.sh'
 
