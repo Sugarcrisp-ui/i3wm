@@ -69,7 +69,6 @@ bitwarden
 catfish
 clipgrab
 copyq
-converter
 cronie
 downgrade
 etcher-bin
