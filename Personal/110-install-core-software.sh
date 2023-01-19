@@ -84,6 +84,7 @@ htop
 insync
 inxi
 meld
+most
 ranger
 rofi
 seahorse
