@@ -47,7 +47,6 @@ func_category Core Software
 list=(
 authy
 bluetooth-autoconnect
-color-picker
 converter
 cryptomator-bin
 expressvpn
