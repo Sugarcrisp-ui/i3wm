@@ -86,6 +86,9 @@ insync
 inxi
 meld
 most
+qt5-graphicaleffects
+qt5-quickcontrols2
+qt5-svg
 ranger
 rofi
 seahorse
