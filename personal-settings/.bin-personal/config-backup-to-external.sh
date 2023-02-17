@@ -1,31 +1,37 @@
 #!/bin/bash
 
+# This is a backup of my desktop to my external drive
+
+# Define common rsync options
+RSYNC_OPTS="-r -t -p -o -g -v --progress -s --delete"
+DESTINATION="/run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/desktop"
+
 # Directories
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.bin-personal/ /home/brett/.local/share/Cryptomator/mnt/Arcolinux/.bin-personal
+rsync $RSYNC_OPTS /home/brett/.bin-personal/ $DESTINATION/.bin-personal
 
-rsync -r -t -p -o -g -v --progress -s --delete --exclude 'Insync' 'chromium' /home/brett/.config/ /home/brett/.local/share/Cryptomator/mnt/Arcolinux/.config
+rsync $RSYNC_OPTS --exclude 'Insync' 'chromium' /home/brett/.config/ $DESTINATION/.config
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.local/share/applications/ /home/brett/.local/share/Cryptomator/mnt/Arcolinux/.local/share/applications
+rsync $RSYNC_OPTS /home/brett/.local/share/applications/ $DESTINATION/.local/share/applications
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.local/share/ice/ /home/brett/.local/share/Cryptomator/mnt/Arcolinux/.local/share/ice
+rsync $RSYNC_OPTS /home/brett/.local/share/ice/ $DESTINATION/.local/share/ice
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.ssh/ /home/brett/.local/share/Cryptomator/mnt/Arcolinux/.ssh
+rsync $RSYNC_OPTS /home/brett/.ssh/ $DESTINATION/.ssh
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.var/ /home/brett/.local/share/Cryptomator/mnt/Arcolinux/.var
+rsync $RSYNC_OPTS /home/brett/.var/ $DESTINATION/.var
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.vnc/ /home/brett/.local/share/Cryptomator/mnt/Arcolinux/.vnc
+rsync $RSYNC_OPTS /home/brett/.vnc/ $DESTINATION/.vnc
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/Downloads/ /home/brett/.local/share/Cryptomator/mnt/Arcolinux/Downloads
+rsync $RSYNC_OPTS /home/brett/Downloads/ $DESTINATION/Downloads
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/Pictures/ /home/brett/.local/share/Cryptomator/mnt/Arcolinux/Pictures
+rsync $RSYNC_OPTS /home/brett/Pictures/ $DESTINATION/Pictures
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/Webapps/ /home/brett/.local/share/Cryptomator/mnt/Arcolinux/Webapps
+rsync $RSYNC_OPTS /home/brett/Webapps/ $DESTINATION/Webapps
 
 
 
 # files
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.bashrc-personal /home/brett/.local/share/Cryptomator/mnt/Arcolinux/.bashrc-personal
+rsync $RSYNC_OPTS /home/brett/.bashrc-personal $DESTINATION/.bashrc-personal
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/variety/variety.conf /home/brett/.local/share/Cryptomator/mnt/Arcolinux/.config/variety/variety.conf
+rsync $RSYNC_OPTS /home/brett/.config/variety/variety.conf $DESTINATION/.config/variety/variety.conf

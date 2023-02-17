@@ -1,39 +1,25 @@
 #!/bin/bash
 
+# Define common rsync options
+RSYNC_OPTS="-r -t -p -o -g -v --progress -s --delete"
+DESTINATION="/home/brett/Github/i3wm/personal-settings"
+
 # Directories
+rsync $RSYNC_OPTS /home/brett/.bin-personal/ $DESTINATION/.bin-personal
+rsync $RSYNC_OPTS /home/brett/.config/arcolinux-welcome-app/ $DESTINATION/arcolinux-welcome-app
+rsync $RSYNC_OPTS /home/brett/.config/arcolinux-betterlockscreen/ $DESTINATION/.config/arcolinux-betterlockscreen
+rsync $RSYNC_OPTS /home/brett/.config/Cryptomator/ $DESTINATION/.config/Cryptomator
+rsync $RSYNC_OPTS /home/brett/.config/dconf/ $DESTINATION/.config/dconf
+rsync $RSYNC_OPTS /home/brett/.config/expressvpn/ $DESTINATION/.config/expressvpn
+rsync $RSYNC_OPTS /home/brett/.config/gtk-3.0/ $DESTINATION/.config/gtk-3.0
+rsync $RSYNC_OPTS /home/brett/.config/polybar/ $DESTINATION/.config/polybar
+rsync $RSYNC_OPTS /home/brett/.config/ranger/ $DESTINATION/.config/ranger
+rsync $RSYNC_OPTS /home/brett/.config/Thunar/ $DESTINATION/.config/Thunar
+rsync $RSYNC_OPTS /home/brett/.config/variety/Fetched/ $DESTINATION/.config/variety/Fetched
+rsync $RSYNC_OPTS /home/brett/.config/xfce4/ $DESTINATION/.config/xfce4
+rsync $RSYNC_OPTS /home/brett/.screenlayout/ $DESTINATION/.screenlayout
 
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.bin-personal/ /home/brett/Github/i3wm/personal-settings/.bin-personal
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/arcolinux-welcome-app/ /home/brett/Github/i3wm/personal-settings/arcolinux-welcome-app
-
-#rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/autostart/ /home/brett/Github/i3wm/personal-settings/autostart
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/arcolinux-betterlockscreen/ /home/brett/Github/i3wm/personal-settings/.config/arcolinux-betterlockscreen
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/Cryptomator/ /home/brett/Github/i3wm/personal-settings/.config/Cryptomator
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/dconf/ /home/brett/Github/i3wm/personal-settings/.config/dconf
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/expressvpn/ /home/brett/Github/i3wm/personal-settings/.config/expressvpn
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/gtk-3.0/ /home/brett/Github/i3wm/personal-settings/.config/gtk-3.0
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/polybar/ /home/brett/Github/i3wm/personal-settings/.config/polybar
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/ranger/ /home/brett/Github/i3wm/personal-settings/.config/ranger
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/Thunar/ /home/brett/Github/i3wm/personal-settings/.config/Thunar
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/variety/Fetched/ /home/brett/Github/i3wm/personal-settings/.config/variety/Fetched
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/xfce4/ /home/brett/Github/i3wm/personal-settings/.config/xfce4
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.screenlayout/ /home/brett/Github/i3wm/personal-settings/.screenlayout
-
-# files
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.bashrc-personal /home/brett/Github/i3wm/personal-settings/.bashrc-personal
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/i3/config /home/brett/Github/i3wm/personal-settings/.config/i3/config
-
-rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/variety/variety.conf /home/brett/Github/i3wm/personal-settings/.config/variety/variety.conf
+# Files
+rsync $RSYNC_OPTS /home/brett/.bashrc-personal $DESTINATION/.bashrc-personal
+rsync $RSYNC_OPTS /home/brett/.config/i3/config $DESTINATION/.config/i3/config
+rsync $RSYNC_OPTS /home/brett/.config/variety/variety.conf $DESTINATION/.config/variety/variety.conf
