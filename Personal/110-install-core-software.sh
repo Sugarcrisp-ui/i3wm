@@ -81,6 +81,7 @@ grub-hook
 gthumb
 gvfs
 htop
+i3wm
 insync
 inxi
 meld
