@@ -35,7 +35,6 @@ pulseaudio-bluetooth
 bluez
 bluez-libs
 bluez-utils
-blueman
 )
 
 count=0

@@ -85,6 +85,7 @@ i3wm
 insync
 inxi
 meld
+most
 ranger
 rofi
 seahorse

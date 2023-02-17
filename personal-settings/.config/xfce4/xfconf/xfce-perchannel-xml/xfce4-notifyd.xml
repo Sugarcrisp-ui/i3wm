@@ -29,6 +29,7 @@
       <value type="string" value="org.freedesktop.network-manager-applet"/>
       <value type="string" value="org.gnome.Software"/>
       <value type="string" value="org.manjaro.pamac.tray"/>
+      <value type="string" value="org.Nemo"/>
       <value type="string" value="org.qbittorrent.qBittorrent"/>
       <value type="string" value="org.xfce.Thunar"/>
       <value type="string" value="Package Manager"/>

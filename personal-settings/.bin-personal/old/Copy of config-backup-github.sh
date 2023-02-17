@@ -34,7 +34,7 @@ rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/xfce4/ /home/
 
 rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.local/share/applications/ /home/brett/Github/xfce/personal-settings/.local/share/applications
 
-
+ 
 
 # files
 
@@ -82,7 +82,7 @@ rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/variety/Fetch
 
 rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.config/xfce4/ /home/brett/Github/i3wm/personal-settings/.config/xfce4
 
-
+rsync -r -t -p -o -g -v --progress -s --delete /home/brett/.screenlayout/ /home/brett/Github/i3wm/personal-settings/.screenlayout
 
 # files
 

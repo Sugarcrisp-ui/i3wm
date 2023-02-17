@@ -48,6 +48,7 @@ list=(
 authy
 bluetooth-autoconnect
 color-picker
+converter
 cryptomator-bin
 expressvpn
 github-desktop-bin
