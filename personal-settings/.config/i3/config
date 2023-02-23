@@ -299,6 +299,9 @@ exec --no-startup-id sleep 8 && $(syncthing-gtk -m) &
 # num lock activated
 exec_always --no-startup-id numlockx on
 
+# vpn connection is delayed to allow wired connection to be established first
+exec --no-startup-id sh -c "sleep 3 && /home/brett/.bin-personal/vpn-connect.sh" 
+
 
 #####################################################################################################################
 #################                                 system applications                               #################

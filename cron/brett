@@ -11,6 +11,10 @@
 #* 8,20 * * * /home/brett/.bin-personal/config-backup-external-drive.sh >/dev/null 2>&1
 #* 8,20 * * * /home/brett/.bin-personal/my-config-github.sh >/dev/null 2>&1
 
+# used to start my openvpn connection after reboot with a delay to 
+# prevent the wired connection from hanging
+#@reboot sleep 5 && /home/brett/.bin-personal/vpn-connect.sh
+
 # sync crontab files to github
 13 21 * * * if [ ! -f /tmp/.cron-github.lock ]; then /home/brett/.bin-personal/cron-github.sh >/dev/null 2>&1; fi
 
@@ -20,3 +24,6 @@
 
 # sync sddm arcolinux-sugar-candy theme
 * 21 * * * if [ ! -f /tmp/.sddm-theme-github.lock ]; then /home/brett/.bin-personal/sddm-theme-github.sh >/dev/null 2>&1; fi
+
+# sync personal settings for external drive into the desktop folder
+10 21 * * * if [ ! -f /tmp/.config-backup-to-external.lock ]; then /home/brett/.bin-personal/config-backup-to-external.sh >/dev/null 2>&1; fi

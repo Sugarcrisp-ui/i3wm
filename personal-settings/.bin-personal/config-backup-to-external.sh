@@ -10,7 +10,7 @@ DESTINATION="/run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/desktop"
 
 rsync $RSYNC_OPTS /home/brett/.bin-personal/ $DESTINATION/.bin-personal
 
-rsync $RSYNC_OPTS --exclude 'Insync' 'chromium' /home/brett/.config/ $DESTINATION/.config
+rsync $RSYNC_OPTS --exclude 'Insync' /home/brett/.config/ $DESTINATION/.config
 
 rsync $RSYNC_OPTS /home/brett/.local/share/applications/ $DESTINATION/.local/share/applications
 
@@ -18,7 +18,7 @@ rsync $RSYNC_OPTS /home/brett/.local/share/ice/ $DESTINATION/.local/share/ice
 
 rsync $RSYNC_OPTS /home/brett/.ssh/ $DESTINATION/.ssh
 
-rsync $RSYNC_OPTS /home/brett/.var/ $DESTINATION/.var
+#rsync $RSYNC_OPTS /home/brett/.var/ $DESTINATION/.var
 
 rsync $RSYNC_OPTS /home/brett/.vnc/ $DESTINATION/.vnc
 

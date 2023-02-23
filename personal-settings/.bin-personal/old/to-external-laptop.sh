@@ -1,3 +1,5 @@
+# not currently using
+
 #!/bin/bash
 
 # Directories
