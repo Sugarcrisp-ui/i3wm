@@ -52,7 +52,7 @@ firefox
 google-chrome
 qtwebflix-git
 speedtest-cli-git
-rate-mirrors
+#rate-mirrors
 
 # Multimedia
 celluloid
