@@ -86,6 +86,7 @@ insync
 inxi
 meld
 most
+nativefier
 qt5-graphicaleffects
 qt5-quickcontrols2
 qt5-sv
