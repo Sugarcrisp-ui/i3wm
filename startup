@@ -22,6 +22,7 @@ declare -a scripts=(
   "100-display-manager"
   "105-install-arcolinux-software"
   "110-install-core-software"
+  "115-install-nativefier-apps"
   "120-sound"
   "130-bluetooth"
   "160-laptop"

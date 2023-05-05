@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=Whatsapp
+Exec=/home/brett/Whatsapp-linux-x64/Whatsapp
+Icon=/home/brett/Pictures/whatsapp-icon.png
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
