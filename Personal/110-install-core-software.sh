@@ -52,7 +52,7 @@ list=(
 # Internet
 #brave-bin
 chromium
-firefox
+#firefox
 google-chrome
 qtwebflix-git
 speedtest-cli-git
