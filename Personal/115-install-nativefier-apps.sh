@@ -16,7 +16,7 @@ nativefier --name "Whatsapp" "https://web.whatsapp.com" --icon /home/brett/Pictu
 
 nativefier --name "Netflix" "https://www.netflix.com/browse" --icon /home/brett/Pictures/netflix-icon.png
 
-cp -Rf /home/brett/i3wm/Personal/nativefier/* /home/brett/.local/shared/applications/
+cp /home/brett/i3wm/Personal/nativefier/* /home/brett/.local/share/applications/
 
 
 ###############################################################################
