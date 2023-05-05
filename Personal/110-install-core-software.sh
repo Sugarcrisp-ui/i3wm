@@ -79,7 +79,6 @@ gnome-calculator
 gpick
 grsync
 #grub-customizer
-#grub-hook
 gthumb
 gvfs
 htop

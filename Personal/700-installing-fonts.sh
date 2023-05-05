@@ -6,9 +6,9 @@
 set -e
 
 ###############################################################################
-# Author: Brett Crisp
-# Description: This script installs a list of fonts from the Arch User 
-# Repository (AUR).
+#
+#   DECLARATION OF FUNCTIONS
+#
 ###############################################################################
 
 # Install a package, if not already installed
