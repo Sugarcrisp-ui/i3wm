@@ -55,7 +55,7 @@ chromium
 #firefox
 google-chrome
 qtwebflix-git
-speedtest-cli-git
+#speedtest-cli-git
 
 # Multimedia
 celluloid
