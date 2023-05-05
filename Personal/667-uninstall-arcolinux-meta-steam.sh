@@ -2,7 +2,7 @@
 # The set command is used to determine action if error 
 # is encountered.  (-e) will stop and exit (+e) will 
 # continue with the script.
-set +e
+set -e
 ##################################################################################################################
 tput setaf 3;echo "  DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK."
 echo "  THIS MAY BRICK YOUR SYSTEM"

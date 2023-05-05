@@ -1,58 +1,61 @@
 #!/bin/bash
-#set -e
+
+# The set command is used to determine action if error
+# is encountered.  (-e) will stop and exit (+e) will
+# continue with the script.
+set -e
+
 ###############################################################################
 #
 #   DECLARATION OF FUNCTIONS
 #
 ###############################################################################
 
-
+# Function to install packages
 func_install() {
-	if pacman -Qi $1 &> /dev/null; then
-		tput setaf 2
-  		echo "###############################################################################"
-  		echo "################## The package "$1" is already installed"
-      	echo "###############################################################################"
-      	echo
-		tput sgr0
-	else
-    	tput setaf 3
-    	echo "###############################################################################"
-    	echo "##################  Installing package "  $1
-    	echo "###############################################################################"
-    	echo
-    	tput sgr0
-    	sudo pacman -S --noconfirm --needed $1 
+    # Check if package is already installed
+    if pacman -Qi "$1" &> /dev/null; then
+        printf "\e[32m###############################################################################\n"
+        printf "################## The package '%s' is already installed\n" "$1"
+        printf "###############################################################################\n\n"
+    else
+        printf "\e[33m###############################################################################\n"
+        printf "##################  Installing package '%s'\n" "$1"
+        printf "###############################################################################\n\n"
+        # Install the package
+        sudo pacman -S --noconfirm --needed "$1" 
     fi
 }
 
 ###############################################################################
-echo "Installation of laptop software"
+printf "Installation of laptop software\n"
 ###############################################################################
 
+# List of packages to install
 list=(
-tlp
+    tlp
 )
 
 count=0
 
-for name in "${list[@]}" ; do
-	count=$[count+1]
-	tput setaf 3;echo "Installing package nr.  "$count " " $name;tput sgr0;
-	func_install $name
+# Install each package in the list
+for name in "${list[@]}"; do
+    count=$((count+1))
+    printf "\e[33mInstalling package nr. %s '%s'\n\e[0m" "$count" "$name"
+    # Install the package using the func_install function
+    set +e
+    func_install "$name"
+    set -e
 done
 
 ###############################################################################
+printf "\e[35m################################################################\n"
+printf "Enabling services\n"
+printf "################################################################\n\n\e[0m"
 
-tput setaf 5;echo "################################################################"
-echo "Enabling services"
-echo "################################################################"
-echo;tput sgr0
-
+# Enable TLP service
 sudo systemctl enable tlp.service
 
-tput setaf 11;
-echo "################################################################"
-echo "Software has been installed"
-echo "################################################################"
-echo;tput sgr0
+printf "\e[32m################################################################\n"
+printf "Software has been installed\n"
+printf "################################################################\n\n\e[0m"

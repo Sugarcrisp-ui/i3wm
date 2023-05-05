@@ -2,52 +2,51 @@
 # The set command is used to determine action if error
 # is encountered.  (-e) will stop and exit (+e) will
 # continue with the script.
-set -e
+set -eu
 
 ##################################################################################################################
 # Written to be used on 64 bits computers
 # Author 	: 	Brett Crisp
 ##################################################################################################################
 
-#sudo pacman -Syyu --noconfirm
+# Update the package lists
+sudo pacman -Syyu --noconfirm
 
-find Personal/ -name "*.sh" -execdir chmod +x {} +
+# Make executable only the shell scripts in the Personal directory
+chmod +x Personal/*.sh
 
+# Change directory to Personal and run each script in order
 cd Personal
 
-sh 666-remove-software*
-sh 100-display-manager*
-sh 105-install-arcolinux-software*
-sh 110-install-core-software*
-sh 120-sound*
-sh 130-bluetooth*
-sh 160-laptop*
-sh 200-software-AUR-repo*
+declare -a scripts=(
+  "666-remove-software"
+  "100-display-manager"
+  "105-install-arcolinux-software"
+  "110-install-core-software"
+  "120-sound"
+  "130-bluetooth"
+  "160-laptop"
+  "200-software-AUR-repo"
+  "700-installing-fonts"
+  "900-install-personal-settings-folders"
+  "940-btrfs-setup"
+  "950-install-all-fonts-needed-for-conkys-of-arcolinux"
+  "955-install-settings-autoconnect-to-bluetooth-headset"
+  "997-makepkg-name-email"
+  "fix-pamac-aur"
+)
 
-tput setaf 11;
-echo "################################################################"
-echo "Updating Personal Settings"
-echo ""
-echo "################################################################"
-tput sgr0
-
-#sh 667-uninstall-arcolinux-meta-steam*
-sh 700-installing-fonts*
-sh 900-install-personal-settings-folders*
-#sh 905-install-personal-settings-bookmarks* # currently using 900 to copy bookmarks
-#sh 915-install-personal-settings-screenshot-to-jpg* # not sure why I was using this
-#sh 930-autostart-applications* # currently using 900 to copy autostart apps
-sh 940-btrfs-setup*
-sh 950-install-all-fonts-needed-for-conkys-of-arcolinux*
-sh 955-install-settings-autoconnect-to-bluetooth-headset*
-sh 997-makepkg-name-email*
-sh fix-pamac-aur*
+for script in "${scripts[@]}"
+do
+  bash "${script}.sh"
+done
 
 # Start needed services
 sudo systemctl enable cronie.service
 sudo systemctl enable syncthing@brett.service
 sudo systemctl enable teamviewerd.service
 
+# Notify user that installation is complete
 tput setaf 1;
 echo "################################################################"
 echo "INSTALLATION IS COMPLETE"

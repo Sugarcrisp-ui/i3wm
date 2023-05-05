@@ -1,16 +1,24 @@
 #!/bin/bash
-#set -e
+
+# The set command is used to determine action if error
+# is encountered.  (-e) will stop and exit (+e) will
+# continue with the script.
+set -e
+
 ##################################################################################################################
 
-
+# Check if the disk is formatted as BTRFS
 if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
 	echo "You are using BTRFS. Installing the software ..."
+
+	# Install necessary packages
 	sudo pacman -S --needed --noconfirm timeshift
 	sudo pacman -S --needed --noconfirm grub-btrfs
 	sudo pacman -S --needed --noconfirm timeshift-autosnap
 	sudo systemctl enable grub-btrfs.path
 
-	#sudo sed -i "s/PathModified=\/.snaphots/PathModified=\/run\/timeshift\/backup\/timeshift-btrfs\/snapshots/g" /etc/systemd/system/grub-btrfs.path
+	# Modify grub-btrfs.path to use timeshift backups
+	sudo sed -i "s/PathModified=\/.snaphots/PathModified=\/run\/timeshift\/backup\/timeshift-btrfs\/snapshots/g" /etc/systemd/system/grub-btrfs.path
 	sudo sed -i 's/Requires=\\x2esnapshots.mount/Requires=run-timeshift-backup.mount/g' /usr/lib/systemd/system/grub-btrfs.path
 	sudo sed -i 's/After=\\x2esnapshots.mount/After=run-timeshift-backup.mount/g' /usr/lib/systemd/system/grub-btrfs.path
 	sudo sed -i 's/BindsTo=\\x2esnapshots.mount/BindsTo=run-timeshift-backup.mount/g' /usr/lib/systemd/system/grub-btrfs.path

@@ -2,7 +2,7 @@
 # The set command is used to determine action if error
 # is encountered.  (-e) will stop and exit (+e) will
 # continue with the script.
-set -e
+set +e
 ###############################################################################
 # Author	:	Brett Crisp
 ###############################################################################
@@ -14,7 +14,7 @@ set -e
 ###############################################################################
 
 func_install() {
-	if pacman -Qi "$1" &> /dev/null; then
+	if pacman -Qi $1 &> /dev/null; then
 		tput setaf 2
   		echo "###############################################################################"
   		echo "################## The package "$1" is already installed"
@@ -24,29 +24,25 @@ func_install() {
 	else
     	tput setaf 3
     	echo "###############################################################################"
-    	echo "##################  Installing package "  "$1"
+    	echo "##################  Installing package "  $1
     	echo "###############################################################################"
     	echo
     	tput sgr0
-    	sudo pacman -S --noconfirm --needed "$1"
+    	sudo pacman -S --noconfirm --needed $1
     fi
 }
 
 func_category() {
-	tput setaf 5
+	tput setaf 5;
 	echo "################################################################"
-	echo "Installing software for category " "$1"
+	echo "Installing software for category " $1
 	echo "################################################################"
-	echo
-	tput sgr0
+	echo;tput sgr0
 }
 
 ###############################################################################
 
-# Some packages have been commented out because I don't wish to install
-# at this time
-
-func_category "Core Software"
+func_category Core Software
 
 list=(
 # Internet
@@ -56,6 +52,7 @@ firefox
 google-chrome
 qtwebflix-git
 speedtest-cli-git
+#rate-mirrors
 
 # Multimedia
 celluloid
@@ -92,7 +89,7 @@ most
 nativefier
 qt5-graphicaleffects
 qt5-quickcontrols2
-qt5-svg
+qt5-sv
 qt6ct
 #ranger
 rofi
@@ -152,18 +149,17 @@ virtualbox-guest-utils
 
 count=0
 for name in "${list[@]}" ; do
-	count=$((count+1))
-	tput setaf 3;echo "Installing package nr.  "$count " " "$name";tput sgr0
-	func_install "$name"
+	count=$[count+1]
+	tput setaf 3;echo "Installing package nr.  "$count " " $name;tput sgr0;
+	func_install $name
 done
 
 ###############################################################################
 
-tput setaf 11
+tput setaf 11;
 echo "################################################################"
 echo "Software has been installed"
 echo "################################################################"
-echo
-tput sgr0
+echo;tput sgr0
 
 ###############################################################################

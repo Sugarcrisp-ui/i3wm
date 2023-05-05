@@ -3,7 +3,7 @@
 # The set command is used to determine action if error
 # is encountered.  (-e) will stop and exit (+e) will
 # continue with the script.
-set -e
+set +e
 ##################################################################################################################
 
 function_remove() {
@@ -25,21 +25,14 @@ function_remove() {
 	fi
 }
 
-PACKAGES=(
-    termite
-    vim
-    xf86-video-amdgpu
-    xf86-video-ati
-    xf86-video-fbdev
-    xf86-video-nouveau
-    xf86-video-openchrome
-    xf86-video-vesa
-)
-
-for PACKAGE in "${PACKAGES[@]}"; do
-    function_remove "$PACKAGE"
-    
-done
+function_remove termite
+function_remove vim
+function_remove xf86-video-amdgpu
+function_remove xf86-video-ati
+function_remove xf86-video-fbdev
+function_remove xf86-video-nouveau
+function_remove xf86-video-openchrome
+function_remove xf86-video-vesa
 
 echo "################################################################"
 echo "######                    packages uninstalled            ######"
