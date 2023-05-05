@@ -28,7 +28,7 @@ func_install() {
     	echo "###############################################################################"
     	echo
     	tput sgr0
-    	paru -S --noconfirm $1
+    	paru -S --noconfirm --needed $1
     fi
 }
 

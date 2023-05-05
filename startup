@@ -29,7 +29,7 @@ declare -a scripts=(
   "700-installing-fonts"
   "900-install-personal-settings-folders"
   "940-btrfs-setup"
-  "950-install-all-fonts-needed-for-conkys-of-arcolinux"
+  #"950-install-all-fonts-needed-for-conkys-of-arcolinux"
   "955-install-settings-autoconnect-to-bluetooth-headset"
   "997-makepkg-name-email"
   "fix-pamac-aur"

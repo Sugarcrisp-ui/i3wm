@@ -51,7 +51,6 @@ ttf-bitstream-vera
 ttf-droid
 ttf-inconsolata
 ttf-ubuntu-font-family
-tamsyn-font
 cantarell-fonts
 noto-fonts
 ttf-dejavu

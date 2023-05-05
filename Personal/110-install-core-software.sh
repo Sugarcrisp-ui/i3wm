@@ -125,7 +125,7 @@ arcolinux-teamviewer
 #caprine
 discord
 signal-desktop
-whatsapp-nativefier
+#whatsapp-nativefier
 
 # Others
 aic94xx-firmware
@@ -144,7 +144,8 @@ wd719x-firmware
 
 # Developer
 virtualbox
-virtualbox-guest-utils
+#virtualbox-guest-utils
+virtualbox-guest-iso
 
 )
 
