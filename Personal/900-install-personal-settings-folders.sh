@@ -85,7 +85,7 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-sudo cp -Rf ~/i3wm/arcolinux-sugar-candy/theme.conf /usr/share/sddm/themes/arcolinux-sugar-candy/*
+sudo cp -Rf ~/i3wm/arcolinux-sugar-candy/* /usr/share/sddm/themes/arcolinux-sugar-candy/
 #sudo cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/desktop/themes/theme.conf /usr/share/sddm/themes/arcolinux-sugar-candy/
 #sudo cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/themes/theme.conf /usr/share/sddm/themes/arcolinux-sugar-candy/
 
