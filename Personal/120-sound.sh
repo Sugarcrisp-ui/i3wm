@@ -13,50 +13,57 @@ set -e
 
 # Installs a package if it's not already installed
 func_install() {
-    local pkg="$1"
-    if pacman -Qi "$pkg" &>/dev/null; then
-        printf "\e[32m###############################################################################\n"
-        printf "################## The package %s is already installed\n" "$pkg"
-        printf "###############################################################################\n\n"
-    else
-        printf "\e[33m###############################################################################\n"
-        printf "##################  Installing package %s\n" "$pkg"
-        printf "###############################################################################\n\n"
-        sudo pacman -S --noconfirm --needed "$pkg"
+	if pacman -Qi $1 &> /dev/null; then
+		tput setaf 2
+  		echo "###############################################################################"
+  		echo "################## The package "$1" is already installed"
+      	echo "###############################################################################"
+      	echo
+		tput sgr0
+	else
+    	tput setaf 3
+    	echo "###############################################################################"
+    	echo "##################  Installing package "  $1
+    	echo "###############################################################################"
+    	echo
+    	tput sgr0
+    	sudo pacman -S --noconfirm --needed $1 
     fi
 }
 
 ###############################################################################
-#   MAIN
+echo "Installation of sound software"
 ###############################################################################
 
-# Install sound-related packages
-printf "Installation of sound software\n"
-printf "################################\n\n"
 list=(
-    pulseaudio
-    pulseaudio-alsa
-    pavucontrol
-    alsa-firmware
-    alsa-lib
-    alsa-plugins
-    alsa-utils
-    gstreamer
-    gst-plugins-good
-    gst-plugins-bad
-    gst-plugins-base
-    gst-plugins-ugly
-    playerctl
-    volumeicon
+pulseaudio
+pulseaudio-alsa
+pavucontrol
+#alsa-firmware
+alsa-lib
+alsa-plugins
+alsa-utils
+gstreamer
+gst-plugins-good
+gst-plugins-bad
+gst-plugins-base
+#gst-plugins-ugly
+#playerctl
+volumeicon
 )
 
 count=0
-for name in "${list[@]}"; do
-    count=$((count+1))
-    printf "\e[33mInstalling package nr. %s %s\n" "$count" "$name"
-    func_install "$name"
+
+for name in "${list[@]}" ; do
+	count=$[count+1]
+	tput setaf 3;echo "Installing package nr.  "$count " " $name;tput sgr0;
+	func_install $name
 done
 
-printf "\e[36m################################################################\n"
-printf "Software has been installed\n"
-printf "################################################################\n\n"
+###############################################################################
+
+tput setaf 11;
+echo "################################################################"
+echo "Software has been installed"
+echo "################################################################"
+echo;tput sgr0

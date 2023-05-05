@@ -13,42 +13,37 @@ set -e
 
 # Install a package, if not already installed
 func_install() {
-    if pacman -Qi "$1" &> /dev/null; then
-        tput setaf 2
-        printf "###############################################################################\n"
-        printf "The package %s is already installed\n" "$1"
-        printf "###############################################################################\n\n"
-        tput sgr0
-    else
-        tput setaf 3
-        printf "###############################################################################\n"
-        printf "Installing package %s\n" "$1"
-        printf "###############################################################################\n\n"
-        tput sgr0
-        sudo pacman -S --noconfirm --needed "$1" || { echo "Package installation failed"; exit 1; }
+	if pacman -Qi $1 &> /dev/null; then
+		tput setaf 2
+  		echo "###############################################################################"
+  		echo "################## The package "$1" is already installed"
+      	echo "###############################################################################"
+      	echo
+		tput sgr0
+	else
+    	tput setaf 3
+    	echo "###############################################################################"
+    	echo "##################  Installing package "  $1
+    	echo "###############################################################################"
+    	echo
+    	tput sgr0
+    	sudo pacman -S --noconfirm --needed $1
     fi
 }
 
-# Print a message to indicate which category of packages is being installed
 func_category() {
-    tput setaf 5
-    printf "################################################################\n"
-    printf "Installing software for category %s\n" "$1"
-    printf "################################################################\n\n"
-    tput sgr0
+	tput setaf 5;
+	echo "################################################################"
+	echo "Installing software for category " $1
+	echo "################################################################"
+	echo;tput sgr0
 }
 
-# Check if running as root
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root"
-   exit 1
-fi
-
-###############################################################################
-# List of packages to install
 ###############################################################################
 
-pkg_list=(
+func_category Fonts
+
+list=(
 arcolinux-fonts-git
 awesome-terminal-fonts
 adobe-source-sans-pro-fonts
@@ -66,16 +61,17 @@ ttf-liberation
 ttf-roboto
 )
 
-###############################################################################
-# Main script
-###############################################################################
-
-func_category "Fonts"
-
 count=0
-for pkg_name in "${pkg_list[@]}"; do
-    ((count++))
-    tput setaf 3
-    printf "Installing package nr. %d %s\n" "$count" "$pkg_name"
-    tput sgr0
-    func_install "$pkg_name
+for name in "${list[@]}" ; do
+	count=$[count+1]
+	tput setaf 3;echo "Installing package nr.  "$count " " $name;tput sgr0;
+	func_install $name
+done
+
+###############################################################################
+
+tput setaf 11;
+echo "################################################################"
+echo "Software has been installed"
+echo "################################################################"
+echo;tput sgr0

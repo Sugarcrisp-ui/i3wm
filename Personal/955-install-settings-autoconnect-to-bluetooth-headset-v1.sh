@@ -12,8 +12,12 @@ set -e
 # Update main.conf to enable automatic device connection.
 echo "Fix 1"
 echo "#################"
-if ! grep --quiet "AutoEnable=true" /etc/bluetooth/main.conf; then
-    sudo sed -i.bak 's/AutoEnable=false/AutoEnable=true/' /etc/bluetooth/main.conf
+FIND="#AutoEnable=false"
+REPLACE="AutoEnable=true"
+sudo sed -i "s/$FIND/$REPLACE/g" /etc/bluetooth/main.conf
+
+if grep --quiet AutoEnable=true /etc/bluetooth/main.conf; then
+  echo "Autoenable=true is already added"
 fi
 
 # Add module-switch-on-connect to default.pa to switch to the Bluetooth device on connect.
@@ -26,13 +30,9 @@ fi
 # Create a backup file for bluetooth-clear.conf before modifying it.
 echo "Fix 3"
 echo "#################"
-if [ -f /etc/modprobe.d/bluetooth-clear.conf ]; then
-    echo "Bluetooth-clear already exists"
-else
-    echo 'options ath9k btcoex_enable = 1' | sudo tee /etc/modprobe.d/bluetooth-clear.conf > /dev/null
-fi
+[ -f /etc/modprobe.d/bluetooth-clear.conf ] && echo "Bluetooth-clear already created" || echo 'options ath9k btcoex_enable = 1' | sudo tee /etc/modprobe.d/bluetooth-clear.conf
 
-# Notify the user to reboot for the changes to take effect.
+
 echo "################################################################"
-echo "#########   Reboot to let the settings take effect   ############"
+echo "#########   reboot to let the settings kick in  ################"
 echo "################################################################"

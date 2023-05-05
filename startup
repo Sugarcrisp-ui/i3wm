@@ -2,10 +2,9 @@
 # The set command is used to determine action if error
 # is encountered.  (-e) will stop and exit (+e) will
 # continue with the script.
-set -eu
+set -e
 
 ##################################################################################################################
-# Written to be used on 64 bits computers
 # Author 	: 	Brett Crisp
 ##################################################################################################################
 

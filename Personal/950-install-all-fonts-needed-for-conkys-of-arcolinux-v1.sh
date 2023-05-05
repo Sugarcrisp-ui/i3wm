@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# The set command is used to determine action if error 
+# is encountered.  (-e) will stop and exit (+e) will 
+# continue with the script.
+set -e
+
 # Create .fonts directory if it doesn't exist
 [ -d $HOME"/.fonts" ] || mkdir -p $HOME"/.fonts"
 

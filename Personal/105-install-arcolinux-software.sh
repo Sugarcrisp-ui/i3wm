@@ -2,7 +2,7 @@
 # The set command is used to determine action if error
 # is encountered.  (-e) will stop and exit (+e) will
 # continue with the script.
-set +e
+set -e
 ###############################################################################
 # Author  : Brett Crisp
 ###############################################################################
@@ -38,31 +38,13 @@ if grep -q arcolinux_repo /etc/pacman.conf; then
   sudo pacman -Sy
 fi
 
-# Declare an array of packages to install
-declare -a packages=(
-"appstream" 
-"arcolinux-bin-git" 
-"arcolinux-hblock-git" 
-"arcolinux-logout-git" 
-"arcolinux-pamac-all" 
-"archlinux-tweak-tool-git" 
-"arcolinux-wallpapers-git"
-)
-
-# Define function to install packages
-function install_package {
-  if pacman -Qi $1 &> /dev/null; then
-    echo "$1 is already installed"
-  else
-    echo "Installing $1..."
-    sudo pacman -S --noconfirm --needed $1
-  fi
-}
-
-# Install each package in the array
-for package in "${packages[@]}"; do
-  install_package "$package"
-done
+sudo pacman -S --noconfirm --needed appstream
+sudo pacman -S --noconfirm --needed arcolinux-bin-git
+sudo pacman -S --noconfirm --needed arcolinux-hblock-git
+sudo pacman -S --noconfirm --needed archlinux-logout-git
+sudo pacman -S --noconfirm --needed arcolinux-pamac-all
+sudo pacman -S --noconfirm --needed archlinux-tweak-tool-git
+sudo pacman -S --noconfirm --needed arcolinux-wallpapers-git
 
 echo
 tput setaf 2
