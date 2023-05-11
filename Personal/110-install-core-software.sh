@@ -1,168 +1,117 @@
 #!/bin/bash
-# The set command is used to determine action if error
-# is encountered.  (-e) will stop and exit (+e) will
-# continue with the script.
+
+# Author: Brett Crisp
+
+# This script installs a list of packages on an Arch Linux system.
+
+# Set the error action to exit.
 set -e
-###############################################################################
-# Author	:	Brett Crisp
-###############################################################################
 
-###############################################################################
-#
-#   DECLARATION OF FUNCTIONS
-#
-###############################################################################
-
-func_install() {
-	if pacman -Qi "$1" &> /dev/null; then
-		tput setaf 2
-  		echo "###############################################################################"
-  		echo "################## The package "$1" is already installed"
-      	echo "###############################################################################"
-      	echo
-		tput sgr0
-	else
-    	tput setaf 3
-    	echo "###############################################################################"
-    	echo "##################  Installing package "  "$1"
-    	echo "###############################################################################"
-    	echo
-    	tput sgr0
-    	sudo pacman -S --noconfirm --needed "$1"
-    fi
+# Function to check if a package is installed.
+function is_installed() {
+  pacman -Qi "$1" &> /dev/null
 }
 
-func_category() {
-	tput setaf 5
-	echo "################################################################"
-	echo "Installing software for category " "$1"
-	echo "################################################################"
-	echo
-	tput sgr0
+# Function to install a package.
+function install_package() {
+  if ! is_installed "$1"; then
+    echo "Installing package $1"
+    sudo pacman -S --noconfirm --needed "$1"
+  fi
 }
 
-###############################################################################
+# Function to install a category of packages.
+function install_category() {
+  echo "Installing software for category $1"
+  for package in "${list[$1]}"; do
+    install_package "$package"
+  done
+}
 
-# Some packages have been commented out because I don't wish to install
-# at this time
-
-func_category "Core Software"
-
+# List of packages to install.
 list=(
-# Internet
-#brave-bin
-chromium
-#firefox
-google-chrome
-qtwebflix-git
-#speedtest-cli-git
-
-# Multimedia
-celluloid
-ffmpeg
-losslesscut-bin
-openshot
-qbittorrent
-simplescreenrecorder
-spotify
-vlc
-
-# Utilities
-bitwarden
-catfish
-clipgrab
-copyq
-cronie
-etcher-bin
-font-manager-git
-gnome-calculator
-gpick
-grsync
-#grub-customizer
-gthumb
-gvfs
-htop
-#i3wm
-insync
-inxi
-meld
-most
-nodejs-nativefier
-qt5-graphicaleffects
-qt5-quickcontrols2
-qt5-svg
-qt6ct
-#ranger
-rofi
-seahorse
-sshfs
-timeshift
-timeshift-autosnap
-unzip
-wget
-xfce4-appfinder
-xfce4-notifyd
-xfce4-power-manager
-xfce4-screenshooter
-xfce4-settings
-xfce4-taskmanager
-xfce4-terminal
-zip
-
-# Documents and Text
-#atom
-calibre
-#geany
-#gedit
-libreoffice-still
-micro
-sublime-text-4
-xournalpp
-xreader
-
-# Communication
-arcolinux-teamviewer
-#caprine
-discord
-signal-desktop
-#whatsapp-nativefier
-
-# Others
-aic94xx-firmware
-flatpak
-grub-btrfs
-pamac
-paprefs
-paru-bin
-polybar
-powerline
-ttf-font-awesome
-upd72020x-fw
-wd719x-firmware
-
-# Custom
-
-# Developer
-virtualbox
-#virtualbox-guest-utils
-virtualbox-guest-iso
-
+  "Core Software"=(
+    chromium
+    ffmpeg
+    losslesscut-bin
+    openshot
+    qbittorrent
+    simplescreenrecorder
+    spotify
+    vlc
+  )
+  "Multimedia"=(
+    celluloid
+    qtwebflix-git
+  )
+  "Utilities"=(
+    bitwarden
+    catfish
+    clipgrab
+    copyq
+    etcher-bin
+    font-manager-git
+    gnome-calculator
+    gpick
+    insync
+    inxi
+    meld
+    most
+    nodejs-nativefier
+    qt5-graphicaleffects
+    qt5-quickcontrols2
+    qt5-svg
+    qt6ct
+    rofi
+    seahorse
+    sshfs
+    timeshift
+    timeshift-autosnap
+    unzip
+    wget
+    xfce4-appfinder
+    xfce4-notifyd
+    xfce4-power-manager
+    xfce4-screenshooter
+    xfce4-settings
+    xfce4-taskmanager
+    xfce4-terminal
+    zip
+  )
+  "Documents and Text"=(
+    libreoffice-still
+    micro
+    sublime-text-4
+    xournalpp
+    xreader
+  )
+  "Communication"=(
+    arcolinux-teamviewer
+    discord
+    signal-desktop
+  )
+  "Others"=(
+    aic94xx-firmware
+    flatpak
+    grub-btrfs
+    pamac
+    paprefs
+    paru-bin
+    polybar
+    powerline
+    ttf-font-awesome
+    upd72020x-fw
+    wd719x-firmware
+  )
+  "Developer"=(
+    virtualbox
+  )
 )
 
-count=0
-for name in "${list[@]}" ; do
-	count=$((count+1))
-	tput setaf 3;echo "Installing package nr.  "$count " " "$name";tput sgr0
-	func_install "$name"
+# Install all of the packages.
+for category in "${!list[@]}"; do
+  install_category "$category"
 done
 
-###############################################################################
-
-tput setaf 11
-echo "################################################################"
+# Success message.
 echo "Software has been installed"
-echo "################################################################"
-echo
-tput sgr0
-
-###############################################################################
