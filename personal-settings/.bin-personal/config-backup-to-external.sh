@@ -10,9 +10,11 @@ DESTINATION="/run/media/brett/backup/"
 
 rsync $RSYNC_OPTS /home/brett/.bin-personal/ $DESTINATION/.bin-personal
 
-rsync $RSYNC_OPTS --exclude={Insync,autostart,facebookmessenger-nativefier-2f39e1,twitter-nativefier-a629d8,whatsapp-nativefier-d40211} /home/brett/.config/ $DESTINATION/.config
+rsync $RSYNC_OPTS --exclude={Insync,autostart,facebookmessenger-nativefier-2f39e1,netflix-nativefier-7439ed,twitter-nativefier-a629d8,whatsapp-nativefier-d40211} /home/brett/.config/ $DESTINATION/.config
 
 rsync $RSYNC_OPTS /home/brett/.local/share/applications/ $DESTINATION/.local/share/applications
+
+#rsync $RSYNC_OPTS /home/brett/.local/share/ice/ $DESTINATION/.local/share/ice
 
 rsync $RSYNC_OPTS /home/brett/.ssh/ $DESTINATION/.ssh
 
