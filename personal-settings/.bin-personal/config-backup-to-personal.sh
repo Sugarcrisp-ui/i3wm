@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define common rsync options
-RSYNC_OPTS="-r -t -p -o -g -v --progress -s --delete"
+RSYNC_OPTS="-avz --delete"
 DESTINATION="/personal/"
 
 # Directories
