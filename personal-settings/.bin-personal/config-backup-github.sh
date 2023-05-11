@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define common rsync options
-RSYNC_OPTS="-r -t -p -o -g -v --progress -s --delete"
-DESTINATION="/home/brett/Github/i3wm/personal-settings"
+RSYNC_OPTS="-avz --delete"
+DESTINATION="/home/brett/GitHub/i3wm/personal-settings"
 
 # Directories
 rsync $RSYNC_OPTS /home/brett/.bin-personal/ $DESTINATION/.bin-personal
@@ -17,7 +17,6 @@ rsync $RSYNC_OPTS /home/brett/.config/ranger/ $DESTINATION/.config/ranger
 rsync $RSYNC_OPTS /home/brett/.config/Thunar/ $DESTINATION/.config/Thunar
 rsync $RSYNC_OPTS /home/brett/.config/variety/Fetched/ $DESTINATION/.config/variety/Fetched
 rsync $RSYNC_OPTS /home/brett/.config/xfce4/ $DESTINATION/.config/xfce4
-rsync $RSYNC_OPTS /home/brett/.screenlayout/ $DESTINATION/.screenlayout
 
 # Files
 rsync $RSYNC_OPTS /home/brett/.bashrc-personal $DESTINATION/.bashrc-personal

@@ -18,7 +18,8 @@ desktop=$(echo $DESKTOP_SESSION)
 count=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
 
 # these ExecStart lines (insync, cryptomator) where added by me
-ExecStart=--no-startup-id sleep 1 && $(insync start) &
+sleep 2
+nohup insync start &
 ExecStart=--no-startup-id sleep 2 && $(/usr/bin/cryptomator) &
 
 case $desktop in

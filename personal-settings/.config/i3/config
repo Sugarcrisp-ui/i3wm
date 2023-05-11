@@ -240,7 +240,7 @@ bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # choose your font
-font pango:Noto Mono Regular 13
+font pango:Noto Mono Regular 15
 
 
 #####################################################################################################################
@@ -251,6 +251,9 @@ font pango:Noto Mono Regular 13
 
 #feh sets wallpaper
 exec --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Man-Wallpaper.jpg &
+
+# guake terminal
+exec --no-startup-id guake
 
 # TO A SPECIFIC WORKSPACE
 
@@ -315,6 +318,7 @@ exec_always --no-startup-id autotiling
 
 #Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
+#exec --no-startup-id polybar mainbar-i3
 
 #Authentication dialog
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

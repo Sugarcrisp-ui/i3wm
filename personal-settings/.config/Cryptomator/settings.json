@@ -1,4 +1,5 @@
 {
+  "writtenByVersion": "1.8.0-appimage-4440",
   "directories": [
     {
       "id": "hDzmsOqqhSfa",
@@ -6,9 +7,7 @@
       "displayName": "Vault",
       "unlockAfterStartup": true,
       "revealAfterMount": true,
-      "useCustomMountPath": false,
       "usesReadOnlyMode": false,
-      "mountFlags": "",
       "maxCleartextFilenameLength": 2147483647,
       "actionAfterUnlock": "IGNORE",
       "autoLockWhenIdle": false,
@@ -16,24 +15,23 @@
     }
   ],
   "askedForUpdateCheck": false,
-  "checkForUpdatesEnabled": true,
-  "startHidden": true,
   "autoCloseVaults": true,
-  "port": 42427,
-  "numTrayNotifications": 3,
-  "preferredGvfsScheme": "DAV",
+  "checkForUpdatesEnabled": true,
   "debugMode": false,
-  "preferredVolumeImpl": "FUSE",
-  "theme": "LIGHT",
-  "uiOrientation": "LEFT_TO_RIGHT",
+  "displayConfiguration": "displayId: 0, 1920.0x1080.0;",
   "keychainProvider": "org.cryptomator.linux.keychain.SecretServiceKeychainAccess",
-  "useKeychain": true,
   "licenseKey": "",
+  "mountService": "org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider",
+  "numTrayNotifications": 3,
+  "port": 42427,
   "showMinimizeButton": true,
   "showTrayIcon": true,
-  "windowXPosition": 0,
-  "windowYPosition": 0,
-  "windowWidth": 0,
+  "startHidden": true,
+  "theme": "LIGHT",
+  "uiOrientation": "LEFT_TO_RIGHT",
+  "useKeychain": true,
   "windowHeight": 0,
-  "displayConfiguration": "displayId: 0, 1920.0x1080.0;"
+  "windowWidth": 0,
+  "windowXPosition": 0,
+  "windowYPosition": 0
 }
