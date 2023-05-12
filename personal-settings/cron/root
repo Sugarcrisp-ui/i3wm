@@ -1,0 +1,9 @@
+# Root test
+
+# back up user settings to external drive twice daily
+#* 8,20 * * * /home/brett/.bin-personal/arcolinux-configuration-backup.sh >/dev/null 2>&1
+#
+# back up .config and .bin-personal to Google daily
+#* 8 * * * /home/brett/.bin-personal/config-cloud-backup.sh >/dev/null 2>&1
+
+

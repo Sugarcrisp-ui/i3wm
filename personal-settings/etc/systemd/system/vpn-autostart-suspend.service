@@ -1,0 +1,9 @@
+[Unit]
+Description=Run My Script After Wakeup
+After=suspend.target
+
+[Service]
+ExecStart=/usr/bin/systemctl start vpn-autostart.service
+
+[Install]
+WantedBy=suspend.target

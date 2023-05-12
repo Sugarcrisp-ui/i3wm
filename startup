@@ -44,8 +44,10 @@ done
 
 # Start needed services
 sudo systemctl enable cronie.service
-sudo systemctl enable syncthing@brett.service
+#sudo systemctl enable syncthing@brett.service
 sudo systemctl enable teamviewerd.service
+sudo systemctl enable vpn-autostart.service
+sudo systemctl enable vpn-autostart-suspend.service
 
 # Notify user that installation is complete
 tput setaf 1;

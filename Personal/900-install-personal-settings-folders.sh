@@ -78,7 +78,17 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-sudo cp -Rf ~/i3wm/arcolinux-sugar-candy/* /usr/share/sddm/themes/arcolinux-sugar-candy/
+sudo cp -Rf ~/i3wm/personal-settings/arcolinux-sugar-candy/* /usr/share/sddm/themes/arcolinux-sugar-candy/
+
+tput setaf 11;
+echo "################################################################"
+echo "Copying systemd files to /etc/systemd/system/"
+echo ""
+echo "################################################################"
+tput sgr0
+
+sudo rsync -avz --delete ~/i3wm/personal-settings/etc/systemd/system/* /etc/systemd/system/
+
 
 tput setaf 11;
 echo "################################################################"
@@ -87,12 +97,12 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-cd ~/i3wm/cron
+#cd ~/i3wm/personal-settings/cron
 
 # Change the root cron onwership to root:root
 sudo chown root:root root
 
-sudo cp -Rf ~/i3wm/cron/* /var/spool/cron/
+sudo cp -Rf ~/i3wm/personal-settings/cron/* /var/spool/cron/
 
 echo "################################################################"
 echo "#########            folders created            ################"
