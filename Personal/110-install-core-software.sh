@@ -49,6 +49,7 @@ list=(
     catfish
     clipgrab
     copyq
+    dbus-x11
     etcher-bin
     font-manager-git
     gnome-calculator
