@@ -27,3 +27,4 @@
 
 # sync personal settings for external drive into the desktop folder
 10 21 * * * if [ ! -f /tmp/.config-backup-to-external ]; then /home/brett/.bin-personal/config-backup-to-external.sh >/dev/null 2>&1; fi
+

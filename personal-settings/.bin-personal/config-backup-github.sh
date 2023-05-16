@@ -21,8 +21,11 @@ rsync $RSYNC_OPTS /usr/share/sddm/themes/arcolinux-sugar-candy/ $DESTINATION/arc
 
 
 # Files
-rsync $RSYNC_OPTS /home/brett/.bashrc-personal $DESTINATION/.bashrc-personal
-rsync $RSYNC_OPTS /home/brett/.config/i3/config $DESTINATION/.config/i3/config
-rsync $RSYNC_OPTS /home/brett/.config/variety/variety.conf $DESTINATION/.config/variety/variety.conf
-rsync $RSYNC_OPTS /etc/systemd/system/vpn-autostart.service $DESTINATION/etc/systemd/system/vpn-autostart.service
-rsync $RSYNC_OPTS /etc/systemd/system/vpn-autostart-suspend.service $DESTINATION/etc/systemd/system/vpn-autostart-suspend.service
+rsync $RSYNC_OPTS /home/brett/.bashrc-personal $DESTINATION/
+rsync $RSYNC_OPTS /home/brett/.config/i3/config $DESTINATION/
+rsync $RSYNC_OPTS /home/brett/.config/variety/variety.conf $DESTINATION/.config/variety/
+rsync $RSYNC_OPTS /etc/systemd/system/vpn-autostart.service $DESTINATION/etc/systemd/system/
+rsync $RSYNC_OPTS /etc/systemd/system/vpn-autostart-suspend.service $DESTINATION/etc/systemd/system/
+rsync $RSYNC_OPTS /etc/systemd/system/cryptomator.service $DESTINATION/etc/systemd/system/
+rsync $RSYNC_OPTS /etc/systemd/system/insync.service $DESTINATION/etc/systemd/system
+rsync $RSYNC_OPTS /etc/vconsole.conf $DESTINATION/etc/

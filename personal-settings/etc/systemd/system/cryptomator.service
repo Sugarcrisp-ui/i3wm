@@ -1,0 +1,12 @@
+[Unit]
+Description=Cryptomator
+After=network.target auditd.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/cryptomator
+Restart=always
+#StartLimitIntervalSec=10
+
+[Install]
+WantedBy=default.target

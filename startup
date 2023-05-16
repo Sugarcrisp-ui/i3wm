@@ -48,6 +48,8 @@ sudo systemctl enable cronie.service
 sudo systemctl enable teamviewerd.service
 sudo systemctl enable vpn-autostart.service
 sudo systemctl enable vpn-autostart-suspend.service
+sudo systemctl enable cryptomator.service
+sudo systemctl enable insync.service
 
 # Notify user that installation is complete
 tput setaf 1;

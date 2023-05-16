@@ -8,19 +8,12 @@
 # --log=error
 # Terminate already running bar instances
 killall -q polybar
-killall -q insync
-killall -q cryptomator
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 
 desktop=$(echo $DESKTOP_SESSION)
 count=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
-
-# these ExecStart lines (insync, cryptomator) where added by me
-sleep 2
-nohup insync start &
-ExecStart=--no-startup-id sleep 2 && $(/usr/bin/cryptomator) &
 
 case $desktop in
 

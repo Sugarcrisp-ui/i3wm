@@ -2,14 +2,15 @@
   "writtenByVersion": "1.8.0-appimage-4440",
   "directories": [
     {
-      "id": "hDzmsOqqhSfa",
-      "path": "/home/brett/Documents/cryptomator/docs",
-      "displayName": "Vault",
-      "unlockAfterStartup": true,
+      "id": "1CJnYqyxnUqE",
+      "path": "/home/brett/cryptomator/my-vault",
+      "displayName": "my-vault",
+      "unlockAfterStartup": false,
       "revealAfterMount": true,
       "usesReadOnlyMode": false,
+      "mountFlags": "",
       "maxCleartextFilenameLength": 2147483647,
-      "actionAfterUnlock": "IGNORE",
+      "actionAfterUnlock": "REVEAL",
       "autoLockWhenIdle": false,
       "autoLockIdleSeconds": 1800
     }

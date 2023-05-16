@@ -33,11 +33,10 @@ DropdownStatusIcon=FALSE
 MiscShowRelaunchDialog=TRUE
 MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
-MiscShowUnsafePasteDialog=TRUE
+MiscShowUnsafePasteDialog=FALSE
 DropdownWidth=60
 DropdownHeight=60
 DropdownAlwaysShowTabs=FALSE
-ScrollingOnOutput=FALSE
 ColorForeground=#17f018
 MiscRightClickAction=TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU
 

@@ -5,9 +5,9 @@ RSYNC_OPTS="-r -t -p -o -g -v --progress -s --delete"
 
 # Directories
 
-rsync $RSYNC_OPTS /var/spool/cron/* /home/brett/Github/i3wm/cron
+rsync $RSYNC_OPTS /var/spool/cron/* /home/brett/Github/i3wm/personal-settings/cron
 
-chown brett:brett /home/brett/Github/i3wm/cron/root
+chown brett:brett /home/brett/Github/i3wm/personal-settings/cron/root
 
 
 
