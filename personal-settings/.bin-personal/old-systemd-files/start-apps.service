@@ -1,0 +1,9 @@
+[Unit]
+Description=Start Apps at Boot
+After=i3-wm.target
+
+[Service]
+ExecStart=/bin/bash /home/brett/.bin-personal/start-apps.sh
+
+[Install]
+WantedBy=default.target

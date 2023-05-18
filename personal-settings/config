@@ -250,26 +250,8 @@ font pango:Noto Mono Regular 15
 #feh sets wallpaper
 exec --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Man-Wallpaper.jpg &
 
-# guake terminal
-exec --no-startup-id guake
-
-# TO A SPECIFIC WORKSPACE
-
-#text-editor
-#exec --no-startup-id i3-msg 'workspace 4; exec subl'
-
-#file manager
-#exec --no-startup-id i3-msg 'workspace 2; exec xfce4-terminal -e ranger'
-#exec --no-startup-id i3-msg 'workspace 2; exec nemo'
-exec --no-startup-id i3-msg 'workspace 2; exec thunar'
-
-#terminal
-exec --no-startup-id i3-msg 'workspace 3; exec xfce4-terminal'
-
-#browser
-exec --no-startup-id i3-msg 'workspace 1; exec firefox'
-#exec --no-startup-id i3-msg 'workspace 1; exec brave'
-
+# num lock activated
+exec_always --no-startup-id numlockx on
 
 # TRAY APPLICATIONS
 
@@ -289,24 +271,36 @@ exec --no-startup-id sleep 3 && $(copyq)
 exec --no-startup-id sleep 5 && $(pamac-tray)
 
 # bluetooth
-exec_always --no-startup-id sleep 6 && $(blueman-applet)
-
-# start syncthing minimized
-#exec --no-startup-id sleep 8 && $(syncthing-gtk -m) &
-
-# num lock activated
-exec_always --no-startup-id numlockx on
+#exec_always --no-startup-id sleep 6 && $(blueman-applet)
 
 # vpn connection is delayed to allow wired connection to be established first
-exec --no-startup-id sh -c "sleep 3 && /home/brett/.bin-personal/vpn-connect.sh" 
+#exec --no-startup-id sh -c "sleep 3 && /home/brett/.bin-personal/vpn-connect.sh" 
 
 # Insync
-#exec_always --no-startup-id insync start
+exec --no-startup-id insync start
 
 # Cryptomator
-#exec --no-startup-id cryptomator
-#exec --no-startup-id cryptomator --on-suspend
+exec --no-startup-id cryptomator
 
+# Open to Specific Workspace
+
+# Switch to workspace 2 and start Thunar
+exec --no-startup-id thunar
+
+# Switch to workspace 3 and start Xfce4-terminal
+exec --no-startup-id xfce4-terminal
+
+# Switch to workspace 4 and start Messenger
+exec --no-startup-id /home/brett/FacebookMessenger-linux-x64/FacebookMessenger
+
+# Switch to workspace 4 and start Whatsapp
+exec --no-startup-id /home/brett/Whatsapp-linux-x64/Whatsapp"
+
+# Switch to workspace 5 and start Google Chrome
+exec --no-startup-id google-chrome-stable
+
+# Switch to workspace 1 and start Firefox
+exec --no-startup-id firefox
 
 #####################################################################################################################
 #################                                 system applications                               #################
@@ -320,7 +314,6 @@ exec_always --no-startup-id autotiling
 
 #Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
-#exec --no-startup-id polybar mainbar-i3
 
 #Authentication dialog
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -661,3 +654,4 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 #####################################################################################################################
 #####################################################################################################################
 #####################################################################################################################
+

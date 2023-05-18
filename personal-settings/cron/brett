@@ -28,3 +28,10 @@
 # sync personal settings for external drive into the desktop folder
 10 21 * * * if [ ! -f /tmp/.config-backup-to-external ]; then /home/brett/.bin-personal/config-backup-to-external.sh >/dev/null 2>&1; fi
 
+# insync startup
+#@reboot /bin/bash /home/brett/.bin-personal/insync-startup.sh >/dev/null 2>&1
+#*/1 * * * * /bin/bash /home/brett/.bin-personal/insync-startup.sh
+
+# cryptomator starup
+#@reboot /bin/bash /home/brett/.bin-personal/cryptomator-startup.sh >/dev/null 2>&1
+

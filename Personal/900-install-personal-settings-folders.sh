@@ -87,6 +87,8 @@ echo ""
 echo "################################################################"
 tput sgr0
 
+sudo chown -R root:root ~/i3wm/personal-settings/etc/
+
 sudo rsync -avz --delete ~/i3wm/personal-settings/etc/systemd/system/* /etc/systemd/system/
 
 tput setaf 11;
@@ -98,6 +100,16 @@ tput sgr0
 
 # This makes the font size bigger in tty
 sudo rsync -avz --delete ~/i3wm/personal-settings/etc/vconsole.conf /etc/
+
+tput setaf 11;
+echo "################################################################"
+echo "Copying systemd files to /etc/systemd/system/"
+echo ""
+echo "################################################################"
+tput sgr0
+
+# This makes restores my rc.local settings
+sudo rsync -avz --delete ~/i3wm/personal-settings/etc/rc.local /etc/
 
 tput setaf 11;
 echo "################################################################"

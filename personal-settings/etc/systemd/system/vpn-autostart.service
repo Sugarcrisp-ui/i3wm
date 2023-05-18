@@ -6,7 +6,7 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
-ExecStartPre=/bin/sleep 15
+ExecStartPre=/bin/sleep 40
 ExecStart=/home/brett/.bin-personal/connect-to-vpn.sh
 
 [Install]
