@@ -513,9 +513,6 @@ animation-charging-4 = 
 animation-charging-foreground = #a3c725
 animation-charging-framerate = 750
 
-exec-if = [ $(hostname) = "brett-k501ux" ] && [ $percentage -le 25 ] && notify-send "Battery low" "Battery is at $percentage%"
-
-
 ################################################################################
 
 [module/cpu1]
