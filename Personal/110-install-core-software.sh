@@ -30,7 +30,7 @@ function install_category() {
 
 # List of packages to install.
 list=(
-  "Core Software"=(
+#  "Core Software"=
     chromium
     ffmpeg
     losslesscut-bin
@@ -39,20 +39,20 @@ list=(
     simplescreenrecorder
     spotify
     vlc
-  )
-  "Multimedia"=(
+
+#  "Multimedia"=
     celluloid
     qtwebflix-git
-  )
-  "Utilities"=(
+
+#  "Utilities"=
     bitwarden
     catfish
     clipgrab
     copyq
-    dbus-x11
     etcher-bin
     font-manager-git
     gnome-calculator
+    gnome-disk-utility
     gpick
     insync
     inxi
@@ -78,23 +78,23 @@ list=(
     xfce4-taskmanager
     xfce4-terminal
     zip
-  )
-  "Documents and Text"=(
+
+#  "Documents and Text"=
     libreoffice-still
     micro
     sublime-text-4
     xournalpp
     xreader
-  )
-  "Communication"=(
+
+#  "Communication"=
     arcolinux-teamviewer
     discord
     signal-desktop
-  )
-  "Others"=(
+
+#  "Others"=
     aic94xx-firmware
     flatpak
-    grub-btrfs
+#    grub-btrfs
     pamac
     paprefs
     paru-bin
@@ -103,10 +103,9 @@ list=(
     ttf-font-awesome
     upd72020x-fw
     wd719x-firmware
-  )
-  "Developer"=(
+
+#  "Developer"=
     virtualbox
-  )
 )
 
 # Install all of the packages.
