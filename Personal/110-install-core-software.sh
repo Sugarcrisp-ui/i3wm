@@ -32,6 +32,7 @@ function install_category() {
 list=(
 #  "Core Software"=
     chromium
+    google-chrome
     ffmpeg
     losslesscut-bin
     openshot
