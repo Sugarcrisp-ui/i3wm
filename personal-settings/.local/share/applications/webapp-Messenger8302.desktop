@@ -1,0 +1,19 @@
+[Desktop Entry]
+Version=1.0
+Name=Messenger
+Comment=Web App
+Exec=sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/brett/Pictures/messenger-icon.png" firefox --class WebApp-Messenger8302 --profile /home/brett/.local/share/ice/firefox/Messenger8302 --no-remote "https://www.facebook.com/messages/t"'
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/home/brett/Pictures/messenger-icon.png
+Categories=GTK;WebApps;
+MimeType=text/html;text/xml;application/xhtml_xml;
+StartupWMClass=WebApp-Messenger8302
+StartupNotify=true
+X-WebApp-Browser=Firefox
+X-WebApp-URL=https://www.facebook.com/messages/t
+X-WebApp-CustomParameters=
+X-WebApp-Navbar=false
+X-WebApp-PrivateWindow=false
+X-WebApp-Isolated=true

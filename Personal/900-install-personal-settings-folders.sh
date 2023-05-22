@@ -62,14 +62,21 @@ cp -Rf ~/i3wm/personal-settings/.config ~
 
 tput setaf 11;
 echo "################################################################"
+echo "Copying .local/share/applications/webapp files"
+echo ""
+echo "################################################################"
+tput sgr0
+
+cp -Rf ~/i3wm/personal-settings/.local ~
+
+tput setaf 11;
+echo "################################################################"
 echo "Copying .bashrc-personal"
 echo ""
 echo "################################################################"
 tput sgr0
 
 cp ~/i3wm/personal-settings/.bashrc-personal ~
-#cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/desktop/.bashrc-personal ~
-#cp -Rf /run/media/brett/7836d530-f67e-4d6b-a1ee-65e980d6dd45/laptop/.bashrc-personal ~
 
 tput setaf 11;
 echo "################################################################"

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Define common rsync options
 RSYNC_OPTS="-avz"
 DESTINATION="/home/brett/Github/i3wm/personal-settings"
@@ -29,3 +31,5 @@ rsync $RSYNC_OPTS /etc/systemd/system/vpn-autostart-suspend.service $DESTINATION
 rsync $RSYNC_OPTS /etc/vconsole.conf $DESTINATION/etc/
 rsync $RSYNC_OPTS /etc/rc.local $DESTINATION/etc/
 rsync $RSYNC_OPTS /usr/share/gvfs/mounts/network.mount $DESTINATION/usr/share/gvfs/mounts/
+rsync $RSYNC_OPTS --include='webapp*' --exclude='*' ~/.local/share/applications/ $DESTINATION/.local/share/applications/
+
