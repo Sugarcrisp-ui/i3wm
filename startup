@@ -46,6 +46,7 @@ sudo systemctl enable cronie.service
 sudo systemctl enable teamviewerd.service
 sudo systemctl enable vpn-autostart.service
 sudo systemctl enable vpn-autostart-suspend.service
+sudo mkinitcpio -P 
 
 # Change defualt filer manager for Cryptomator
 xdg-mime defualt thunar.desktop inode/directory

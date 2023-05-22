@@ -32,4 +32,4 @@ rsync $RSYNC_OPTS /etc/vconsole.conf $DESTINATION/etc/
 rsync $RSYNC_OPTS /etc/rc.local $DESTINATION/etc/
 rsync $RSYNC_OPTS /usr/share/gvfs/mounts/network.mount $DESTINATION/usr/share/gvfs/mounts/
 rsync $RSYNC_OPTS --include='webapp*' --exclude='*' ~/.local/share/applications/ $DESTINATION/.local/share/applications/
-
+rsync $RSYNC_OPTS /etc/mkinitcpio.conf $DESTINATION/etc/

@@ -1,12 +1,10 @@
 [Unit]
-Description=Run My Script After Wakeup
-After=network.target suspend.target
-Requires=network-online.target
-Wants=network-online.target
+Description=My VPN Connection
+After=network.target
 
 [Service]
 Type=oneshot
-ExecStartPre=/bin/sleep 40
+ExecStartPre=sleep 15
 ExecStart=/home/brett/.bin-personal/connect-to-vpn.sh
 
 [Install]
