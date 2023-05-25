@@ -43,7 +43,6 @@ list=(
 
 #  "Multimedia"=
     celluloid
-    qtwebflix-git
 
 #  "Utilities"=
     bitwarden
@@ -64,6 +63,8 @@ list=(
     qt5-quickcontrols2
     qt5-svg
     qt6ct
+    realvnc-vnc-server
+    realvnc-vnc-viewer
     rofi
     seahorse
     sshfs
