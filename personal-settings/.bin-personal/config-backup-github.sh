@@ -19,6 +19,7 @@ rsync $RSYNC_OPTS /home/brett/.config/ranger/ $DESTINATION/.config/ranger
 rsync $RSYNC_OPTS /home/brett/.config/Thunar/ $DESTINATION/.config/Thunar
 rsync $RSYNC_OPTS /home/brett/.config/variety/Fetched/ $DESTINATION/.config/variety/Fetched
 rsync $RSYNC_OPTS /home/brett/.config/xfce4/ $DESTINATION/.config/xfce4
+rsync $RSYNC_OPTS /home/brett/.local/share/ice/firefox/ $DESTINATION/.local/share/ice/firefox
 rsync $RSYNC_OPTS /usr/share/sddm/themes/arcolinux-sugar-candy/ $DESTINATION/arcolinux-sugar-candy
 
 

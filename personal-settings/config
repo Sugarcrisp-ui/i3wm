@@ -289,7 +289,8 @@ exec --no-startup-id sleep 3 && $(copyq)
 exec --no-startup-id sleep 5 && $(pamac-tray)
 
 # bluetooth
-exec_always --no-startup-id sleep 6 && $(blueman-applet)
+#exec_always --no-startup-id sleep 6 && $(blueman-applet)
+exec_always --no-startup-id sleep 6 && blueberry-tray
 
 # start syncthing minimized
 #exec --no-startup-id sleep 8 && $(syncthing-gtk -m) &
@@ -301,10 +302,10 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id sh -c "sleep 3 && /home/brett/.bin-personal/vpn-connect.sh" 
 
 # Insync
-#exec_always --no-startup-id insync start
+exec_always --no-startup-id insync start
 
 # Cryptomator
-#exec --no-startup-id cryptomator
+exec --no-startup-id cryptomator
 #exec --no-startup-id cryptomator --on-suspend
 
 
