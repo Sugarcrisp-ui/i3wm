@@ -31,8 +31,6 @@ margin-top = 0
 ; just care about the last one. But if we wait too long for events to swallow
 ; the bar would appear sluggish so we continue if timeout
 ; expires or limit is reached.
-throttle-output = 5
-throttle-output-for = 10
 
 ; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
 screenchange-reload = true
@@ -50,10 +48,10 @@ format-foreground = #FF0000
 format-background = #00FF00
 format-underline =
 format-overline =
-format-spacing =
-format-padding =
-format-margin =
-format-offset =
+format-spacing = 2
+format-padding = 1.5
+format-margin = 0.5
+format-offset = 0.2
 
 [colors]
 ; Nord theme ============
@@ -147,8 +145,8 @@ separator = |
 ;dim-value = 1.0
 
 tray-detached = false
-tray-offset-x = 0 ;moves tray horizontal
-tray-offset-y = 0 ;moves tray vertical
+tray-offset-x = 0% ;moves tray horizontal
+tray-offset-y = 0% ;moves tray vertical
 tray-padding = 10 ;space between icons
 tray-maxsize = 22
 tray-scale = 1.0
@@ -980,7 +978,8 @@ format-prefix-foreground = #FFBB00
 
 [module/release]
 type = custom/script
-exec = (lsb_release -d | awk {'print $2'} ;echo " "; lsb_release -r | awk {'print $2'}) | tr -d '\n'
+#exec = (lsb_release -d | awk {'print $2'} ;echo " "; lsb_release -r | awk {'print $2'}) | tr -d '\n'
+exec = \(lsb_release -d | awk {'print $2'} ;echo " "; lsb_release -r | awk {'print $2'}\) | tr -d '\\n'
 interval = 6000
 
 format-foreground = ${colors.foreground}

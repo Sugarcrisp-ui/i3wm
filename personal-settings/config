@@ -106,7 +106,7 @@ bindsym mod1+d exec --no-startup-id xfce4-appfinder
 
 # start rofi full
 bindsym $mod+d exec rofi -show drun -font "Noto Sans 13"
-
+#bindsym $mod+d exec --no-startup-id dmenu_run -c -l 20
 
 #####################################################################################################################
 #################                          how to exit, logoff, suspend, ...                        #################
@@ -250,8 +250,7 @@ font pango:Noto Mono Regular 15
 #feh sets wallpaper
 exec --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Man-Wallpaper.jpg &
 
-# guake terminal
-exec --no-startup-id guake
+#exec --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/vy.png &
 
 # TO A SPECIFIC WORKSPACE
 
@@ -259,16 +258,13 @@ exec --no-startup-id guake
 #exec --no-startup-id i3-msg 'workspace 4; exec subl'
 
 #file manager
-#exec --no-startup-id i3-msg 'workspace 2; exec xfce4-terminal -e ranger'
-#exec --no-startup-id i3-msg 'workspace 2; exec nemo'
-exec --no-startup-id i3-msg 'workspace 2; exec thunar'
+#exec --no-startup-id i3-msg 'workspace 2; exec thunar'
 
 #terminal
-exec --no-startup-id i3-msg 'workspace 3; exec xfce4-terminal'
+#exec --no-startup-id i3-msg 'workspace 3; exec xfce4-terminal'
 
 #browser
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
-#exec --no-startup-id i3-msg 'workspace 1; exec brave'
 
 
 # TRAY APPLICATIONS
@@ -308,6 +304,8 @@ exec_always --no-startup-id insync start
 exec --no-startup-id cryptomator
 #exec --no-startup-id cryptomator --on-suspend
 
+# ProtonVPN
+exec --no-startup-id protonvpn
 
 #####################################################################################################################
 #################                                 system applications                               #################
