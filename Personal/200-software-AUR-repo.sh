@@ -56,10 +56,8 @@ gnome-disk-utility
 grub-hook
 #ice
 insync-thunar
-realvnc-vnc-server
-realvnc-vnc-viewer
 rtl8821au-dkms-git
-syncthing-gtk-python3
+#syncthing-gtk-python3
 #ttf-vista-fonts
 
 )

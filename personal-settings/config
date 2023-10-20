@@ -294,18 +294,15 @@ exec_always --no-startup-id sleep 6 && blueberry-tray
 # num lock activated
 exec_always --no-startup-id numlockx on
 
-# vpn connection is delayed to allow wired connection to be established first
-exec --no-startup-id sh -c "sleep 3 && /home/brett/.bin-personal/vpn-connect.sh" 
-
-# Insync
-exec_always --no-startup-id insync start
+# Insync (currently handled in launch.sh)
+#exec_always --no-startup-id insync start
 
 # Cryptomator
 exec --no-startup-id cryptomator
 #exec --no-startup-id cryptomator --on-suspend
 
-# ProtonVPN
-exec --no-startup-id protonvpn
+# VNC Server
+exec --no-startup-id vncserver-x11
 
 #####################################################################################################################
 #################                                 system applications                               #################

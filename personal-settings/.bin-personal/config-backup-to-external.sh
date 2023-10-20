@@ -14,7 +14,7 @@ rsync $RSYNC_OPTS /home/brett/.local/share/Cryptomator/mnt/docs/ $DESTINATION/cr
 
 rsync $RSYNC_OPTS /home/brett/Documents/cryptomator/docs/ $DESTINATION/cryptomator-config/docs
 
-rsync $RSYNC_OPTS --exclude={Insync,autostart,facebookmessenger-nativefier-2f39e1,twitter-nativefier-a629d8,whatsapp-nativefier-d40211,google-chrome*} /home/brett/.config/ $DESTINATION/.config
+rsync $RSYNC_OPTS --exclude={Insync,autostart,google-chrome*} /home/brett/.config/ $DESTINATION/.config
 
 rsync $RSYNC_OPTS /home/brett/.local/share/applications/ $DESTINATION/.local/share/applications
 

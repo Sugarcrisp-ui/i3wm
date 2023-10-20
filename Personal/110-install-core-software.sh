@@ -30,19 +30,18 @@ function install_category() {
 
 # List of packages to install.
 list=(
-#  "Core Software"=
+#  "Web Browsers"=
     chromium
-    google-chrome
-    ffmpeg
-    losslesscut-bin
-    openshot
-    qbittorrent
-    simplescreenrecorder
-    spotify
-    vlc
+    google-chrome     
 
 #  "Multimedia"=
     celluloid
+    ffmpeg
+    losslesscut-bin
+    openshot
+    simplescreenrecorder
+    spotify
+    vlc
 
 #  "Utilities"=
     bitwarden
@@ -59,6 +58,7 @@ list=(
     meld
     most
     nodejs-nativefier
+    qbittorrent
     qt5-graphicaleffects
     qt5-quickcontrols2
     qt5-svg
@@ -91,7 +91,7 @@ list=(
 
 #  "Communication"=
     arcolinux-teamviewer
-    discord
+#    discord
     signal-desktop
 
 #  "Others"=
