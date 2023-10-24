@@ -301,9 +301,6 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id cryptomator
 #exec --no-startup-id cryptomator --on-suspend
 
-# VNC Server
-exec --no-startup-id vncserver-x11
-
 #####################################################################################################################
 #################                                 system applications                               #################
 #####################################################################################################################

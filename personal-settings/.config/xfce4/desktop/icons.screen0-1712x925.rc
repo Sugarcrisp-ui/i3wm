@@ -1,6 +1,14 @@
 [xfdesktop-version-4.10.3+-rcfile_format]
 4.10.3+=true
 
+[/home/brett/Desktop/brave-agimnkijcaahngcdmfeangaknmldooml-Default.desktop]
+row=6
+col=0
+
+[/home/brett/Desktop/chrome-hpfldicfbfomlpcikngkocigghgafkph-Default.desktop]
+row=7
+col=0
+
 [/home/brett/Desktop/realvnc-vncviewer.desktop]
 row=5
 col=0
@@ -9,13 +17,21 @@ col=0
 row=3
 col=0
 
-[/home/brett/Desktop/tslachart.desktop]
+[/home/brett/Desktop/chrome-efmjfjelnicpmdcmfikempdhlmainjcb-Profile_1.desktop]
+row=2
+col=1
+
+[/home/brett/Desktop/brave-efmjfjelnicpmdcmfikempdhlmainjcb-Default.desktop]
 row=4
 col=0
 
 [/home/brett/Desktop/arco-i3]
 row=1
 col=0
+
+[/home/brett/Desktop/i3wm-old]
+row=0
+col=1
 
 [/home/brett/Desktop/Trader Workstation.desktop]
 row=0
@@ -24,4 +40,8 @@ col=0
 [/home/brett/Desktop/arco-i3-brett]
 row=2
 col=0
+
+[/home/brett/Desktop/Old Firefox Data]
+row=1
+col=1
 
