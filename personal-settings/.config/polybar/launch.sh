@@ -9,7 +9,10 @@
 # Terminate already running bar instances
 killall -q polybar
 
-killall -q insync
+# Terminate InSync if it's running gracefully
+pkill -INT insync
+
+# Relaunch InSync
 ExecStart=--no-startup-id insync start &
 
 # Wait until the processes have been shut down
