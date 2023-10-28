@@ -8,6 +8,20 @@ set -e
 # Author 	: 	Brett Crisp
 ##################################################################################################################
 
+# Change the number of parallel downloads to 20
+echo
+echo "Pacman parallel downloads if needed - Arcolinux"
+FIND="ParalleDownloads = 8"
+REPLACE="ParalleDownloads = 20"
+sudo sed -i "s/$FIND/$REPLACE/g" /etc/pacman.conf
+
+echo
+echo "Pacman parallel downloads if needed - Arch Linux"
+FIND="ParalleDownloads = 8"
+REPLACE="ParalleDownloads = 20"
+sudo sed -i "s/$FIND/$REPLACE/g" /etc/pacman.conf
+
+
 # Update the package lists
 sudo pacman -Syyu --noconfirm
 
