@@ -17,7 +17,7 @@ sudo sed -i "s/$FIND/$REPLACE/g" /etc/pacman.conf
 
 echo
 echo "Pacman parallel downloads if needed - Arch Linux"
-FIND="ParalleDownloads = 5"
+FIND="#ParalleDownloads = 5"
 REPLACE="ParalleDownloads = 20"
 sudo sed -i "s/$FIND/$REPLACE/g" /etc/pacman.conf
 
