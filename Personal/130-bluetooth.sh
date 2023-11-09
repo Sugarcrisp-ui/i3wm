@@ -36,7 +36,7 @@ func_install() {
 ###############################################################################
 
 list=(
-    pulseaudio-bluetooth
+    #pulseaudio-bluetooth
     bluez
     bluez-libs
     bluez-utils

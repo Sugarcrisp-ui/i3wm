@@ -36,9 +36,15 @@ echo "Installation of sound software"
 ###############################################################################
 
 list=(
-pulseaudio
-pulseaudio-alsa
+#pulseaudio
+#pulseaudio-alsa
 pavucontrol
+pipewire
+libpipewire
+pipewire-alsa
+pipewire-audio
+pipewre-media-session
+pipewire-pulse
 #alsa-firmware
 alsa-lib
 alsa-plugins

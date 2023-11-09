@@ -10,10 +10,10 @@
 killall -q polybar
 
 # Terminate InSync if it's running gracefully
-pkill -INT insync
+#pkill -INT insync
 
 # Relaunch InSync
-ExecStart=--no-startup-id insync start &
+#ExecStart=--no-startup-id insync start &
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
