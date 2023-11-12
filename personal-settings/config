@@ -99,8 +99,9 @@ bindsym $mod+a focus parent
 
 # Autostart
 #exec --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Man-Wallpaper.jpg &
-exec --no-startup-id i3-msg 'workspace 1; exec firefox'
-#exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
+#exec --no-startup-id i3-msg 'workspace 1; exec firefox'
+#exec --no-startup-id i3-msg 'workspace 1; exec chromium'
+exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
 #exec --no-startup-id sleep 1 && $(volumeicon)
 exec --no-startup-id sleep 2 && $(nm-applet)
 exec --no-startup-id sleep 3 && $(copyq)
@@ -114,22 +115,23 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+exec --no-startup-id i3-msg border toggle
 
 # Betterlockscreen
 # lock and suspend
 #bindsym Ctrl+mod1+l exec --no-startup-id betterlockscreen -s
-# lock
-# lock
+
+# lock only
 bindsym Ctrl+mod1+l exec --no-startup-id betterlockscreen -l
 
 # Application Keyboard Shortcuts
 bindsym Ctrl+Mod1+e exec --no-startup-id archlinux-tweak-tool
 bindsym Ctrl+space exec --no-startup-id catfish;focus
-bindsym $mod+c exec --no-startup-id conky-toggle
-bindsym Ctrl+mod1+Next exec --no-startup-id conky-rotate -n
-bindsym Ctrl+mod1+Prior exec --no-startup-id conky-rotate -p
+#bindsym $mod+c exec --no-startup-id conky-toggle
+#bindsym Ctrl+mod1+Next exec --no-startup-id conky-rotate -n
+#bindsym Ctrl+mod1+Prior exec --no-startup-id conky-rotate -p
 bindsym $mod+F5 exec --no-startup-id meld
-bindsym Ctrl+mod1+u exec --no-startup-id pavucontrol
+bindsym Ctrl+mod1+v exec --no-startup-id pavucontrol
 bindsym Ctrl+mod1+p exec --no-startup-id pamac-manager
 bindsym $mod+Return exec --no-startup-id xfce4-terminal;focus
 bindsym Ctrl+mod1+r exec --no-startup-id rofi-theme-selector
@@ -148,14 +150,14 @@ bindsym Ctrl+Shift+p exec --no-startup-id xfce4-screenshooter
 # Add more application keyboard shortcuts here
 
 # Variety Wallpaper Control
-bindsym mod1+t exec --no-startup-id variety -t
-bindsym mod1+n exec --no-startup-id variety -n
-bindsym mod1+Right exec --no-startup-id variety -n
-bindsym mod1+p exec --no-startup-id variety -p
-bindsym mod1+Left exec --no-startup-id variety -p
-bindsym mod1+f exec --no-startup-id variety -f
-bindsym mod1+Up exec --no-startup-id variety --pause
-bindsym mod1+Down exec --no-startup-id variety --resume
+#bindsym mod1+t exec --no-startup-id variety -t
+#bindsym mod1+n exec --no-startup-id variety -n
+#bindsym mod1+Right exec --no-startup-id variety -n
+#bindsym mod1+p exec --no-startup-id variety -p
+#bindsym mod1+Left exec --no-startup-id variety -p
+#bindsym mod1+f exec --no-startup-id variety -f
+#bindsym mod1+Up exec --no-startup-id variety --pause
+#bindsym mod1+Down exec --no-startup-id variety --resume
 
 # Audio Control
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
