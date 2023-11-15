@@ -1,0 +1,19 @@
+[Desktop Entry]
+Version=1.0
+Name=Bitwarden
+Comment=Web App
+Exec=google-chrome-stable --app="https://vault.bitwarden.com/#/login" --class=WebApp-Bitwarden1660 --user-data-dir=/home/brett/.local/share/ice/profiles/Bitwarden1660
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=bitwarden
+Categories=GTK;WebApps;
+MimeType=text/html;text/xml;application/xhtml_xml;
+StartupWMClass=WebApp-Bitwarden1660
+StartupNotify=true
+X-WebApp-Browser=Chrome
+X-WebApp-URL=https://vault.bitwarden.com/#/login
+X-WebApp-CustomParameters=
+X-WebApp-Navbar=false
+X-WebApp-PrivateWindow=false
+X-WebApp-Isolated=true

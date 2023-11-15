@@ -1,0 +1,19 @@
+[Desktop Entry]
+Version=1.0
+Name=ChatGPT
+Comment=Web App
+Exec=google-chrome-stable --app="https://auth0.openai.com/u/login/identifier?state=hKFo2SBrclZ4WUJkQnhlZExKYS1zbjkwSDRlNi1ITThWM1lfdKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDNWOUJWeTZETjVkMmFkYXNmVkZzcmlBLVRzVWdNNWdRo2NpZNkgVGRKSWNiZTE2V29USHROOTVueXl3aDVFNHlPbzZJdEc" --class=WebApp-ChatGPT3227 --user-data-dir=/home/brett/.local/share/ice/profiles/ChatGPT3227
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/home/brett/Pictures/ChatGPT_logo.svg
+Categories=GTK;WebApps;
+MimeType=text/html;text/xml;application/xhtml_xml;
+StartupWMClass=WebApp-ChatGPT3227
+StartupNotify=true
+X-WebApp-Browser=Chrome
+X-WebApp-URL=https://auth0.openai.com/u/login/identifier?state=hKFo2SBrclZ4WUJkQnhlZExKYS1zbjkwSDRlNi1ITThWM1lfdKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDNWOUJWeTZETjVkMmFkYXNmVkZzcmlBLVRzVWdNNWdRo2NpZNkgVGRKSWNiZTE2V29USHROOTVueXl3aDVFNHlPbzZJdEc
+X-WebApp-CustomParameters=
+X-WebApp-Navbar=false
+X-WebApp-PrivateWindow=false
+X-WebApp-Isolated=true

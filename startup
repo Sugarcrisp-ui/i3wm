@@ -2,7 +2,7 @@
 # The set command is used to determine action if error
 # is encountered.  (-e) will stop and exit (+e) will
 # continue with the script.
-set -e
+#set -e
 
 ##################################################################################################################
 # Author 	: 	Brett Crisp
@@ -62,8 +62,8 @@ sudo systemctl enable vpn-autostart.service
 sudo systemctl enable vpn-autostart-suspend.service
 sudo mkinitcpio -P 
 
-# Change defualt filer manager for Cryptomator
-xdg-mime defualt thunar.desktop inode/directory
+# Change default filer manager for Cryptomator
+xdg-mime default thunar.desktop inode/directory
 
 # Notify user that installation is complete
 tput setaf 1;

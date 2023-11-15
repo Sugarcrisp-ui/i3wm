@@ -1,0 +1,32 @@
+2023/11/15-16:18:33.320 10c4ba Reusing MANIFEST /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/11/15-16:18:33.320 10c4ba Recovering log #52
+2023/11/15-16:18:33.367 10c4ba Reusing old log /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000052.log 
+2023/11/15-16:18:34.285 10c4ba Level-0 table #57: started
+2023/11/15-16:18:34.352 10c4ba Level-0 table #57: 680266 bytes OK
+2023/11/15-16:18:34.389 10c4ba Delete type=0 #52
+2023/11/15-16:18:34.390 10c4b7 Manual compaction at level-0 from '\x00\x17\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x18\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/11/15-16:18:35.112 10c4b8 Compacting 1@1 + 2@2 files
+2023/11/15-16:18:35.203 10c4b8 Generated table #58@1: 37930 keys, 2170957 bytes
+2023/11/15-16:18:35.203 10c4b8 Compacted 1@1 + 2@2 files => 2170957 bytes
+2023/11/15-16:18:35.239 10c4b8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2023/11/15-16:18:35.239 10c4b8 Delete type=2 #51
+2023/11/15-16:18:35.239 10c4b8 Delete type=2 #57
+2023/11/15-16:18:35.239 10c4b8 Delete type=2 #54
+2023/11/15-16:18:37.035 10c4b8 Level-0 table #60: started
+2023/11/15-16:18:37.505 10c4b8 Level-0 table #60: 984596 bytes OK
+2023/11/15-16:18:37.844 10c4b8 Delete type=0 #56
+2023/11/15-16:18:37.969 10c4b8 Level-0 table #62: started
+2023/11/15-16:18:38.040 10c4b8 Level-0 table #62: 979114 bytes OK
+2023/11/15-16:18:38.082 10c4b8 Delete type=0 #59
+2023/11/15-16:18:47.538 10c4b8 Compacting 1@0 + 1@1 files
+2023/11/15-16:18:47.814 10c4b8 Generated table #63@0: 18197 keys, 974016 bytes
+2023/11/15-16:18:47.814 10c4b8 Compacted 1@0 + 1@1 files => 974016 bytes
+2023/11/15-16:18:48.013 10c4b8 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/11/15-16:18:48.013 10c4b8 Delete type=2 #62
+2023/11/15-16:18:48.013 10c4b8 Delete type=2 #60
+2023/11/15-16:19:36.821 10c4ba Compacting 1@1 + 1@2 files
+2023/11/15-16:19:36.928 10c4ba Generated table #64@1: 38895 keys, 2204731 bytes
+2023/11/15-16:19:36.928 10c4ba Compacted 1@1 + 1@2 files => 2204731 bytes
+2023/11/15-16:19:36.960 10c4ba compacted to: files[ 0 0 1 0 0 0 0 ]
+2023/11/15-16:19:36.961 10c4ba Delete type=2 #58
+2023/11/15-16:19:36.961 10c4ba Delete type=2 #63

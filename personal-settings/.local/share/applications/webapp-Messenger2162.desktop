@@ -1,0 +1,19 @@
+[Desktop Entry]
+Version=1.0
+Name=Messenger
+Comment=Web App
+Exec=google-chrome-stable --app="https://www.facebook.com/messages/t/5982819268494019/" --class=WebApp-Messenger2162 --user-data-dir=/home/brett/.local/share/ice/profiles/Messenger2162
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/home/brett/Pictures/messenger-icon.svg
+Categories=GTK;WebApps;
+MimeType=text/html;text/xml;application/xhtml_xml;
+StartupWMClass=WebApp-Messenger2162
+StartupNotify=true
+X-WebApp-Browser=Chrome
+X-WebApp-URL=https://www.facebook.com/messages/t/5982819268494019/
+X-WebApp-CustomParameters=
+X-WebApp-Navbar=false
+X-WebApp-PrivateWindow=false
+X-WebApp-Isolated=true
