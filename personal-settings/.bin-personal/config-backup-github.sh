@@ -18,7 +18,8 @@ rsync $RSYNC_OPTS /home/brett/.config/polybar/ $DESTINATION/.config/polybar > /h
 rsync $RSYNC_OPTS /home/brett/.config/Thunar/ $DESTINATION/.config/Thunar > /home/brett/my-rsync-log-files/github/github.Thunar.log 2>&1 || echo "Error: rsync failed for Thunar"
 rsync $RSYNC_OPTS /home/brett/.config/variety/Fetched/ $DESTINATION/.config/variety/Fetched > /home/brett/my-rsync-log-files/github/github.variety.log 2>&1 || echo "Error: rsync failed for variety"
 rsync $RSYNC_OPTS /home/brett/.config/xfce4/ $DESTINATION/.config/xfce4 > /home/brett/my-rsync-log-files/github/github.xfce4.log 2>&1 || echo "Error: rsync failed for xfce4"
-rsync $RSYNC_OPTS /home/brett/.local/share/ice/ $DESTINATION/.local
+rsync $RSYNC_OPTS /home/brett/.local/share/ice/firefox/ $DESTINATION/.local/firefox/
+rsync $RSYNC_OPTS /home/brett/.local/share/ice/profiles/ $DESTINATION/.local/profiles/
 rsync $RSYNC_OPTS /home/brett/bashrc-personal/ $DESTINATION > /home/brett/my-rsync-log-files/bashrc-personal.log 2>&1 || echo "Error: rsync failed for bashrc-personal"
 rsync $RSYNC_OPTS /usr/share/sddm/themes/arcolinux-sugar-candy/ $DESTINATION/arcolinux-sugar-candy > /home/brett/my-rsync-log-files/github/github.arcolinux-sugar-candy.log 2>&1 || echo "Error: rsync failed for arcolinux-sugar-candy"
 
