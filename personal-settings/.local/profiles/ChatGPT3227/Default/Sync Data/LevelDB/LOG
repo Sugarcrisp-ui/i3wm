@@ -1,2 +1,3 @@
-2023/11/15-16:01:50.600 109535 Creating DB /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Sync Data/LevelDB since it was missing.
-2023/11/15-16:01:51.176 109535 Reusing MANIFEST /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Sync Data/LevelDB/MANIFEST-000001
+2023/11/17-13:31:03.810 284236 Reusing MANIFEST /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Sync Data/LevelDB/MANIFEST-000001
+2023/11/17-13:31:03.811 284236 Recovering log #3
+2023/11/17-13:31:03.816 284236 Reusing old log /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Sync Data/LevelDB/000003.log 

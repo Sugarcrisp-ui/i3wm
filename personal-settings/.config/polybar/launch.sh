@@ -9,12 +9,6 @@
 # Terminate already running bar instances
 killall -q polybar
 
-# Terminate InSync if it's running gracefully
-#pkill -INT insync
-
-# Relaunch InSync
-#ExecStart=--no-startup-id insync start &
-
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 
@@ -31,14 +25,5 @@ case $desktop in
     else
     polybar --reload mainbar-i3 -c ~/.config/polybar/config.ini &
     fi
-    # second polybar at bottom
-    # if type "xrandr" > /dev/null; then
-    #   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    #     MONITOR=$m polybar --reload mainbar-i3-extra -c ~/.config/polybar/config &
-    #   done
-    # else
-    # polybar --reload mainbar-i3-extra -c ~/.config/polybar/config &
-    # fi
-    ;;
-
+    
   esac

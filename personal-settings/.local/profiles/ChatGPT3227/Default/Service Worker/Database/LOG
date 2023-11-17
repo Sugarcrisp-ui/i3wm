@@ -1,2 +1,3 @@
-2023/11/15-16:02:08.748 109527 Creating DB /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Service Worker/Database since it was missing.
-2023/11/15-16:02:09.183 109527 Reusing MANIFEST /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Service Worker/Database/MANIFEST-000001
+2023/11/17-13:31:03.954 284219 Reusing MANIFEST /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Service Worker/Database/MANIFEST-000001
+2023/11/17-13:31:03.954 284219 Recovering log #3
+2023/11/17-13:31:03.971 284219 Reusing old log /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Service Worker/Database/000003.log 

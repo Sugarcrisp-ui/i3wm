@@ -1,2 +1,3 @@
-2023/11/15-16:14:32.171 10b679 Creating DB /home/brett/.local/share/ice/profiles/Netflix5934/Default/Service Worker/Database since it was missing.
-2023/11/15-16:14:32.635 10b679 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Netflix5934/Default/Service Worker/Database/MANIFEST-000001
+2023/11/16-22:29:52.822 207921 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Netflix5934/Default/Service Worker/Database/MANIFEST-000001
+2023/11/16-22:29:52.822 207921 Recovering log #3
+2023/11/16-22:29:52.822 207921 Reusing old log /home/brett/.local/share/ice/profiles/Netflix5934/Default/Service Worker/Database/000003.log 

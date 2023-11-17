@@ -64,7 +64,7 @@ bindsym $mod+x exec --no-startup-id archlinux-logout
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec_always ~/lock_and_kill.sh, restart
+bindsym $mod+Shift+r exec --no-startup-id i3-msg restart
 
 # Kill Window
 bindsym $mod+q kill
@@ -89,6 +89,7 @@ bindsym Mod1+Ctrl+Right workspace next
 bindsym Mod1+Ctrl+Left workspace prev
 for_window [urgent=latest] focus
 
+
 # Tiling Parameters
 default_orientation horizontal
 bindsym $mod+h split h
@@ -98,24 +99,24 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Autostart
-#exec --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Man-Wallpaper.jpg &
-#exec --no-startup-id i3-msg 'workspace 1; exec firefox'
-#exec --no-startup-id i3-msg 'workspace 1; exec chromium'
 exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
-#exec --no-startup-id sleep 1 && $(volumeicon)
-exec --no-startup-id sleep 2 && $(nm-applet)
-exec --no-startup-id sleep 3 && $(copyq)
-exec --no-startup-id sleep 5 && $(pamac-tray)
-exec_always --no-startup-id blueberry-tray
-#exec_always --no-startup-id numlockx on
-#exec --no-startup-id cryptomator
 exec --no-startup-id insync start
-#exec --no-startup-id xfce4-power-manager &
+exec_always --no-startup-id sleep 2 && $(nm-applet)
+exec_always --no-startup-id sleep 3 && $(copyq)
+exec_always --no-startup-id sleep 5 && $(pamac-tray)
+exec_always --no-startup-id blueberry-tray
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
-exec --no-startup-id i3-msg border toggle
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+exec_always --no-startup-id i3-msg border toggle
+#exec_always --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Man-Wallpaper.jpg &
+#exec --no-startup-id i3-msg 'workspace 1; exec firefox'
+#exec --no-startup-id i3-msg 'workspace 1; exec chromium'
+#exec_always --no-startup-id sleep 1 && $(volumeicon)
+#exec_always --no-startup-id numlockx on
+#exec_always --no-startup-id cryptomator
+#exec_always --no-startup-id xfce4-power-manager &
 
 # Betterlockscreen
 # lock and suspend
@@ -184,6 +185,9 @@ bindsym $mod+t border normal
 bindsym $mod+y border pixel 2
 bindsym $mod+u border none
 
+# Enable smart borders
+smart_borders on
+
 # Gap Control (use with i3-gaps)
 # --------------------------------
 # Define modes for changing inner and outer gaps.
@@ -201,6 +205,9 @@ mode "$mode_gaps" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+# Enable smart gaps to auto adjust outer gaps when only one window is present
+smart_gaps on
 
 mode "$mode_gaps_inner" {
     bindsym plus gaps inner current plus 5
@@ -240,4 +247,8 @@ client.urgent           #d42121 #d42121 #f7f7f7 #d42121
 
 # Set a background color for all clients.
 client.background       #242424
+
+# Set the override property to true to force no title bar
+for_window [class="Code"] border pixel 0, override_redirect=true
+
 

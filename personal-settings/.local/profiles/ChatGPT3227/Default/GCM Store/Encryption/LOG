@@ -1,2 +1,3 @@
-2023/11/15-16:02:06.956 109528 Creating DB /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/GCM Store/Encryption since it was missing.
-2023/11/15-16:02:07.205 109528 Reusing MANIFEST /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/GCM Store/Encryption/MANIFEST-000001
+2023/11/17-13:31:08.911 28420d Reusing MANIFEST /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/GCM Store/Encryption/MANIFEST-000001
+2023/11/17-13:31:08.912 28420d Recovering log #3
+2023/11/17-13:31:08.912 28420d Reusing old log /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/GCM Store/Encryption/000003.log 

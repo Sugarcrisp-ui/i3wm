@@ -1,5 +1,6 @@
-2023/11/15-16:01:50.603 4 Creating DB /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Local Storage/leveldb since it was missing.
-2023/11/15-16:01:51.177 4 Reusing MANIFEST /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Local Storage/leveldb/MANIFEST-000001
-2023/11/15-16:03:07.319 4 Level-0 table #5: started
-2023/11/15-16:03:07.377 4 Level-0 table #5: 32305 bytes OK
-2023/11/15-16:03:07.412 4 Delete type=0 #3
+2023/11/17-13:31:04.471 4 Reusing MANIFEST /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Local Storage/leveldb/MANIFEST-000001
+2023/11/17-13:31:04.472 4 Recovering log #8
+2023/11/17-13:31:04.504 4 Reusing old log /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Local Storage/leveldb/000008.log 
+2023/11/17-13:32:13.289 6 Level-0 table #12: started
+2023/11/17-13:32:13.345 6 Level-0 table #12: 42075 bytes OK
+2023/11/17-13:32:13.379 6 Delete type=0 #8

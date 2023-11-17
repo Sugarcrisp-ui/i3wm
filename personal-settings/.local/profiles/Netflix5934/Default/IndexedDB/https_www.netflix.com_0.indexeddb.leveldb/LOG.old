@@ -1,2 +1,5 @@
-2023/11/15-16:14:53.404 10b66b Creating DB /home/brett/.local/share/ice/profiles/Netflix5934/Default/IndexedDB/https_www.netflix.com_0.indexeddb.leveldb since it was missing.
-2023/11/15-16:14:53.538 10b66b Reusing MANIFEST /home/brett/.local/share/ice/profiles/Netflix5934/Default/IndexedDB/https_www.netflix.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/11/16-22:35:58.544 20791e Reusing MANIFEST /home/brett/.local/share/ice/profiles/Netflix5934/Default/IndexedDB/https_www.netflix.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/11/16-22:35:58.544 20791e Recovering log #16
+2023/11/16-22:35:58.555 20791e Reusing old log /home/brett/.local/share/ice/profiles/Netflix5934/Default/IndexedDB/https_www.netflix.com_0.indexeddb.leveldb/000016.log 
+2023/11/16-22:36:28.050 20791e Level-0 table #21: started
+2023/11/16-22:36:28.336 20791e Level-0 table #21: 2095605 bytes OK

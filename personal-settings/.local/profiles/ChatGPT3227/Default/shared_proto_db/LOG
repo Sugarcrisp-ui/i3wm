@@ -1,2 +1,3 @@
-2023/11/15-16:01:51.338 10953d Creating DB /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/shared_proto_db since it was missing.
-2023/11/15-16:01:52.022 10953d Reusing MANIFEST /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/shared_proto_db/MANIFEST-000001
+2023/11/17-13:31:04.721 28420c Reusing MANIFEST /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/shared_proto_db/MANIFEST-000001
+2023/11/17-13:31:04.722 28420c Recovering log #3
+2023/11/17-13:31:05.084 28420c Reusing old log /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/shared_proto_db/000003.log 
