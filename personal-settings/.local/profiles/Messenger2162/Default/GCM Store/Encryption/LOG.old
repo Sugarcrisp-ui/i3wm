@@ -1,2 +1,3 @@
-2023/11/15-16:10:43.240 10aaf1 Creating DB /home/brett/.local/share/ice/profiles/Messenger2162/Default/GCM Store/Encryption since it was missing.
-2023/11/15-16:10:43.439 10aaf1 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Messenger2162/Default/GCM Store/Encryption/MANIFEST-000001
+2023/11/18-05:42:31.655 308ece Reusing MANIFEST /home/brett/.local/share/ice/profiles/Messenger2162/Default/GCM Store/Encryption/MANIFEST-000001
+2023/11/18-05:42:31.655 308ece Recovering log #3
+2023/11/18-05:42:31.656 308ece Reusing old log /home/brett/.local/share/ice/profiles/Messenger2162/Default/GCM Store/Encryption/000003.log 
