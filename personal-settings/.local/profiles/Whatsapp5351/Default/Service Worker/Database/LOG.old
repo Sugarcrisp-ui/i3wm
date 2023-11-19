@@ -1,2 +1,3 @@
-2023/11/15-16:16:59.849 10be3e Creating DB /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Service Worker/Database since it was missing.
-2023/11/15-16:17:00.100 10be3e Reusing MANIFEST /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Service Worker/Database/MANIFEST-000001
+2023/11/15-16:18:32.921 10c4ba Reusing MANIFEST /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Service Worker/Database/MANIFEST-000001
+2023/11/15-16:18:32.923 10c4ba Recovering log #3
+2023/11/15-16:18:32.923 10c4ba Reusing old log /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Service Worker/Database/000003.log 

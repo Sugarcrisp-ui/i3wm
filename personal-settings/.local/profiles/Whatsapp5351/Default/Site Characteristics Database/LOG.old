@@ -1,2 +1,3 @@
-2023/11/15-16:16:49.925 10be56 Creating DB /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Site Characteristics Database since it was missing.
-2023/11/15-16:16:50.577 10be56 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Site Characteristics Database/MANIFEST-000001
+2023/11/15-16:18:32.922 10c4c5 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Site Characteristics Database/MANIFEST-000001
+2023/11/15-16:18:32.923 10c4c5 Recovering log #3
+2023/11/15-16:18:32.923 10c4c5 Reusing old log /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Site Characteristics Database/000003.log 

@@ -1,9 +1,6 @@
-2023/11/15-16:18:32.925 4 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Local Storage/leveldb/MANIFEST-000001
-2023/11/15-16:18:32.926 4 Recovering log #3
-2023/11/15-16:18:32.927 4 Reusing old log /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Local Storage/leveldb/000003.log 
-2023/11/16-05:19:26.470 4 Level-0 table #5: started
-2023/11/16-05:19:26.559 4 Level-0 table #5: 15266 bytes OK
-2023/11/16-05:19:26.914 4 Delete type=0 #3
-2023/11/17-10:00:42.597 4 Level-0 table #7: started
-2023/11/17-10:00:42.666 4 Level-0 table #7: 11122 bytes OK
-2023/11/17-10:00:42.724 4 Delete type=0 #4
+2023/11/19-19:36:22.080 4 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Local Storage/leveldb/MANIFEST-000001
+2023/11/19-19:36:22.081 4 Recovering log #8
+2023/11/19-19:36:22.398 4 Reusing old log /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Local Storage/leveldb/000008.log 
+2023/11/19-20:16:46.434 6 Level-0 table #12: started
+2023/11/19-20:16:46.478 6 Level-0 table #12: 11355 bytes OK
+2023/11/19-20:16:46.509 6 Delete type=0 #8

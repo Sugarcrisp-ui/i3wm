@@ -1,7 +1,3 @@
-2023/11/15-16:18:20.205 10c374 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Messenger2162/Default/IndexedDB/https_www.facebook.com_0.indexeddb.leveldb/MANIFEST-000001
-2023/11/15-16:18:20.205 10c374 Recovering log #3
-2023/11/15-16:18:20.215 10c374 Reusing old log /home/brett/.local/share/ice/profiles/Messenger2162/Default/IndexedDB/https_www.facebook.com_0.indexeddb.leveldb/000003.log 
-2023/11/17-22:20:13.109 10c374 Level-0 table #5: started
-2023/11/17-22:20:13.175 10c374 Level-0 table #5: 566047 bytes OK
-2023/11/17-22:20:13.288 10c374 Delete type=0 #3
-2023/11/17-22:20:13.333 10c374 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2023/11/18-06:02:47.209 30bae6 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Messenger2162/Default/IndexedDB/https_www.facebook.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/11/18-06:02:47.210 30bae6 Recovering log #4
+2023/11/18-06:02:47.210 30bae6 Reusing old log /home/brett/.local/share/ice/profiles/Messenger2162/Default/IndexedDB/https_www.facebook.com_0.indexeddb.leveldb/000004.log 

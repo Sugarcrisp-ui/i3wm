@@ -1,2 +1,12 @@
-2023/11/15-16:16:49.928 4 Creating DB /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Local Storage/leveldb since it was missing.
-2023/11/15-16:16:50.578 4 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Local Storage/leveldb/MANIFEST-000001
+2023/11/15-16:18:32.925 4 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Local Storage/leveldb/MANIFEST-000001
+2023/11/15-16:18:32.926 4 Recovering log #3
+2023/11/15-16:18:32.927 4 Reusing old log /home/brett/.local/share/ice/profiles/Whatsapp5351/Default/Local Storage/leveldb/000003.log 
+2023/11/16-05:19:26.470 4 Level-0 table #5: started
+2023/11/16-05:19:26.559 4 Level-0 table #5: 15266 bytes OK
+2023/11/16-05:19:26.914 4 Delete type=0 #3
+2023/11/17-10:00:42.597 4 Level-0 table #7: started
+2023/11/17-10:00:42.666 4 Level-0 table #7: 11122 bytes OK
+2023/11/17-10:00:42.724 4 Delete type=0 #4
+2023/11/18-17:37:40.292 4 Level-0 table #9: started
+2023/11/18-17:37:40.368 4 Level-0 table #9: 11399 bytes OK
+2023/11/18-17:37:40.421 4 Delete type=0 #6

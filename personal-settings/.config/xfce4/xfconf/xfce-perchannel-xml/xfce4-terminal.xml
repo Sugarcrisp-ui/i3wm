@@ -39,4 +39,6 @@
   <property name="scrolling-bar" type="string" value="TERMINAL_SCROLLBAR_NONE"/>
   <property name="scrolling-lines" type="uint" value="10000"/>
   <property name="scrolling-unlimited" type="bool" value="true"/>
+  <property name="run-custom-command" type="bool" value="false"/>
+  <property name="custom-command" type="string" value=""/>
 </channel>
