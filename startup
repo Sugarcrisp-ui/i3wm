@@ -65,6 +65,11 @@ sudo mkinitcpio -P
 # Change default filer manager for Cryptomator
 xdg-mime default thunar.desktop inode/directory
 
+# Create Web Apps
+cd /home/brett/.bin-personal
+chmod +x *.sh
+./web-apps-install.sh
+
 # Notify user that installation is complete
 tput setaf 1;
 echo "################################################################"
