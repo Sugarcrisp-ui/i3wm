@@ -27,6 +27,7 @@ rsync $RSYNC_OPTS /usr/share/sddm/themes/arcolinux-sugar-candy/ $DEST/arcolinux-
 rsync $RSYNC_OPTS /home/brett/.bashrc-personal $DEST/
 rsync $RSYNC_OPTS /home/brett/.config/i3/config $DEST/.config/i3/
 rsync $RSYNC_OPTS /home/brett/.config/Code/User/settings.json $DEST/.config/Code/User/settings.json
+rsync $RSYNC_OPTS /home/brett/.config/micro/settings.json $DEST/.config/micro/settings.json
 rsync $RSYNC_OPTS /home/brett/.config/qBittorrent/qBittorrent.conf $DEST/.config/qBittorrent/
 rsync $RSYNC_OPTS /etc/vconsole.conf $DEST/etc/
 rsync $RSYNC_OPTS /etc/rc.local $DEST/etc/
