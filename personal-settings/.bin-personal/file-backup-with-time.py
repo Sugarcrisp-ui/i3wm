@@ -15,7 +15,7 @@ if not os.path.exists(original_file):
 
 print("Backup to same directory? (y/n)")
 choice = input()
-if choice.lower() == 'y':
+if choice.lower() == 'y' or choice == '':
     backup_dir = os.path.dirname(original_file)
 else:
     backup_dir = input("Enter the backup directory path: ")
