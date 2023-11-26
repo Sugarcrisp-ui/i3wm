@@ -26,6 +26,7 @@ function_remove() {
 }
 
 PACKAGES=(
+	i3blocks
     termite
     vim
     xf86-video-amdgpu
