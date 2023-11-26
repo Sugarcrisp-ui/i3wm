@@ -1,8 +1,0 @@
-2023/11/16-22:44:52.356 209986 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Netflix5934/Default/IndexedDB/https_www.netflix.com_0.indexeddb.leveldb/MANIFEST-000001
-2023/11/16-22:44:52.356 209986 Recovering log #16
-2023/11/16-22:44:52.369 209986 Level-0 table #20: started
-2023/11/16-22:44:52.443 209986 Level-0 table #20: 2095605 bytes OK
-2023/11/16-22:44:52.444 209986 Recovering log #20
-2023/11/16-22:44:52.444 209986 Reusing old log /home/brett/.local/share/ice/profiles/Netflix5934/Default/IndexedDB/https_www.netflix.com_0.indexeddb.leveldb/000020.log 
-2023/11/16-22:44:52.478 209986 Delete type=0 #16
-2023/11/16-22:44:52.479 209986 Delete type=2 #21

@@ -1,1 +1,0 @@
-/home/brett/.bin-personal/launch-polybar.sh

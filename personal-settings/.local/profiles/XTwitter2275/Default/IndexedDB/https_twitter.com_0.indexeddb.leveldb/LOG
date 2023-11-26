@@ -1,9 +1,0 @@
-2023/11/25-18:40:35.860 e977d Reusing MANIFEST /home/brett/.local/share/ice/profiles/XTwitter2275/Default/IndexedDB/https_twitter.com_0.indexeddb.leveldb/MANIFEST-000001
-2023/11/25-18:40:35.860 e977d Recovering log #11
-2023/11/25-18:40:35.863 e977d Reusing old log /home/brett/.local/share/ice/profiles/XTwitter2275/Default/IndexedDB/https_twitter.com_0.indexeddb.leveldb/000011.log 
-2023/11/25-21:57:10.400 e9779 Compacting 1@1 + 1@2 files
-2023/11/25-21:57:10.463 e9779 Generated table #14@1: 73 keys, 28132 bytes
-2023/11/25-21:57:10.463 e9779 Compacted 1@1 + 1@2 files => 28132 bytes
-2023/11/25-21:57:10.501 e9779 compacted to: files[ 0 0 1 0 0 0 0 ]
-2023/11/25-21:57:10.502 e9779 Delete type=2 #9
-2023/11/25-21:57:10.502 e9779 Delete type=2 #12

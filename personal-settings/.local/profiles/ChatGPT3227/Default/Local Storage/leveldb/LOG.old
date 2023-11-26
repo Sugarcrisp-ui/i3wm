@@ -1,8 +1,0 @@
-2023/11/24-16:09:18.615 4 Reusing MANIFEST /home/brett/.local/share/ice/profiles/ChatGPT3227/Default/Local Storage/leveldb/MANIFEST-000001
-2023/11/24-16:09:18.619 4 Recovering log #14
-2023/11/24-16:09:19.015 4 Level-0 table #18: started
-2023/11/24-16:09:19.351 4 Level-0 table #18: 48616 bytes OK
-2023/11/24-16:09:19.682 4 Delete type=0 #14
-2023/11/24-16:13:53.768 6 Level-0 table #21: started
-2023/11/24-16:13:53.812 6 Level-0 table #21: 42579 bytes OK
-2023/11/24-16:13:53.851 6 Delete type=0 #19

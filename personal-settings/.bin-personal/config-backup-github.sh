@@ -3,7 +3,7 @@
 set -e
 
 # Define common rsync options
-RSYNC_OPTS="-avh -r --exclude=.cache --mkpath"
+RSYNC_OPTS="-avh -r --exclude=.cache --mkpath --delete"
 DEST="/home/brett/Github/i3wm/personal-settings"
 
 # Directories
@@ -17,12 +17,9 @@ rsync $RSYNC_OPTS /home/brett/.config/polybar/ $DEST/.config/polybar
 rsync $RSYNC_OPTS /home/brett/.config/Thunar/ $DEST/.config/Thunar
 rsync $RSYNC_OPTS /home/brett/.config/variety/Fetched/ $DEST/.config/variety/Fetched
 rsync $RSYNC_OPTS /home/brett/.config/xfce4/ $DEST/.config/xfce4
-rsync $RSYNC_OPTS /home/brett/.local/share/ice/firefox/ $DEST/.local/firefox/
-rsync $RSYNC_OPTS /home/brett/.local/share/ice/profiles/ $DEST/.local/profiles/
 rsync $RSYNC_OPTS /home/brett/.vscode/ $DEST/.vscode
 rsync $RSYNC_OPTS /home/brett/bashrc-personal/ $DEST/bashrc-personal/
 rsync $RSYNC_OPTS /usr/share/sddm/themes/arcolinux-sugar-candy/ $DEST/arcolinux-sugar-candy
-rsync $RSYNC_OPTS --include='webapp*' --exclude='*' ~/.local/share/applications/ $DEST/.local/share/applications/
 
 
 # Files

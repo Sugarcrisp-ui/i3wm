@@ -53,11 +53,13 @@ list=(
     gnome-calculator
     gnome-disk-utility
     gpick
+    imagemagick
     insync
     inxi
     meld
     most
     nodejs-nativefier
+    potrace
     qbittorrent
     qt5-graphicaleffects
     qt5-quickcontrols2

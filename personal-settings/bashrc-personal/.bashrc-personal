@@ -34,9 +34,6 @@ alias mpacman='sudo micro /etc/pacman.conf'
 alias mmirrorlist='sudo micro /etc/pacman.d/mirrorlist'
 alias mbp='micro ~/.bashrc-personal'
 
-# Convert images to new format
-alias image-convert='~/.bin-personal/image-converter.sh'
-
 # Bash
 alias bashup='source ~/.bashrc'
 
