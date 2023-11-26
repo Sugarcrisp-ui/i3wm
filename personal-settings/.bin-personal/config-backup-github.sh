@@ -14,6 +14,7 @@ rsync $RSYNC_OPTS /home/brett/.config/Cryptomator/ $DEST/.config/Cryptomator
 rsync $RSYNC_OPTS /home/brett/.config/dconf/ $DEST/.config/dconf
 rsync $RSYNC_OPTS /home/brett/.config/expressvpn/ $DEST/.config/expressvpn
 rsync $RSYNC_OPTS /home/brett/.config/polybar/ $DEST/.config/polybar
+rsync $RSYNC_OPTS /home/brett/.config/rofi/ $DEST/.config/rofi
 rsync $RSYNC_OPTS /home/brett/.config/Thunar/ $DEST/.config/Thunar
 rsync $RSYNC_OPTS /home/brett/.config/variety/Fetched/ $DEST/.config/variety/Fetched
 rsync $RSYNC_OPTS /home/brett/.config/xfce4/ $DEST/.config/xfce4
