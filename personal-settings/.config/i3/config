@@ -89,7 +89,6 @@ bindsym Mod1+Ctrl+Right workspace next
 bindsym Mod1+Ctrl+Left workspace prev
 for_window [urgent=latest] focus
 
-
 # Tiling Parameters
 default_orientation horizontal
 bindsym $mod+h split h
@@ -106,11 +105,11 @@ exec_always --no-startup-id sleep 3 && $(copyq)
 exec_always --no-startup-id sleep 5 && $(pamac-tray)
 exec_always --no-startup-id blueberry-tray
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
-exec_always --no-startup-id i3-msg border toggle
-exec_always --no-startup-id feh --bg-fill /home/brett/Pictures/background-images/spiderman.jpg &
+exec_always --no-startup-id i3-msg border pixel 2
+exec_always --no-startup-id feh --bg-fill /home/brett/Pictures/background-images/batman.jpg &
 #exec --no-startup-id i3-msg 'workspace 1; exec firefox'
 #exec --no-startup-id i3-msg 'workspace 1; exec chromium'
 #exec_always --no-startup-id sleep 1 && $(volumeicon)
@@ -119,11 +118,8 @@ exec_always --no-startup-id feh --bg-fill /home/brett/Pictures/background-images
 #exec_always --no-startup-id xfce4-power-manager &
 
 # Betterlockscreen
-# lock and suspend
-#bindsym Ctrl+mod1+l exec --no-startup-id betterlockscreen -s
-
-# lock only
-bindsym Ctrl+mod1+l exec --no-startup-id betterlockscreen -l
+# lock desktop and lock and suspend laptop
+bindsym Ctrl+mod1+l exec --no-startup-id /home/brett/.bin-personal/lock-script.sh
 
 # Application Keyboard Shortcuts
 bindsym Ctrl+Mod1+e exec --no-startup-id archlinux-tweak-tool
@@ -176,13 +172,15 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20
 
+# Set new windows to have pixel border
+new_window pixel 2
+new_float pixel 2
+
 # Border Control
 # --------------------------------
 # Toggle window borders between normal, 2 pixel, and none.
-default_border pixel 2
-bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
+bindsym $mod+shift+b border pixel 2
 bindsym $mod+t border normal
-bindsym $mod+y border pixel 2
 bindsym $mod+u border none
 
 # Enable smart borders
@@ -248,7 +246,6 @@ client.urgent           #d42121 #d42121 #f7f7f7 #d42121
 # Set a background color for all clients.
 client.background       #242424
 
-# Set the override property to true to force no title bar
-for_window [class="Code"] border pixel 0, override_redirect=true
-
+# Hide title bar for all new windows
+for_window [class=".*"] border pixel 2
 

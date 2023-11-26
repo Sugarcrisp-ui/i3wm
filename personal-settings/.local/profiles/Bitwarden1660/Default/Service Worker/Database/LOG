@@ -1,2 +1,3 @@
-2023/11/15-15:49:51.992 1072f6 Creating DB /home/brett/.local/share/ice/profiles/Bitwarden1660/Default/Service Worker/Database since it was missing.
-2023/11/15-15:49:52.335 1072f6 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Bitwarden1660/Default/Service Worker/Database/MANIFEST-000001
+2023/11/22-18:35:48.488 9dbad Reusing MANIFEST /home/brett/.local/share/ice/profiles/Bitwarden1660/Default/Service Worker/Database/MANIFEST-000001
+2023/11/22-18:35:48.489 9dbad Recovering log #3
+2023/11/22-18:35:48.489 9dbad Reusing old log /home/brett/.local/share/ice/profiles/Bitwarden1660/Default/Service Worker/Database/000003.log 

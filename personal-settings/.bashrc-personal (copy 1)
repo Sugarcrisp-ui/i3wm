@@ -1,0 +1,60 @@
+# PATH setting
+export PATH="/opt/someApp/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:~/.bin-personal"
+
+# Update system
+alias update='paru -Syu && flatpak update'
+
+# Make micro the default editor
+export EDITOR='micro'
+export VISUAL='micro'
+
+# Backup .local
+alias buplocal='cp -Rf ~/.local ~/.local-backup-$(date +%Y.%m.%d-%H.%M.%S)'
+
+# ExpressVPN aliases
+alias es='expressvpn status'
+alias dis='expressvpn disconnect'
+alias vn='expressvpn connect vn' # Vietnam
+alias gu='expressvpn connect gu' # Guam
+alias to='expressvpn connect cato' # Toronto
+alias hk1='expressvpn connect hk1' # Hong Kong 1
+alias sg='expressvpn connect sgju' # Singapore - Jurong
+alias jp='expressvpn connect jpto' # Japan - Tokyo
+alias lon='expressvpn connect uklo' # London
+alias la='expressvpn connect usla1' # Los Angeles 1
+alias sf='expressvpn connect ussf' # San Fransico
+alias ko='expressvpn connect kr2' # South Korea 2
+alias ny='expressvpn connect usny' # New York
+# Add other ExpressVPN aliases here
+
+# Open important configuration files in nano
+alias npacman='sudo micro /etc/pacman.conf'
+alias nmirrorlist='sudo micro /etc/pacman.d/mirrorlist'
+alias nb='micro ~/.bashrc'
+alias nbp='micro ~/.bashrc-personal'
+alias nenvironment='sudo micro /etc/environment'
+
+# Other aliases
+alias bashup='source ~/.bashrc'
+alias nano='micro'
+
+# Copy configuration files to various locations
+alias topersonal='sudo config-backup-to-personal.sh'
+alias togithub='config-backup-github.sh'
+alias toexternal='config-backup-to-external.sh'
+
+# Open files directly in micro
+alias mmirrorlist='sudo micro /etc/pacman.d/mirrorlist'
+alias mbp='micro /home/brett/.bashrc-personal'
+alias mi3c='micro /home/brett/.config/i3/config'
+alias mpbc='micro /home/brett/.config/polybar/config'
+alias mpbl='micro /home/brett/.config/polybar/launch.sh'
+
+# Provide system information
+alias sysinfo='inxi -Fxxxrz'
+
+# SSH agent
+alias ssha='eval &(ssh-agent) && ssh-add'
+
+# Bluetooth Control
+alias blue='bluetoothctl'

@@ -1,3 +1,6 @@
-2023/11/19-19:36:13.137 4 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Messenger2162/Default/Local Storage/leveldb/MANIFEST-000001
-2023/11/19-19:36:13.138 4 Recovering log #7
-2023/11/19-19:36:13.322 4 Reusing old log /home/brett/.local/share/ice/profiles/Messenger2162/Default/Local Storage/leveldb/000007.log 
+2023/11/24-14:29:44.875 4 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Messenger2162/Default/Local Storage/leveldb/MANIFEST-000001
+2023/11/24-14:29:45.060 4 Recovering log #12
+2023/11/24-14:29:45.349 4 Reusing old log /home/brett/.local/share/ice/profiles/Messenger2162/Default/Local Storage/leveldb/000012.log 
+2023/11/24-19:30:50.020 4 Level-0 table #16: started
+2023/11/24-19:30:50.075 4 Level-0 table #16: 9770 bytes OK
+2023/11/24-19:30:50.116 4 Delete type=0 #12

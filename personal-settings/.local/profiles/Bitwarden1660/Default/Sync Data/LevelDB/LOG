@@ -1,2 +1,3 @@
-2023/11/15-15:49:37.166 107303 Creating DB /home/brett/.local/share/ice/profiles/Bitwarden1660/Default/Sync Data/LevelDB since it was missing.
-2023/11/15-15:49:37.780 107303 Reusing MANIFEST /home/brett/.local/share/ice/profiles/Bitwarden1660/Default/Sync Data/LevelDB/MANIFEST-000001
+2023/11/22-18:35:48.490 9dbba Reusing MANIFEST /home/brett/.local/share/ice/profiles/Bitwarden1660/Default/Sync Data/LevelDB/MANIFEST-000001
+2023/11/22-18:35:48.490 9dbba Recovering log #3
+2023/11/22-18:35:48.490 9dbba Reusing old log /home/brett/.local/share/ice/profiles/Bitwarden1660/Default/Sync Data/LevelDB/000003.log 

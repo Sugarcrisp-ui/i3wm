@@ -1,12 +1,14 @@
-# Backup setting to Github directory
+# Backup personal configuration settings to Github directory
 * 8,20 * * * /home/brett/.bin-personal/config-backup-github.sh >/dev/null 2>&1
 
-# sync crontab files to github
+# Sync crontab files to Github
 13 21 * * * if [ ! -f /tmp/.cron-github ]; then /home/brett/.bin-personal/cron-github.sh >/dev/null 2>&1; fi
 
-# sync sddm arcolinux-sugar-candy theme
+# Sync SDDM Arcolinux-sugar-candy theme
 * 21 * * * if [ ! -f /tmp/.sddm-theme-github ]; then /home/brett/.bin-personal/sddm-theme-github.sh >/dev/null 2>&1; fi
 
-# sync personal settings for external drive into the desktop folder
+# Sync personal settings for external drive into the desktop folder
 10 21 * * * if [ ! -f /tmp/.config-backup-to-external ]; then /home/brett/.bin-personal/config-backup-to-external.sh >/dev/null 2>&1; fi
 
+# Delete temporary files in Home directory
+0 0 * * * /bin/rm -f /home/brett/.bash_history-*.tmp

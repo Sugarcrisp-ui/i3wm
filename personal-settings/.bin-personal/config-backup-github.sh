@@ -31,5 +31,3 @@ rsync $RSYNC_OPTS /etc/vconsole.conf $DEST/etc/
 rsync $RSYNC_OPTS /etc/rc.local $DEST/etc/
 rsync $RSYNC_OPTS /etc/mkinitcpio.conf $DEST/etc/
 rsync $RSYNC_OPTS /usr/share/gvfs/mounts/network.mount $DEST/usr/share/gvfs/mounts/
-
-

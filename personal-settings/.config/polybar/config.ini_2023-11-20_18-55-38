@@ -1,0 +1,183 @@
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+[settings]
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+format-foreground = #FF0000
+format-background = #00FF00
+
+[colors]
+;background = #2F343F
+background = #020204
+foreground = #f3f4f5
+
+[bar/mainbar-i3-desktop]
+monitor = HDMI-1
+monitor-strict = false
+override-redirect = false
+bottom = false
+fixed-center = true
+width = 100%
+height = 30
+background = ${colors.background}
+foreground = ${colors.foreground}
+radius = 0.0
+line-size = 2
+line-color = #000000
+border-size = 0
+padding-left = 1
+padding-right = 1
+module-margin-left = 1
+module-margin-right = 2
+font-0 = "Comic Sans MS:size=12;0"
+font-1 = "Font Awesome 6 Brands:size=10;0"
+font-2 = "Font Awesome 6 Free:size=10;0"
+font-3 = "Font Awesome:size=10;0"
+modules-left = i3 xwindow
+modules-center = date
+modules-right = vpn insync tray
+separator = |
+enable-ipc = true
+tray-size = 22px
+
+[bar/mainbar-i3-laptop]
+monitor = eDP-1
+monitor-strict = false
+override-redirect = false
+bottom = false
+fixed-center = true
+width = 100%
+height = 30
+background = ${colors.background}
+foreground = ${colors.foreground}
+radius = 0.0
+line-size = 2
+line-color = #000000
+border-size = 0
+padding-left = 1
+padding-right = 1
+module-margin-left = 1
+module-margin-right = 5
+font-0 = "Comic Sans MS:size=8;0"
+font-1 = "Font Awesome 6 Brands:size=8;0"
+font-2 = "Font Awesome 6 Free:size=8;0"
+font-3 = "Font Awesome:size=8;0"
+modules-left = i3 xwindow
+modules-center = date
+modules-right = vpn insync tray
+separator = |
+enable-ipc = true
+tray-size = 15px
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+strip-wsnumbers = false
+index-sort = false
+enable-click = true
+enable-scroll = true
+wrapping-scroll = false
+reverse-scroll = false
+fuzzy-match = false
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+format = <label-state> <label-mode>
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = #000000
+label-mode-background = #FFBB00
+label-focused = %icon% %name%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.foreground}
+label-focused-underline = #6790eb
+label-focused-padding = 2
+label-unfocused = %icon% %name%
+label-unfocused-padding = 2
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-underline =
+label-visible = %icon% %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = 2
+label-urgent = %icon% %name%
+label-urgent-background = ${self.label-focused-background}
+label-urgent-foreground = #db104e
+label-urgent-padding = 2
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/tray]
+type = internal/tray
+
+; Space added between tray icons
+tray-spacing = 4px
+
+; Space added before and after each tray icon
+tray-padding = 4px
+
+; Background color of tray icons
+format-background = ${colors.background}
+
+; Tray icon color
+tray-foreground = ${root.foreground}
+
+[module/date]
+type = internal/date
+interval = 5
+date = "%a, %d %B %Y"
+time = %I:%M %p
+format-prefix = "📅 "
+format-prefix-foreground = #c1941a
+format-underline = #c1941a
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+label = %date% %time%
+
+[module/pavolume]
+type = custom/script
+tail = true
+label = %output%
+exec = ~/.config/polybar/scripts/pavolume.sh --listen
+click-right = exec pavucontrol
+click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
+scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
+scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
+;format-underline = #3EC13F
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/vpn]
+type = custom/script
+exec = ~/.config/polybar/scripts/vpn-status.sh
+interval = 3
+format-background = ${colors.background}
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 50
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/insync]
+type = custom/script
+exec = ~/.config/polybar/scripts/insync.sh
+interval = 3
+format-background = ${colors.background}
