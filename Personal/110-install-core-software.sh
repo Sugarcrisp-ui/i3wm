@@ -86,6 +86,7 @@ list=(
     libreoffice-still
     micro
     sublime-text-4
+    visual-studio-code-bin
     xournalpp
     xreader
 

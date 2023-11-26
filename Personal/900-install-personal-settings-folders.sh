@@ -71,6 +71,15 @@ cp -Rf ~/i3wm/personal-settings/.local ~
 
 tput setaf 11;
 echo "################################################################"
+echo "Copying .vscode"
+echo ""
+echo "################################################################"
+tput sgr0
+
+cp -Rf ~/i3wm/personal-settings/.vscode ~
+
+tput setaf 11;
+echo "################################################################"
 echo "Copying .bashrc-personal"
 echo ""
 echo "################################################################"
