@@ -42,14 +42,14 @@ if [ "$installed" == true ]; then
             Terminal=false
             Type=Application
             Name=$app
-            Exec=firefox --new-window ${web_apps[$app]}
+            Exec=google-chrome-stable --app=${web_apps[$app]}
             Icon=${icon_path}${app,,}-icon.png
             " > "${path}webapp-${app}.desktop"
         done
 
         # Make the .desktop files executable
         chmod +x "${path}webapp-"*.desktop
-        echo "Web apps have been replaced and installed using Firefox"
+        echo "Web apps have been replaced and installed using Chrome"
     else
         echo "No changes have been made. Web apps are currently installed."
     fi
@@ -61,12 +61,12 @@ else
         Terminal=false
         Type=Application
         Name=$app
-        Exec=firefox --new-window ${web_apps[$app]}
+        Exec=google-chrome-stable --app=${web_apps[$app]}
         Icon=${icon_path}${app,,}-icon.png
         " > "${path}webapp-${app}.desktop"
     done
 
     # Make the .desktop files executable
     chmod +x "${path}webapp-"*.desktop
-    echo "Web apps have been installed using Firefox"
+    echo "Web apps have been installed using Chrome"
 fi
