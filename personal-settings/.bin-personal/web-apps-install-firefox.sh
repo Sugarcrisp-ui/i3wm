@@ -44,6 +44,16 @@ if [ "$installed" == true ]; then
             Name=$app
             Exec=firefox --new-window ${web_apps[$app]}
             Icon=${icon_path}${app,,}-icon.png
+            Categories=GTK;WebApps;
+            MimeType=text/html;text/xml;application/xhtml_xml;
+            StartupWMClass=WebApp-${app}
+            StartupNotify=true
+            X-WebApp-Browser=Firefox
+            X-WebApp-URL=${web_apps[$app]}
+            X-WebApp-CustomParameters=
+            X-WebApp-Navbar=false
+            X-WebApp-PrivateWindow=false
+            X-WebApp-Isolated=true
             " > "${path}webapp-${app}.desktop"
         done
 
@@ -63,6 +73,16 @@ else
         Name=$app
         Exec=firefox --new-window ${web_apps[$app]}
         Icon=${icon_path}${app,,}-icon.png
+        Categories=GTK;WebApps;
+        MimeType=text/html;text/xml;application/xhtml_xml;
+        StartupWMClass=WebApp-${app}
+        StartupNotify=true
+        X-WebApp-Browser=Firefox
+        X-WebApp-URL=${web_apps[$app]}
+        X-WebApp-CustomParameters=
+        X-WebApp-Navbar=false
+        X-WebApp-PrivateWindow=false
+        X-WebApp-Isolated=true
         " > "${path}webapp-${app}.desktop"
     done
 

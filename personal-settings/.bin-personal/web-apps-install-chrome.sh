@@ -42,8 +42,18 @@ if [ "$installed" == true ]; then
             Terminal=false
             Type=Application
             Name=$app
-            Exec=google-chrome-stable --app=${web_apps[$app]}
+            Exec=google-chrome-stable --app=${web_apps[$app]} --class=WebApp-${app} --user-data-dir=/home/brett/.local/share/ice/profiles/${app}
             Icon=${icon_path}${app,,}-icon.png
+            Categories=GTK;WebApps;
+            MimeType=text/html;text/xml;application/xhtml_xml;
+            StartupWMClass=WebApp-${app}
+            StartupNotify=true
+            X-WebApp-Browser=Chrome
+            X-WebApp-URL=${web_apps[$app]}
+            X-WebApp-CustomParameters=
+            X-WebApp-Navbar=false
+            X-WebApp-PrivateWindow=false
+            X-WebApp-Isolated=true
             " > "${path}webapp-${app}.desktop"
         done
 
@@ -61,8 +71,18 @@ else
         Terminal=false
         Type=Application
         Name=$app
-        Exec=google-chrome-stable --app=${web_apps[$app]}
+        Exec=google-chrome-stable --app=${web_apps[$app]} --class=WebApp-${app} --user-data-dir=/home/brett/.local/share/ice/profiles/${app}
         Icon=${icon_path}${app,,}-icon.png
+        Categories=GTK;WebApps;
+        MimeType=text/html;text/xml;application/xhtml_xml;
+        StartupWMClass=WebApp-${app}
+        StartupNotify=true
+        X-WebApp-Browser=Chrome
+        X-WebApp-URL=${web_apps[$app]}
+        X-WebApp-CustomParameters=
+        X-WebApp-Navbar=false
+        X-WebApp-PrivateWindow=false
+        X-WebApp-Isolated=true
         " > "${path}webapp-${app}.desktop"
     done
 
