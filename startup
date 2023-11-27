@@ -57,7 +57,6 @@ done
 
 # Start needed services
 sudo systemctl enable cronie.service
-sudo systemctl enable teamviewerd.service
 sudo systemctl enable vpn-autostart.service
 sudo systemctl enable vpn-autostart-suspend.service
 sudo mkinitcpio -P 
