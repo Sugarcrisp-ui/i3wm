@@ -38,7 +38,7 @@ list=(
     celluloid
     ffmpeg
     losslesscut-bin
-    openshot
+    #openshot
     simplescreenrecorder
     spotify
     vlc
@@ -59,6 +59,7 @@ list=(
     meld
     most
     nodejs-nativefier
+    pinta
     potrace
     qbittorrent
     qt5-graphicaleffects

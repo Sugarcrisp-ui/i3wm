@@ -10,13 +10,13 @@ icon_path="/home/brett/Pictures/"
 declare -A web_apps
 web_apps["Bard"]="https://bard.google.com/chat"
 web_apps["Bitwarden"]="https://vault.bitwarden.com/#/login"
-web_apps["ChatGPT"]="https://auth0.openai.com/u/login/identifier?state=hKFo2SBrclZ4WUJkQnhlZExKYS1zbjkwSDRlNi1ITThWM1lfdKFur3VuaXZlcnSbhMI3Q05veTYwVHpabk1vUlNfQmJrZUdVdV9fMjNtZGNVdTZQNVFtMw%3D%3D"
+web_apps["ChatGPT"]="https://chat.openai.com/auth/login"
 web_apps["Messenger"]="https://www.facebook.com/messages/t/5982819268494019/"
 web_apps["Netflix"]="https://www.netflix.com/vn-en/Browse"
 web_apps["Patreon"]="https://www.patreon.com/home"
 web_apps["Whatsapp"]="https://web.whatsapp.com/"
 web_apps["XTwitter"]="https://twitter.com/home?lang=en"
-web_apps["Zalo"]="https://chat.zalo.me/"
+#web_apps["Zalo"]="https://chat.zalo.me/"
 
 # Check if web apps are already installed
 installed=true
