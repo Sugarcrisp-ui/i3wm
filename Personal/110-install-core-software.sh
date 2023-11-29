@@ -74,7 +74,7 @@ list=(
     timeshift
     timeshift-autosnap
     unzip
-    webapp-manager
+#    webapp-manager
     wget
     xfce4-appfinder
     xfce4-notifyd
