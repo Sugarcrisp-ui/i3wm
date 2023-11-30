@@ -46,19 +46,20 @@ func_category Core Software
 
 list=(
 authy
+baobab-git
 bluetooth-autoconnect
-converter
+chrome-remote-desktop
+#converter
 cryptomator-bin
 expressvpn
 github-desktop-bin
 gnome-disk-utility
-#gtkhash
 grub-hook
-#ice
 insync-thunar
-rtl8821au-dkms-git
-#syncthing-gtk-python3
+#rtl8821au-dkms-git
+sublime-merge
 #ttf-vista-fonts
+ttf-font-awesome-5
 
 )
 
