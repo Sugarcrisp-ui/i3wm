@@ -9,7 +9,7 @@ set +e
 #tput setaf 3 = yellow #tput setaf 4 = dark blue #tput setaf 5 = purple
 #tput setaf 6 = cyan #tput setaf 7 = gray #tput setaf 8 = light blue
 
-package="gitahead"
+package="ttf-font-awesome-5"
 
 #----------------------------------------------------------------------------------
 

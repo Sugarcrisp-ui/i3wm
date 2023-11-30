@@ -5,9 +5,9 @@
   <property name="show-sidebar" type="bool" value="false"/>
   <property name="close-after-select" type="bool" value="false"/>
   <property name="window-width" type="int" value="468"/>
-  <property name="window-height" type="int" value="468"/>
+  <property name="window-height" type="int" value="313"/>
   <property name="window-x" type="int" value="1442"/>
-  <property name="window-y" type="int" value="558"/>
+  <property name="window-y" type="int" value="819"/>
   <property name="exclude-paths" type="string" value="/dev;~/.cache;~/.gvfs;"/>
   <property name="list-toggle" type="bool" value="false"/>
   <property name="show-thumbnails" type="bool" value="true"/>
