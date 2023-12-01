@@ -56,6 +56,7 @@ github-desktop-bin
 gnome-disk-utility
 grub-hook
 insync-thunar
+joplin-appimage
 #rtl8821au-dkms-git
 sublime-merge
 #ttf-vista-fonts
