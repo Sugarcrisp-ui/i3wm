@@ -46,6 +46,7 @@ func_category Flatpaks
 
 list=(
     net.nokyan.Resources
+    flatpak install flathub com.github.PintaProject.Pinta
 )
 
 count=0

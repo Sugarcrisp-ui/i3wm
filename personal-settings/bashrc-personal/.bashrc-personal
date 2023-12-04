@@ -27,6 +27,7 @@ alias la='evpn usla1' # Los Angeles 1
 alias sf='evpn ussf' # San Fransisco
 alias ko='evpn kr2' # South Korea 2
 alias ny='evpn usny' # New York 
+alias xv='evpn xv' # Pick for Me
 # Add other ExpressVPN aliases here
 
 # Micro editor

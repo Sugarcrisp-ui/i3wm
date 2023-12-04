@@ -59,7 +59,7 @@ list=(
     meld
     most
     nodejs-nativefier
-    pinta
+#    pinta
     potrace
     qbittorrent
     qt5-graphicaleffects
