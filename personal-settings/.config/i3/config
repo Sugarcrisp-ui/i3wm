@@ -13,7 +13,7 @@ set $right l
 
 # Gaps Definitions
 gaps inner 10
-gaps outer 10
+gaps outer 0
 
 # Workspaces
 set $firstMonitor HDMI1
@@ -104,7 +104,8 @@ exec --no-startup-id insync start
 exec_always --no-startup-id sleep 2 && $(nm-applet)
 exec_always --no-startup-id sleep 3 && $(copyq)
 exec_always --no-startup-id sleep 5 && $(pamac-tray)
-exec_always --no-startup-id blueberry-tray
+#exec_always --no-startup-id blueberry-tray
+exec_always --no-startup-id blueman-tray &
 exec_always --no-startup-id autotiling
 exec --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -134,7 +135,7 @@ bindsym Ctrl+mod1+r exec --no-startup-id rofi-theme-selector
 bindsym Ctrl+mod1+m exec --no-startup-id xfce4-settings-manager
 bindsym Ctrl+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
 bindsym $mod+s exec --no-startup-id subl
-bindsym Ctrl+Shift+j exec --no-startup-id joplin-desktop
+bindsym Ctrl+alt+j exec --no-startup-id joplin-desktop
 bindsym $mod+Shift+Return exec --no-startup-id thunar
 bindsym $mod+F7 exec --no-startup-id virtualbox
 bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser

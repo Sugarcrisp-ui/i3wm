@@ -102,7 +102,6 @@ list=(
     aic94xx-firmware
     flatpak
 #    grub-btrfs
-    pamac
     paprefs
     paru-bin
     polybar
