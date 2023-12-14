@@ -7,8 +7,11 @@
     </property>
     <property name="height" type="uint" value="1026"/>
     <property name="width" type="uint" value="944"/>
+    <property name="thumbnails" type="empty">
+      <property name="show" type="bool" value="false"/>
+    </property>
   </property>
   <property name="file" type="empty">
-    <property name="current-uri" type="string" value="file:///home/brett/.local/share/Cryptomator/mnt/my-vault/Brett%20and%20Kim%20Docs/Brett/passport"/>
+    <property name="current-uri" type="string" value="file:///home/brett/Downloads"/>
   </property>
 </channel>
