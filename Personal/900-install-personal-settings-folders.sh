@@ -134,7 +134,8 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-sudo rsync -avz ~/i3wm/person-setting/var/spool/cron/ /var/spool/cron
+sudo chown -R root:root  ~/i3wm/personal-settings/var/spool/cron/root
+sudo rsync -avz ~/i3wm/personal-setting/var/spool/cron/ /var/spool/cron
 
 echo "################################################################"
 echo "#########            folders created            ################"
