@@ -6,49 +6,67 @@ set -e
 RSYNC_OPTS="-avh -r --exclude=.cache --mkpath --delete"
 DEST="/home/brett/Github/i3wm/personal-settings"
 
-# .bin-personal
+# Backup .bin-personal directory
 rsync $RSYNC_OPTS /home/brett/.bin-personal/ $DEST/.bin-personal
 
-# .config directories
-rsync $RSYNC_OPTS /home/brett/.config/arcolinux-welcome-app/ $DEST/.config/arcolinux-welcome-app
-rsync $RSYNC_OPTS /home/brett/.config/archlinux-betterlockscreen/ $DEST/.config/archlinux-betterlockscreen
-rsync $RSYNC_OPTS /home/brett/.config/Cryptomator/ $DEST/.config/Cryptomator
-rsync $RSYNC_OPTS /home/brett/.config/dconf/ $DEST/.config/dconf
-rsync $RSYNC_OPTS /home/brett/.config/expressvpn/ $DEST/.config/expressvpn
-rsync $RSYNC_OPTS /home/brett/.config/paru/ $DEST/.config/paru
-rsync $RSYNC_OPTS /home/brett/.config/polybar/ $DEST/.config/polybar
-rsync $RSYNC_OPTS /home/brett/.config/rofi/ $DEST/.config/rofi
-rsync $RSYNC_OPTS /home/brett/.config/Thunar/ $DEST/.config/Thunar
-rsync $RSYNC_OPTS /home/brett/.config/variety/Fetched/ $DEST/.config/variety/Fetched
-rsync $RSYNC_OPTS /home/brett/.config/xfce4/ $DEST/.config/xfce4
+# Backup .config directories and files
+for dir in \
+    arcolinux-welcome-app \
+    archlinux-betterlockscreen \
+    Cryptomator \
+    dconf \
+    expressvpn \
+    paru \
+    polybar \
+    rofi \
+    systemd \
+    Thunar \
+    variety/Fetched \
+    xfce4
+do
+    rsync $RSYNC_OPTS /home/brett/.config/$dir/ $DEST/.config/$dir
+done
 
-# .config files
-rsync $RSYNC_OPTS /home/brett/.config/i3/config $DEST/.config/i3/
-rsync $RSYNC_OPTS /home/brett/.config/Code/User/settings.json $DEST/.config/Code/User/settings.json
-rsync $RSYNC_OPTS /home/brett/.config/micro/settings.json $DEST/.config/micro/settings.json
-rsync $RSYNC_OPTS /home/brett/.config/mimeapps.list $DEST/.config/mimeapps.list
-rsync $RSYNC_OPTS /home/brett/.config/nano/nanorc $DEST/.config/nano/
-rsync $RSYNC_OPTS /home/brett/.config/qBittorrent/qBittorrent.conf $DEST/.config/qBittorrent/
+for file in \
+    i3/config \
+    Code/User/settings.json \
+    micro/settings.json \
+    mimeapps.list \
+    nano/nanorc \
+    qBittorrent/qBittorrent.conf
+do
+    rsync $RSYNC_OPTS /home/brett/.config/$file $DEST/.config/$file
+done
 
-# .vscode directory
+# Backup .vscode directory
 rsync $RSYNC_OPTS /home/brett/.vscode/ $DEST/.vscode
 
-# .bashrc-personal directory
+# Backup bashrc-personal directory and soft link
 rsync $RSYNC_OPTS /home/brett/bashrc-personal/ $DEST/bashrc-personal/
-
-# .bashrc-personal soft link
 rsync $RSYNC_OPTS /home/brett/.bashrc-personal $DEST/
 
-# etc directories
+# Backup etc directories
 rsync $RSYNC_OPTS /etc/sddm.conf.d/ $DEST/etc/sddm.conf.d
 
-# etc files
-rsync $RSYNC_OPTS /etc/vconsole.conf $DEST/etc/
-rsync $RSYNC_OPTS /etc/rc.local $DEST/etc/
-rsync $RSYNC_OPTS /etc/mkinitcpio.conf $DEST/etc/
+# Backup etc files
+for file in \
+    vconsole.conf \
+    rc.local \
+    mkinitcpio.conf
+do
+    rsync $RSYNC_OPTS /etc/$file $DEST/etc/$file
+done
 
-# sddm directories
+# Backup sddm themes directory
 rsync $RSYNC_OPTS /usr/share/sddm/themes/arcolinux-sugar-candy/ $DEST/usr/share/sddm/themes/arcolinux-sugar-candy
 
-# usr files
+# Backup usr files
 rsync $RSYNC_OPTS /usr/share/gvfs/mounts/network.mount $DEST/usr/share/gvfs/mounts/
+
+# Error handling
+if [ $? -ne 0 ]; then
+    echo "An error occurred during the backup process."
+    exit 1
+fi
+
+echo "Backup completed successfully."

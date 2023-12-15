@@ -134,13 +134,7 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-#cd ~/i3wm/personal-settings/cron
-
-# Change the root cron onwership to root:root
-
-sudo cp -Rf ~/i3wm/personal-settings/cron/* /var/spool/cron/
-
-sudo chown root:root /var/spool/cron/root
+sudo rsync -avz ~/i3wm/person-setting/var/spool/cron/ /var/spool/cron
 
 echo "################################################################"
 echo "#########            folders created            ################"

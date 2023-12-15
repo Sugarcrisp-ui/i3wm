@@ -1,0 +1,2 @@
+# Back up cron settings daily
+* 20 * * * /home/brett/.bin-personal/cron-.github.sh >/dev/null 2>&1

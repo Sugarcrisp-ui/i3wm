@@ -5,12 +5,17 @@ RSYNC_OPTS="-r -t -p -o -g -v --progress -s --delete"
 
 # Directories
 
-rsync $RSYNC_OPTS /var/spool/cron/* /home/brett/Github/i3wm/personal-settings/cron
+for dir in \
+    cron
+do
+    sudo rsync $RSYNC_OPTS /var/spool/$dir /home/brett/Github/i3wm/personal-settings/$dir
+    sudo chown -R brett:brett /home/brett/Github/i3wm/personal-settings/$dir
+done
 
-chown brett:brett /home/brett/Github/i3wm/personal-settings/cron/root
+# Error handling
+if [ $? -ne 0 ]; then
+    echo "An error occurred during the backup process."
+    exit 1
+fi
 
-
-
-# files
-
-
+echo "Backup completed successfully."
