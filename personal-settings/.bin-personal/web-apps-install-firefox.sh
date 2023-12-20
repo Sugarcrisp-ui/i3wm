@@ -8,15 +8,12 @@ icon_path="/home/brett/Pictures/"
 
 # Define the list of web apps
 declare -A web_apps
-web_apps["Bard"]="https://bard.google.com/chat"
 web_apps["Bitwarden"]="https://vault.bitwarden.com/#/login"
-web_apps["ChatGPT"]="https://chat.openai.com/auth/login"
 web_apps["Messenger"]="https://www.facebook.com/messages/t/5982819268494019/"
-web_apps["Netflix"]="https://www.netflix.com/vn-en/Browse"
+#web_apps["Netflix"]="https://www.netflix.com/vn-en/Browse"
 web_apps["Patreon"]="https://www.patreon.com/home"
 web_apps["Whatsapp"]="https://web.whatsapp.com/"
 web_apps["XTwitter"]="https://twitter.com/home?lang=en"
-#web_apps["Zalo"]="https://chat.zalo.me/"
 
 # Check if web apps are already installed
 installed=true
@@ -32,8 +29,18 @@ if [ "$installed" == true ]; then
     read -p "Web apps are already installed. Replace them? (y/n) " replace
 
     if [[ $replace =~ ^[Yy]$ ]]; then
-        # Remove existing web apps
-        rm "${path}webapp-"*.desktop
+        # Selective replace loop starts here 
+        for file in "${path}"webapp-*.desktop; do
+          filename="${file##*/}"
+          app="${filename#webapp-}"
+          app="${app%.desktop}"
+
+          if [[ -v "web_apps[$app]" ]]; then
+            rm "$file"
+          fi
+
+        done
+        # Selective replace loop ends
 
         # Install web apps again
         for app in "${!web_apps[@]}"; do
@@ -51,7 +58,7 @@ if [ "$installed" == true ]; then
             X-WebApp-Browser=Firefox
             X-WebApp-URL=${web_apps[$app]}
             X-WebApp-CustomParameters=
-            X-WebApp-Navbar=false
+            X-WebApp-Navbar=true
             X-WebApp-PrivateWindow=false
             X-WebApp-Isolated=true
             " > "${path}webapp-${app}.desktop"
@@ -80,7 +87,7 @@ else
         X-WebApp-Browser=Firefox
         X-WebApp-URL=${web_apps[$app]}
         X-WebApp-CustomParameters=
-        X-WebApp-Navbar=false
+        X-WebApp-Navbar=true
         X-WebApp-PrivateWindow=false
         X-WebApp-Isolated=true
         " > "${path}webapp-${app}.desktop"

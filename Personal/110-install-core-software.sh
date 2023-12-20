@@ -49,8 +49,9 @@ list=(
     clipgrab
     copyq
     etcher-bin
+	fish
+	flatpak
     font-manager-git
-    flatpak
     gnome-calculator
     gnome-disk-utility
     gpick
@@ -75,7 +76,7 @@ list=(
     timeshift
     timeshift-autosnap
     unzip
-    webapp-manager
+    #webapp-manager
     wget
     xfce4-appfinder
     xfce4-notifyd

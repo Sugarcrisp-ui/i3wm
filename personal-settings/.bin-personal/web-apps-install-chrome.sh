@@ -8,14 +8,13 @@ icon_path="/home/brett/Pictures/"
 
 # Define the list of web apps
 declare -A web_apps
-web_apps["Bard"]="https://bard.google.com/chat"
-web_apps["Bitwarden"]="https://vault.bitwarden.com/#/login"
-web_apps["ChatGPT"]="https://chat.openai.com/auth/login"
-web_apps["Messenger"]="https://www.facebook.com/messages/t/5982819268494019/"
+#web_apps["Bitwarden"]="https://vault.bitwarden.com/#/login"
+#web_apps["Messenger"]="https://www.facebook.com/messages/t/5982819268494019/"
 web_apps["Netflix"]="https://www.netflix.com/vn-en/Browse"
-web_apps["Patreon"]="https://www.patreon.com/home"
-web_apps["Whatsapp"]="https://web.whatsapp.com/"
-web_apps["XTwitter"]="https://twitter.com/home?lang=en"
+#web_apps["Patreon"]="https://www.patreon.com/home"
+#web_apps["Whatsapp"]="https://web.whatsapp.com/"
+#web_apps["XTwitter"]="https://twitter.com/home?lang=en"
+
 
 # Check if web apps are already installed
 installed=true
@@ -31,6 +30,20 @@ if [ "$installed" == true ]; then
     read -p "Web apps are already installed. Replace them? (y/n) " replace
 
     if [[ $replace =~ ^[Yy]$ ]]; then
+
+# Selective replace loop starts here 
+for file in "${path}"webapp-*.desktop; do
+  filename="${file##*/}"
+  app="${filename#webapp-}"
+  app="${app%.desktop}"
+
+  if [[ -v "web_apps[$app]" ]]; then
+    rm "$file"
+  fi
+
+done
+# Selective replace loop ends
+
         # Remove existing web apps
         rm "${path}webapp-"*.desktop
 
@@ -41,7 +54,7 @@ if [ "$installed" == true ]; then
             Terminal=false
             Type=Application
             Name=$app
-            Exec=google-chrome-stable --app=${web_apps[$app]} --class=WebApp-${app} --user-data-dir=/home/brett/.local/share/ice/profiles/${app}
+            Exec=google-chrome-stable --new-window ${web_apps[$app]} --class=WebApp-${app} --user-data-dir=/home/brett/.local/share/ice/profiles/${app}
             Icon=${icon_path}${app,,}-icon.png
             Categories=GTK;WebApps;
             MimeType=text/html;text/xml;application/xhtml_xml;
@@ -50,7 +63,7 @@ if [ "$installed" == true ]; then
             X-WebApp-Browser=Chrome
             X-WebApp-URL=${web_apps[$app]}
             X-WebApp-CustomParameters=
-            X-WebApp-Navbar=false
+            X-WebApp-Navbar=true
             X-WebApp-PrivateWindow=false
             X-WebApp-Isolated=true
             " > "${path}webapp-${app}.desktop"
@@ -70,7 +83,7 @@ else
         Terminal=false
         Type=Application
         Name=$app
-        Exec=google-chrome-stable --app=${web_apps[$app]} --class=WebApp-${app} --user-data-dir=/home/brett/.local/share/ice/profiles/${app}
+        Exec=google-chrome-stable --new-window ${web_apps[$app]} --class=WebApp-${app} --user-data-dir=/home/brett/.local/share/ice/profiles/${app}
         Icon=${icon_path}${app,,}-icon.png
         Categories=GTK;WebApps;
         MimeType=text/html;text/xml;application/xhtml_xml;
@@ -79,7 +92,7 @@ else
         X-WebApp-Browser=Chrome
         X-WebApp-URL=${web_apps[$app]}
         X-WebApp-CustomParameters=
-        X-WebApp-Navbar=false
+        X-WebApp-Navbar=true
         X-WebApp-PrivateWindow=false
         X-WebApp-Isolated=true
         " > "${path}webapp-${app}.desktop"

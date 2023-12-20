@@ -8,8 +8,8 @@ RSYNC_OPTS="-r -t -p -o -g -v --progress -s --delete"
 for dir in \
     cron
 do
-    sudo rsync $RSYNC_OPTS /var/spool/$dir /home/brett/Github/i3wm/personal-settings/$dir
-    sudo chown -R brett:brett /home/brett/Github/i3wm/personal-settings/$dir
+    sudo rsync $RSYNC_OPTS /var/spool/$dir/* /home/brett/Github/i3wm/personal-settings/var/spool/cron/
+    sudo chown -R brett:brett /home/brett/Github/i3wm/personal-settings/var/spool/cron/
 done
 
 # Error handling

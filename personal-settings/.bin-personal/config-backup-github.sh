@@ -16,6 +16,7 @@ for dir in \
     Cryptomator \
     dconf \
     expressvpn \
+    fish \
     paru \
     polybar \
     rofi \
@@ -62,6 +63,9 @@ rsync $RSYNC_OPTS /usr/share/sddm/themes/arcolinux-sugar-candy/ $DEST/usr/share/
 
 # Backup usr files
 rsync $RSYNC_OPTS /usr/share/gvfs/mounts/network.mount $DEST/usr/share/gvfs/mounts/
+
+# Sync only webapp files in ~/.local/share/applications/
+rsync $RSYNC_OPTS ~/.local/share/applications/webapp* $DEST/.local/share/applications/
 
 # Error handling
 if [ $? -ne 0 ]; then

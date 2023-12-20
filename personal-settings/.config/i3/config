@@ -104,7 +104,7 @@ exec --no-startup-id insync start
 exec_always --no-startup-id sleep 2 && $(nm-applet)
 exec_always --no-startup-id sleep 3 && $(copyq)
 exec_always --no-startup-id sleep 5 && $(pamac-tray)
-#exec_always --no-startup-id blueberry-tray
+exec_always --no-startup-id blueberry-tray
 exec_always --no-startup-id blueman-tray &
 exec_always --no-startup-id autotiling
 exec --no-startup-id ~/.config/polybar/launch.sh
@@ -112,10 +112,6 @@ exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-ag
 exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 exec_always --no-startup-id i3-msg border pixel 2
 exec_always --no-startup-id feh --bg-fill /home/brett/Pictures/background-images/batman.jpg &
-#exec --no-startup-id i3-msg 'workspace 1; exec firefox'
-#exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
-#exec --no-startup-id i3-msg 'workspace 1; exec chromium'
-#exec_always --no-startup-id sleep 1 && $(volumeicon)
 #exec_always --no-startup-id numlockx on
 #exec_always --no-startup-id cryptomator
 #exec_always --no-startup-id xfce4-power-manager &
@@ -145,20 +141,7 @@ bindsym Ctrl+mod1+g exec --no-startup-id google-chrome-stable
 bindsym Ctrl+$mod+s exec --no-startup-id spotify
 bindsym --release $mod+Escape exec xkill
 bindsym Ctrl+Shift+p exec --no-startup-id xfce4-screenshooter
-#bindsym $mod+c exec --no-startup-id conky-toggle
-#bindsym Ctrl+mod1+Next exec --no-startup-id conky-rotate -n
-#bindsym Ctrl+mod1+Prior exec --no-startup-id conky-rotate -p
 # Add more application keyboard shortcuts here
-
-# Variety Wallpaper Control
-#bindsym mod1+t exec --no-startup-id variety -t
-#bindsym mod1+n exec --no-startup-id variety -n
-#bindsym mod1+Right exec --no-startup-id variety -n
-#bindsym mod1+p exec --no-startup-id variety -p
-#bindsym mod1+Left exec --no-startup-id variety -p
-#bindsym mod1+f exec --no-startup-id variety -f
-#bindsym mod1+Up exec --no-startup-id variety --pause
-#bindsym mod1+Down exec --no-startup-id variety --resume
 
 # Audio Control
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
@@ -236,7 +219,7 @@ mode "$mode_gaps_outer" {
 # Picom Transparency Control (if you use picom)
 # --------------------------------
 # Start picom with custom settings.
-exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
+#exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
 
 # Border Color Settings
 # --------------------------------

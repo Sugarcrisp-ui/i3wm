@@ -1,7 +1,9 @@
 #!/bin/bash
 
+set -e
+
 # Define common rsync options
-RSYNC_OPTS="-avz -r --exclude=.cache --delete --perms"
+RSYNC_OPTS="-avh -r --exclude=.cache --mkpath --delete"
 DEST="/run/media/brett/backup"
 
 # Backup .bin-personal directory
@@ -9,7 +11,6 @@ rsync $RSYNC_OPTS /home/brett/.bin-personal/ $DEST/.bin-personal
 
 # Backup .config directories and files
 for dir in \
-    arcolinux-welcome-app \
     archlinux-betterlockscreen \
     Cryptomator \
     dconf \
@@ -56,3 +57,14 @@ done
 
 # Backup sddm themes directory
 rsync $RSYNC_OPTS /usr/share/sddm/themes/arcolinux-sugar-candy/ $DEST/usr/share/sddm/themes/arcolinux-sugar-candy
+
+# Sync the entire .local/share/applications directory
+rsync $RSYNC_OPTS ~/.local/share/applications/ $DEST/.local/share/applications
+
+# Error handling
+if [ $? -ne 0 ]; then
+    echo "An error occurred during the backup process."
+    exit 1
+fi
+
+echo "Backup completed successfully."
