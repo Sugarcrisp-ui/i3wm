@@ -15,6 +15,7 @@ for dir in \
     Cryptomator \
     dconf \
     expressvpn \
+    fish \
     paru \
     polybar \
     rofi \
