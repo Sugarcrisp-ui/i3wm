@@ -51,7 +51,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# XFCE4 Application Launcher
+# Xfce4 Application Launcher
 bindsym mod1+d exec --no-startup-id xfce4-appfinder
 
 # Rofi Application Launcher
@@ -105,7 +105,7 @@ exec_always --no-startup-id sleep 2 && $(nm-applet)
 exec_always --no-startup-id sleep 3 && $(copyq)
 exec_always --no-startup-id sleep 5 && $(pamac-tray)
 exec_always --no-startup-id blueberry-tray
-# exec_always --no-startup-id blueman-tray &
+#exec_always --no-startup-id blueman-tray &
 exec_always --no-startup-id autotiling
 exec --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -123,9 +123,11 @@ bindsym Ctrl+mod1+l exec --no-startup-id /home/brett/.bin-personal/lock-script.s
 # Application Keyboard Shortcuts
 bindsym Ctrl+space exec --no-startup-id catfish;focus
 bindsym $mod+Return exec --no-startup-id xfce4-terminal;focus
+bindsym $mod+mod1+Return exec xfce4-terminal -e fish
 bindsym Ctrl+mod1+m exec --no-startup-id xfce4-settings-manager
 bindsym $mod+s exec --no-startup-id subl
-bindsym Ctrl+alt+j exec --no-startup-id joplin-desktop
+bindsym Ctrl+mod1+v exec --no-startup-id code
+bindsym Ctrl+mod1+j exec --no-startup-id joplin-desktop
 bindsym $mod+Shift+Return exec --no-startup-id thunar
 bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser
 bindsym Ctrl+mod1+f exec --no-startup-id firefox
