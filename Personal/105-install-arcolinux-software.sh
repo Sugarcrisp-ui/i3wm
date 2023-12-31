@@ -30,7 +30,7 @@ if grep -q arcolinux_repo /etc/pacman.conf; then
   echo
   tput setaf 2
   echo "################################################################"
-  echo "################### Getting the keys and mirrors for ArcoLinux"
+  echo "################### Getting the keys and mirrors for ArchLinux"
   echo "################################################################"
   tput sgr0
   echo
@@ -41,10 +41,10 @@ fi
 sudo pacman -S --noconfirm --needed appstream
 sudo pacman -S --noconfirm --needed arcolinux-bin-git
 sudo pacman -S --noconfirm --needed arcolinux-hblock-git
-sudo pacman -S --noconfirm --needed archlinux-logout-git
 sudo pacman -S --noconfirm --needed arcolinux-pamac-all
-sudo pacman -S --noconfirm --needed archlinux-tweak-tool-git
 sudo pacman -S --noconfirm --needed arcolinux-wallpapers-git
+sudo pacman -S --noconfirm --needed archlinux-logout-git
+sudo pacman -S --noconfirm --needed archlinux-tweak-tool-git
 
 echo
 tput setaf 2

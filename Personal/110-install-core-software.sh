@@ -61,8 +61,12 @@ list=(
     meld
     most
     nodejs-nativefier
-#    pinta
+    paprefs
+    paru-bin
+    pinta
+    polybar
     potrace
+    powerline
     qbittorrent
     qt5-graphicaleffects
     qt5-quickcontrols2
@@ -92,23 +96,15 @@ list=(
     micro
     sublime-text-4
     visual-studio-code-bin
-    xournalpp
     xreader
 
 #  "Communication"=
-    arcolinux-teamviewer
-#    discord
+#    arcolinux-teamviewer
+    discord
     signal-desktop
 
 #  "Others"=
-    aic94xx-firmware
-    flatpak
 #    grub-btrfs
-    paprefs
-    paru-bin
-    polybar
-    powerline
-    ttf-font-awesome
     upd72020x-fw
     wd719x-firmware
 

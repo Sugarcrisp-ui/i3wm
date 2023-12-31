@@ -31,11 +31,12 @@ func_install() {
 }
 
 ###############################################################################
-echo "Installation of the core software"
+echo "Installing display manager"
 ###############################################################################
 
 list=(
 sddm
+#lightdm
 )
 
 count=0
@@ -56,10 +57,11 @@ echo;tput sgr0
 cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S)
 
 tput setaf 5;echo "################################################################"
-echo "Enabling sddm as display manager"
+echo "Enabling the display manager"
 echo "################################################################"
 echo;tput sgr0
 sudo systemctl enable sddm.service -f
+#sudo systemctl enable lightdm.service -f
 
 tput setaf 11;
 echo "################################################################"

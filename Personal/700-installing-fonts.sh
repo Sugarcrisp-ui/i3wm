@@ -34,7 +34,7 @@ func_install() {
 func_category() {
 	tput setaf 5;
 	echo "################################################################"
-	echo "Installing software for category " $1
+	echo "Installing fonts " $1
 	echo "################################################################"
 	echo;tput sgr0
 }
@@ -45,19 +45,24 @@ func_category Fonts
 
 list=(
 arcolinux-fonts-git
-awesome-terminal-fonts
 adobe-source-sans-pro-fonts
-ttf-bitstream-vera
-ttf-droid
-ttf-inconsolata
-ttf-ubuntu-font-family
+awesome-terminal-fonts
 cantarell-fonts
 noto-fonts
+ttf-bitstream-vera
 ttf-dejavu
 ttf-droid
+ttf-font-awesome
+ttf-font-awesome-5
+ttf-font-awesome-6
 ttf-hack
+ttf-inconsolata
 ttf-liberation
+ttf-ms-fonts
+ttf-opensans
 ttf-roboto
+ttf-roboto-mono
+ttf-ubuntu-font-family
 )
 
 count=0
