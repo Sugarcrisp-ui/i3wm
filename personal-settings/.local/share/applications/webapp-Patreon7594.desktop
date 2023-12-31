@@ -1,0 +1,19 @@
+[Desktop Entry]
+Version=1.0
+Name=Patreon
+Comment=Web App
+Exec=sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/brett/.local/share/ice/icons/Patreon.png" firefox --class WebApp-Patreon7594 --name WebApp-Patreon7594 --profile /home/brett/.local/share/ice/firefox/Patreon7594 --no-remote "https://www.patreon.com/home"'
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/home/brett/.local/share/ice/icons/Patreon.png
+Categories=GTK;WebApps;
+MimeType=text/html;text/xml;application/xhtml_xml;
+StartupWMClass=WebApp-Patreon7594
+StartupNotify=true
+X-WebApp-Browser=Firefox
+X-WebApp-URL=https://www.patreon.com/home
+X-WebApp-CustomParameters=
+X-WebApp-Navbar=true
+X-WebApp-PrivateWindow=false
+X-WebApp-Isolated=true

@@ -13,6 +13,7 @@ alias es='expressvpn status'
 alias dis='expressvpn disconnect'
 
 function evpn() {
+    expressvpn disconnect
     expressvpn connect $1
 }
 

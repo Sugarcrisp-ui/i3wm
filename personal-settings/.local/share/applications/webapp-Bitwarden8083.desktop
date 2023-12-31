@@ -1,0 +1,20 @@
+[Desktop Entry]
+Version=1.0
+Name=Bitwarden
+Comment=Web App
+Exec=sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/brett/Pictures/bitwarden-icon.svg" firefox --class WebApp-Bitwarden8083 --name WebApp-Bitwarden8083 --profile /home/brett/.local/share/ice/firefox/Bitwarden8083 --no-remote "https://vault.bitwarden.com/#/login"'
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/home/brett/Pictures/bitwarden-icon.svg
+Categories=GTK;WebApps;
+MimeType=text/html;text/xml;application/xhtml_xml;
+StartupWMClass=WebApp-Bitwarden8083
+StartupNotify=true
+X-WebApp-Browser=Firefox
+X-WebApp-URL=https://vault.bitwarden.com/#/login
+X-WebApp-CustomParameters=
+X-WebApp-Navbar=true
+X-WebApp-PrivateWindow=false
+X-WebApp-Isolated=true
+

@@ -30,7 +30,6 @@ done
 
 for file in \
     i3/config \
-    #Code/User/settings.json \
     micro/settings.json \
     mimeapps.list \
     nano/nanorc \
@@ -38,9 +37,6 @@ for file in \
 do
     rsync $RSYNC_OPTS /home/brett/.config/$file $DEST/.config/$file
 done
-
-# Backup .vscode directory
-rsync $RSYNC_OPTS /home/brett/.vscode/ $DEST/.vscode
 
 # Backup bashrc-personal directory and soft link
 rsync $RSYNC_OPTS /home/brett/bashrc-personal/ $DEST/bashrc-personal/

@@ -1,0 +1,20 @@
+[Desktop Entry]
+Version=1.0
+Name=Twitter
+Comment=Web App
+Exec=sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/brett/Pictures/xtwitter-icon.svg" firefox --class WebApp-XTwitter8513 --name WebApp-XTwitter8513 --profile /home/brett/.local/share/ice/firefox/XTwitter8513 --no-remote "https://twitter.com/home"'
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/home/brett/Pictures/xtwitter-icon.svg
+Categories=GTK;WebApps;
+MimeType=text/html;text/xml;application/xhtml_xml;
+StartupWMClass=WebApp-XTwitter8513
+StartupNotify=true
+X-WebApp-Browser=Firefox
+X-WebApp-URL=https://twitter.com/home
+X-WebApp-CustomParameters=
+X-WebApp-Navbar=true
+X-WebApp-PrivateWindow=false
+X-WebApp-Isolated=true
+Path=
