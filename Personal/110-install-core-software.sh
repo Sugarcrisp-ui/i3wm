@@ -4,8 +4,14 @@
 
 # This script installs a list of packages on an Arch Linux system.
 
-# Set the error action to exit.
-set -e
+# Function to handle errors
+handle_error() {
+  echo -e "\e[31mAn error occurred while installing the packages. Please check the output and try again.\e[0m"
+  exit 1
+}
+
+# Set up error handling
+trap 'handle_error' ERR
 
 # Function to check if a package is installed.
 function is_installed() {
@@ -15,14 +21,14 @@ function is_installed() {
 # Function to install a package.
 function install_package() {
   if ! is_installed "$1"; then
-    echo "Installing package $1"
+    echo -e "\e[32mInstalling package $1\e[0m"
     sudo pacman -S --noconfirm --needed "$1"
   fi
 }
 
 # Function to install a category of packages.
 function install_category() {
-  echo "Installing software for category $1"
+  echo -e "\e[32mInstalling software for category $1\e[0m"
   for package in "${list[$1]}"; do
     install_package "$package"
   done
@@ -49,8 +55,8 @@ list=(
     clipgrab
     copyq
     etcher-bin
-	fish
-	flatpak
+    fish
+    flatpak
     font-manager-git
     gnome-calculator
     gnome-disk-utility
@@ -118,4 +124,4 @@ for category in "${!list[@]}"; do
 done
 
 # Success message.
-echo "Software has been installed"
+echo -e "\e[32mSoftware has been installed\e[0m"

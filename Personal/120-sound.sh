@@ -1,75 +1,50 @@
 #!/bin/bash
 
-# The set command is used to determine action if error
-# is encountered.  (-e) will stop and exit (+e) will
-# continue with the script.
-set -e
-
-###############################################################################
-#
-#   DECLARATION OF FUNCTIONS
-#
-###############################################################################
-
-# Installs a package if it's not already installed
-func_install() {
-	if pacman -Qi $1 &> /dev/null; then
-		tput setaf 2
-  		echo "###############################################################################"
-  		echo "################## The package "$1" is already installed"
-      	echo "###############################################################################"
-      	echo
-		tput sgr0
-	else
-    	tput setaf 3
-    	echo "###############################################################################"
-    	echo "##################  Installing package "  $1
-    	echo "###############################################################################"
-    	echo
-    	tput sgr0
-    	sudo pacman -S --noconfirm --needed $1 
-    fi
+# Function to install a package if it's not already installed
+install_package() {
+  if ! pacman -Qs "$1" &> /dev/null; then
+    echo -e "\e[32m###############################################################################\e[0m"
+    echo -e "\e[32m################## Installing package $1\e[0m"
+    echo -e "\e[32m###############################################################################\e[0m"
+    echo
+    sudo pacman -S --noconfirm --needed "$1"
+  else
+    echo -e "\e[32m###############################################################################\e[0m"
+    echo -e "\e[32m################## The package $1 is already installed\e[0m"
+    echo -e "\e[32m###############################################################################\e[0m"
+    echo
+  fi
 }
 
-###############################################################################
-echo "Installation of sound software"
-###############################################################################
+# Function to handle errors
+handle_error() {
+  echo -e "\e[31mAn error occurred while installing the packages. Please check the output and try again.\e[0m"
+  exit 1
+}
 
-list=(
-#pulseaudio
-#pulseaudio-alsa
-pavucontrol
-pipewire
-libpipewire
-pipewire-alsa
-pipewire-audio
-pipewre-media-session
-pipewire-pulse
-#alsa-firmware
-alsa-lib
-alsa-plugins
-alsa-utils
-gstreamer
-gst-plugins-good
-gst-plugins-bad
-gst-plugins-base
-#gst-plugins-ugly
-#playerctl
-volumeicon
+# Set up error handling
+trap 'handle_error' ERR
+
+# List of packages to install
+packages=(
+  pavucontrol
+  pulseaudio-bluetooth
+  pipewire
+  libpipewire
+  pipewire-alsa
+  pipewire-pulse
+  alsa-lib
+  alsa-plugins
+  alsa-utils
 )
 
-count=0
-
-for name in "${list[@]}" ; do
-	count=$[count+1]
-	tput setaf 3;echo "Installing package nr.  "$count " " $name;tput sgr0;
-	func_install $name
+# Install packages
+for package in "${packages[@]}"; do
+  install_package "$package"
 done
 
-###############################################################################
-
-tput setaf 11;
-echo "################################################################"
-echo "Software has been installed"
-echo "################################################################"
-echo;tput sgr0
+# Final message
+echo -e "\e[32m################################################################\e[0m"
+echo -e "\e[32m################## Audio packages have been installed\e[0m"
+echo -e "\e[32m################################################################\e[0m"
+echo

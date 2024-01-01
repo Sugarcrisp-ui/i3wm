@@ -94,9 +94,11 @@ x-scheme-handler/unknown=google-chrome-stable
 application/x-zerosize=sublime_text.desktop;micro.desktop;
 application/vnd.sqlite3=libreoffice-base.desktop;sublime_text.desktop;
 application/epub+zip=calibre-gui.desktop;
+application/x-python-bytecode=sublime_text.desktop;
 
 [Default Applications]
 inode/directory=thunar.desktop
 application/x-zerosize=micro.desktop
 x-scheme-handler/webcal=google-chrome-stable
 application/vnd.sqlite3=sublime_text.desktop
+application/x-python-bytecode=sublime_text.desktop

@@ -4,45 +4,38 @@
 # is encountered. (-e) will stop and exit, (+e) will 
 # continue with the script.
 set -e
+trap 'handle_error' ERR
 
-###############################################################################
-#
-#   DECLARATION OF FUNCTIONS
-#
-###############################################################################
-
-# Install a package, if not already installed
-func_install() {
-	if pacman -Qi $1 &> /dev/null; then
-		tput setaf 2
-  		echo "###############################################################################"
-  		echo "################## The package "$1" is already installed"
-      	echo "###############################################################################"
-      	echo
-		tput sgr0
-	else
-    	tput setaf 3
-    	echo "###############################################################################"
-    	echo "##################  Installing package "  $1
-    	echo "###############################################################################"
-    	echo
-    	tput sgr0
-    	sudo pacman -S --noconfirm --needed $1
-    fi
+# Function to handle errors
+handle_error() {
+  echo -e "\e[31mAn error occurred while installing the packages. Please check the output and try again.\e[0m"
+  exit 1
 }
 
-func_category() {
-	tput setaf 5;
-	echo "################################################################"
-	echo "Installing fonts " $1
-	echo "################################################################"
-	echo;tput sgr0
+# Function to install a package.
+function install_package() {
+  if ! paru -Qi "$1" &> /dev/null; then
+    echo -e "\e[32m###############################################################################\e[0m"
+    echo -e "\e[32m##################  Installing package "  "$1"
+    echo -e "\e[32m###############################################################################\e[0m"
+    echo
+    paru --noconfirm --needed "$1"
+  fi
 }
 
-###############################################################################
+# Function to install a category of packages.
+function install_category() {
+  echo -e "\e[32m################################################################\e[0m"
+  echo -e "Installing fonts " $1
+  echo -e "\e[32m################################################################\e[0m"
+  echo;tput sgr0
+  
+  for package in "${list[@]}"; do
+    install_package "$package"
+  done
+}
 
-func_category Fonts
-
+# List of packages to install.
 list=(
 arcolinux-fonts-git
 adobe-source-sans-pro-fonts
@@ -65,17 +58,11 @@ ttf-roboto-mono
 ttf-ubuntu-font-family
 )
 
-count=0
-for name in "${list[@]}" ; do
-	count=$[count+1]
-	tput setaf 3;echo "Installing package nr.  "$count " " $name;tput sgr0;
-	func_install $name
-done
+# Install all of the packages.
+install_category "Fonts"
 
-###############################################################################
-
-tput setaf 11;
-echo "################################################################"
-echo "Software has been installed"
-echo "################################################################"
+# Success message.
+echo -e "\e[32m################################################################\e[0m"
+echo -e "Software has been installed"
+echo -e "\e[32m################################################################\e[0m"
 echo;tput sgr0

@@ -1,49 +1,40 @@
 #!/bin/bash
-# The set command is used to determine action if error
-# is encountered.  (-e) will stop and exit (+e) will
-# continue with the script.
-set +e
-###############################################################################
-# Author	:	Brett Crisp
-###############################################################################
 
-###############################################################################
-#
-#   DECLARATION OF FUNCTIONS
-#
-###############################################################################
+# Author: Brett Crisp
 
-func_install() {
-	if pacman -Qqm $1 &> /dev/null; then
-		tput setaf 2
-  		echo "###############################################################################"
-  		echo "################## The package "$1" is already installed"
-      	echo "###############################################################################"
-      	echo
-		tput sgr0
-	else
-    	tput setaf 3
-    	echo "###############################################################################"
-    	echo "##################  Installing package "  $1
-    	echo "###############################################################################"
-    	echo
-    	tput sgr0
-    	paru -S --noconfirm --needed $1
-    fi
+# This script installs a list of packages on an Arch Linux system.
+
+# Function to handle errors
+handle_error() {
+  echo -e "\e[31mAn error occurred while installing the packages. Please check the output and try again.\e[0m"
+  exit 1
 }
 
-func_category() {
-	tput setaf 5;
-	echo "################################################################"
-	echo "Installing software for category " $1
-	echo "################################################################"
-	echo;tput sgr0
+# Set up error handling
+trap 'handle_error' ERR
+
+# Function to check if a package is installed.
+function is_installed() {
+  paru -Qqm "$1" &> /dev/null
 }
 
-###############################################################################
+# Function to install a package.
+function install_package() {
+  if ! is_installed "$1"; then
+    echo -e "\e[32mInstalling package $1\e[0m"
+    paru --noconfirm --needed "$1"
+  fi
+}
 
-func_category Core Software
+# Function to install a category of packages.
+function install_category() {
+  echo -e "\e[32mInstalling software for category $1\e[0m"
+  for package in "${list[@]}"; do
+    install_package "$package"
+  done
+}
 
+# List of packages to install.
 list=(
 authy
 baobab-git
@@ -62,22 +53,10 @@ pamac-aur
 sublime-merge
 #ttf-vista-fonts
 ttf-font-awesome-5
-
 )
 
-count=0
-for name in "${list[@]}" ; do
-	count=$[count+1]
-	tput setaf 3;echo "Installing package nr.  "$count " " $name;tput sgr0;
-	func_install $name
-done
+# Install all of the packages.
+install_category "Core Software"
 
-###############################################################################
-
-tput setaf 11;
-echo "################################################################"
-echo "Software has been installed"
-echo "################################################################"
-echo;tput sgr0
-
-###############################################################################
+# Success message.
+echo -e "\e[32mSoftware has been installed\e[0m"
