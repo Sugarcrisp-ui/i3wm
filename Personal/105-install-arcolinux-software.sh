@@ -40,7 +40,6 @@ function install_software() {
   sudo pacman -S --noconfirm --needed appstream
   sudo pacman -S --noconfirm --needed arcolinux-bin-git
   sudo pacman -S --noconfirm --needed arcolinux-hblock-git
-  sudo pacman -S --noconfirm --needed arcolinux-pamac-aur
   sudo pacman -S --noconfirm --needed arcolinux-wallpapers-git
   sudo pacman -S --noconfirm --needed archlinux-logout-git
   sudo pacman -S --noconfirm --needed archlinux-tweak-tool-git

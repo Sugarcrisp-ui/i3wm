@@ -67,6 +67,7 @@ list=(
     meld
     most
     nodejs-nativefier
+    pamac-aur
     paprefs
     paru-bin
     pinta
