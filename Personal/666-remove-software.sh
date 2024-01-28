@@ -35,6 +35,7 @@ function_remove() {
 # List of packages to uninstall
 packages=(
   i3blocks
+  pulseaudio
   termite
   vim
   xf86-video-amdgpu

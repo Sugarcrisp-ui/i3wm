@@ -9,7 +9,7 @@ export VISUAL='micro'
 alias update='paru -Syu && flatpak update'
 
 # ExpressVPN
-alias es='expressvpn status'
+alias stat='expressvpn status'
 alias dis='expressvpn disconnect'
 
 function evpn() {

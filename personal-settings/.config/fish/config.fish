@@ -1,7 +1,11 @@
+# Define aliases in config file ( `~/.config/fish/config.fish` )
 if status is-interactive
-
     # PATH setting
     set -x PATH "$PATH:/opt/someApp/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:~/.bin-personal"
+
+    # Set default editor to micro
+    set -gx EDITOR micro
+    set -gx VISUAL micro
 
     # Commands to run in interactive sessions can go here
     alias update="paru -Syu; and flatpak update"
@@ -48,6 +52,9 @@ if status is-interactive
     
     # System information
     alias sysinfo='inxi -Fxxxrz'
+
+    # Rate mirrors and update mirror list
+    alias ram='rate-mirrors --allow-root --disable-comments arch | sudo tee /etc/pacman.d/mirrorlist'
     
     # Bluetooth
     alias blue='bluetoothctl'

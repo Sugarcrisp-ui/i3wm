@@ -77,6 +77,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Set default size and position for floating windows
+for_window [floating] resize set 1200px 800px
+for_window [floating] move position center
+
 # Workspace Navigation
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
@@ -96,12 +100,13 @@ bindsym $mod+a focus parent
 # Autostart
 #exec --no-startup-id google-chrome-stable
 #exec --no-startup-id firefox
-exec --no-startup-id insync start
-exec_always --no-startup-id sleep 2 && $(nm-applet)
-exec_always --no-startup-id sleep 3 && $(copyq)
-exec_always --no-startup-id sleep 5 && $(pamac-tray)
+exec --no-startup-id insync start & disown
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id copyq
+exec_always --no-startup-id pamac-tray
 exec_always --no-startup-id blueberry-tray
 #exec_always --no-startup-id blueman-tray &
+exec --no-startup-id solaar --window=hide
 exec_always --no-startup-id autotiling
 exec --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

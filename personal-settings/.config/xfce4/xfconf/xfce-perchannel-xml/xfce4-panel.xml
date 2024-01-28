@@ -129,6 +129,8 @@
         <value type="string" value="xfce4-terminal.desktop"/>
       </property>
       <property name="recent" type="array">
+        <value type="string" value="xfce-mouse-settings.desktop"/>
+        <value type="string" value="xfce-keyboard-settings.desktop"/>
         <value type="string" value="realvnc-vncviewer.desktop"/>
         <value type="string" value="xfce-session-settings.desktop"/>
         <value type="string" value="xfce4-terminal.desktop"/>

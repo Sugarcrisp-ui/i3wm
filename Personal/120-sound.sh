@@ -28,14 +28,11 @@ trap 'handle_error' ERR
 # List of packages to install
 packages=(
   pavucontrol
-  pulseaudio-bluetooth
   pipewire
-  libpipewire
   pipewire-alsa
   pipewire-pulse
-  alsa-lib
-  alsa-plugins
-  alsa-utils
+  flatpak
+  paprefs
 )
 
 # Install packages

@@ -47,7 +47,6 @@ github-desktop-bin
 gnome-disk-utility
 grub-hook
 insync-thunar
-joplin-appimage
 pamac-aur
 #rtl8821au-dkms-git
 sublime-merge

@@ -2,23 +2,8 @@
 
 # List of Flatpak packages to install
 list=(
-  net.nokyan.Resources
   com.github.PintaProject.Pinta
-  org.freedesktop.Platform
-  org.freedesktop.Platform
-  org.freedesktop.Platform.GL.default
-  org.freedesktop.Platform.GL.default
-  org.freedesktop.Platform.GL.default
-  org.freedesktop.Platform.GL.default
-  org.freedesktop.Platform.VAAPI.Intel
-  org.freedesktop.Platform.VAAPI.Intel
-  org.freedesktop.Platform.ffmpeg-full
-  org.freedesktop.Platform.openh264
-  org.freedesktop.Sdk
-  org.gnome.Platform
-  org.gnome.Platform
-  org.kde.Platform
-  org.kde.Platform.
+  net.cozic.joplin_desktop
 )
 
 # Function to check if a Flatpak is installed
