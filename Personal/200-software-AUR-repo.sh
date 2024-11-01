@@ -39,9 +39,10 @@ list=(
 authy
 baobab-git
 bluetooth-autoconnect
+brave-bin
 chrome-remote-desktop
 #converter
-cryptomator-bin
+#cryptomator-bin
 expressvpn
 github-desktop-bin
 gnome-disk-utility
@@ -49,7 +50,7 @@ grub-hook
 insync-thunar
 pamac-aur
 #rtl8821au-dkms-git
-sublime-merge
+#sublime-merge
 #ttf-vista-fonts
 ttf-font-awesome-5
 )
