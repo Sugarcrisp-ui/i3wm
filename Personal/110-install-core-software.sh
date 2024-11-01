@@ -37,8 +37,8 @@ function install_category() {
 # List of packages to install.
 list=(
 #  "Web Browsers"=
-    chromium
-    google-chrome     
+    #chromium
+    google-chrome
 
 #  "Multimedia"=
     celluloid
@@ -55,7 +55,7 @@ list=(
     clipgrab
     copyq
     etcher-bin
-    fish
+    #fish
     flatpak
     font-manager-git
     gnome-calculator
@@ -85,7 +85,7 @@ list=(
     seahorse
     sshfs
     timeshift
-    timeshift-autosnap
+    #timeshift-autosnap #only with btrfs
     unzip
     webapp-manager
     wget
