@@ -57,12 +57,9 @@ done
 
 # Start needed services
 sudo systemctl enable cronie.service
-sudo systemctl enable vpn-autostart.service
-sudo systemctl enable vpn-autostart-suspend.service
+#sudo systemctl enable vpn-autostart.service
+#sudo systemctl enable vpn-autostart-suspend.service
 sudo mkinitcpio -P 
-
-# Change default filer manager for Cryptomator
-xdg-mime default thunar.desktop inode/directory
 
 # Create Web Apps
 cd /home/brett/.bin-personal
