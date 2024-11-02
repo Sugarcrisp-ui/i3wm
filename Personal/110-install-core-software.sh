@@ -41,7 +41,7 @@ list=(
     google-chrome
 
 #  "Multimedia"=
-    celluloid
+#    celluloid
     ffmpeg
     losslesscut-bin
     #openshot
@@ -52,12 +52,12 @@ list=(
 #  "Utilities"=
     bitwarden
     catfish
-    clipgrab
+#    clipgrab
     copyq
-    etcher-bin
-    #fish
+#    etcher-bin
+#     fish
     flatpak
-    font-manager-git
+#    font-manager-git
     gnome-calculator
     gnome-disk-utility
     gpick
@@ -66,10 +66,10 @@ list=(
     inxi
     meld
     most
-    nodejs-nativefier
+#    nodejs-nativefier
     pamac-aur
     paprefs
-    paru-bin
+#    paru-bin
     pinta
     polybar
     potrace
@@ -85,10 +85,11 @@ list=(
     seahorse
     sshfs
     timeshift
-    #timeshift-autosnap #only with btrfs
+#    timeshift-autosnap #only with btrfs
     unzip
-    webapp-manager
+#    webapp-manager
     wget
+    xclip
     xfce4-appfinder
     xfce4-notifyd
     xfce4-power-manager
@@ -102,13 +103,13 @@ list=(
     libreoffice-still
     micro
     sublime-text-4
-    visual-studio-code-bin
-    xreader
+#    visual-studio-code-bin
+#    xreader
 
 #  "Communication"=
 #    arcolinux-teamviewer
-    discord
-    signal-desktop
+#    discord
+#    signal-desktop
 
 #  "Others"=
 #    grub-btrfs
@@ -116,7 +117,7 @@ list=(
     wd719x-firmware
 
 #  "Developer"=
-    virtualbox
+#    virtualbox
 )
 
 # Install all of the packages.

@@ -39,20 +39,16 @@ list=(
 authy
 baobab-git
 bluetooth-autoconnect
-brave-bin
+#brave-bin
 chrome-remote-desktop
-#converter
 #cryptomator-bin
-expressvpn
 github-desktop-bin
 gnome-disk-utility
-grub-hook
+#grub-hook # only needed if using grub boot loader. Currently using systemd-boot
 insync-thunar
 pamac-aur
 #rtl8821au-dkms-git
 #sublime-merge
-#ttf-vista-fonts
-ttf-font-awesome-5
 )
 
 # Install all of the packages.

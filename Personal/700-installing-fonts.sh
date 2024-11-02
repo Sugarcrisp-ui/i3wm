@@ -56,6 +56,7 @@ ttf-opensans
 ttf-roboto
 ttf-roboto-mono
 ttf-ubuntu-font-family
+ttf-vista-fonts
 )
 
 # Install all of the packages.
