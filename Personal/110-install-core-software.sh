@@ -78,6 +78,7 @@ list=(
     rofi
     seahorse
     sshfs
+    stow
     timeshift
 #    timeshift-autosnap #only with btrfs
     unzip
