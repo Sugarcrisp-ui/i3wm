@@ -31,7 +31,6 @@ packages=(
   pipewire
   pipewire-alsa
   pipewire-pulse
-  flatpak
   paprefs
 )
 
