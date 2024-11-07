@@ -3,6 +3,7 @@
 # List of Flatpak packages to install
 list=(
   net.cozic.joplin_desktop
+  com.github.unrud.VideoDownloader
 )
 
 # Function to check if a Flatpak is installed
