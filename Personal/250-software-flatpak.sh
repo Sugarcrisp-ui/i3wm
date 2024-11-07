@@ -2,7 +2,6 @@
 
 # List of Flatpak packages to install
 list=(
-  com.github.PintaProject.Pinta
   net.cozic.joplin_desktop
 )
 
