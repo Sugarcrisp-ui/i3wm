@@ -36,19 +36,15 @@ function install_category() {
 
 # List of packages to install.
 list=(
-authy
 baobab-git
 bluetooth-autoconnect
-#brave-bin
+brave-bin
 chrome-remote-desktop
-#cryptomator-bin
 github-desktop-bin
 gnome-disk-utility
 #grub-hook # only needed if using grub boot loader. Currently using systemd-boot
 insync-thunar
 pamac-aur
-#rtl8821au-dkms-git
-#sublime-merge
 )
 
 # Install all of the packages.
