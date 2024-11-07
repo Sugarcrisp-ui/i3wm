@@ -42,7 +42,6 @@ declare -a scripts=(
   "200-software-AUR-repo"
   "700-installing-fonts"
   "900-install-personal-settings-folders"
-  "910-cryptomator-settings-for-thunar"
   "940-btrfs-setup"
   #"950-install-all-fonts-needed-for-conkys-of-arcolinux"
   "955-install-settings-autoconnect-to-bluetooth-headset"
