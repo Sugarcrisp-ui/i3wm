@@ -45,6 +45,7 @@ noto-fonts
 ttf-bitstream-vera
 ttf-dejavu
 ttf-droid
+ttf-firacode-nerd
 ttf-font-awesome
 ttf-font-awesome-5
 ttf-font-awesome-6
