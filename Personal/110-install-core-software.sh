@@ -51,7 +51,6 @@ list=(
 
 #  "Utilities"=
     bitwarden
-    bluetooth-autoconnect
 #    clipgrab
     copyq
     flatpak
