@@ -40,6 +40,7 @@ baobab-git
 bluetooth-autoconnect
 brave-bin
 chrome-remote-desktop
+ttf-font-awesome-5
 github-desktop-bin
 gnome-disk-utility
 #grub-hook # only needed if using grub boot loader. Currently using systemd-boot
