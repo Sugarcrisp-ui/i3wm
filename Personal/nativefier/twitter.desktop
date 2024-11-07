@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Twitter
-Exec=/home/brett/Twitter-linux-x64/Twitter
-Icon=/home/brett/Pictures/twitter-icon.png
-Terminal=false
-Type=Application
-Categories=Network;WebBrowser;
