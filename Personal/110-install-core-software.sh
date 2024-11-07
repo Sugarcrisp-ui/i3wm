@@ -38,7 +38,7 @@ function install_category() {
 list=(
 #  "Web Browsers"=
     #chromium
-    google-chrome
+    #google-chrome
 
 #  "Multimedia"=
 #    celluloid
@@ -51,11 +51,9 @@ list=(
 
 #  "Utilities"=
     bitwarden
-    catfish
+    bluetooth-autoconnect
 #    clipgrab
     copyq
-#    etcher-bin
-#     fish
     flatpak
 #    font-manager-git
     gnome-calculator
@@ -66,7 +64,6 @@ list=(
     inxi
     meld
     most
-#    nodejs-nativefier
     pamac-aur
     paprefs
 #    paru-bin
@@ -75,8 +72,6 @@ list=(
     potrace
     powerline
     qbittorrent
-    qt5-graphicaleffects
-    qt5-quickcontrols2
     qt5-svg
     qt6ct
     realvnc-vnc-server
@@ -100,22 +95,19 @@ list=(
     zip
 
 #  "Documents and Text"=
+    geany
     libreoffice-still
     micro
     sublime-text-4
-#    visual-studio-code-bin
-#    xreader
 
 #  "Communication"=
 #    arcolinux-teamviewer
 #    discord
-#    signal-desktop
 
 #  "Others"=
 #    grub-btrfs
     upd72020x-fw
-    wd719x-firmware
-
+    
 #  "Developer"=
 #    virtualbox
 )
