@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Ensure the script uses the right environment
+export PATH=$PATH:/usr/bin:/bin
+
+# Navigate to the project directory
+cd /home/brett/i3-auto-layout
+
+# Perform a git pull
+git pull
+
+# Update dependencies
+cargo update
+
+# Rebuild the project
+cargo build

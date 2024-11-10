@@ -1,3 +1,7 @@
 [General]
+<<<<<<< HEAD
 background=/usr/share/Backgrounds/archlinux-login-backgrounds/arco-login-plasma.jpg
+=======
+background=/usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/arco-login-plasma.jpg
+>>>>>>> 5b42d3a5e140768999b1672210202863b476e062
 type=image

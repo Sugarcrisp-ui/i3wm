@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Netflix
-Exec=/home/brett/Netflix-linux-x64/Netflix
-Icon=/home/brett/Pictures/netflix-icon.png
-Terminal=false
-Type=Application
-Categories=Network;WebBrowser;
