@@ -71,6 +71,7 @@ list=(
     potrace
     powerline
     qbittorrent
+    qt5-graphicaleffects
     qt5-svg
     qt6ct
     realvnc-vnc-server
