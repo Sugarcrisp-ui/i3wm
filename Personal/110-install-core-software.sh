@@ -66,7 +66,6 @@ list=(
     most
     pamac-aur
     paprefs
-#    paru-bin
     pinta
     polybar
     potrace
@@ -84,7 +83,7 @@ list=(
     timeshift
 #    timeshift-autosnap #only with btrfs
     unzip
-#    webapp-manager
+    webapp-manager
     wget
     xclip
     xfce4-appfinder
