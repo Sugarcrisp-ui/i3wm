@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Spotify
+Comment=Listen to music with Spotify
+Exec=spotify --uri=spotify:user:browse
+Icon=/home/brett/Pictures/spotify-icon.png
+Terminal=false
+Type=Application
+Categories=Audio;Music;Player;AudioVideo;
+StartupNotify=true
