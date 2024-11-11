@@ -57,6 +57,7 @@ list=(
 #    font-manager-git
     gnome-calculator
     gnome-disk-utility
+    gufw
     gpick
     imagemagick
     insync
