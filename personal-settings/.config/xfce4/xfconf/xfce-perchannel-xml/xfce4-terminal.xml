@@ -2,13 +2,13 @@
 
 <channel name="xfce4-terminal" version="1.0">
   <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_TRANSPARENT"/>
-  <property name="background-darkness" type="double" value="0.59999999999999998"/>
-  <property name="color-foreground" type="string" value="#17f018"/>
+  <property name="background-darkness" type="double" value="1"/>
+  <property name="color-foreground" type="string" value="#1717f0f01818"/>
   <property name="dropdown-status-icon" type="bool" value="false"/>
   <property name="dropdown-width" type="uint" value="60"/>
   <property name="dropdown-height" type="uint" value="60"/>
   <property name="dropdown-always-show-tabs" type="bool" value="false"/>
-  <property name="font-name" type="string" value="Inconsolata 18"/>
+  <property name="font-name" type="string" value="Monospace 14"/>
   <property name="misc-always-show-tabs" type="bool" value="false"/>
   <property name="misc-bell" type="bool" value="false"/>
   <property name="misc-bell-urgent" type="bool" value="false"/>
@@ -41,4 +41,5 @@
   <property name="scrolling-unlimited" type="bool" value="true"/>
   <property name="run-custom-command" type="bool" value="false"/>
   <property name="custom-command" type="string" value=""/>
+  <property name="font-use-system" type="bool" value="false"/>
 </channel>

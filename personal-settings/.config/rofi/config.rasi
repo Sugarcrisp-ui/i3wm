@@ -148,5 +148,7 @@ modi: "window,drun,ssh,run";/*  width: 50;*/
 /*  me-accept-entry: "MouseDPrimary";*/
 /*  me-accept-custom: "Control+MouseDPrimary";*/
 }
-@theme "/usr/share/rofi/themes/android_notification.rasi"
+//@theme "/usr/share/rofi/themes/android_notification.rasi"
 /*  window { fullscreen: true; } */
+
+@theme "/usr/share/rofi/themes/DarkBlue.rasi"

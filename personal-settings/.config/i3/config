@@ -17,7 +17,7 @@ set $fileManager thunar
 set $editor code
 
 # Gaps Definitions
-gaps inner 5
+gaps inner 0
 gaps outer 0
 
 # Workspaces
@@ -105,7 +105,6 @@ exec --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 exec --no-startup-id feh --bg-fill /home/brett/Pictures/background-images/tesla-car-2.jpeg &
-exec --no-startup-id vmware-user
 #exec_always --no-startup-id numlockx on
 
 # Application Keyboard Shortcuts

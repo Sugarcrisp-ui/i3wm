@@ -90,6 +90,7 @@
         <value type="string" value="clipman"/>
       </property>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="pasystray"/>
         <value type="string" value="vncserverui"/>
         <value type="string" value="blueberry-tray.py"/>
         <value type="string" value="ethernet network connection “wired connection 1” active vpn connection active"/>
@@ -100,6 +101,7 @@
         <value type="string" value="clipman"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="vlc"/>
         <value type="string" value="Insync"/>
         <value type="string" value="blueman"/>
         <value type="string" value="variety"/>
@@ -129,6 +131,7 @@
         <value type="string" value="xfce4-terminal.desktop"/>
       </property>
       <property name="recent" type="array">
+        <value type="string" value="brave-browser.desktop"/>
         <value type="string" value="xfce-mouse-settings.desktop"/>
         <value type="string" value="xfce-keyboard-settings.desktop"/>
         <value type="string" value="realvnc-vncviewer.desktop"/>
@@ -192,6 +195,7 @@
     <property name="plugin-8" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="mpris-players" type="string" value="pragha;spotify"/>
+      <property name="known-players" type="string" value="Brave;vlc"/>
     </property>
   </property>
 </channel>

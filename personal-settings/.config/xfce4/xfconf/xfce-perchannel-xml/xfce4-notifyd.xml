@@ -5,6 +5,7 @@
     <property name="known_applications" type="array">
       <value type="string" value="Authy Desktop"/>
       <value type="string" value="blueman"/>
+      <value type="string" value="brave-browser"/>
       <value type="string" value="ca.desrt.dconf-editor"/>
       <value type="string" value="chromium"/>
       <value type="string" value="com.github.eneshecan.WhatsAppForLinux"/>
