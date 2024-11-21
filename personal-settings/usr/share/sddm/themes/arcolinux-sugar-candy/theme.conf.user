@@ -1,3 +1,4 @@
 [General]
-background=/usr/share/backgrounds/archlinux-login-backgrounds/arco-login-plasma.jpg
+background=/usr/share/sddm/themes/arcolinux-sugar-candy/Backgrounds/arco-login-plasma.jpg
 type=image
+

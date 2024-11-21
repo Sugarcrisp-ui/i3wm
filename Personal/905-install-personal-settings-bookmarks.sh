@@ -4,6 +4,7 @@
 # is encountered.  (-e) will stop and exit (+e) will 
 # continue with the script.
 set -e
+trap 'echo "An error occurred at line $LINENO. Exiting." >&2; exit 1' ERR
 
 # This script installs personal bookmark settings for the user's GTK-3.0 theme.
 

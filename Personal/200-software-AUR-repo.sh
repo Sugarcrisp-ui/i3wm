@@ -1,55 +1,43 @@
 #!/bin/bash
 
-# Author: Brett Crisp
+# This script installs a list of packages from the AUR on an Arch Linux system.
 
-# This script installs a list of packages on an Arch Linux system.
+# Error handling
+set -e
+trap 'echo "An error occurred at line $LINENO. Exiting." >&2; exit 1' ERR
 
-# Function to handle errors
-handle_error() {
-  echo -e "\e[31mAn error occurred while installing the packages. Please check the output and try again.\e[0m"
-  exit 1
+# Function to install a package if not already present
+install_package() {
+    if ! paru -Qqm "$1" &> /dev/null; then
+        echo -e "\e[32mInstalling package: $1\e[0m"
+        paru --noconfirm --needed "$1"
+    else
+        echo -e "\e[33mPackage $1 is already installed\e[0m"
+    fi
 }
 
-# Set up error handling
-trap 'handle_error' ERR
-
-# Function to check if a package is installed.
-function is_installed() {
-  paru -Qqm "$1" &> /dev/null
-}
-
-# Function to install a package.
-function install_package() {
-  if ! is_installed "$1"; then
-    echo -e "\e[32mInstalling package $1\e[0m"
-    paru --noconfirm --needed "$1"
-  fi
-}
-
-# Function to install a category of packages.
-function install_category() {
-  echo -e "\e[32mInstalling software for category $1\e[0m"
-  for package in "${list[@]}"; do
-    install_package "$package"
-  done
-}
-
-# List of packages to install.
-list=(
-baobab-git
-bluetooth-autoconnect
-brave-bin
-chrome-remote-desktop
-ttf-font-awesome-5
-github-desktop-bin
-gnome-disk-utility
-#grub-hook # only needed if using grub boot loader. Currently using systemd-boot
-insync-thunar
-pamac-aur
+# List of packages to install from AUR
+packages=(
+    baobab-git
+    bluetooth-autoconnect
+    brave-bin
+    chrome-remote-desktop
+    ttf-font-awesome-5
+    github-desktop-bin
+    gnome-disk-utility
+    insync-thunar
+    pamac-aur
+    # Commented out packages can be uncommented if needed
+    # grub-hook
 )
 
-# Install all of the packages.
-install_category "Core Software"
+# Update all packages before installing new ones
+echo -e "\e[34mUpdating system and AUR packages\e[0m"
+paru -Syu --noconfirm
 
-# Success message.
-echo -e "\e[32mSoftware has been installed\e[0m"
+# Install the packages
+for package in "${packages[@]}"; do
+    install_package "$package"
+done
+
+echo -e "\e[32mAll specified packages have been processed\e[0m"

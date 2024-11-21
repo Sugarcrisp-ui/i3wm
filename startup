@@ -21,7 +21,6 @@ FIND="#ParalleDownloads = 5"
 REPLACE="ParalleDownloads = 20"
 sudo sed -i "s/$FIND/$REPLACE/g" /etc/pacman.conf
 
-
 # Update the package lists
 sudo pacman -Syyu --noconfirm
 
@@ -39,25 +38,29 @@ declare -a scripts=(
   "120-sound"
   "130-bluetooth"
   "160-laptop"
+  "950-fix-pamac-aur"
   "200-software-AUR-repo"
   "700-installing-fonts"
   "900-install-personal-settings-folders"
   "940-btrfs-setup"
-  #"950-install-all-fonts-needed-for-conkys-of-arcolinux"
-  "955-install-settings-autoconnect-to-bluetooth-headset"
-  "997-makepkg-name-email"
-  "fix-pamac-aur"
-)
+  )
 
 for script in "${scripts[@]}"
 do
   bash "${script}.sh"
 done
 
-# Start needed services
+# Enable and start bluetooth-autoconnect service after installing from AUR
+sudo systemctl enable bluetooth-autoconnect.service
+sudo systemctl start bluetooth-autoconnect.service
+
+# Check for errors in enabling or starting the service
+if [ $? -ne 0 ]; then
+  echo "There was an error with bluetooth-autoconnect service. Check logs."
+fi
+
+# Start needed services (the rest were commented out or not applicable)
 sudo systemctl enable cronie.service
-#sudo systemctl enable vpn-autostart.service
-#sudo systemctl enable vpn-autostart-suspend.service
 sudo mkinitcpio -P 
 
 # Create Web Apps
