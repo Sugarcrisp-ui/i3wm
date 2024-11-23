@@ -86,34 +86,6 @@ cp ~/i3wm/personal-settings/.bashrc-personal ~
 
 tput setaf 11;
 echo "################################################################"
-echo "Copying sddm themes to /usr/share/themes"
-echo ""
-echo "################################################################"
-tput sgr0
-
-# Ensure the theme directory exists
-sudo mkdir -p /usr/share/sddm/themes/arcolinux-sugar-candy
-
-# Copy the entire directory
-sudo cp -Rf ~/i3wm/personal-settings/arcolinux-sugar-candy/* /usr/share/sddm/themes/arcolinux-sugar-candy/
-
-# Set correct permissions
-sudo chown -R root:root /usr/share/sddm/themes/arcolinux-sugar-candy/
-sudo chmod -R 755 /usr/share/sddm/themes/arcolinux-sugar-candy/
-
-#tput setaf 11;
-#echo "################################################################"
-#echo "Copying systemd files to /etc/systemd/system/"
-#echo ""
-#echo "################################################################"
-#tput sgr0
-
-#sudo chown -R root:root ~/i3wm/personal-settings/etc/
-
-#sudo rsync -avz --delete ~/i3wm/personal-settings/etc/systemd/system/* /etc/systemd/system/
-
-tput setaf 11;
-echo "################################################################"
 echo "Copying vconsole.conf to /etc/"
 echo ""
 echo "################################################################"

@@ -38,7 +38,6 @@ function install_category() {
 list=(
 #  "Web Browsers"=
     #chromium
-    #google-chrome
 
 #  "Multimedia"=
 #    celluloid
@@ -108,6 +107,7 @@ list=(
 #  "Others"=
 #    grub-btrfs
     upd72020x-fw
+    sddm-sugar-candy-git
     
 #  "Developer"=
 #    virtualbox
