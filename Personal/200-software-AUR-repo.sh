@@ -27,7 +27,7 @@ packages=(
     gnome-disk-utility
     insync-thunar
     pamac-aur
-    proton-vpn-gtk-app
+#    proton-vpn-gtk-app
     # Commented out packages can be uncommented if needed
     # grub-hook
 )
