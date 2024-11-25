@@ -4,6 +4,8 @@
 list=(
   net.cozic.joplin_desktop
   com.github.unrud.VideoDownloader
+  com.protonvpn.www
+  
 )
 
 # Function to check if a Flatpak is installed
