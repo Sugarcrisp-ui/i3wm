@@ -58,6 +58,15 @@ if ! is_package_installed "bluetooth-autoconnect"; then
   paru --noconfirm --needed bluetooth-autoconnect
 fi
 
+# Enable and start bluetooth-autoconnect service
+if ! systemctl is-enabled bluetooth-autoconnect.service &> /dev/null; then
+  sudo systemctl enable bluetooth-autoconnect.service
+fi
+
+if ! systemctl is-active bluetooth-autoconnect.service &> /dev/null; then
+  sudo systemctl start bluetooth-autoconnect.service
+fi
+
 # Final message
 echo -e "\e[32m################################################################\e[0m"
 echo -e "\e[32m################## Bluetooth software has been installed and enabled\e[0m"

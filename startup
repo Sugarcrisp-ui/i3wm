@@ -5,7 +5,7 @@
 #set -e
 
 ##################################################################################################################
-# Author 	: 	Brett Crisp
+# Author  :   Brett Crisp
 ##################################################################################################################
 
 # Change the number of parallel downloads to 20
@@ -31,6 +31,8 @@ chmod +x Personal/*.sh
 cd Personal
 
 declare -a scripts=(
+  "090-automount-external-with-key-setup"
+  "095-create-symlinks-to-external"
   "666-remove-software"
   "100-display-manager"
   "105-install-arcolinux-software"
@@ -38,26 +40,23 @@ declare -a scripts=(
   "120-sound"
   "130-bluetooth"
   "160-laptop"
-  "950-fix-pamac-aur"
   "200-software-AUR-repo"
+  "250-software-flatpak"
+  "260-enable-timeshift"
+  "270-enable-hblock"
   "700-installing-fonts"
   "900-install-personal-settings-folders"
+  "905-install-personal-settings-bookmarks"
+  "930-autostart-applications"
   "940-btrfs-setup"
+  "950-fix-pamac-aur"
+  "667-uninstall-arcolinux-meta-steam"
   )
 
 for script in "${scripts[@]}"
 do
   bash "${script}.sh"
 done
-
-# Enable and start bluetooth-autoconnect service after installing from AUR
-sudo systemctl enable bluetooth-autoconnect.service
-sudo systemctl start bluetooth-autoconnect.service
-
-# Check for errors in enabling or starting the service
-if [ $? -ne 0 ]; then
-  echo "There was an error with bluetooth-autoconnect service. Check logs."
-fi
 
 # Start needed services (the rest were commented out or not applicable)
 sudo systemctl enable cronie.service
