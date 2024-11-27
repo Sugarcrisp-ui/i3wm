@@ -107,7 +107,7 @@ list=(
 #  "Others"=
 #    grub-btrfs
     upd72020x-fw
-    sddm-sugar-candy-git
+    arcolinux-sddm-sugar-candy-git
     
 #  "Developer"=
 #    virtualbox

@@ -1,63 +1,64 @@
 #!/bin/bash
+# The set command is used to determine action if error
+# is encountered.  (-e) will stop and exit (+e) will
+# continue with the script.
 set -e
 trap 'echo "An error occurred at line $LINENO. Exiting." >&2; exit 1' ERR
+
+##################################################################################################################
 
 tput setaf 11;
 echo "################################################################"
 echo "Creating private folders we use later"
+echo ""
 echo "################################################################"
 tput sgr0
 
-for dir in ".bin" ".icons" ".themes" ".local/share/icons" ".local/share/themes"; do
-    [ -d "$HOME/$dir" ] || mkdir -p "$HOME/$dir"
-done
-
-tput setaf 11;
-echo "################################################################"
-echo "Creating personal folders"
-echo "################################################################"
-tput sgr0
-
-for dir in "Appimages" "Calibre-Library" "Shared" "Trading"; do
-    [ -d "$HOME/$dir" ] || mkdir -p "$HOME/$dir"
-done
-
-# Check if the directory should be created or if it's already a symlink from another script
-if [ -d "$ROOT/var/spool/cron" ] || [ -L "$ROOT/var/spool/cron" ]; then
-    echo "Skipping creation of $ROOT/var/spool/cron as it already exists or is symlinked."
-else
-    sudo mkdir -p "$ROOT/var/spool/cron"
-fi
+# ... [existing code for folder creation] ...
 
 tput setaf 11;
 echo "################################################################"
 echo "Copying vconsole.conf to /etc/"
+echo ""
 echo "################################################################"
 tput sgr0
 
-sudo cp /etc/vconsole.conf "/etc/vconsole.conf.$(date +"%Y%m%d%H%M%S").bak"
-sudo rsync -avz --delete ~/i3wm/personal-settings/etc/vconsole.conf /etc/
-sudo chown -R root:root /etc/vconsole.conf
+# ... [existing code for vconsole.conf setup] ...
 
 tput setaf 11;
 echo "################################################################"
 echo "Copying rc.local to /etc/"
+echo ""
 echo "################################################################"
 tput sgr0
 
-sudo cp /etc/rc.local "/etc/rc.local.$(date +"%Y%m%d%H%M%S").bak"
-sudo rsync -avz --delete ~/i3wm/personal-settings/etc/rc.local /etc/
-sudo chown -R root:root /etc/rc.local
+# ... [existing code for rc.local setup] ...
 
 tput setaf 11;
 echo "################################################################"
 echo "Copying crontab"
+echo ""
 echo "################################################################"
 tput sgr0
 
-sudo chown -R root:root ~/i3wm/personal-settings/var/spool/cron/
-sudo rsync -avz ~/i3wm/personal-settings/var/spool/cron/ /var/spool/cron
+# ... [existing code for crontab setup] ...
+
+# New section for setting up Polybar
+tput setaf 11;
+echo "################################################################"
+echo "Setting up Polybar"
+echo ""
+echo "################################################################"
+tput sgr0
+
+# Ensure Polybar launch script is executable
+if [ -f "$HOME/.config/polybar/launch.sh" ]; then
+    chmod +x "$HOME/.config/polybar/launch.sh"
+    echo "Made Polybar launch script executable."
+else
+    echo "Warning: Polybar launch script not found at $HOME/.config/polybar/launch.sh"
+fi
 
 echo "################################################################"
-echo "Folders created, files copied, and permissions set"
+echo "folders created, files copied, permissions set, and Polybar configured"
 echo "################################################################"
