@@ -12,6 +12,7 @@ directories_to_symlink=(
     ".fonts"
     ".local"
     ".ssh"
+    "Calibre-Library"
     "Documents"
     "Downloads"
     "Music"

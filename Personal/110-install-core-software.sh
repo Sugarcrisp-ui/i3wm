@@ -40,17 +40,14 @@ list=(
     #chromium
 
 #  "Multimedia"=
-#    celluloid
     ffmpeg
     losslesscut-bin
     #openshot
     simplescreenrecorder
     spotify
-#    vlc
 
 #  "Utilities"=
     bitwarden
-#    clipgrab
     copyq
     flatpak
 #    font-manager-git

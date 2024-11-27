@@ -24,10 +24,8 @@ packages=(
     ttf-font-awesome-5
     github-desktop-bin
     insync-thunar
-    pamac-aur
-#    proton-vpn-gtk-app
-    # Commented out packages can be uncommented if needed
-    # grub-hook
+    proton-vpn-gtk-app
+#    grub-hook
 )
 
 # Update all packages before installing new ones
