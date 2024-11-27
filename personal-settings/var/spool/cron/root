@@ -1,2 +1,2 @@
-# Back up cron settings daily
-* 20 * * * /home/brett/.bin-personal/cron-.github.sh >/dev/null 2>&1
+# Sync crontab files to Github
+13 21 * * * if [ ! -f /tmp/.cron-github ]; then /home/brett/.bin-personal/cron-github.sh >/dev/null 2>&1; fi

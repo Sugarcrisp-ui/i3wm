@@ -9,25 +9,12 @@ trap 'echo "An error occurred in $0 at line $LINENO. Exiting." >&2; exit 1' ERR
 
 tput setaf 11;
 echo "################################################################"
-echo "Creating private folders we use later"
-echo ""
-echo "################################################################"
-tput sgr0
-
-for dir in ".bin" ".icons" ".themes" ".local/share/icons" ".local/share/themes"; do
-    if ! mkdir -p "$HOME/$dir" 2>/dev/null; then
-        echo "Warning: Failed to create directory $HOME/$dir"
-    fi
-done
-
-tput setaf 11;
-echo "################################################################"
 echo "Creating personal folders"
 echo ""
 echo "################################################################"
 tput sgr0
 
-for dir in "Appimages" "Calibre-Library" "Shared" "Trading"; do
+for dir in "Appimages" "Shared"; do
     if ! mkdir -p "$HOME/$dir" 2>/dev/null; then
         echo "Warning: Failed to create directory $HOME/$dir"
     fi
