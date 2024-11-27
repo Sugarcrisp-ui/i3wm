@@ -45,6 +45,7 @@ declare -a scripts=(
   "100-display-manager"
   "105-install-arcolinux-software"
   "110-install-core-software"
+  "115-warp-terminal-install"
   "120-sound"
   "160-laptop"
   "200-software-AUR-repo"
