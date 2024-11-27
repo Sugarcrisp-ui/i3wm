@@ -8,6 +8,14 @@
 # Author  :   Brett Crisp
 ##################################################################################################################
 
+# Function to extend sudo timeout
+extend_sudo_timeout() {
+    local timeout=$1
+    for i in $(seq 1 $((timeout/15))); do
+        sudo -v
+    done
+}
+
 # Change the number of parallel downloads to 20
 echo
 echo "Pacman parallel downloads if needed - Arcolinux"
@@ -50,8 +58,7 @@ declare -a scripts=(
   "930-autostart-applications"
   "940-btrfs-setup"
   "950-fix-pamac-aur"
-  "667-uninstall-arcolinux-meta-steam"
-  )
+ )
 
 for script in "${scripts[@]}"
 do

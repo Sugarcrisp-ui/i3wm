@@ -19,12 +19,10 @@ install_package() {
 # List of packages to install from AUR
 packages=(
     baobab-git
-    bluetooth-autoconnect
     brave-bin
     chrome-remote-desktop
     ttf-font-awesome-5
     github-desktop-bin
-    gnome-disk-utility
     insync-thunar
     pamac-aur
 #    proton-vpn-gtk-app

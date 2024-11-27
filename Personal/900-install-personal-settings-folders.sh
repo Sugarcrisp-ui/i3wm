@@ -3,7 +3,7 @@
 # is encountered.  (-e) will stop and exit (+e) will
 # continue with the script.
 set -e
-trap 'echo "An error occurred at line $LINENO. Exiting." >&2; exit 1' ERR
+trap 'echo "An error occurred in $0 at line $LINENO. Exiting." >&2; exit 1' ERR
 
 ##################################################################################################################
 
@@ -14,7 +14,24 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-# ... [existing code for folder creation] ...
+for dir in ".bin" ".icons" ".themes" ".local/share/icons" ".local/share/themes"; do
+    if ! mkdir -p "$HOME/$dir" 2>/dev/null; then
+        echo "Warning: Failed to create directory $HOME/$dir"
+    fi
+done
+
+tput setaf 11;
+echo "################################################################"
+echo "Creating personal folders"
+echo ""
+echo "################################################################"
+tput sgr0
+
+for dir in "Appimages" "Calibre-Library" "Shared" "Trading"; do
+    if ! mkdir -p "$HOME/$dir" 2>/dev/null; then
+        echo "Warning: Failed to create directory $HOME/$dir"
+    fi
+done
 
 tput setaf 11;
 echo "################################################################"
@@ -23,7 +40,25 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-# ... [existing code for vconsole.conf setup] ...
+# Check if vconsole.conf exists before trying to backup
+if [ -f "/etc/vconsole.conf" ]; then
+    sudo cp /etc/vconsole.conf "/etc/vconsole.conf.$(date +"%Y%m%d%H%M%S").bak"
+else
+    echo "Warning: /etc/vconsole.conf does not exist. No backup created."
+fi
+
+# This makes the font size bigger in tty
+SOURCE_VCONSOLE="/home/brett/i3wm/personal-settings/etc/vconsole.conf"
+if [ -f "$SOURCE_VCONSOLE" ]; then
+    if ! sudo rsync -avz --delete "$SOURCE_VCONSOLE" /etc/; then
+        echo "Error: Failed to copy vconsole.conf to /etc/"
+    else
+        sudo chown -R root:root /etc/vconsole.conf
+        echo "vconsole.conf has been copied to /etc/ and permissions set."
+    fi
+else
+    echo "Error: Source vconsole.conf not found at $SOURCE_VCONSOLE."
+fi
 
 tput setaf 11;
 echo "################################################################"
@@ -32,18 +67,67 @@ echo ""
 echo "################################################################"
 tput sgr0
 
-# ... [existing code for rc.local setup] ...
+# Check if rc.local exists before trying to backup
+if [ -f "/etc/rc.local" ]; then
+    sudo cp /etc/rc.local "/etc/rc.local.$(date +"%Y%m%d%H%M%S").bak"
+else
+    echo "Warning: /etc/rc.local does not exist. No backup created."
+fi
+
+# This restores or installs my rc.local settings
+SOURCE_RC_LOCAL="/home/brett/i3wm/personal-settings/etc/rc.local"
+if [ -f "$SOURCE_RC_LOCAL" ]; then
+    if ! sudo rsync -avz --delete "$SOURCE_RC_LOCAL" /etc/; then
+        echo "Error: Failed to copy rc.local to /etc/"
+    else
+        sudo chown -R root:root /etc/rc.local
+        echo "rc.local has been copied to /etc/ and permissions set."
+    fi
+else
+    echo "Error: Source rc.local not found at $SOURCE_RC_LOCAL."
+fi
 
 tput setaf 11;
 echo "################################################################"
-echo "Copying crontab"
+echo "Configuring crontabs"
 echo ""
 echo "################################################################"
 tput sgr0
 
-# ... [existing code for crontab setup] ...
+# Directory where your cron files are stored
+CRON_SOURCE_DIR="/home/brett/i3wm/personal-settings/var/spool/cron"
+CRON_DEST_DIR="/var/spool/cron"
 
-# New section for setting up Polybar
+# Ensure the source directory exists
+if [ -d "$CRON_SOURCE_DIR" ]; then
+    # Create destination directory if it doesn't exist (though it should already exist)
+    sudo mkdir -p "$CRON_DEST_DIR"
+
+    # Copy user cron
+    USER_CRON_FILE="$CRON_SOURCE_DIR/brett"
+    if [ -f "$USER_CRON_FILE" ]; then
+        sudo cp "$USER_CRON_FILE" "$CRON_DEST_DIR/"
+        sudo chown brett:brett "$CRON_DEST_DIR/brett"
+        sudo chmod 600 "$CRON_DEST_DIR/brett"
+        echo "User cron job configuration from $USER_CRON_FILE has been applied."
+    else
+        echo "Warning: User cron configuration file $USER_CRON_FILE does not exist."
+    fi
+
+    # Copy root cron
+    ROOT_CRON_FILE="$CRON_SOURCE_DIR/root"
+    if [ -f "$ROOT_CRON_FILE" ]; then
+        sudo cp "$ROOT_CRON_FILE" "$CRON_DEST_DIR/"
+        sudo chown root:root "$CRON_DEST_DIR/root"
+        sudo chmod 600 "$CRON_DEST_DIR/root"
+        echo "Root cron job configuration from $ROOT_CRON_FILE has been applied."
+    else
+        echo "Warning: Root cron configuration file $ROOT_CRON_FILE does not exist."
+    fi
+else
+    echo "Warning: Cron source directory $CRON_SOURCE_DIR does not exist."
+fi
+
 tput setaf 11;
 echo "################################################################"
 echo "Setting up Polybar"
@@ -60,5 +144,7 @@ else
 fi
 
 echo "################################################################"
-echo "folders created, files copied, permissions set, and Polybar configured"
+echo "Script execution completed"
 echo "################################################################"
+tput sgr0
+exit 0

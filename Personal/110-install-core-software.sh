@@ -46,7 +46,7 @@ list=(
     #openshot
     simplescreenrecorder
     spotify
-    vlc
+#    vlc
 
 #  "Utilities"=
     bitwarden
