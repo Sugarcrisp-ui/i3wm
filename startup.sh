@@ -56,7 +56,7 @@ declare -a scripts=(
   "700-installing-fonts"
   "900-install-personal-settings-folders"
   "905-install-personal-settings-bookmarks"
-  "930-autostart-applications"
+#  "930-autostart-applications"
   "940-btrfs-setup"
   "950-fix-pamac-aur"
  )
@@ -69,11 +69,6 @@ done
 # Start needed services (the rest were commented out or not applicable)
 sudo systemctl enable cronie.service
 sudo mkinitcpio -P 
-
-# Create Web Apps
-cd /home/brett/.bin-personal
-chmod +x *.sh
-./web-apps-install.sh
 
 # Notify user that installation is complete
 tput setaf 1;
