@@ -41,6 +41,7 @@ cd Personal
 declare -a scripts=(
   "090-git-clone-dotfiles"
   "095-create-symlinks-from-dotfiles"
+  "096-create-symlinks-for-cron-files"
   "666-remove-software"
   "100-display-manager"
   "105-install-arcolinux-software"
