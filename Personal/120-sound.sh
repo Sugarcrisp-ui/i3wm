@@ -33,6 +33,7 @@ packages=(
   gst-plugins-bad
   gst-plugins-base
   gst-plugins-ugly
+  pasystray
   playerctl
   volumeicon
 )

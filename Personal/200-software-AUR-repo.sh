@@ -24,7 +24,7 @@ packages=(
     ttf-font-awesome-5
     github-desktop-bin
     insync-thunar
-    proton-vpn-gtk-app
+#    proton-vpn-gtk-app
 #    grub-hook
 )
 

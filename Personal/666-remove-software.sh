@@ -43,6 +43,7 @@ function_remove() {
 
 # List of packages to uninstall
 packages_to_uninstall=(
+  blueberry
   i3blocks
   termite
   vim

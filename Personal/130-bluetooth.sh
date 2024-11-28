@@ -35,6 +35,7 @@ packages=(
   bluez
   bluez-utils
   bluez-libs
+  blueman
   # If there are any other dependencies for bluetooth-autoconnect, list them here
 )
 

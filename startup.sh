@@ -39,8 +39,8 @@ chmod +x Personal/*.sh
 cd Personal
 
 declare -a scripts=(
-  "090-automount-external-with-key-setup"
-  "095-create-symlinks-to-external"
+  "090-git-clone-dotfiles"
+  "095-create-symlinks-from-dotfiles"
   "666-remove-software"
   "100-display-manager"
   "105-install-arcolinux-software"
