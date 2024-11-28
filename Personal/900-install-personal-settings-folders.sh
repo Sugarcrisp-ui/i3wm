@@ -22,33 +22,6 @@ done
 
 tput setaf 11;
 echo "################################################################"
-echo "Copying vconsole.conf to /etc/"
-echo ""
-echo "################################################################"
-tput sgr0
-
-# Check if vconsole.conf exists before trying to backup
-if [ -f "/etc/vconsole.conf" ]; then
-    sudo cp /etc/vconsole.conf "/etc/vconsole.conf.$(date +"%Y%m%d%H%M%S").bak"
-else
-    echo "Warning: /etc/vconsole.conf does not exist. No backup created."
-fi
-
-# This makes the font size bigger in tty
-SOURCE_VCONSOLE="/home/brett/i3wm/personal-settings/etc/vconsole.conf"
-if [ -f "$SOURCE_VCONSOLE" ]; then
-    if ! sudo rsync -avz --delete "$SOURCE_VCONSOLE" /etc/; then
-        echo "Error: Failed to copy vconsole.conf to /etc/"
-    else
-        sudo chown -R root:root /etc/vconsole.conf
-        echo "vconsole.conf has been copied to /etc/ and permissions set."
-    fi
-else
-    echo "Error: Source vconsole.conf not found at $SOURCE_VCONSOLE."
-fi
-
-tput setaf 11;
-echo "################################################################"
 echo "Copying rc.local to /etc/"
 echo ""
 echo "################################################################"
@@ -62,12 +35,13 @@ else
 fi
 
 # This restores or installs my rc.local settings
-SOURCE_RC_LOCAL="/home/brett/i3wm/personal-settings/etc/rc.local"
+SOURCE_RC_LOCAL="/run/media/brett/backup/etc/rc.local"
 if [ -f "$SOURCE_RC_LOCAL" ]; then
     if ! sudo rsync -avz --delete "$SOURCE_RC_LOCAL" /etc/; then
         echo "Error: Failed to copy rc.local to /etc/"
     else
         sudo chown -R root:root /etc/rc.local
+        sudo chmod 755 /etc/rc.local  # rc.local typically needs execute permission
         echo "rc.local has been copied to /etc/ and permissions set."
     fi
 else
@@ -82,7 +56,7 @@ echo "################################################################"
 tput sgr0
 
 # Directory where your cron files are stored
-CRON_SOURCE_DIR="/home/brett/i3wm/personal-settings/var/spool/cron"
+CRON_SOURCE_DIR="/run/media/brett/backup/cron"
 CRON_DEST_DIR="/var/spool/cron"
 
 # Ensure the source directory exists
@@ -93,7 +67,7 @@ if [ -d "$CRON_SOURCE_DIR" ]; then
     # Copy user cron
     USER_CRON_FILE="$CRON_SOURCE_DIR/brett"
     if [ -f "$USER_CRON_FILE" ]; then
-        sudo cp "$USER_CRON_FILE" "$CRON_DEST_DIR/"
+        sudo rsync -avz --delete "$USER_CRON_FILE" "$CRON_DEST_DIR/brett"
         sudo chown brett:brett "$CRON_DEST_DIR/brett"
         sudo chmod 600 "$CRON_DEST_DIR/brett"
         echo "User cron job configuration from $USER_CRON_FILE has been applied."
@@ -104,7 +78,7 @@ if [ -d "$CRON_SOURCE_DIR" ]; then
     # Copy root cron
     ROOT_CRON_FILE="$CRON_SOURCE_DIR/root"
     if [ -f "$ROOT_CRON_FILE" ]; then
-        sudo cp "$ROOT_CRON_FILE" "$CRON_DEST_DIR/"
+        sudo rsync -avz --delete "$ROOT_CRON_FILE" "$CRON_DEST_DIR/root"
         sudo chown root:root "$CRON_DEST_DIR/root"
         sudo chmod 600 "$CRON_DEST_DIR/root"
         echo "Root cron job configuration from $ROOT_CRON_FILE has been applied."
