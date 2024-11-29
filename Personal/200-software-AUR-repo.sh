@@ -18,11 +18,8 @@ install_package() {
 
 # List of packages to install from AUR
 packages=(
-    baobab-git
-    brave-bin
-    chrome-remote-desktop
+#    chrome-remote-desktop
     ttf-font-awesome-5
-    github-desktop-bin
     insync-thunar
 #    proton-vpn-gtk-app
 #    grub-hook

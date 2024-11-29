@@ -44,15 +44,8 @@ function_remove() {
 # List of packages to uninstall
 packages_to_uninstall=(
   blueberry
-  i3blocks
-  termite
-  vim
-  xf86-video-amdgpu
-  xf86-video-ati
-  xf86-video-fbdev
-  xf86-video-openchrome
-  xf86-video-vesa
   conky
+  conky-lua-archers
 )
 
 # Check for NVIDIA GPU and add xf86-video-nouveau to the uninstall list if not found

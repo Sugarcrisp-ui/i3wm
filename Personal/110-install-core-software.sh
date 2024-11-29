@@ -36,78 +36,48 @@ function install_category() {
 
 # List of packages to install.
 list=(
-#  "Web Browsers"=
-    #chromium
-
-#  "Multimedia"=
-    ffmpeg
-    losslesscut-bin
-    #openshot
-    simplescreenrecorder
-    spotify
-
-#  "Utilities"=
-    bitwarden
-    copyq
-    flatpak
-#    font-manager-git
-    gnome-calculator
-    gnome-disk-utility
-    gufw
-    gpick
-    imagemagick
-    insync
-    inxi
-    meld
-    most
-    pamac-aur
-    paprefs
-    pinta
-    polybar
-    potrace
-    powerline
-    qbittorrent
-    qt5-graphicaleffects
-    qt5-svg
-    qt6ct
-    realvnc-vnc-server
-    realvnc-vnc-viewer
-    rofi
-    seahorse
-    sshfs
-    stow
-    timeshift
-#    timeshift-autosnap #only with btrfs
-    unzip
-    webapp-manager
-    wget
-    xclip
-    xfce4-appfinder
-    xfce4-notifyd
-    xfce4-power-manager
-    xfce4-screenshooter
-    xfce4-settings
-    xfce4-taskmanager
-    xfce4-terminal
-    zip
-
-#  "Documents and Text"=
-    geany
-    libreoffice-still
-    micro
-    sublime-text-4
-
-#  "Communication"=
 #    arcolinux-teamviewer
-#    discord
-
-#  "Others"=
+arcolinux-sddm-sugar-candy-git
+bitwarden
+blueman
+baobab
+brave-bin
 #    grub-btrfs
-    upd72020x-fw
-    arcolinux-sddm-sugar-candy-git
-    
-#  "Developer"=
+copyq
+ffmpeg
+flatpak
+geany
+#github-desktop-bin
+gnome-calculator
+gpick
+gufw
+insync
+libreoffice-still
+meld
+micro
+pamac-aur
+paprefs
+pinta
+potrace
+powerline
+qbittorrent
+qt5-graphicaleffects
+qt5-svg
+qt6ct
+realvnc-vnc-server
+realvnc-vnc-viewer
+rofi
+seahorse
+#    simplescreenrecorder
+#    spotify
+sshfs
+stow
+timeshift
+# Used with btrfs   timeshift-autosnap
 #    virtualbox
+webapp-manager
+xclip
+zip
 )
 
 # Install all of the packages.

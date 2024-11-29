@@ -39,12 +39,12 @@ chmod +x Personal/*.sh
 cd Personal
 
 declare -a scripts=(
+  "080-i3wm-install"
   "090-git-clone-dotfiles"
   "092-automount-remote-drive"
   "095-create-symlinks-from-dotfiles"
   "666-remove-software"
-  "100-display-manager"
-  "105-install-arcolinux-software"
+# Only use if installing from clean arch  "105-install-arcolinux-software"
   "110-install-core-software"
   "115-warp-terminal-install"
   "120-sound"
@@ -56,7 +56,7 @@ declare -a scripts=(
   "270-enable-hblock"
   "700-installing-fonts"
   "900-install-personal-settings-folders"
-  "905-install-personal-settings-bookmarks"
+# Currently using symlink from dotfiles  "905-install-personal-settings-bookmarks"
 #  "930-autostart-applications"
   "940-btrfs-setup"
   "950-fix-pamac-aur"

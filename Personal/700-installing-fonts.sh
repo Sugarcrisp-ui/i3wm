@@ -37,26 +37,15 @@ function install_category() {
 
 # List of packages to install.
 list=(
-arcolinux-fonts-git
 adobe-source-sans-pro-fonts
 awesome-terminal-fonts
 cantarell-fonts
-noto-fonts
 ttf-bitstream-vera
-ttf-dejavu
-ttf-droid
 ttf-firacode-nerd
-ttf-font-awesome
-#ttf-font-awesome-5 #available on aur
 ttf-font-awesome-6
-ttf-hack
 ttf-inconsolata
 ttf-liberation
-ttf-ms-fonts
 ttf-opensans
-ttf-roboto
-ttf-roboto-mono
-ttf-ubuntu-font-family
 ttf-vista-fonts
 )
 
