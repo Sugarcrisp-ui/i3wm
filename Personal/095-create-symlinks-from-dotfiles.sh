@@ -4,35 +4,32 @@ set -e
 trap 'echo "An error occurred at line $LINENO. Exiting." >&2; exit 1' ERR
 
 # Function to create symlinks for directories or files
-create_symlink() {
+replace_symlink() {
     local source="$1"
     local dest="$2"
-    
-    # Check if destination is not a symlink or exists as a regular file or directory
-    if [ -e "$dest" ]; then
-        if [ ! -L "$dest" ]; then
-            # Remove non-symlink files or directories
+
+    # Only replace if the source exists
+    if [ -e "$source" ]; then
+        # Remove the existing destination (whether it's a file, directory, or symlink)
+        if [ -e "$dest" ]; then
             if [ -d "$dest" ]; then
                 rm -rf "$dest"
-                echo "Removed existing directory: $dest"
+                echo "Replaced existing directory: $dest"
             else
                 rm -f "$dest"
-                echo "Removed existing file: $dest"
+                echo "Replaced existing file/symlink: $dest"
             fi
-        else
-            # Remove symlink
-            rm "$dest"
-            echo "Removed existing symlink: $dest"
         fi
+
+        # Create the symlink from source to destination
+        ln -s "$source" "$dest" || {
+            echo "Failed to create symlink for $dest"
+            exit 1
+        }
+        echo "Symlink created: $dest -> $source"
+    else
+        echo "Warning: Source $source does not exist, skipping."
     fi
-    
-    # Create the symlink
-    ln -s "$source" "$dest" || {
-        echo "Failed to create symlink for $dest"
-        exit 1
-    }
-    
-    echo "Symlink created: $dest -> $source"
 }
 
 # Directories to symlink in home directory
@@ -40,11 +37,8 @@ for dir in ".bin-personal" ".fonts" ".bashrc-personal" ".fehbg" ".gtkrc-2.0.mine
     src_path="$HOME/dotfiles/$dir"
     dest_path="$HOME/$dir"
     
-    if [ -e "$src_path" ]; then
-        create_symlink "$src_path" "$dest_path"
-    else
-        echo "Warning: Source $src_path does not exist, skipping."
-    fi
+    # Replace symlink if source exists
+    replace_symlink "$src_path" "$dest_path"
 done
 
 # Handling .local/share/applications
@@ -59,7 +53,7 @@ for app in "$applications_source"/*; do
         app_name=$(basename "$app")
         dest_app="$applications_dest/$app_name"
         
-        create_symlink "$app" "$dest_app"
+        replace_symlink "$app" "$dest_app"
     fi
 done
 
@@ -73,8 +67,8 @@ for item in "$config_source"/*; do
         item_name=$(basename "$item")
         dest_item="$config_dest/$item_name"
         
-        create_symlink "$item" "$dest_item"
+        replace_symlink "$item" "$dest_item"
     fi
 done
 
-echo "All symlinks have been created."
+echo "All symlinks have been created successfully."
