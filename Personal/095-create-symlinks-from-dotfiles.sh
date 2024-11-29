@@ -8,16 +8,25 @@ create_symlink() {
     local source="$1"
     local dest="$2"
     
-    if [ -e "$dest" ] && [ ! -L "$dest" ]; then
-        # Remove only if it's not already a symlink
-        if [ -d "$dest" ]; then
-            rm -rf "$dest"
+    # Check if destination is not a symlink or exists as a regular file or directory
+    if [ -e "$dest" ]; then
+        if [ ! -L "$dest" ]; then
+            # Remove non-symlink files or directories
+            if [ -d "$dest" ]; then
+                rm -rf "$dest"
+                echo "Removed existing directory: $dest"
+            else
+                rm -f "$dest"
+                echo "Removed existing file: $dest"
+            fi
         else
-            rm -f "$dest"
+            # Remove symlink
+            rm "$dest"
+            echo "Removed existing symlink: $dest"
         fi
-        echo "Removed existing $dest before creating symlink."
     fi
     
+    # Create the symlink
     ln -s "$source" "$dest" || {
         echo "Failed to create symlink for $dest"
         exit 1
@@ -50,17 +59,7 @@ for app in "$applications_source"/*; do
         app_name=$(basename "$app")
         dest_app="$applications_dest/$app_name"
         
-        if [ -e "$dest_app" ] && [ ! -L "$dest_app" ]; then
-            rm -f "$dest_app"
-            echo "Removed existing $dest_app before creating symlink."
-        fi
-        
-        ln -s "$app" "$dest_app" || {
-            echo "Failed to create symlink for $dest_app"
-            exit 1
-        }
-        
-        echo "Symlink created: $dest_app -> $app"
+        create_symlink "$app" "$dest_app"
     fi
 done
 
@@ -74,21 +73,7 @@ for item in "$config_source"/*; do
         item_name=$(basename "$item")
         dest_item="$config_dest/$item_name"
         
-        if [ -e "$dest_item" ] && [ ! -L "$dest_item" ]; then
-            if [ -d "$dest_item" ]; then
-                rm -rf "$dest_item"
-            else
-                rm -f "$dest_item"
-            fi
-            echo "Removed existing $dest_item before creating symlink."
-        fi
-        
-        ln -s "$item" "$dest_item" || {
-            echo "Failed to create symlink for $dest_item"
-            exit 1
-        }
-        
-        echo "Symlink created: $dest_item -> $item"
+        create_symlink "$item" "$dest_item"
     fi
 done
 
