@@ -22,6 +22,34 @@ done
 
 tput setaf 11;
 echo "################################################################"
+echo "Syncing .ssh directory"
+echo ""
+echo "################################################################"
+tput sgr0
+
+# Define source and destination directories
+SOURCE_SSH="/run/media/brett/backup/.ssh"
+DEST_SSH="$HOME/.ssh"
+
+# Ensure destination directory exists
+if [ ! -d "$DEST_SSH" ]; then
+    mkdir -p "$DEST_SSH"
+    chmod 700 "$DEST_SSH"
+    echo "Created directory $DEST_SSH with proper permissions."
+fi
+
+# Sync source to destination
+if [ -d "$SOURCE_SSH" ]; then
+    rsync -avz --delete "$SOURCE_SSH/" "$DEST_SSH/"
+    chmod 700 "$DEST_SSH"
+    chmod 600 "$DEST_SSH"/*
+    echo "Synced $SOURCE_SSH to $DEST_SSH with proper permissions."
+else
+    echo "Warning: Source .ssh directory $SOURCE_SSH does not exist."
+fi
+
+tput setaf 11;
+echo "################################################################"
 echo "Copying rc.local to /etc/"
 echo ""
 echo "################################################################"
