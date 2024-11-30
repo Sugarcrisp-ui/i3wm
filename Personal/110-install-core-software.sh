@@ -44,6 +44,7 @@ baobab
 brave-bin
 #    grub-btrfs
 copyq
+cronie
 ffmpeg
 flatpak
 geany

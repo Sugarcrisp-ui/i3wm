@@ -66,7 +66,7 @@ declare -a i3_packages=(
   "nitrogen"
   "picom"
   # "polkit-gnome"
-  "polybar"
+  #"polybar"
   "rofi-lbonn-wayland"
   # "thunar"
   # "thunar-archive-plugin"
