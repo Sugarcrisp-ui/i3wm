@@ -30,8 +30,14 @@ else
     BACKUP_TYPE="rsync"
 fi
 
-# Default backup device, can be changed by user input
-BACKUP_DEVICE="/dev/sdX1"
+# Automatically detect the device where /home is mounted
+BACKUP_DEVICE=$(df /home | awk 'NR==2 {print $1}')
+
+# Check if the BACKUP_DEVICE is valid
+if [ -z "$BACKUP_DEVICE" ]; then
+    log_with_color "Could not determine the backup device for /home. Please set BACKUP_DEVICE manually in the script."
+    exit 1
+fi
 
 # Function to setup Timeshift
 setup_timeshift() {
@@ -49,9 +55,9 @@ setup_timeshift() {
     fi
 }
 
-# Inform user if they wish to specify a different backup device
-log_with_color "Using default backup device $BACKUP_DEVICE. If you wish to use a different device, please modify BACKUP_DEVICE variable in the script."
-read -p "Press ENTER to continue with the default device or CTRL+C to abort and change the device..."
+# Inform user about the automatic backup device detection
+log_with_color "Using the detected backup device: $BACKUP_DEVICE."
+read -p "Press ENTER to continue with this device or CTRL+C to abort and change the device..."
 
 # Run the setup function
 setup_timeshift
