@@ -44,7 +44,7 @@ declare -a i3_packages=(
   # "arcolinux-root-git"
   "arcolinux-volumeicon-git"
   # "arcolinux-wallpapers-git"
-  "arconet-xfce"
+ # This is the base install "arconet-xfce"
   "autotiling"
   # "dmenu"
   # "feh"

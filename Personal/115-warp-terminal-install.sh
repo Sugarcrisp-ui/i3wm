@@ -56,17 +56,14 @@ function add_repository() {
   fi
 }
 
-# Function to retrieve and sign GPG key.
-function manage_gpg_key() {
-  local key_email="$1"
-  local keyserver="$2"
-
-  echo -e "\e[32mAttempting to retrieve and sign GPG key for $key_email\e[0m"
-  if ! sudo pacman-key -r "$key_email"; then
-    sudo pacman-key -r "$key_email" --keyserver "$keyserver"
-  fi
-  sudo pacman-key --lsign-key "$key_email"
-}
+# Function to manage the GPG key (commented out for now)
+# function manage_gpg_key() {
+#   echo -e "\e[32mAdding and signing the GPG key for Warp\e[0m"
+#   curl -fsSL https://releases.warp.dev/linux/keys/warpdotdev.asc | gpg --dearmor -o /usr/share/keyrings/warpdotdev.asc
+#   echo -e "\e[32mSigning the GPG key\e[0m"
+#   gpg --import /usr/share/keyrings/warpdotdev.asc
+#   gpg --export --armor > /usr/share/keyrings/warpdotdev.asc
+# }
 
 # Define paths and URLs
 DOWNLOAD_DIR="$HOME/Downloads"
@@ -81,9 +78,6 @@ download_package "$DOWNLOAD_URL" "$PACKAGE_NAME" "$DOWNLOAD_DIR"
 
 # Add Warp's repository
 add_repository "warpdotdev" "https://releases.warp.dev/linux/pacman/\$repo/\$arch"
-
-# Manage GPG key
-manage_gpg_key "linux-maintainers@warp.dev" "hkp://keys.openpgp.org:80"
 
 # Install the package
 install_local_package "$DOWNLOAD_DIR/$PACKAGE_NAME"
