@@ -56,14 +56,14 @@ function add_repository() {
   fi
 }
 
-# Function to manage the GPG key (commented out for now)
-# function manage_gpg_key() {
-#   echo -e "\e[32mAdding and signing the GPG key for Warp\e[0m"
-#   curl -fsSL https://releases.warp.dev/linux/keys/warpdotdev.asc | gpg --dearmor -o /usr/share/keyrings/warpdotdev.asc
-#   echo -e "\e[32mSigning the GPG key\e[0m"
-#   gpg --import /usr/share/keyrings/warpdotdev.asc
-#   gpg --export --armor > /usr/share/keyrings/warpdotdev.asc
-# }
+Function to manage the GPG key (commented out for now)
+function manage_gpg_key() {
+  echo -e "\e[32mAdding and signing the GPG key for Warp\e[0m"
+  curl -fsSL https://releases.warp.dev/linux/keys/warpdotdev.asc | gpg --dearmor -o /usr/share/keyrings/warpdotdev.asc
+  echo -e "\e[32mSigning the GPG key\e[0m"
+  gpg --import /usr/share/keyrings/warpdotdev.asc
+  gpg --export --armor > /usr/share/keyrings/warpdotdev.asc
+}
 
 # Define paths and URLs
 DOWNLOAD_DIR="$HOME/Downloads"

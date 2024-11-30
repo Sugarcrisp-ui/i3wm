@@ -17,6 +17,16 @@ function is_installed() {
   pacman -Qi "$1" &> /dev/null
 }
 
+# Function to remove a package.
+function remove_package() {
+  if is_installed "$1"; then
+    echo -e "\e[33mRemoving package: $1\e[0m"
+    sudo pacman -R --noconfirm "$1"
+  else
+    echo -e "\e[34mPackage $1 is not installed. Skipping removal...\e[0m"
+  fi
+}
+
 # Function to install a package.
 function install_package() {
   if ! is_installed "$1"; then
@@ -65,6 +75,9 @@ declare -a i3_packages=(
   "volumeicon"
   # "xfce4-terminal"
 )
+
+# Remove the conflicting package before installing
+remove_package "arcolinux-gtk-surfn-arc-git"
 
 # Function to install all uncommented packages in the array.
 function install_category() {
