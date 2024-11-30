@@ -13,8 +13,12 @@ extend_sudo_timeout() {
     local timeout=$1
     for i in $(seq 1 $((timeout/15))); do
         sudo -v
+        sleep 10  # Wait for 10 seconds before refreshing again
     done
 }
+
+# Extend sudo timeout for the script duration (60 minutes = 3600 seconds)
+extend_sudo_timeout 3600
 
 # Fix keyring issues (if any) using the 'fixkey' alias from Arcolinux
 echo
