@@ -56,7 +56,7 @@ function add_repository() {
   fi
 }
 
-Function to manage the GPG key (commented out for now)
+# Function to manage the GPG key
 function manage_gpg_key() {
   echo -e "\e[32mAdding and signing the GPG key for Warp\e[0m"
   curl -fsSL https://releases.warp.dev/linux/keys/warpdotdev.asc | gpg --dearmor -o /usr/share/keyrings/warpdotdev.asc
