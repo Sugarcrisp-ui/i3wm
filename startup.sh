@@ -17,9 +17,6 @@ extend_sudo_timeout() {
     done
 }
 
-# Extend sudo timeout for the script duration (60 minutes = 3600 seconds)
-extend_sudo_timeout 3600
-
 # Fix keyring issues (if any) using the 'fixkey' alias from Arcolinux
 echo
 echo "Running fixkey to resolve any GPG key issues..."
