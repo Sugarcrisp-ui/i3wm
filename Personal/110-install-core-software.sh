@@ -59,6 +59,7 @@ micro
 pamac-aur
 paprefs
 pinta
+polybar
 potrace
 powerline
 qbittorrent

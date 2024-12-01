@@ -63,7 +63,7 @@ else
 fi
 
 # This restores or installs my rc.local settings
-SOURCE_RC_LOCAL="/run/media/brett/backup/etc/rc.local"
+SOURCE_RC_LOCAL="~/i3wm/personal-settings/etc/rc.local"
 if [ -f "$SOURCE_RC_LOCAL" ]; then
     if ! sudo rsync -avz --delete "$SOURCE_RC_LOCAL" /etc/; then
         echo "Error: Failed to copy rc.local to /etc/"
