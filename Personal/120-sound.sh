@@ -23,18 +23,18 @@ func_install() {
 # List of PulseAudio related packages to ensure are installed
 packages=(
 # Already installed  pulseaudio-alsa
-  pavucontrol
-  alsa-firmware
+#  pavucontrol
+#  alsa-firmware
 # Already installed  alsa-lib
-  alsa-plugins
+#  alsa-plugins
 # Already installed  alsa-utils
-  gstreamer
-  gst-plugins-good
-  gst-plugins-bad
-  gst-plugins-base
-  gst-plugins-ugly
+#  gstreamer
+#  gst-plugins-good
+#  gst-plugins-bad
+#  gst-plugins-base
+#  gst-plugins-ugly
   pasystray
-  playerctl
+#  playerctl
 # Already installed  volumeicon
 )
 
