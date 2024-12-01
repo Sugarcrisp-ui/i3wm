@@ -17,10 +17,11 @@ extend_sudo_timeout() {
     done
 }
 
-# Fix keyring issues (if any) using the 'fixkey' alias from Arcolinux
+# Fix keyring issues (if any)
 echo
-echo "Running fixkey to resolve any GPG key issues..."
-sudo fixkey
+echo "Running fixkey (arcolinux-fix-pacman-databases-and-keys) to resolve any GPG key issues..."
+sudo /usr/local/bin/arcolinux-fix-pacman-databases-and-keys
+
 
 # Change the number of parallel downloads to 20
 echo
