@@ -36,13 +36,13 @@ function install_category() {
 
 # List of packages to install.
 list=(
-#    arcolinux-teamviewer
-arcolinux-sddm-sugar-candy-git
+# arcolinux-teamviewer
+# arcolinux-sddm-sugar-candy-git
 bitwarden
 blueman
 baobab
 brave-bin
-#    grub-btrfs
+# grub-btrfs
 copyq
 cronie
 ffmpeg
@@ -70,13 +70,14 @@ realvnc-vnc-server
 realvnc-vnc-viewer
 rofi
 seahorse
-#    simplescreenrecorder
-#    spotify
+# simplescreenrecorder
+ spotify
 sshfs
 stow
 timeshift
 # Used with btrfs   timeshift-autosnap
-#    virtualbox
+virtualbox
+visual-studio-code-bin
 webapp-manager
 xclip
 zip
