@@ -1,51 +1,48 @@
 #!/bin/bash
-# The set command is used to determine action if error
-# is encountered.  (-e) will stop and exit (+e) will
-# continue with the script.
-#set -e
 
-##################################################################################################################
-# Author  :   Brett Crisp
-##################################################################################################################
-
-# Function to extend sudo timeout
-extend_sudo_timeout() {
-    local timeout=$1
-    for i in $(seq 1 $((timeout/15))); do
+# Keep sudo alive in background
+function keep_sudo_alive() {
+    while true; do
         sudo -v
-        sleep 10  # Wait for 10 seconds before refreshing again
-    done
+        sleep 60
+    done &
+    SUDO_PID=$!
+    trap "kill $SUDO_PID" EXIT
 }
 
-# Change the number of parallel downloads to 20
-echo
-echo "Pacman parallel downloads if needed - Arcolinux"
-FIND="ParalleDownloads = 8"
-REPLACE="ParalleDownloads = 20"
-sudo sed -i "s/$FIND/$REPLACE/g" /etc/pacman.conf
+# Start the sudo keeper
+keep_sudo_alive
 
-echo
-echo "Pacman parallel downloads if needed - Arch Linux"
-FIND="#ParalleDownloads = 5"
-REPLACE="ParalleDownloads = 20"
-sudo sed -i "s/$FIND/$REPLACE/g" /etc/pacman.conf
+# Color definitions using tput
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+RESET=$(tput sgr0)
 
-# Update the package lists
+echo "${BLUE}################################################################"
+echo "                    Starting Installation Script"
+echo "################################################################${RESET}"
+
+# Parallel downloads config
+echo "${CYAN}Configuring parallel downloads...${RESET}"
+sudo sed -i 's/ParalleDownloads = 8/ParalleDownloads = 20/g; s/#ParalleDownloads = 5/ParalleDownloads = 20/g' /etc/pacman.conf
+
+# Update system
+echo "${CYAN}Updating system...${RESET}"
 sudo pacman -Syyu --noconfirm
 
-# Make executable only the shell scripts in the Personal directory
+# Make scripts executable and change directory
 chmod +x Personal/*.sh
-
-# Change directory to Personal and run each script in order
 cd Personal
 
-declare -a scripts=(
+# Simplified script array
+scripts=(
   "080-i3wm-install"
   "090-git-clone-dotfiles"
   "092-automount-remote-drive"
   "095-create-symlinks-from-dotfiles"
   "666-remove-software"
-# Only use if installing from clean arch  "105-install-arcolinux-software"
+# clean arch install only  "105-install-arclinux-software"
   "110-install-core-software"
   "115-warp-terminal-install"
   "120-sound"
@@ -57,25 +54,24 @@ declare -a scripts=(
   "270-enable-hblock"
   "700-installing-fonts"
   "900-install-personal-settings-folders"
-# Currently using symlink from dotfiles  "905-install-personal-settings-bookmarks"
-#  "930-autostart-applications"
+# currently using dotfiles  "905-install-personal-settings-bookmarks"
   "940-btrfs-setup"
-  "950-fix-pamac-aur"
- )
+#  "950-fix-pamac-aur"
+)
 
-for script in "${scripts[@]}"
-do
-  bash "${script}.sh"
+# Execute scripts with colorful progress indicator
+total=${#scripts[@]}
+for i in "${!scripts[@]}"; do
+    current=$((i + 1))
+    echo "${GREEN}[$current/$total] Running ${scripts[$i]}.sh${RESET}"
+    bash "${scripts[$i]}.sh"
 done
 
-# Start needed services (the rest were commented out or not applicable)
+# Enable core services
+echo "${CYAN}Enabling core services...${RESET}"
 sudo systemctl enable cronie.service
 sudo mkinitcpio -P 
 
-# Notify user that installation is complete
-tput setaf 1;
-echo "################################################################"
-echo "INSTALLATION IS COMPLETE"
-echo "ENJOY"
-echo "################################################################"
-tput sgr0
+echo "${GREEN}################################################################"
+echo "                    Installation Complete!"
+echo "################################################################${RESET}"
