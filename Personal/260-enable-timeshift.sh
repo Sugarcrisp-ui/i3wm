@@ -1,98 +1,76 @@
 #!/bin/bash
 
-# Set up error handling
-set -e
-trap 'echo "An error occurred at line $LINENO. Exiting." >&2; exit 1' ERR
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
+RESET=$(tput sgr0)
 
-# Function for colored logging
-log_with_color() {
-    tput setaf 11; echo "################################################################"; tput sgr0
-    tput setaf 11; echo "$1"; tput sgr0
-    tput setaf 11; echo "################################################################"; tput sgr0
+function log_message() {
+    echo "${BLUE}################################################################"
+    echo "$1"
+    echo "################################################################${RESET}"
 }
 
-# Function to extend sudo timeout
-extend_sudo_timeout() {
-    local timeout=$1
-    for i in $(seq 1 $((timeout / 15))); do
-        sudo -v
-        sleep 10
-    done
-}
-
-# Extend sudo timeout for the script duration (60 minutes)
-extend_sudo_timeout 3600 &
-
-# Check if cronie is enabled and start it if not
-enable_cronie() {
+function enable_cronie() {
     if ! systemctl is-active --quiet cronie.service; then
-        log_with_color "Enabling and starting cronie.service"
+        echo "${CYAN}Enabling cronie service...${RESET}"
         sudo systemctl enable --now cronie.service
     else
-        log_with_color "Cronie service is already running"
+        echo "${GREEN}Cronie service already active${RESET}"
     fi
 }
 
-# Identify the home device and UUID
-get_home_device_uuid() {
-    local home_device
-    local home_uuid
-
-    home_device=$(df --output=source /home | grep -v Filesystem | xargs)
-    home_uuid=$(sudo blkid "$home_device" -o value -s UUID)
-
-    if [ -z "$home_uuid" ]; then
-        log_with_color "Could not determine UUID for /home. Exiting."
-        exit 1
-    fi
-
+function get_home_device_uuid() {
+    local home_device=$(df --output=source /home | grep -v Filesystem | xargs)
+    local home_uuid=$(sudo blkid "$home_device" -o value -s UUID)
     echo "$home_uuid"
 }
 
-# Write or update Timeshift configuration
-update_timeshift_json() {
+function update_timeshift_json() {
     local config_path="/etc/timeshift/timeshift.json"
     local backup_device_uuid="$1"
 
-    log_with_color "Updating Timeshift configuration at $config_path"
-
+    echo "${CYAN}Creating Timeshift configuration directory...${RESET}"
     sudo mkdir -p /etc/timeshift
 
-    # Write or replace the JSON content
+    echo "${CYAN}Writing Timeshift configuration...${RESET}"
     sudo tee "$config_path" > /dev/null <<EOF
 {
-  "backup_device_uuid" : "$backup_device_uuid",
-  "parent_device_uuid" : "",
-  "do_first_run" : "false",
-  "btrfs_mode" : "false",
-  "include_btrfs_home_for_backup" : "false",
-  "include_btrfs_home_for_restore" : "false",
-  "stop_cron_emails" : "true",
-  "schedule_monthly" : "false",
-  "schedule_weekly" : "false",
-  "schedule_daily" : "true",
-  "schedule_hourly" : "false",
-  "schedule_boot" : "false",
-  "count_monthly" : "2",
-  "count_weekly" : "3",
-  "count_daily" : "5",
-  "count_hourly" : "6",
-  "count_boot" : "5",
-  "date_format" : "%Y-%m-%d %H:%M:%S",
-  "exclude" : [
-    "/home/brett/**",
-    "/root/**"
-  ],
-  "exclude-apps" : []
+    "backup_device_uuid" : "$backup_device_uuid",
+    "parent_device_uuid" : "",
+    "do_first_run" : "false",
+    "btrfs_mode" : "false",
+    "include_btrfs_home_for_backup" : "false",
+    "include_btrfs_home_for_restore" : "false",
+    "stop_cron_emails" : "true",
+    "schedule_monthly" : "false",
+    "schedule_weekly" : "false",
+    "schedule_daily" : "true",
+    "schedule_hourly" : "false",
+    "schedule_boot" : "false",
+    "count_monthly" : "0",
+    "count_weekly" : "2",
+    "count_daily" : "5",
+    "count_hourly" : "0",
+    "count_boot" : "0",
+    "date_format" : "%Y-%m-%d %H:%M:%S",
+    "exclude" : [
+        "/home/brett/**",
+        "/root/**"
+    ],
+    "exclude-apps" : []
 }
 EOF
-    log_with_color "Timeshift configuration updated successfully."
 }
 
-# Main execution flow
-log_with_color "Starting Timeshift setup script"
+# Main execution
+log_message "Starting Timeshift Setup"
 enable_cronie
-backup_device_uuid=$(get_home_device_uuid)
-update_timeshift_json "$backup_device_uuid"
 
-log_with_color "Setup complete. Timeshift is configured with backup_device_uuid: $backup_device_uuid"
+echo "${CYAN}Getting backup device UUID...${RESET}"
+backup_device_uuid=$(get_home_device_uuid)
+
+update_timeshift_json "$backup_device_uuid"
+log_message "Timeshift Configuration Complete! UUID: $backup_device_uuid"
