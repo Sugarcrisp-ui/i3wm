@@ -1,59 +1,48 @@
 #!/bin/bash
 
-# The set command is used to determine action if error 
-# is encountered. (-e) will stop and exit, (+e) will 
-# continue with the script.
-set -e
-trap 'handle_error' ERR
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+RESET=$(tput sgr0)
 
-# Function to handle errors
-handle_error() {
-  echo -e "\e[31mAn error occurred while installing the packages. Please check the output and try again.\e[0m"
-  exit 1
-}
-
-# Function to install a package.
 function install_package() {
-  if ! paru -Qi "$1" &> /dev/null; then
-    echo -e "\e[32m###############################################################################\e[0m"
-    echo -e "\e[32m##################  Installing package "  "$1"
-    echo -e "\e[32m###############################################################################\e[0m"
-    echo
-    paru --noconfirm --needed "$1"
-  fi
+    if ! paru -Qi "$1" &> /dev/null; then
+        echo "${CYAN}Installing: $1${RESET}"
+        paru --noconfirm --needed "$1"
+    else
+        echo "${GREEN}Already installed: $1${RESET}"
+    fi
 }
 
-# Function to install a category of packages.
-function install_category() {
-  echo -e "\e[32m################################################################\e[0m"
-  echo -e "Installing fonts " $1
-  echo -e "\e[32m################################################################\e[0m"
-  echo;tput sgr0
-  
-  for package in "${list[@]}"; do
-    install_package "$package"
-  done
-}
+echo "${BLUE}################################################################"
+echo "                    Installing Font Packages"
+echo "################################################################${RESET}"
 
-# List of packages to install.
-list=(
-adobe-source-sans-pro-fonts
-awesome-terminal-fonts
-cantarell-fonts
-ttf-bitstream-vera
-ttf-firacode-nerd
-ttf-font-awesome-6
-ttf-inconsolata
-ttf-liberation
-ttf-opensans
-ttf-vista-fonts
+# Font packages
+fonts=(
+    adobe-source-sans-pro-fonts
+    awesome-terminal-fonts
+    cantarell-fonts
+    ttf-bitstream-vera
+    ttf-firacode-nerd
+    ttf-font-awesome-6
+    ttf-inconsolata
+    ttf-liberation
+    ttf-opensans
+    ttf-vista-fonts
 )
 
-# Install all of the packages.
-install_category "Fonts"
+# Install fonts
+total=${#fonts[@]}
+current=0
 
-# Success message.
-echo -e "\e[32m################################################################\e[0m"
-echo -e "Software has been installed"
-echo -e "\e[32m################################################################\e[0m"
-echo;tput sgr0
+for font in "${fonts[@]}"; do
+    ((current++))
+    echo "${BLUE}[${current}/${total}] Processing font: ${font}${RESET}"
+    install_package "$font"
+done
+
+echo "${GREEN}################################################################"
+echo "                    Font Installation Complete!"
+echo "################################################################${RESET}"
