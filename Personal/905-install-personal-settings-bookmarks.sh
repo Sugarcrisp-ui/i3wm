@@ -1,31 +1,35 @@
 #!/bin/bash
 
-# The set command is used to determine action if error 
-# is encountered.  (-e) will stop and exit (+e) will 
-# continue with the script.
-set -e
-trap 'echo "An error occurred at line $LINENO. Exiting." >&2; exit 1' ERR
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
 
-# This script installs personal bookmark settings for the user's GTK-3.0 theme.
-
-# Define variables for paths and directories
+# Define paths
 gtk_config_dir=~/.config/gtk-3.0
 settings_dir=~/i3wm/personal-settings/.config/gtk-3.0
 
-# Check that the directories and files exist before copying
+echo "${BLUE}################################################################"
+echo "                    Installing GTK Bookmarks"
+echo "################################################################${RESET}"
+
+# Verify directories and files
 if [[ ! -d "$gtk_config_dir" || ! -d "$settings_dir" ]]; then
-    echo "Error: one or both directories do not exist."
+    echo "${RED}Required directories not found${RESET}"
     exit 1
 fi
 
 if [[ ! -f "$settings_dir/bookmarks" || ! -f "$settings_dir/settings.ini" ]]; then
-    echo "Error: one or both files do not exist."
+    echo "${RED}Required files not found${RESET}"
     exit 1
 fi
 
-# Copy the bookmark settings to the GTK-3.0 config directory
+# Copy settings
+echo "${CYAN}Copying GTK settings...${RESET}"
 cp "$settings_dir"/* "$gtk_config_dir"/
 
-# Print a message indicating that the settings were installed
-echo "Personal bookmark settings installed."
-
+echo "${GREEN}################################################################"
+echo "                    GTK Bookmarks Installed Successfully!"
+echo "################################################################${RESET}"
