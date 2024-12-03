@@ -1,139 +1,92 @@
 #!/bin/bash
-# The set command is used to determine action if error
-# is encountered.  (-e) will stop and exit (+e) will
-# continue with the script.
-set -e
-trap 'echo "An error occurred in $0 at line $LINENO. Exiting." >&2; exit 1' ERR
 
-##################################################################################################################
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
+RESET=$(tput sgr0)
 
-tput setaf 11;
-echo "################################################################"
-echo "Creating personal folders"
-echo ""
-echo "################################################################"
-tput sgr0
+function log_message() {
+    echo "${BLUE}################################################################"
+    echo "$1"
+    echo "################################################################${RESET}"
+}
 
+# Create personal directories
+log_message "Creating Personal Folders"
 for dir in "Appimages" "Shared"; do
-    if ! mkdir -p "$HOME/$dir" 2>/dev/null; then
-        echo "Warning: Failed to create directory $HOME/$dir"
-    fi
+    echo "${CYAN}Creating directory: $HOME/$dir${RESET}"
+    mkdir -p "$HOME/$dir" 2>/dev/null
 done
 
-tput setaf 11;
-echo "################################################################"
-echo "Syncing .ssh directory"
-echo ""
-echo "################################################################"
-tput sgr0
-
-# Define source and destination directories
+# Sync SSH directory if external drive is available
+log_message "Checking SSH Configuration"
 SOURCE_SSH="/run/media/brett/backup/.ssh"
 DEST_SSH="$HOME/.ssh"
 
-# Ensure destination directory exists
 if [ ! -d "$DEST_SSH" ]; then
+    echo "${CYAN}Creating SSH directory${RESET}"
     mkdir -p "$DEST_SSH"
     chmod 700 "$DEST_SSH"
-    echo "Created directory $DEST_SSH with proper permissions."
 fi
 
-# Sync source to destination
 if [ -d "$SOURCE_SSH" ]; then
+    echo "${CYAN}External drive found - syncing SSH files${RESET}"
     rsync -avz --delete "$SOURCE_SSH/" "$DEST_SSH/"
     chmod 700 "$DEST_SSH"
     chmod 600 "$DEST_SSH"/*
-    echo "Synced $SOURCE_SSH to $DEST_SSH with proper permissions."
 else
-    echo "Warning: Source .ssh directory $SOURCE_SSH does not exist."
+    echo "${YELLOW}External drive not found - skipping SSH sync${RESET}"
 fi
 
-tput setaf 11;
-echo "################################################################"
-echo "Copying rc.local to /etc/"
-echo ""
-echo "################################################################"
-tput sgr0
+# Setup rc.local
+log_message "Setting Up rc.local"
+[ -f "/etc/rc.local" ] && sudo cp /etc/rc.local "/etc/rc.local.$(date +"%Y%m%d%H%M%S").bak"
 
-# Check if rc.local exists before trying to backup
-if [ -f "/etc/rc.local" ]; then
-    sudo cp /etc/rc.local "/etc/rc.local.$(date +"%Y%m%d%H%M%S").bak"
-else
-    echo "Warning: /etc/rc.local does not exist. No backup created."
-fi
-
-# This restores or installs my rc.local settings
 SOURCE_RC_LOCAL="~/i3wm/personal-settings/etc/rc.local"
 if [ -f "$SOURCE_RC_LOCAL" ]; then
-    if ! sudo rsync -avz --delete "$SOURCE_RC_LOCAL" /etc/; then
-        echo "Error: Failed to copy rc.local to /etc/"
-    else
-        sudo chown -R root:root /etc/rc.local
-        sudo chmod 755 /etc/rc.local  # rc.local typically needs execute permission
-        echo "rc.local has been copied to /etc/ and permissions set."
-    fi
-else
-    echo "Error: Source rc.local not found at $SOURCE_RC_LOCAL."
+    echo "${CYAN}Copying and configuring rc.local${RESET}"
+    sudo rsync -avz --delete "$SOURCE_RC_LOCAL" /etc/
+    sudo chown root:root /etc/rc.local
+    sudo chmod 755 /etc/rc.local
 fi
 
-tput setaf 11;
-echo "################################################################"
-echo "Configuring crontabs"
-echo ""
-echo "################################################################"
-tput sgr0
-
-# Directory where your cron files are stored
+# Configure crontabs if external drive is available
+log_message "Checking Crontab Configuration"
 CRON_SOURCE_DIR="/run/media/brett/backup/cron"
 CRON_DEST_DIR="/var/spool/cron"
 
-# Ensure the source directory exists
 if [ -d "$CRON_SOURCE_DIR" ]; then
-    # Create destination directory if it doesn't exist (though it should already exist)
+    echo "${CYAN}External drive found - configuring crontabs${RESET}"
     sudo mkdir -p "$CRON_DEST_DIR"
-
-    # Copy user cron
-    USER_CRON_FILE="$CRON_SOURCE_DIR/brett"
-    if [ -f "$USER_CRON_FILE" ]; then
-        sudo rsync -avz --delete "$USER_CRON_FILE" "$CRON_DEST_DIR/brett"
+    
+    # User cron
+    if [ -f "$CRON_SOURCE_DIR/brett" ]; then
+        echo "${CYAN}Setting up user crontab${RESET}"
+        sudo rsync -avz --delete "$CRON_SOURCE_DIR/brett" "$CRON_DEST_DIR/brett"
         sudo chown brett:brett "$CRON_DEST_DIR/brett"
         sudo chmod 600 "$CRON_DEST_DIR/brett"
-        echo "User cron job configuration from $USER_CRON_FILE has been applied."
-    else
-        echo "Warning: User cron configuration file $USER_CRON_FILE does not exist."
     fi
-
-    # Copy root cron
-    ROOT_CRON_FILE="$CRON_SOURCE_DIR/root"
-    if [ -f "$ROOT_CRON_FILE" ]; then
-        sudo rsync -avz --delete "$ROOT_CRON_FILE" "$CRON_DEST_DIR/root"
+    
+    # Root cron
+    if [ -f "$CRON_SOURCE_DIR/root" ]; then
+        echo "${CYAN}Setting up root crontab${RESET}"
+        sudo rsync -avz --delete "$CRON_SOURCE_DIR/root" "$CRON_DEST_DIR/root"
         sudo chown root:root "$CRON_DEST_DIR/root"
         sudo chmod 600 "$CRON_DEST_DIR/root"
-        echo "Root cron job configuration from $ROOT_CRON_FILE has been applied."
-    else
-        echo "Warning: Root cron configuration file $ROOT_CRON_FILE does not exist."
     fi
 else
-    echo "Warning: Cron source directory $CRON_SOURCE_DIR does not exist."
+    echo "${YELLOW}External drive not found - skipping crontab setup${RESET}"
 fi
 
-tput setaf 11;
-echo "################################################################"
-echo "Setting up Polybar"
-echo ""
-echo "################################################################"
-tput sgr0
-
-# Ensure Polybar launch script is executable
-if [ -f "$HOME/.config/polybar/launch.sh" ]; then
+# Setup Polybar
+log_message "Setting Up Polybar"
+[ -f "$HOME/.config/polybar/launch.sh" ] && {
+    echo "${CYAN}Making Polybar launch script executable${RESET}"
     chmod +x "$HOME/.config/polybar/launch.sh"
-    echo "Made Polybar launch script executable."
-else
-    echo "Warning: Polybar launch script not found at $HOME/.config/polybar/launch.sh"
-fi
+}
 
-echo "################################################################"
-echo "Script execution completed"
-echo "################################################################"
-tput sgr0
-exit 0
+echo "${GREEN}################################################################"
+echo "                    Personal Settings Setup Complete!"
+echo "################################################################${RESET}"
