@@ -1,26 +1,41 @@
 #!/bin/bash
 
-# List of Flatpak packages to install
-list=(
-  net.cozic.joplin_desktop
-  com.github.unrud.VideoDownloader
-  com.protonvpn.www
-  
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+RESET=$(tput sgr0)
+
+# Flatpak packages
+packages=(
+    net.cozic.joplin_desktop
+    com.github.unrud.VideoDownloader
+    com.protonvpn.www
 )
 
-# Function to check if a Flatpak is installed
-function is_installed() {
-  flatpak list | grep -q "$1"
-}
-
-# Function to install a Flatpak
 function install_flatpak() {
-  if ! is_installed "$1"; then
-    flatpak install -y flathub "$1"
-  fi
+    if ! flatpak list | grep -q "$1"; then
+        echo "${CYAN}Installing: $1${RESET}"
+        flatpak install -y flathub "$1"
+    else
+        echo "${GREEN}Already installed: $1${RESET}"
+    fi
 }
 
-# Check for installed Flatpaks and install any missing ones
-for package in "${list[@]}"; do
-  install_flatpak "$package"
+echo "${BLUE}################################################################"
+echo "                    Installing Flatpak Packages"
+echo "################################################################${RESET}"
+
+# Install packages
+total=${#packages[@]}
+current=0
+
+for package in "${packages[@]}"; do
+    ((current++))
+    echo "${BLUE}[${current}/${total}] Processing package: ${package}${RESET}"
+    install_flatpak "$package"
 done
+
+echo "${GREEN}################################################################"
+echo "                    Flatpak Installation Complete!"
+echo "################################################################${RESET}"
