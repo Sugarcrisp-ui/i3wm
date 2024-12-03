@@ -1,62 +1,63 @@
 #!/bin/bash
 
-# Function to install a package if it's not already installed
-func_install() {
-  if pacman -Qi $1 &> /dev/null; then
-    tput setaf 2
-    echo "###############################################################################"
-    echo "################## The package "$1" is already installed"
-    echo "###############################################################################"
-    echo
-    tput sgr0
-  else
-    tput setaf 3
-    echo "###############################################################################"
-    echo "##################  Installing package "  $1
-    echo "###############################################################################"
-    echo
-    tput sgr0
-    sudo pacman -S --noconfirm --needed $1 
-  fi
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
+
+function install_package() {
+    if pacman -Qi $1 &> /dev/null; then
+        echo "${GREEN}Already installed: $1${RESET}"
+    else
+        echo "${CYAN}Installing: $1${RESET}"
+        sudo pacman -S --noconfirm --needed $1
+    fi
 }
 
-# List of PulseAudio related packages to ensure are installed
+echo "${BLUE}################################################################"
+echo "                    Setting Up Sound System"
+echo "################################################################${RESET}"
+
+# Sound packages
 packages=(
-# Already installed  pulseaudio-alsa
-#  pavucontrol
-#  alsa-firmware
-# Already installed  alsa-lib
-#  alsa-plugins
-# Already installed  alsa-utils
-#  gstreamer
-#  gst-plugins-good
-#  gst-plugins-bad
-#  gst-plugins-base
-#  gst-plugins-ugly
-  pasystray
-#  playerctl
-# Already installed  volumeicon
+    # Already installed pulseaudio-alsa
+    # pavucontrol
+    # alsa-firmware
+    # Already installed alsa-lib
+    # alsa-plugins
+    # Already installed alsa-utils
+    # gstreamer
+    # gst-plugins-good
+    # gst-plugins-bad
+    # gst-plugins-base
+    # gst-plugins-ugly
+    pasystray
+    # playerctl
+    # Already installed volumeicon
 )
 
-# Install the packages
+# Install packages
+echo "${CYAN}Installing sound packages...${RESET}"
 for package in "${packages[@]}"; do
-  func_install "$package"
+    [[ $package == \#* ]] && continue
+    install_package "$package"
 done
 
-# Enable and start PulseAudio for the current user
+# Setup PulseAudio
+echo "${CYAN}Setting up PulseAudio services...${RESET}"
 systemctl --user enable pulseaudio.service
 systemctl --user start pulseaudio.service
 
-# Check if PulseAudio started successfully
+# Verify PulseAudio status
 if systemctl --user is-active --quiet pulseaudio.service; then
-  echo "PulseAudio is now enabled and running."
+    echo "${GREEN}PulseAudio is running${RESET}"
 else
-  echo "Warning: PulseAudio did not start. Check system logs for details."
+    echo "${RED}PulseAudio start failed - check logs${RESET}"
 fi
 
-tput setaf 11;
-echo "################################################################"
-echo "PulseAudio setup has been completed"
-echo "################################################################"
-echo
-tput sgr0
+echo "${GREEN}################################################################"
+echo "                    Sound Setup Complete!"
+echo "################################################################${RESET}"
