@@ -1,80 +1,78 @@
 #!/bin/bash
 
-set -e
-trap 'echo "An error occurred at line $LINENO. Exiting." >&2; exit 1' ERR
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
 
-# Function to create symlinks for files or directories
+# Function to create symlinks
 create_symlink() {
     local source="$1"
     local dest="$2"
 
-    # Only create symlink if source exists and destination does not already exist
     if [ -e "$source" ]; then
         if [ ! -e "$dest" ]; then
-            ln -s "$source" "$dest" || {
-                echo "Failed to create symlink for $dest"
-                exit 1
-            }
-            echo "Symlink created: $dest -> $source"
+            ln -s "$source" "$dest"
+            echo "${GREEN}Created: $dest -> $source${RESET}"
         else
-            echo "Skipping $dest, it already exists."
+            echo "${YELLOW}Exists: $dest${RESET}"
         fi
     else
-        echo "Warning: Source $source does not exist, skipping."
+        echo "${RED}Missing source: $source${RESET}"
     fi
 }
 
-# Function to replace matching files or directories with symlinks
+# Function to replace existing with symlinks
 replace_with_symlink() {
     local source="$1"
     local dest="$2"
 
-    # If destination exists, remove it before creating the symlink
-    if [ -e "$dest" ]; then
-        if [ -d "$dest" ]; then
-            rm -rf "$dest"
-            echo "Removed existing directory: $dest"
-        else
-            rm -f "$dest"
-            echo "Removed existing file: $dest"
-        fi
-    fi
-
-    # Now create the symlink
+    [ -e "$dest" ] && rm -rf "$dest"
     create_symlink "$source" "$dest"
 }
 
-# Handling .local/share/applications
+echo "${BLUE}################################################################"
+echo "                    Setting Up Symlinks"
+echo "################################################################${RESET}"
+
+# Setup applications symlinks
+echo "${CYAN}Setting up application symlinks...${RESET}"
 applications_source="$HOME/dotfiles/.local/share/applications"
 applications_dest="$HOME/.local/share/applications"
 
-# Ensure .local/share/applications exists in home directory
 mkdir -p "$applications_dest"
 
-# Loop through the files in the dotfiles applications directory
 for app in "$applications_source"/*; do
-    if [ -f "$app" ]; then
-        app_name=$(basename "$app")
-        dest_app="$applications_dest/$app_name"
-        
-        # Create symlink only if there is no file already in the destination
-        create_symlink "$app" "$dest_app"
-    fi
+    [ -f "$app" ] && create_symlink "$app" "$applications_dest/$(basename "$app")"
 done
 
-# Handling .config
+# Setup config symlinks
+echo "${CYAN}Setting up config symlinks...${RESET}"
 config_source="$HOME/dotfiles/.config"
 config_dest="$HOME/.config"
 
-# Loop through the items in the source .config directory
 for item in "$config_source"/*; do
-    if [ -e "$item" ]; then
-        item_name=$(basename "$item")
-        dest_item="$config_dest/$item_name"
-        
-        # Replace matching items with symlinks
-        replace_with_symlink "$item" "$dest_item"
-    fi
+    [ -e "$item" ] && replace_with_symlink "$item" "$config_dest/$(basename "$item")"
 done
 
-echo "All symlinks have been created successfully."
+# Setup additional symlinks
+echo "${CYAN}Setting up additional symlinks...${RESET}"
+
+# .bin-personal
+create_symlink "$HOME/dotfiles/.bin-personal" "$HOME/.bin-personal"
+
+# .fonts
+create_symlink "$HOME/dotfiles/.fonts" "$HOME/.fonts"
+
+# .fehbg
+create_symlink "$HOME/dotfiles/.fehbg" "$HOME/.fehbg"
+
+# .grkrc-2.0.mine
+create_symlink "$HOME/dotfiles/.gtkrc-2.0.mine" "$HOME/.gtkrc-2.0.mine"
+
+echo "${GREEN}################################################################"
+echo "                    Symlinks Setup Complete!"
+echo "################################################################${RESET}"
