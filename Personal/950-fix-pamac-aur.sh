@@ -1,32 +1,33 @@
 #!/bin/bash
-# The set command is used to determine action if error 
-# is encountered.  (-e) will stop and exit (+e) will 
-# continue with the script.
-set +e
-trap 'echo "Error on line $LINENO"; exit 1' ERR
 
-# Fix to show icons and applications in pamac-aur
-# Downgrading is another solution - see forum for that one
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+RESET=$(tput sgr0)
 
-# Backup the original file
-echo "Creating a backup of community.xml.gz..."
+echo "${BLUE}################################################################"
+echo "                    Fixing Pamac AUR Integration"
+echo "################################################################${RESET}"
+
+# Backup original file
+echo "${CYAN}Backing up community.xml.gz${RESET}"
 sudo cp /usr/share/app-info/xmls/community.xml.gz "/usr/share/app-info/xmls/community.xml.gz.$(date +"%Y%m%d%H%M%S").bak"
 
-echo "Modifying community.xml.gz to remove <em> tags which can cause issues with Pamac..."
+# Remove problematic <em> tags
+echo "${CYAN}Removing problematic tags${RESET}"
 zcat /usr/share/app-info/xmls/community.xml.gz | sed 's|<em>||g;s|<\/em>||g;' | gzip > "/tmp/new.xml.gz"
-
-echo "Copying modified file to system directory..."
 sudo cp /tmp/new.xml.gz /usr/share/app-info/xmls/community.xml.gz
 
-echo "Installing or updating appstream..."
+# Update and refresh appstream
+echo "${CYAN}Updating appstream${RESET}"
 sudo pacman -S appstream --noconfirm --needed
-
-echo "Refreshing appstream cache to reflect changes..."
 sudo appstreamcli refresh-cache --force --verbose
 
-echo "Cleaning up temporary files..."
+# Cleanup
+echo "${CYAN}Cleaning up temporary files${RESET}"
 rm -f /tmp/new.xml.gz
 
-echo "###############################################################################"
-echo "###                               DONE                                     ####"
-echo "###############################################################################"
+echo "${GREEN}################################################################"
+echo "                    Pamac AUR Fix Complete!"
+echo "################################################################${RESET}"
