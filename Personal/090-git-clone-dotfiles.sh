@@ -1,22 +1,24 @@
 #!/bin/bash
 
-set -e
-trap 'echo "An error occurred at line $LINENO. Exiting." >&2; exit 1' ERR
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+RESET=$(tput sgr0)
 
-# Clone the dotfiles repository if not already present
+echo "${BLUE}################################################################"
+echo "                    Setting Up Dotfiles"
+echo "################################################################${RESET}"
+
+# Clone or update dotfiles repository
 if [ ! -d "$HOME/dotfiles" ]; then
-    echo "Cloning dotfiles repository..."
+    echo "${CYAN}Cloning dotfiles repository...${RESET}"
     git clone https://github.com/Sugarcrisp-ui/dotfiles.git ~/dotfiles
 else
-    echo "Dotfiles repository already exists, updating..."
-    cd ~/dotfiles
-    git pull origin main
+    echo "${CYAN}Updating existing dotfiles...${RESET}"
+    cd ~/dotfiles && git pull origin main
 fi
 
-# Check if the clone/pull was successful
-if [ $? -ne 0 ]; then
-    echo "Failed to clone or update the dotfiles repository. Please check your internet connection or GitHub access."
-    exit 1
-fi
-
-echo "Dotfiles cloning completed."
+echo "${GREEN}################################################################"
+echo "                    Dotfiles Setup Complete!"
+echo "################################################################${RESET}"
