@@ -1,15 +1,23 @@
 #!/bin/bash
-# The set command is used to determine action if error 
-# is encountered.  (-e) will stop and exit (+e) will 
-# continue with the script.
-set +e
 
-[ -d $HOME"/.config/autostart" ] || mkdir -p $HOME"/.config/autostart"
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+RESET=$(tput sgr0)
 
-sleep 1
+echo "${BLUE}################################################################"
+echo "                    Setting Up Autostart Applications"
+echo "################################################################${RESET}"
 
-cp -Rf ~/i3wm/personal-settings/autostart/* ~/.config/autostart
+# Create autostart directory if it doesn't exist
+echo "${CYAN}Creating autostart directory...${RESET}"
+mkdir -p "$HOME/.config/autostart"
 
-echo "################################################################"
-echo "####                      autostart added                 ######"
-echo "################################################################"
+# Copy autostart files
+echo "${CYAN}Copying autostart configurations...${RESET}"
+cp -Rf ~/i3wm/personal-settings/autostart/* ~/.config/autostart/
+
+echo "${GREEN}################################################################"
+echo "                    Autostart Applications Configured!"
+echo "################################################################${RESET}"
