@@ -41,7 +41,7 @@ packages=(
     ffmpeg
     flatpak
     geany
-    #github-desktop-bin
+    github-desktop-bin
     gnome-calculator
     gpick
     gufw
@@ -49,7 +49,7 @@ packages=(
     libreoffice-still
     meld
     micro
-    pamac-aur
+    pamac-all
     paprefs
     pinta
     polybar
