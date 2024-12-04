@@ -58,7 +58,7 @@ scripts=(
   "900-install-personal-settings-folders"
 # currently using dotfiles  "905-install-personal-settings-bookmarks"
   "940-btrfs-setup"
-#  "950-fix-pamac-aur"
+# may not be relevent anymore "950-fix-pamac-aur"
 )
 
 # Execute scripts with colorful progress indicator
