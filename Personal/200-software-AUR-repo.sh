@@ -38,6 +38,7 @@ sudo paru -Syu --noconfirm
 
 # Package lists
 packages=(
+    pamac-all
     ttf-font-awesome-5
     insync-thunar
 )

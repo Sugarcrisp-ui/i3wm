@@ -49,7 +49,6 @@ packages=(
     libreoffice-still
     meld
     micro
-    pamac-all
     paprefs
     pinta
     polybar
