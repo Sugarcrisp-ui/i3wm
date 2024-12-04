@@ -1,5 +1,7 @@
 #!/bin/bash
 
+test
+
 # Keep sudo alive in background
 function keep_sudo_alive() {
     while true; do
