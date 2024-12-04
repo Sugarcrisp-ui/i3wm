@@ -44,7 +44,7 @@ scripts=(
   "092-automount-remote-drive"
   "095-create-symlinks-from-dotfiles"
   "666-remove-software"
-# clean arch install only  "105-install-arclinux-software"
+# clean arch install only  "105-install-arcolinux-software"
   "110-install-core-software"
   "115-warp-terminal-install"
   "120-sound"
