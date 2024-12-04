@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: Brett Crisp
+
 # Keep sudo alive in background
 function keep_sudo_alive() {
     while true; do

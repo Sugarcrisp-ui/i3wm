@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: Brett Crisp
+
 # Color definitions
 GREEN=$(tput setaf 2)
 BLUE=$(tput setaf 4)
