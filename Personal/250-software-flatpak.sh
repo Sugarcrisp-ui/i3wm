@@ -10,8 +10,6 @@ RESET=$(tput sgr0)
 
 # Flatpak packages
 packages=(
-    net.cozic.joplin_desktop
-    com.github.unrud.VideoDownloader
     com.protonvpn.www
 )
 

@@ -19,7 +19,7 @@ is_package_installed() {
 install_package() {
     if ! is_package_installed "$1"; then
         echo "${CYAN}Installing: $1${RESET}"
-        sudo paru -S --noconfirm --needed "$1" || {
+        paru -S --noconfirm --needed "$1" || {
             echo "${RED}Failed to install $1${RESET}"
             return 1
         }
@@ -34,13 +34,14 @@ echo "################################################################${RESET}"
 
 # Update system
 echo "${CYAN}Updating system packages...${RESET}"
-sudo paru -Syu --noconfirm
+paru -Syu --noconfirm
 
 # Package lists
 packages=(
-    pamac-all
-    ttf-font-awesome-5
     insync-thunar
+    joplin-appimage
+    ttf-font-awesome-5
+    videodownloader
 )
 
 # Install all packages

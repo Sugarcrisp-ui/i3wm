@@ -28,7 +28,9 @@ echo "################################################################${RESET}"
 
 # Packages to remove
 packages_to_uninstall=(
+    arcolinux-conky-collection-git
     blueberry
+    conky-lua-archers
 )
 
 # Add nouveau if no NVIDIA GPU

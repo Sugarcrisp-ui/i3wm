@@ -47,10 +47,6 @@ declare -a i3_packages=(
     "volumeicon"
 )
 
-# Remove conflicting package
-#echo "${CYAN}Removing conflicting packages...${RESET}"
-#sudo pacman -R --noconfirm arcolinux-gtk-surfn-arc-git 2>/dev/null || true
-
 # Install packages
 echo "${CYAN}Installing i3 packages...${RESET}"
 total=${#i3_packages[@]}
