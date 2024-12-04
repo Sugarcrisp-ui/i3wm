@@ -1,7 +1,0 @@
-# Backup dotfiles daily at 9pm
-#0 21 * * * /home/brett/.bin-personal/backup-desktop-dotfiles.sh
-
-# Daily backup to daily-backup directory
-#10 21 * * * /home/brett/.bin-personal/mydocuments-backup.sh /run/media/brett/backup/daily-backup/Documents
-# Weekly backup (runs on Sunday)
-#10 21 * * 0 /home/brett/.bin-personal/mydocuments-backup.sh /run/media/brett/backup/weekly-backup/
