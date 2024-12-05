@@ -22,9 +22,6 @@ for dir in "Appimages" "Shared"; do
     mkdir -p "$HOME/$dir" 2>/dev/null
 done
 
-log_message "Removing ConkyZen Desktop Entry"
-sudo rm -f /usr/share/applications/conkyzen.desktop
-
 # Sync SSH directory if external drive is available
 log_message "Checking SSH Configuration"
 SOURCE_SSH="/run/media/brett/backup/.ssh"

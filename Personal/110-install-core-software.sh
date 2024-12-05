@@ -29,7 +29,6 @@ echo "################################################################${RESET}"
 # Core software packages
 packages=(
     # arcolinux-teamviewer
-    # arcolinux-sddm-sugar-candy-git
     bitwarden
     blueman
     baobab

@@ -32,7 +32,6 @@ function install_software() {
         "archlinux-tweak-tool-git"
         "arcolinux-bin-git"
         "arcolinux-hblock-git"
-        "arcolinux-wallpapers-git"
     )
 
     total=${#packages[@]}

@@ -33,6 +33,9 @@ packages_to_uninstall=(
     conky-lua-archers
 )
 
+log_message "Removing ConkyZen Desktop Entry"
+sudo rm -f /usr/share/applications/conkyzen.desktop
+
 # Add nouveau if no NVIDIA GPU
 if ! check_for_nvidia; then
     packages_to_uninstall+=("xf86-video-nouveau")
