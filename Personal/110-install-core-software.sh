@@ -62,7 +62,6 @@ packages=(
     realvnc-vnc-server
     realvnc-vnc-viewer
     ripgrep
-    rofi
     seahorse
     # simplescreenrecorder
     spotify

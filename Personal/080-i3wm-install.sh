@@ -41,9 +41,9 @@ declare -a i3_packages=(
     "i3-wm"
     "i3status"
     "lxappearance"
-    "nitrogen"
+    "feh"
     "picom"
-    "rofi-lbonn-wayland"
+    "rofi"
     "volumeicon"
 )
 
