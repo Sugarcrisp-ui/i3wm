@@ -70,6 +70,7 @@ packages=(
     # Used with btrfs timeshift-autosnap
     virtualbox
     visual-studio-code-bin
+    vlc
     webapp-manager
     xclip
     zip
