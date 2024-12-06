@@ -30,7 +30,6 @@ echo "################################################################${RESET}"
 packages=(
     # arcolinux-teamviewer
     bitwarden
-    blueman
     baobab
     brave-bin
     # grub-btrfs

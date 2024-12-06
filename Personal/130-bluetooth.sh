@@ -9,87 +9,54 @@ CYAN=$(tput setaf 6)
 YELLOW=$(tput setaf 3)
 RED=$(tput setaf 1)
 RESET=$(tput sgr0)
-#
 
-
-installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
-
-##################################################################################################################
-
-if [ "$DEBUG" = true ]; then
-    echo
-    echo "------------------------------------------------------------"
-    echo "Running $(basename $0)"
-    echo "------------------------------------------------------------"
-    echo
-    read -n 1 -s -r -p "Debug mode is on. Press any key to continue..."
-    echo
-fi
-
-##################################################################################################################
-
-echo
-tput setaf 3
-echo "################################################################"
-echo "################### Bluetooth"
-echo "################################################################"
-tput sgr0
-echo
-
-func_install() {
+function install_package() {
     if pacman -Qi $1 &> /dev/null; then
-        tput setaf 2
-        echo "###############################################################################"
-        echo "################## The package "$1" is already installed"
-        echo "###############################################################################"
-        echo
-        tput sgr0
+        echo "${GREEN}Already installed: $1${RESET}"
     else
-        tput setaf 3
-        echo "###############################################################################"
-        echo "##################  Installing package "  $1
-        echo "###############################################################################"
-        echo
-        tput sgr0
+        echo "${CYAN}Installing: $1${RESET}"
         sudo pacman -S --noconfirm --needed $1
     fi
 }
 
+echo "${BLUE}################################################################"
+echo "                    Setting Up Bluetooth"
+echo "################################################################${RESET}"
 
-installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
-
-if [ ! -f /usr/share/xsessions/plasma.desktop ]; then
-  sudo pacman -S --noconfirm --needed blueman
-fi
+# Bluetooth packages
+packages=(
+    "bluez"
+    "bluez-libs"
+    "bluez-utils"
+    "blueman"
+)
 
 if ! pacman -Qi pipewire-pulse &> /dev/null; then 
-    sudo pacman -S --noconfirm --needed pulseaudio-bluetooth
+    packages+=("pulseaudio-bluetooth")
 fi
-sudo pacman -S --noconfirm --needed bluez
-sudo pacman -S --noconfirm --needed bluez-libs
-sudo pacman -S --noconfirm --needed bluez-utils
 
+# Install packages
+echo "${CYAN}Installing bluetooth packages...${RESET}"
+for package in "${packages[@]}"; do
+    install_package "$package"
+done
+
+# Setup Bluetooth services
+echo "${CYAN}Setting up Bluetooth services...${RESET}"
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 
+# Configure Bluetooth
+echo "${CYAN}Configuring Bluetooth...${RESET}"
 sudo sed -i 's/'#AutoEnable=false'/'AutoEnable=true'/g' /etc/bluetooth/main.conf
 
-if ! grep -q "load-module module-switch-on-connect" /etc/pulse/system.pa; then
-    echo 'load-module module-switch-on-connect' | sudo tee --append /etc/pulse/system.pa
-fi
+# Configure PulseAudio modules
+for module in "module-switch-on-connect" "module-bluetooth-policy" "module-bluetooth-discover"; do
+    if ! grep -q "load-module $module" /etc/pulse/system.pa; then
+        echo "load-module $module" | sudo tee --append /etc/pulse/system.pa
+    fi
+done
 
-if ! grep -q "load-module module-bluetooth-policy" /etc/pulse/system.pa; then
-    echo 'load-module module-bluetooth-policy' | sudo tee --append /etc/pulse/system.pa
-fi
-
-if ! grep -q "load-module module-bluetooth-discover" /etc/pulse/system.pa; then
-    echo 'load-module module-bluetooth-discover' | sudo tee --append /etc/pulse/system.pa
-fi
-
-echo
-tput setaf 6
-echo "######################################################"
-echo "###################  $(basename $0) done"
-echo "######################################################"
-tput sgr0
-echo
+echo "${GREEN}################################################################"
+echo "                    Bluetooth Setup Complete!"
+echo "################################################################${RESET}"
