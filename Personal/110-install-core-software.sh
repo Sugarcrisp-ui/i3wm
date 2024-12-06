@@ -35,6 +35,7 @@ packages=(
     # grub-btrfs
     copyq
     cronie
+    cursor # vscode alternative
     fd
     ffmpeg
     flatpak
@@ -68,7 +69,7 @@ packages=(
     timeshift
     # Used with btrfs timeshift-autosnap
     virtualbox
-    visual-studio-code-bin
+    # visual-studio-code-bin # Switched to cursor
     vlc
     webapp-manager
     xclip
