@@ -20,6 +20,7 @@ GREEN=$(tput setaf 2)
 BLUE=$(tput setaf 4)
 CYAN=$(tput setaf 6)
 RESET=$(tput sgr0)
+RED=$(tput setaf 1)
 
 echo "${BLUE}################################################################"
 echo "                    Starting Installation Script"
@@ -27,7 +28,7 @@ echo "################################################################${RESET}"
 
 # Parallel downloads config
 echo "${CYAN}Configuring parallel downloads...${RESET}"
-sudo sed -i 's/ParalleDownloads = 8/ParalleDownloads = 20/g; s/#ParalleDownloads = 5/ParalleDownloads = 20/g' /etc/pacman.conf
+sudo sed -i 's/ParallelDownloads = 8/ParallelDownloads = 20/g; s/#ParallelDownloads = 5/ParallelDownloads = 20/g' /etc/pacman.conf
 
 # Update system
 echo "${CYAN}Updating system...${RESET}"
@@ -66,7 +67,10 @@ total=${#scripts[@]}
 for i in "${!scripts[@]}"; do
     current=$((i + 1))
     echo "${GREEN}[$current/$total] Running ${scripts[$i]}.sh${RESET}"
-    bash "${scripts[$i]}.sh"
+    if ! bash "${scripts[$i]}.sh"; then
+        echo "${RED}Error executing ${scripts[$i]}.sh${RESET}"
+        exit 1
+    fi
 done
 
 # Enable core services
