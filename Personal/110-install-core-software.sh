@@ -65,7 +65,7 @@ packages=(
     # simplescreenrecorder
     spotify
     sshfs
-    stow
+    # stow # Not needed, using create-symlink.sh instead
     timeshift
     # Used with btrfs timeshift-autosnap
     virtualbox
