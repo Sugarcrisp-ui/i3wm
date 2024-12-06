@@ -16,10 +16,17 @@ function is_installed() {
 function install_package() {
     if ! is_installed "$1"; then
         echo "${CYAN}Installing: $1${RESET}"
-        sudo pacman -S --noconfirm --needed "$1"
+        if ! sudo pacman -S --noconfirm --needed "$1"; then
+            echo "${RED}Failed to install: $1${RESET}"
+            return 1
+        fi
     else
         echo "${GREEN}Already installed: $1${RESET}"
     fi
+}
+
+function package_exists() {
+    pacman -Ss "^$1$" &> /dev/null
 }
 
 # Print header
@@ -28,23 +35,33 @@ echo "                    Installing i3 Window Manager"
 echo "################################################################${RESET}"
 
 # Core i3 packages
-declare -a i3_packages=(
-#    This is only arco config added to skel "arcolinux-gtk3-sardi-arc-git"
-#    This is only arco config added to skel "arcolinux-i3wm-git"
-#    This is only arco config added to skel "arcolinux-nitrogen-git"
-#    This is only arco config added to skel "arcolinux-polybar-git"
-#    This is only arco config added to skel "arcolinux-powermenu-git"
-#    This is only arco config added to skel "arcolinux-rofi-git"
-#    This is only arco config added to skel "arcolinux-rofi-themes-git"
-#    This is only arco config added to skel "arcolinux-volumeicon-git"
-#    Doesn't look like I need this as I use polybar "i3status"    
-    "autotiling"
-    "i3-wm"
-    "lxappearance"
-    "feh"
-    "picom"
-    "rofi"
-    "volumeicon"
+declare -A i3_packages=(
+# These packagesare only added to /etc/skel. I don't believe I need them.
+#    "arcolinux-gtk3-sardi-arc-git"
+#    "arcolinux-i3wm-git"
+#    "arcolinux-nitrogen-git"
+#    "arcolinux-polybar-git"
+#    "arcolinux-powermenu-git"
+#    "arcolinux-rofi-git"
+#    "arcolinux-rofi-themes-git"
+#    "arcolinux-volumeicon-git"
+
+#    Doesn't look like I need i3status when I'm using Polybar. The only time would be if
+#    installing i3 directly instead of installing after xfce install.
+#    "i3status" 
+
+    # Window Manager Core
+    ["i3-wm"]="Core window manager"
+    ["autotiling"]="Automatic tiling"
+    
+    # Appearance
+    ["lxappearance"]="GTK theme switcher"
+    ["feh"]="Wallpaper setter"
+    ["picom"]="Compositor"
+    
+    # Utilities
+    ["rofi"]="Application launcher"
+    ["volumeicon"]="Volume control"
 )
 
 # Install packages
@@ -52,9 +69,10 @@ echo "${CYAN}Installing i3 packages...${RESET}"
 total=${#i3_packages[@]}
 current=0
 
-for package in "${i3_packages[@]}"; do
+# Installation with descriptions
+for package in "${!i3_packages[@]}"; do
     ((current++))
-    echo "${BLUE}[${current}/${total}] Processing package: ${package}${RESET}"
+    echo "${BLUE}[${current}/${total}] Processing: ${package} - ${i3_packages[$package]}${RESET}"
     install_package "$package"
 done
 
