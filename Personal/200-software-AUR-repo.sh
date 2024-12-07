@@ -38,6 +38,7 @@ paru -Syu --noconfirm
 
 # Package lists
 packages=(
+    bluetooth-autoconnect
     insync-thunar
     joplin-appimage
     ttf-font-awesome-5
