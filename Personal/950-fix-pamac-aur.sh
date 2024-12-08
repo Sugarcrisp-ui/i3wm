@@ -1,35 +1,38 @@
-#!/bin/bash
+function backup_file() {
+    local source="$1"
+    local dest="$2"
+    log_message "CYAN" "Backing up $source"
+    if ! sudo cp "$source" "$dest"; then
+        log_message "RED" "Failed to backup $source"
+        exit 1
+    fi
+}
 
-# Author: Brett Crisp
+function fix_community_xml() {
+    log_message "CYAN" "Removing problematic tags"
+    if ! zcat /usr/share/app-info/xmls/community.xml.gz | sed 's|<em>||g;s|<\/em>||g;' | gzip > "/tmp/new.xml.gz"; then
+        log_message "RED" "Failed to modify community.xml.gz"
+        exit 1
+    fi
+    if ! sudo cp /tmp/new.xml.gz /usr/share/app-info/xmls/community.xml.gz; then
+        log_message "RED" "Failed to replace community.xml.gz"
+        exit 1
+    fi
+}
 
-# Color definitions
-GREEN=$(tput setaf 2)
-BLUE=$(tput setaf 4)
-CYAN=$(tput setaf 6)
-RESET=$(tput sgr0)
+function update_appstream() {
+    log_message "CYAN" "Updating appstream"
+    if ! sudo pacman -S appstream --noconfirm --needed &>/dev/null; then
+        log_message "RED" "Failed to install appstream"
+        exit 1
+    fi
+    if ! sudo appstreamcli refresh-cache --force --verbose; then
+        log_message "RED" "Failed to refresh appstream cache"
+        exit 1
+    fi
+}
 
-echo "${BLUE}################################################################"
-echo "                    Fixing Pamac AUR Integration"
-echo "################################################################${RESET}"
-
-# Backup original file
-echo "${CYAN}Backing up community.xml.gz${RESET}"
-sudo cp /usr/share/app-info/xmls/community.xml.gz "/usr/share/app-info/xmls/community.xml.gz.$(date +"%Y%m%d%H%M%S").bak"
-
-# Remove problematic <em> tags
-echo "${CYAN}Removing problematic tags${RESET}"
-zcat /usr/share/app-info/xmls/community.xml.gz | sed 's|<em>||g;s|<\/em>||g;' | gzip > "/tmp/new.xml.gz"
-sudo cp /tmp/new.xml.gz /usr/share/app-info/xmls/community.xml.gz
-
-# Update and refresh appstream
-echo "${CYAN}Updating appstream${RESET}"
-sudo pacman -S appstream --noconfirm --needed
-sudo appstreamcli refresh-cache --force --verbose
-
-# Cleanup
-echo "${CYAN}Cleaning up temporary files${RESET}"
-rm -f /tmp/new.xml.gz
-
-echo "${GREEN}################################################################"
-echo "                    Pamac AUR Fix Complete!"
-echo "################################################################${RESET}"
+function cleanup() {
+    log_message "CYAN" "Cleaning up temporary files"
+    rm -f /tmp/new.xml.gz || log_message "YELLOW" "Failed to remove temporary file - consider manual cleanup"
+}
