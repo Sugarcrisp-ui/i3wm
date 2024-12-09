@@ -60,20 +60,6 @@ else
     echo "${RED}PulseAudio start failed - check logs${RESET}"
 fi
 
-# Disable Pipewire Services if running
-if systemctl --user is-active --quiet pipewire.service; then
-    echo "${CYAN}Disabling Pipewire services...${RESET}"
-    systemctl --user disable pipewire.service
-    systemctl --user disable pipewire-pulse.service
-    systemctl --user disable wireplumber.service
-    systemctl --user stop pipewire.service
-    systemctl --user stop pipewire-pulse.service
-    systemctl --user stop wireplumber.service
-    echo "${GREEN}Pipewire services disabled${RESET}"
-else
-    echo "${YELLOW}Pipewire services not running${RESET}"
-fi
-
 
 echo "${GREEN}################################################################"
 echo "                    Sound Setup Complete!"
