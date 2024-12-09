@@ -87,6 +87,14 @@ for package in "${packages[@]}"; do
     install_package "$package"
 done
 
+# Post-installation cleanup or setup
+echo "${CYAN}Finalizing library setup...${RESET}"
+if libtool --finish /usr/lib/thunarx-3; then
+    echo "${GREEN}Successfully finalized Thunar extensions library setup.${RESET}"
+else
+    echo "${RED}Failed to finalize Thunar extensions library setup. Please check manually.${RESET}"
+fi
+
 echo "${GREEN}################################################################"
 echo "                Core Software Installation Complete!"
 echo "################################################################${RESET}"
