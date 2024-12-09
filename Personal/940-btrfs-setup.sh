@@ -1,51 +1,36 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Author: Brett Crisp
 
-declare -A colors=(
-    [GREEN]="$(tput setaf 2)"
-    [BLUE]="$(tput setaf 4)"
-    [CYAN]="$(tput setaf 6)"
-    [YELLOW]="$(tput setaf 3)"
-    [RESET]="$(tput sgr0)"
-)
-
-function log_message() {
-    local COLOR=${1}
-    shift
-    local MSG="${*}"
-    echo -e "${colors[$COLOR]}################################################################${RESET}"
-    echo -e "${colors[$COLOR]}${MSG}${RESET}"
-    echo -e "${colors[$COLOR]}################################################################${RESET}"
-}
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
+RESET=$(tput sgr0)
 
 # Check if root is using BTRFS
 FILESYSTEM=$(df -T / | awk 'NR==2 {print $2}')
 
 if [ "$FILESYSTEM" != "btrfs" ]; then
-    log_message "YELLOW" "System not using BTRFS - Skipping setup"
+    echo "${YELLOW}################################################################"
+    echo "              System not using BTRFS - Skipping setup"
+    echo "################################################################${RESET}"
     exit 0
 fi
 
-log_message "BLUE" "                    Setting Up BTRFS Configuration"
-
-# Check if source directory exists
-if [ ! -d "~/i3wm/personal-settings/autostart" ]; then
-    log_message "RED" "Source autostart directory for BTRFS not found"
-    exit 1
-fi
+echo "${BLUE}################################################################"
+echo "                    Setting Up BTRFS Configuration"
+echo "################################################################${RESET}"
 
 # Create autostart directory
-if ! mkdir -p "$HOME/.config/autostart"; then
-    log_message "RED" "Failed to create autostart directory"
-    exit 1
-fi
+echo "${CYAN}Creating autostart directory...${RESET}"
+mkdir -p "$HOME/.config/autostart"
 
 # Copy BTRFS autostart configurations
-log_message "CYAN" "Copying BTRFS configurations..."
-if ! cp -Rf ~/i3wm/personal-settings/autostart/* ~/.config/autostart/; then
-    log_message "RED" "Failed to copy BTRFS configurations"
-    exit 1
-fi
+echo "${CYAN}Copying BTRFS configurations...${RESET}"
+cp -Rf ~/i3wm/personal-settings/autostart/* ~/.config/autostart/
 
-log_message "GREEN" "                    BTRFS Setup Complete!"
+echo "${GREEN}################################################################"
+echo "                    BTRFS Setup Complete!"
+echo "################################################################${RESET}"

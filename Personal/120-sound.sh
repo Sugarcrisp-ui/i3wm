@@ -1,39 +1,27 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Author: Brett Crisp
 
-declare -A colors=(
-    [GREEN]="$(tput setaf 2)"
-    [BLUE]="$(tput setaf 4)"
-    [CYAN]="$(tput setaf 6)"
-    [YELLOW]="$(tput setaf 3)"
-    [RED]="$(tput setaf 1)"
-    [RESET]="$(tput sgr0)"
-)
-
-function log_message() {
-    local COLOR=${1}
-    shift
-    local MSG="${*}"
-    echo -e "${colors[$COLOR]}${MSG}${RESET}"
-}
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
 
 function install_package() {
-    if pacman -Qi "$1" &> /dev/null; then
-        log_message "GREEN" "Already installed: $1"
+    if pacman -Qi $1 &> /dev/null; then
+        echo "${GREEN}Already installed: $1${RESET}"
     else
-        log_message "CYAN" "Installing: $1"
-        if ! pacman -S --noconfirm --needed "$1" &>/dev/null; then
-            log_message "RED" "Failed to install: $1"
-            return 1
-        fi
+        echo "${CYAN}Installing: $1${RESET}"
+        sudo pacman -S --noconfirm --needed $1
     fi
-    return 0
 }
 
-log_message "BLUE" "################################################################"
-log_message "BLUE" "                    Setting Up Sound System"
-log_message "BLUE" "################################################################"
+echo "${BLUE}################################################################"
+echo "                    Setting Up Sound System"
+echo "################################################################${RESET}"
 
 # Sound packages
 packages=(
@@ -54,34 +42,24 @@ packages=(
 )
 
 # Install packages
-log_message "CYAN" "Installing sound packages..."
-failed_packages=()
+echo "${CYAN}Installing sound packages...${RESET}"
 for package in "${packages[@]}"; do
     [[ $package == \#* ]] && continue
-    if ! install_package "$package"; then
-        failed_packages+=("$package")
-    fi
+    install_package "$package"
 done
 
-if [ ${#failed_packages[@]} -gt 0 ]; then
-    log_message "RED" "The following sound packages failed to install:"
-    for fail in "${failed_packages[@]}"; do
-        log_message "RED" "- $fail"
-    done
-fi
-
 # Setup PulseAudio
-log_message "CYAN" "Setting up PulseAudio services..."
-systemctl --user enable pulseaudio.service || log_message "RED" "Failed to enable PulseAudio service"
-systemctl --user start pulseaudio.service || log_message "RED" "Failed to start PulseAudio service"
+echo "${CYAN}Setting up PulseAudio services...${RESET}"
+systemctl --user enable pulseaudio.service
+systemctl --user start pulseaudio.service
 
 # Verify PulseAudio status
 if systemctl --user is-active --quiet pulseaudio.service; then
-    log_message "GREEN" "PulseAudio is running"
+    echo "${GREEN}PulseAudio is running${RESET}"
 else
-    log_message "RED" "PulseAudio start failed - check logs"
+    echo "${RED}PulseAudio start failed - check logs${RESET}"
 fi
 
-log_message "GREEN" "################################################################"
-log_message "GREEN" "                    Sound Setup Complete!"
-log_message "GREEN" "################################################################"
+echo "${GREEN}################################################################"
+echo "                    Sound Setup Complete!"
+echo "################################################################${RESET}"

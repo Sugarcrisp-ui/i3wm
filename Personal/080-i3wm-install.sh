@@ -1,87 +1,81 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Author: Brett Crisp
-# Improved i3 installation script with error tracking and enhanced maintainability.
 
-declare -A colors=(
-    [GREEN]="$(tput setaf 2)"
-    [BLUE]="$(tput setaf 4)"
-    [CYAN]="$(tput setaf 6)"
-    [RED]="$(tput setaf 1)"
-    [RESET]="$(tput sgr0)"
-)
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
 
-function log_message() {
-    local COLOR=${1}
-    shift
-    local MSG="${*}"
-    echo -e "${colors[$COLOR]}${MSG}${RESET}"
-}
-
-# Check if a package is installed
 function is_installed() {
     pacman -Qi "$1" &> /dev/null
 }
 
-# Install a package if not installed
 function install_package() {
     if ! is_installed "$1"; then
-        log_message "CYAN" "Installing: $1"
-        if ! output=$(sudo pacman -S --noconfirm --needed "$1" 2>&1); then
-            log_message "RED" "Failed to install: $1 - Error: $output"
-            failed_packages+=("$1")
+        echo "${CYAN}Installing: $1${RESET}"
+        if ! sudo pacman -S --noconfirm --needed "$1"; then
+            echo "${RED}Failed to install: $1${RESET}"
             return 1
         fi
     else
-        log_message "GREEN" "Already installed: $1"
+        echo "${GREEN}Already installed: $1${RESET}"
     fi
 }
 
-# Validate internet connection
-function check_internet() {
-    if ! timeout 5s ping -c 1 archlinux.org &>/dev/null; then
-        log_message "RED" "Error: Internet connection is required."
-        exit 1
-    fi
+function package_exists() {
+    pacman -Ss "^$1$" &> /dev/null
 }
 
 # Print header
-log_message "BLUE" "################################################################"
-log_message "BLUE" "                    Installing i3 Window Manager"
-log_message "BLUE" "################################################################"
+echo "${BLUE}################################################################"
+echo "                    Installing i3 Window Manager"
+echo "################################################################${RESET}"
 
-# Check internet connection
-check_internet
-
-# Core i3 packages with descriptions
+# Core i3 packages
 declare -A i3_packages=(
-    # ... your package definitions here ...
+# These packagesare only added to /etc/skel. I don't believe I need them.
+#    "arcolinux-gtk3-sardi-arc-git"
+#    "arcolinux-i3wm-git"
+#    "arcolinux-nitrogen-git"
+#    "arcolinux-polybar-git"
+#    "arcolinux-powermenu-git"
+#    "arcolinux-rofi-git"
+#    "arcolinux-rofi-themes-git"
+#    "arcolinux-volumeicon-git"
+
+#    Doesn't look like I need i3status when I'm using Polybar. The only time would be if
+#    installing i3 directly instead of installing after xfce install.
+#    "i3status" 
+
+    # Window Manager Core
+    ["i3-wm"]="Core window manager"
+    ["autotiling"]="Automatic tiling"
+    
+    # Appearance
+    ["lxappearance"]="GTK theme switcher"
+    ["feh"]="Wallpaper setter"
+    ["picom"]="Compositor"
+    
+    # Utilities
+    ["rofi"]="Application launcher"
+    ["volumeicon"]="Volume control"
 )
 
 # Install packages
-log_message "CYAN" "Installing i3 packages..."
+echo "${CYAN}Installing i3 packages...${RESET}"
 total=${#i3_packages[@]}
 current=0
-failed_packages=()
 
-# Installation loop
+# Installation with descriptions
 for package in "${!i3_packages[@]}"; do
     ((current++))
-    log_message "BLUE" "[${current}/${total}] Processing: ${package} - ${i3_packages[$package]}"
+    echo "${BLUE}[${current}/${total}] Processing: ${package} - ${i3_packages[$package]}${RESET}"
     install_package "$package"
 done
 
-# Report failed installations
-if [[ ${#failed_packages[@]} -gt 0 ]]; then
-    log_message "RED" "The following packages failed to install:"
-    for pkg in "${failed_packages[@]}"; do
-        log_message "RED" "  - $pkg"
-    done
-    exit 1
-else
-    log_message "GREEN" "All packages installed successfully."
-fi
-
-log_message "GREEN" "################################################################"
-log_message "GREEN" "                    i3 Installation Complete!"
-log_message "GREEN" "################################################################"
+echo "${GREEN}################################################################"
+echo "                    i3 Installation Complete!"
+echo "################################################################${RESET}"

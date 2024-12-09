@@ -1,38 +1,23 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Author: Brett Crisp
 
-declare -A colors=(
-    [GREEN]="$(tput setaf 2)"
-    [BLUE]="$(tput setaf 4)"
-    [CYAN]="$(tput setaf 6)"
-    [RESET]="$(tput sgr0)"
-)
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+RESET=$(tput sgr0)
 
 function log_message() {
-    local COLOR=${1}
-    shift
-    local MSG="${*}"
-    echo -e "${colors[$COLOR]}################################################################${RESET}"
-    echo -e "${colors[$COLOR]}${MSG}${RESET}"
-    echo -e "${colors[$COLOR]}################################################################${RESET}"
+    echo "${BLUE}################################################################"
+    echo "$1"
+    echo "################################################################${RESET}"
 }
 
-# Check if hblock is installed
-if ! command -v hblock &>/dev/null; then
-    log_message "RED" "hblock is not installed. Please install it before running this script."
-    exit 1
-fi
-
 # Update hosts file
-log_message "BLUE" "Starting Host File Update"
-log_message "CYAN" "Running hblock to update system hosts file..."
+log_message "Starting Host File Update"
+echo "${CYAN}Running hblock to update system hosts file...${RESET}"
 
-if ! sudo hblock &>/dev/null; then
-    log_message "RED" "Failed to update hosts file with hblock. Check if hblock is installed and has proper permissions."
-    exit 1
-else
-    echo -e "${colors[GREEN]}Host file update completed successfully!${RESET}"
-fi
+sudo hblock && echo "${GREEN}Host file update completed successfully!${RESET}"
 
-log_message "GREEN" "Host File Protection Enabled"
+log_message "Host File Protection Enabled"

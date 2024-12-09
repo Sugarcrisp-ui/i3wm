@@ -1,22 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Author: Brett Crisp
 
-declare -A colors=(
-    [GREEN]="$(tput setaf 2)"
-    [BLUE]="$(tput setaf 4)"
-    [CYAN]="$(tput setaf 6)"
-    [YELLOW]="$(tput setaf 3)"
-    [RED]="$(tput setaf 1)"
-    [RESET]="$(tput sgr0)"
-)
-
-function log_message() {
-    local COLOR=${1}
-    shift
-    local MSG="${*}"
-    echo -e "${colors[$COLOR]}${MSG}${RESET}"
-}
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
 
 # Function to create symlinks
 create_symlink() {
@@ -26,12 +18,12 @@ create_symlink() {
     if [ -e "$source" ]; then
         if [ ! -e "$dest" ]; then
             ln -s "$source" "$dest"
-            log_message "GREEN" "Created: $dest -> $source"
+            echo "${GREEN}Created: $dest -> $source${RESET}"
         else
-            log_message "YELLOW" "Exists: $dest"
+            echo "${YELLOW}Exists: $dest${RESET}"
         fi
     else
-        log_message "RED" "Missing source: $source"
+        echo "${RED}Missing source: $source${RESET}"
     fi
 }
 
@@ -40,37 +32,27 @@ replace_with_symlink() {
     local source="$1"
     local dest="$2"
 
-    if [ -e "$dest" ]; then
-        rm -rf "$dest"
-        log_message "YELLOW" "Removed existing file at $dest"
-    fi
+    [ -e "$dest" ] && rm -rf "$dest"
     create_symlink "$source" "$dest"
 }
 
-log_message "BLUE" "################################################################"
-log_message "BLUE" "                    Setting Up Symlinks"
-log_message "BLUE" "################################################################"
-
-# Check if dotfiles directory exists
-if [ ! -d "$HOME/dotfiles" ]; then
-    log_message "RED" "Error: $HOME/dotfiles directory not found."
-    exit 1
-fi
+echo "${BLUE}################################################################"
+echo "                    Setting Up Symlinks"
+echo "################################################################${RESET}"
 
 # Setup applications symlinks
-log_message "CYAN" "Setting up application symlinks..."
+echo "${CYAN}Setting up application symlinks...${RESET}"
 applications_source="$HOME/dotfiles/.local/share/applications"
 applications_dest="$HOME/.local/share/applications"
 
 mkdir -p "$applications_dest"
-log_message "CYAN" "Created directory: $applications_dest"
 
 for app in "$applications_source"/*; do
     [ -f "$app" ] && create_symlink "$app" "$applications_dest/$(basename "$app")"
 done
 
 # Setup config symlinks
-log_message "CYAN" "Setting up config symlinks..."
+echo "${CYAN}Setting up config symlinks...${RESET}"
 config_source="$HOME/dotfiles/.config"
 config_dest="$HOME/.config"
 
@@ -79,7 +61,7 @@ for item in "$config_source"/*; do
 done
 
 # Setup additional symlinks
-log_message "CYAN" "Setting up additional symlinks..."
+echo "${CYAN}Setting up additional symlinks...${RESET}"
 
 # .bin-personal
 create_symlink "$HOME/dotfiles/.bin-personal" "$HOME/.bin-personal"
@@ -93,6 +75,6 @@ create_symlink "$HOME/dotfiles/.fehbg" "$HOME/.fehbg"
 # .grkrc-2.0.mine
 create_symlink "$HOME/dotfiles/.gtkrc-2.0.mine" "$HOME/.gtkrc-2.0.mine"
 
-log_message "GREEN" "################################################################"
-log_message "GREEN" "                    Symlinks Setup Complete!"
-log_message "GREEN" "################################################################"
+echo "${GREEN}################################################################"
+echo "                    Symlinks Setup Complete!"
+echo "################################################################${RESET}"

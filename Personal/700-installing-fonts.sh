@@ -1,43 +1,25 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Author: Brett Crisp
 
-declare -A colors=(
-    [GREEN]="$(tput setaf 2)"
-    [BLUE]="$(tput setaf 4)"
-    [CYAN]="$(tput setaf 6)"
-    [RESET]="$(tput sgr0)"
-)
-
-function log_message() {
-    local COLOR=${1}
-    shift
-    local MSG="${*}"
-    echo -e "${colors[$COLOR]}${MSG}${RESET}"
-}
+# Color definitions
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+RESET=$(tput sgr0)
 
 function install_package() {
     if ! paru -Qi "$1" &> /dev/null; then
-        log_message "CYAN" "Installing: $1"
-        if ! paru --noconfirm --needed "$1" &>/dev/null; then
-            log_message "RED" "Failed to install: $1"
-            return 1
-        fi
+        echo "${CYAN}Installing: $1${RESET}"
+        paru --noconfirm --needed "$1"
     else
-        log_message "GREEN" "Already installed: $1"
+        echo "${GREEN}Already installed: $1${RESET}"
     fi
-    return 0
 }
 
-log_message "BLUE" "################################################################"
-log_message "BLUE" "                    Installing Font Packages"
-log_message "BLUE" "################################################################"
-
-# Check if paru is installed
-if ! command -v paru &> /dev/null; then
-    log_message "RED" "paru is not installed. Please install it to manage AUR packages."
-    exit 1
-fi
+echo "${BLUE}################################################################"
+echo "                    Installing Font Packages"
+echo "################################################################${RESET}"
 
 # Font packages
 fonts=(
@@ -56,25 +38,13 @@ fonts=(
 # Install fonts
 total=${#fonts[@]}
 current=0
-failed_packages=()
 
 for font in "${fonts[@]}"; do
     ((current++))
-    log_message "BLUE" "[${current}/${total}] Processing font: ${font}"
-    if ! install_package "$font"; then
-        failed_packages+=("$font")
-    fi
+    echo "${BLUE}[${current}/${total}] Processing font: ${font}${RESET}"
+    install_package "$font"
 done
 
-if [ ${#failed_packages[@]} -gt 0 ]; then
-    log_message "RED" "The following font packages failed to install:"
-    for fail in "${failed_packages[@]}"; do
-        log_message "RED" "- $fail"
-    done
-else
-    log_message "GREEN" "All font packages installed successfully."
-fi
-
-log_message "GREEN" "################################################################"
-log_message "GREEN" "                    Font Installation Complete!"
-log_message "GREEN" "################################################################"
+echo "${GREEN}################################################################"
+echo "                    Font Installation Complete!"
+echo "################################################################${RESET}"

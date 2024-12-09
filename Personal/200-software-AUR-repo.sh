@@ -1,22 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Author: Brett Crisp
 
-declare -A colors=(
-    [GREEN]='\033[0;32m'
-    [BLUE]='\033[0;34m'
-    [CYAN]='\033[0;36m'
-    [YELLOW]='\033[0;33m'
-    [RED]='\033[0;31m'
-    [RESET]='\033[0m'
-)
-
-function log_message() {
-    local COLOR=${1}
-    shift
-    local MSG="${*}"
-    echo -e "${colors[$COLOR]}${MSG}${RESET}"
-}
+# Color definitions
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+YELLOW='\033[0;33m'
+RED='\033[0;31m'
+RESET='\033[0m'
 
 # Function to check if package is installed
 is_package_installed() {
@@ -26,26 +18,23 @@ is_package_installed() {
 # Function to install a package using paru (handles both official and AUR packages)
 install_package() {
     if ! is_package_installed "$1"; then
-        log_message "CYAN" "Installing: $1"
-        if ! paru -S --noconfirm --needed "$1" &>/dev/null; then
-            log_message "RED" "Failed to install $1"
+        echo "${CYAN}Installing: $1${RESET}"
+        paru -S --noconfirm --needed "$1" || {
+            echo "${RED}Failed to install $1${RESET}"
             return 1
-        fi
+        }
     else
-        log_message "GREEN" "Already installed: $1"
+        echo "${GREEN}Already installed: $1${RESET}"
     fi
-    return 0
 }
 
-log_message "BLUE" "################################################################"
-log_message "BLUE" "                    Installing Software Packages"
-log_message "BLUE" "################################################################"
+echo "${BLUE}################################################################"
+echo "                    Installing Software Packages"
+echo "################################################################${RESET}"
 
-# Check if paru is installed
-if ! command -v paru &> /dev/null; then
-    log_message "RED" "paru is not installed. Please install it first to manage AUR packages."
-    exit 1
-fi
+# Update system
+echo "${CYAN}Updating system packages...${RESET}"
+paru -Syu --noconfirm
 
 # Package lists
 packages=(
@@ -57,22 +46,12 @@ packages=(
 )
 
 # Install all packages
-log_message "CYAN" "Installing packages..."
-failed_packages=()
+echo "${CYAN}Installing packages...${RESET}"
 for package in "${packages[@]}"; do
     [[ $package == \#* ]] && continue  # skip commented packages
-    if ! install_package "$package"; then
-        failed_packages+=("$package")
-    fi
+    install_package "$package"
 done
 
-if [ ${#failed_packages[@]} -gt 0 ]; then
-    log_message "RED" "The following packages failed to install:"
-    for fail in "${failed_packages[@]}"; do
-        log_message "RED" "- $fail"
-    done
-fi
-
-log_message "GREEN" "################################################################"
-log_message "GREEN" "                    Software Installation Complete!"
-log_message "GREEN" "################################################################"
+echo "${GREEN}################################################################"
+echo "                    Software Installation Complete!"
+echo "################################################################${RESET}"
