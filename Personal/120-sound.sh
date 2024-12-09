@@ -60,6 +60,8 @@ else
     echo "${RED}PulseAudio start failed - check logs${RESET}"
 fi
 
+# Enable Systemd script to disable pipewire on boot
+systemctl enable disable-pipewire.service
 
 echo "${GREEN}################################################################"
 echo "                    Sound Setup Complete!"
