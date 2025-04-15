@@ -43,13 +43,17 @@ else
     echo "${GREEN}ParallelDownloads already set to 20${RESET}"
 fi
 
-# Add Chaotic-AUR to pacman.conf
-echo "${CYAN}Setting up Chaotic-AUR...${RESET}"
-sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com || log_error "Failed to receive Chaotic-AUR key"
-sudo pacman-key --lsign-key 3056513887B78AEB || log_error "Failed to sign Chaotic-AUR key"
-sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' --noconfirm || log_error "Failed to install chaotic-keyring"
-sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' --noconfirm || log_error "Failed to install chaotic-mirrorlist"
-echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf || log_error "Failed to configure Chaotic-AUR"
+# Check if Chaotic-AUR is already configured
+if ! grep -q "\[chaotic-aur\]" /etc/pacman.conf; then
+    echo "${CYAN}Setting up Chaotic-AUR...${RESET}"
+    sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com || log_error "Failed to receive Chaotic-AUR key"
+    sudo pacman-key --lsign-key 3056513887B78AEB || log_error "Failed to sign Chaotic-AUR key"
+    sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' --noconfirm || log_error "Failed to install chaotic-keyring"
+    sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' --noconfirm || log_error "Failed to install chaotic-mirrorlist"
+    echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf || log_error "Failed to configure Chaotic-AUR"
+else
+    echo "${GREEN}Chaotic-AUR already configured${RESET}"
+fi
 
 # Sync package database before installing paru
 echo "${CYAN}Syncing package database...${RESET}"
