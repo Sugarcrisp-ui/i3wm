@@ -19,6 +19,13 @@ if dmidecode -t system | grep -qi 'laptop\|notebook'; then
         echo "${YELLOW}Failed to install TLP${RESET}"
         exit 1
     }
+    echo "${CYAN}Enabling tlp.service...${RESET}"
+    if systemctl list-unit-files | grep -q "tlp.service"; then
+        sudo systemctl enable tlp.service || echo "${RED}Failed to enable tlp.service${RESET}"
+        sudo systemctl start tlp.service || echo "${RED}Failed to start tlp.service${RESET}"
+    else
+        echo "${YELLOW}tlp.service not found${RESET}"
+    fi
 else
     echo "${YELLOW}Not a laptop - skipping TLP setup${RESET}"
 fi

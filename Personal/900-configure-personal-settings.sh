@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Author: Brett Crisp
-# Configures personal settings, autostart, BTRFS, Polybar, hblock, Timeshift
+# Configures personal settings, Polybar, hblock, Timeshift
 
 # Color definitions
 GREEN=$(tput setaf 2)
@@ -18,13 +18,6 @@ for dir in Appimages Shared; do
     echo "${CYAN}Creating $HOME/$dir...${RESET}"
     mkdir -p "$HOME/$dir"
 done
-
-# Autostart (includes BTRFS if applicable)
-echo "${CYAN}Setting up autostart...${RESET}"
-mkdir -p "$HOME/.config/autostart"
-cp -Rf ~/i3wm/personal-settings/autostart/* ~/.config/autostart/ || {
-    echo "${YELLOW}Warning: Failed to copy autostart files${RESET}"
-}
 
 # Polybar
 if [ -f "$HOME/.config/polybar/launch.sh" ]; then

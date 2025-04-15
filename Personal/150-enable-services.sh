@@ -16,15 +16,17 @@ echo "################################################################${RESET}"
 services=(
     "cronie.service"
     "bluetooth.service"
-    "tlp.service"
     "sddm.service"
-    "disable-pipewire.service"
 )
 
 for service in "${services[@]}"; do
-    echo "${CYAN}Enabling $service...${RESET}"
-    sudo systemctl enable "$service" || echo "${RED}Failed to enable $service${RESET}"
-    sudo systemctl start "$service" || echo "${RED}Failed to start $service${RESET}"
+    if systemctl list-unit-files | grep -q "$service"; then
+        echo "${CYAN}Enabling $service...${RESET}"
+        sudo systemctl enable "$service" || echo "${RED}Failed to enable $service${RESET}"
+        sudo systemctl start "$service" || echo "${RED}Failed to start $service${RESET}"
+    else
+        echo "${YELLOW}$service not found, skipping${RESET}"
+    fi
 done
 
 # Configure Bluetooth

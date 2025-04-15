@@ -54,6 +54,11 @@ sudo pacman -Syy || log_error "Failed to sync package database"
 echo "${CYAN}Installing paru...${RESET}"
 sudo pacman -S --noconfirm --needed paru || log_error "Failed to install paru"
 
+# Import arc-gtk-theme key to avoid prompts
+echo "${CYAN}Importing arc-gtk-theme key...${RESET}"
+sudo pacman-key --recv-key 31743CDF250EF641E57503E5FAEDBC4FB5AA3B17 --keyserver keyserver.ubuntu.com || echo "${YELLOW}Warning: Failed to import arc-gtk-theme key${RESET}"
+sudo pacman-key --lsign-key 31743CDF250EF641E57503E5FAEDBC4FB5AA3B17 || echo "${YELLOW}Warning: Failed to sign arc-gtk-theme key${RESET}"
+
 # Update system
 echo "${CYAN}Updating system...${RESET}"
 sudo pacman -Syyu --noconfirm || log_error "Failed to update system"
@@ -74,7 +79,7 @@ scripts=(
     "160-laptop"
     "800-install-sddm-themes"
     "900-configure-personal-settings"
-    "950-cleanup"
+#    "950-cleanup"
 )
 
 # Execute scripts with progress indicator
