@@ -15,15 +15,19 @@ echo "################################################################${RESET}"
 
 # Package categories
 declare -A packages=(
-    ["core"]="accountsservice aic94xx-firmware arandr archlinux-keyring archlinux-tools archlinux-wallpaper baobab base base-devel bash-completion betterlockscreen bibata-cursor-theme bitwarden bluetooth-autoconnect chaotic-keyring cmake copyq cppdap cronie dconf-editor downgrade fd feh ffmpeg flatpak font-manager geany gendesk git github-desktop gnome-boxes gnome-calculator gnome-disk-utility gparted gpick gufw hardinfo hblock hw-probe i3lock-color insync insync-thunar libwnck3 libreoffice-still lua51 meld meson micro mintstick network-manager-applet ninja numix-circle-icon-theme-git noto-fonts p7zip papirus-icon-theme paprefs pinta polybar potrace powerline python python-cairo python-distro python-gobject python-psutil python-tqdm qbittorrent qt5-graphicaleffects qt5-quickcontrols qt5-quickcontrols2 qt5-svg qt5ct qt6ct rate-mirrors realvnc-vnc-server realvnc-vnc-viewer ripgrep rofi rsync sardi-icons seahorse sshfs sublime-text-4 thunar thunar-archive-plugin thunar-volman timeshift unace unrar unzip virtualbox visual-studio-code-bin vlc wget xclip yay zip"
+    ["core"]="accountsservice aic94xx-firmware arandr archlinux-keyring archlinux-tools archlinux-wallpaper baobab base base-devel bash-completion betterlockscreen bibata-cursor-theme bitwarden bluetooth-autoconnect chaotic-keyring cmake copyq cppdap cronie dconf-editor downgrade fd feh ffmpeg flatpak font-manager geany gendesk git github-desktop gnome-boxes gnome-calculator gnome-disk-utility gparted gpick gufw hardinfo hblock hw-probe i3lock-color insync insync-thunar libwnck3 libreoffice-still lua51 meld meson micro mintstick network-manager-applet ninja paprefs pinta polybar potrace powerline python python-cairo python-distro python-gobject python-psutil python-tqdm qbittorrent qt5-graphicaleffects qt5-quickcontrols qt5-quickcontrols2 qt5-svg qt5ct qt6ct rate-mirrors realvnc-vnc-server realvnc-vnc-viewer ripgrep rofi rsync seahorse sshfs sublime-text-4 thunar thunar-archive-plugin thunar-volman timeshift unace unrar unzip vlc wget xclip yay zip"
     ["i3"]="i3-wm autotiling lxappearance feh picom rofi volumeicon"
     ["sound"]="pasystray"
     ["bluetooth"]="bluez bluez-libs bluez-utils blueman pulseaudio-bluetooth"
-    ["aur"]="arc-gtk-theme chili-sddm-theme joplin-appimage kvantum-theme-arc rofi-themes-collection-git sofirem-git videodownloader pamac-aur ttf-vista-fonts"
+    ["aur"]="arc-gtk-theme chili-sddm-theme joplin-appimage kvantum-theme-arc rofi-themes-collection-git sofirem-git pamac-aur ttf-vista-fonts ttf-font-awesome-5 sardi-icons elementary-icon-theme"
     ["flatpak"]="com.protonvpn.www"
-    ["fonts"]="adobe-source-sans-pro-fonts awesome-terminal-fonts cantarell-fonts noto-fonts ttf-bitstream-vera ttf-firacode-nerd ttf-font-awesome ttf-font-awesome-5 ttf-inconsolata ttf-liberation ttf-opensans"
-    ["remove"]="arcolinux-conky-collection-git blueberry conky-lua-archers"
+    ["fonts"]="adobe-source-sans-pro-fonts awesome-terminal-fonts cantarell-fonts noto-fonts ttf-bitstream-vera ttf-firacode-nerd ttf-font-awesome ttf-inconsolata ttf-liberation ttf-opensans"
+    ["remove"]="blueberry"
 )
+
+# Ensure cronie installs
+echo "${CYAN}Ensuring cronie is installed...${RESET}"
+pacman -Qi cronie &>/dev/null || sudo pacman -S --noconfirm cronie || echo "${YELLOW}Warning: Failed to install cronie${RESET}"
 
 # Install packages
 for category in "${!packages[@]}"; do

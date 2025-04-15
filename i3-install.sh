@@ -34,9 +34,14 @@ echo "${BLUE}################################################################"
 echo "                    Starting i3 Installation"
 echo "################################################################${RESET}"
 
-# Parallel downloads config
-echo "${CYAN}Configuring parallel downloads...${RESET}"
-sudo sed -i 's/ParallelDownloads = 8/ParallelDownloads = 20/g; s/#ParallelDownloads = 5/ParallelDownloads = 20/g' /etc/pacman.conf || log_error "Failed to configure parallel downloads"
+# Check and set ParallelDownloads
+echo "${CYAN}Checking ParallelDownloads in pacman.conf...${RESET}"
+if ! grep -q "ParallelDownloads = 20" /etc/pacman.conf; then
+    echo "${CYAN}Setting ParallelDownloads to 20...${RESET}"
+    sudo sed -i 's/ParallelDownloads = 5/ParallelDownloads = 20/g; s/#ParallelDownloads = 5/ParallelDownloads = 20/g' /etc/pacman.conf || log_error "Failed to configure parallel downloads"
+else
+    echo "${GREEN}ParallelDownloads already set to 20${RESET}"
+fi
 
 # Add Chaotic-AUR to pacman.conf
 echo "${CYAN}Setting up Chaotic-AUR...${RESET}"
@@ -65,8 +70,8 @@ sudo pacman -Syyu --noconfirm || log_error "Failed to update system"
 paru -Syu --noconfirm || log_error "Failed to update AUR packages"
 
 # Make scripts executable and change directory
-chmod +x Personal/*.sh || log_error "Failed to make scripts executable"
-cd Personal || log_error "Failed to change to Personal directory"
+chmod +x i3-test/*.sh || log_error "Failed to make scripts executable"
+cd i3-test || log_error "Failed to change to i3-test directory"
 
 # Script array
 scripts=(
@@ -79,7 +84,7 @@ scripts=(
     "160-laptop"
     "800-install-sddm-themes"
     "900-configure-personal-settings"
-#    "950-cleanup"
+    # "950-cleanup" # Commented out per user request
 )
 
 # Execute scripts with progress indicator
@@ -97,4 +102,4 @@ echo "                    i3 Installation Complete!"
 echo "################################################################${RESET}"
 
 # Testing note
-echo "${CYAN}Note: To validate the installation, run 'Personal/960-validate.sh' manually after rebooting.${RESET}"
+echo "${CYAN}Note: To validate the installation, run 'i3-test/960-validate.sh' manually after rebooting.${RESET}"
