@@ -70,8 +70,8 @@ sudo pacman -Syyu --noconfirm || log_error "Failed to update system"
 paru -Syu --noconfirm || log_error "Failed to update AUR packages"
 
 # Make scripts executable and change directory
-chmod +x i3-test/*.sh || log_error "Failed to make scripts executable"
-cd i3-test || log_error "Failed to change to i3-test directory"
+#chmod +x i3-test/*.sh || log_error "Failed to make scripts executable"
+#cd i3-test || log_error "Failed to change to i3-test directory"
 
 # Script array
 scripts=(
