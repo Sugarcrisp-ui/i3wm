@@ -70,8 +70,8 @@ sudo pacman -Syyu --noconfirm || log_error "Failed to update system"
 paru -Syu --noconfirm || log_error "Failed to update AUR packages"
 
 # Make scripts executable and change directory
-#chmod +x i3-test/*.sh || log_error "Failed to make scripts executable"
-#cd i3-test || log_error "Failed to change to i3-test directory"
+chmod +x Personal/*.sh || log_error "Failed to make scripts executable"
+cd Personal || log_error "Failed to change to Personal directory"
 
 # Script array
 scripts=(
@@ -102,4 +102,4 @@ echo "                    i3 Installation Complete!"
 echo "################################################################${RESET}"
 
 # Testing note
-echo "${CYAN}Note: To validate the installation, run 'i3-test/960-validate.sh' manually after rebooting.${RESET}"
+echo "${CYAN}Note: To validate the installation, run 'i3-test/Personal/960-validate.sh' manually after rebooting.${RESET}"
