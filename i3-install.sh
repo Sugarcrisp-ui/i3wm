@@ -45,6 +45,13 @@ sudo pacman-key --lsign-key 3056513887B78AEB || log_error "Failed to sign Chaoti
 sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' --noconfirm || log_error "Failed to install chaotic-keyring"
 sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' --noconfirm || log_error "Failed to install chaotic-mirrorlist"
 echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf || log_error "Failed to configure Chaotic-AUR"
+
+# Sync package database before installing paru
+echo "${CYAN}Syncing package database...${RESET}"
+sudo pacman -Syy || log_error "Failed to sync package database"
+
+# Install paru
+echo "${CYAN}Installing paru...${RESET}"
 sudo pacman -S --noconfirm --needed paru || log_error "Failed to install paru"
 
 # Update system
