@@ -69,11 +69,14 @@ EOF
 fi
 
 # rc.local
-if [ -f ~/i3wm/personal-settings/etc/rc.local ]; then
-    echo "${CYAN}Configuring rc.local...${RESET}"
+RC_LOCAL=$(ls -t /run/media/brett/backup/system-files/etc/rc.local.* 2>/dev/null | head -n 1)
+if [ -f "$RC_LOCAL" ]; then
+    echo "${CYAN}Configuring rc.local from $RC_LOCAL...${RESET}"
     [ -f /etc/rc.local ] && sudo cp /etc/rc.local "/etc/rc.local.bak"
-    sudo cp ~/i3wm/personal-settings/etc/rc.local /etc/rc.local
+    sudo cp "$RC_LOCAL" /etc/rc.local
     sudo chmod 755 /etc/rc.local
+else
+    echo "${YELLOW}No rc.local backup found, skipping${RESET}"
 fi
 
 echo "${GREEN}################################################################"
