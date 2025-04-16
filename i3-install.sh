@@ -88,7 +88,7 @@ scripts=(
     "160-laptop"
     "800-install-sddm-themes"
     "900-configure-personal-settings"
-    # "950-cleanup" # Commented out per user request
+    "950-cleanup"
 )
 
 # Execute scripts with progress indicator

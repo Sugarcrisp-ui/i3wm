@@ -25,7 +25,6 @@ EXTERNAL_DRIVE=$(blkid -U "$EXTERNAL_UUID" 2>/dev/null)
 
 if [ ! -b "$EXTERNAL_DRIVE" ]; then
     echo "${YELLOW}Device with UUID $EXTERNAL_UUID not found. Skipping drive setup...${RESET}"
-    echo "${CYAN}Testing note: If using GNOME Boxes, ensure the SSD is passed through to the VM.${RESET}"
     exit 0
 fi
 
@@ -78,6 +77,8 @@ if [ -d "$MOUNT_POINT/.ssh" ]; then
     rsync -avz --delete "$MOUNT_POINT/.ssh/" "$HOME/.ssh/"
     chmod 700 "$HOME/.ssh"
     chmod 600 "$HOME/.ssh"/*
+else
+    echo "${YELLOW}No .ssh directory found on drive, skipping SSH sync${RESET}"
 fi
 
 if [ -d "$MOUNT_POINT/cron" ]; then
@@ -93,6 +94,8 @@ if [ -d "$MOUNT_POINT/cron" ]; then
         sudo chown root:root /var/spool/cron/root
         sudo chmod 600 /var/spool/cron/root
     }
+else
+    echo "${YELLOW}No cron directory found on drive, skipping cron sync${RESET}"
 fi
 
 echo "${GREEN}################################################################"
