@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Author: Brett Crisp
-# Configures personal settings, Polybar, hblock, Timeshift
+# Configures personal settings, Polybar, hblock, Timeshift, SDDM
 
 # Color definitions
 GREEN=$(tput setaf 2)
@@ -77,6 +77,19 @@ if [ -f "$RC_LOCAL" ]; then
     sudo chmod 755 /etc/rc.local
 else
     echo "${YELLOW}No rc.local backup found, skipping${RESET}"
+fi
+
+# SDDM configuration
+SDDM_CONF="$HOME/dotfiles/sddm.conf"
+SDDM_CONF_DIR="/etc/sddm.conf.d"
+SDDM_CONF_FILE="$SDDM_CONF_DIR/kde_settings.conf"
+if [ -f "$SDDM_CONF" ]; then
+    echo "${CYAN}Configuring SDDM from $SDDM_CONF...${RESET}"
+    sudo mkdir -p "$SDDM_CONF_DIR"
+    [ -f "$SDDM_CONF_FILE" ] && sudo cp "$SDDM_CONF_FILE" "$SDDM_CONF_FILE.bak"
+    sudo cp "$SDDM_CONF" "$SDDM_CONF_FILE"
+else
+    echo "${YELLOW}No sddm.conf found in dotfiles, skipping SDDM configuration${RESET}"
 fi
 
 echo "${GREEN}################################################################"
