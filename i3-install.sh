@@ -55,6 +55,16 @@ else
     echo "${GREEN}Chaotic-AUR already configured${RESET}"
 fi
 
+# Check if Nemesis repo is already configured
+if ! grep -q "\[nemesis_repo\]" /etc/pacman.conf; then
+    echo "${CYAN}Setting up Nemesis repository...${RESET}"
+    sudo pacman-key --recv-key 74F5DE85A506BF64 --keyserver keyserver.ubuntu.com || log_error "Failed to receive Nemesis key"
+    sudo pacman-key --lsign-key 74F5DE85A506BF64 || log_error "Failed to sign Nemesis key"
+    echo -e "\n[nemesis_repo]\nSigLevel = PackageRequired DatabaseNever\nServer = https://erikdubois.github.io/nemesis_repo/x86_64" | sudo tee -a /etc/pacman.conf || log_error "Failed to configure Nemesis repo"
+else
+    echo "${GREEN}Nemesis repo already configured${RESET}"
+fi
+
 # Sync package database before installing paru
 echo "${CYAN}Syncing package database...${RESET}"
 sudo pacman -Syy || log_error "Failed to sync package database"
@@ -82,11 +92,11 @@ scripts=(
     "090-setup-dotfiles"
     "092-configure-backup-drive"
     "100-install-packages"
-    "106-install-archlinux-logout"
+#    "106-install-archlinux-logout"
     "115-warp-terminal-install"
     "150-enable-services"
     "160-laptop"
-    "800-install-sddm-themes"
+#    "800-install-sddm-themes"
     "900-configure-personal-settings"
     "950-cleanup"
 )
