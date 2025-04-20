@@ -66,14 +66,14 @@ else
 fi
 
 # Check if sugarcrisp-ui repo is already configured
-if ! grep -q "\[sugarcrisp-ui\]" /etc/pacman.conf; then
-    echo "${CYAN}Setting up sugarcrisp-ui repository...${RESET}"
-    sudo pacman-key --recv-key 21852D5ABA13AB93DCE8D7E0BE10811EE3295638 --keyserver keyserver.ubuntu.com || log_error "Failed to receive sugarcrisp-ui key"
-    sudo pacman-key --lsign-key 21852D5ABA13AB93DCE8D7E0BE10811EE3295638 || log_error "Failed to sign sugarcrisp-ui key"
-    echo -e "\n[sugarcrisp-ui]\nSigLevel = Optional TrustedOnly\nServer = https://sugarcrisp-ui.github.io/my_repo" | sudo tee -a /etc/pacman.conf || log_error "Failed to configure sugarcrisp-ui repo"
-else
-    echo "${GREEN}sugarcrisp-ui repo already configured${RESET}"
-fi
+#if ! grep -q "\[sugarcrisp-ui\]" /etc/pacman.conf; then
+#    echo "${CYAN}Setting up sugarcrisp-ui repository...${RESET}"
+#    sudo pacman-key --recv-key 21852D5ABA13AB93DCE8D7E0BE10811EE3295638 --keyserver keyserver.ubuntu.com || log_error "Failed to receive sugarcrisp-ui key"
+#    sudo pacman-key --lsign-key 21852D5ABA13AB93DCE8D7E0BE10811EE3295638 || log_error "Failed to sign sugarcrisp-ui key"
+#    echo -e "\n[sugarcrisp-ui]\nSigLevel = Optional TrustedOnly\nServer = https://sugarcrisp-ui.github.io/my_repo" | sudo tee -a /etc/pacman.conf || log_error "Failed to configure sugarcrisp-ui repo"
+#else
+#    echo "${GREEN}sugarcrisp-ui repo already configured${RESET}"
+#fi
 
 # Import Balló György key for Arch packages
 echo "${CYAN}Importing Balló György key...${RESET}"
