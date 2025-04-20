@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Author: Brett Crisp
-# Configures personal settings, Polybar, hblock, Timeshift, SDDM
+# Configures personal settings, Polybar, hblock, Timeshift, SDDM, touchpad
 
 # Color definitions
 GREEN=$(tput setaf 2)
@@ -90,6 +90,26 @@ if [ -f "$SDDM_CONF" ]; then
     sudo cp "$SDDM_CONF" "$SDDM_CONF_FILE"
 else
     echo "${YELLOW}No sddm.conf found in dotfiles, skipping SDDM configuration${RESET}"
+fi
+
+# Touchpad tap-to-click (laptop only)
+TOUCHPAD_CONF="/etc/X11/xorg.conf.d/40-touchpad.conf"
+if grep -q "Touchpad" /proc/bus/input/devices; then
+    echo "${CYAN}Configuring touchpad tap-to-click for laptop...${RESET}"
+    sudo mkdir -p /etc/X11/xorg.conf.d
+    if [ ! -f "$TOUCHPAD_CONF" ]; then
+        sudo bash -c "cat > $TOUCHPAD_CONF" << EOF
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lrm"
+EndSection
+EOF
+    fi
+else
+    echo "${YELLOW}No touchpad detected, skipping touchpad configuration${RESET}"
 fi
 
 echo "${GREEN}################################################################"
