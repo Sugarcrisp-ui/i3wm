@@ -104,6 +104,7 @@ cd Personal || log_error "Failed to change to Personal directory"
 
 # Script array
 scripts=(
+	"085-move-home-to-luks"
     "090-setup-dotfiles"
     "092-configure-backup-drive"
     "100-install-packages"
