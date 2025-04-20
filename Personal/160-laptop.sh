@@ -3,7 +3,6 @@
 # Author: Brett Crisp
 # Configures laptop-specific settings
 
-# Color definitions
 GREEN=$(tput setaf 2)
 CYAN=$(tput setaf 6)
 YELLOW=$(tput setaf 3)
@@ -13,7 +12,13 @@ echo "${CYAN}################################################################"
 echo "                    Laptop Configuration"
 echo "################################################################${RESET}"
 
-if dmidecode -t system | grep -qi 'laptop\|notebook'; then
+# Install dmidecode
+pacman -Qi dmidecode &>/dev/null || sudo pacman -S --noconfirm dmidecode || {
+    echo "${YELLOW}Failed to install dmidecode${RESET}"
+}
+
+# Check if system is a laptop
+if sudo dmidecode -t system | grep -qi 'laptop\|notebook'; then
     echo "${CYAN}Detected laptop - installing TLP...${RESET}"
     pacman -Qi tlp &>/dev/null || sudo pacman -S --noconfirm tlp || {
         echo "${YELLOW}Failed to install TLP${RESET}"
