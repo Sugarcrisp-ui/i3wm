@@ -19,6 +19,12 @@ pacman -Qtdq &>/dev/null && sudo pacman -Rns --noconfirm $(pacman -Qtdq)
 sudo pacman -Sc --noconfirm
 paru -Sc --noconfirm
 
+# Remove linux-zen kernel
+pacman -Qi linux-zen &>/dev/null && sudo pacman -Rns linux-zen linux-zen-headers --noconfirm
+[ -f /boot/loader/entries/arch-zen.conf ] && sudo rm /boot/loader/entries/arch-zen.conf
+sudo bootctl update
+sudo mkinitcpio -P
+
 # Remove temporary files
 rm -rf "$HOME/Downloads/*.pkg.tar.zst"
 

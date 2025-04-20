@@ -75,6 +75,11 @@ else
     echo "${GREEN}sugarcrisp-ui repo already configured${RESET}"
 fi
 
+# Import Balló György key for Arch packages
+echo "${CYAN}Importing Balló György key...${RESET}"
+sudo pacman-key --recv-key 632C3CC0D1C9CAF6 --keyserver hkps://keys.openpgp.org || echo "${YELLOW}Warning: Failed to import Balló György key${RESET}"
+sudo pacman-key --lsign-key 632C3CC0D1C9CAF6 || echo "${YELLOW}Warning: Failed to sign Balló György key${RESET}"
+
 # Sync package database before installing paru
 echo "${CYAN}Syncing package database...${RESET}"
 sudo pacman -Syy || log_error "Failed to sync package database"
